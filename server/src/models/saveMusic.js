@@ -17,7 +17,6 @@ const uploadSong = new mongoose.Schema({
       required: true
     }
   });
-  
   // Create a Mongoose model for the Audio model
   const Songs = mongoose.model("songs", uploadSong);
   module.exports=Songs
