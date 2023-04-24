@@ -1,11 +1,24 @@
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useNavigate,
+  redirect,
+} from "react-router-dom";
 import './App.css';
+import Home from "./Components/RecentlyPlayed/Home";
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-    Hello music
-  </h1>
+   <>
+   <Router>
+   <Routes>
+   <Route path="/" element={<Home />} />
+    
+   </Routes>
+
+   </Router>
+   </>
   );
 }
 
