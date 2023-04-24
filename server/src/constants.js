@@ -1,0 +1,71 @@
+const strings = {
+    fillAll: "Please fill all the details.",
+    unauthorized: "Unauthorized request.",
+    serverError: "Internal server error.",
+    invalidCredentials: "Invalid credentials.",
+    invalidData: "Invalid data",
+    userNotFound: "User not found.",
+    userFound: "User found.",
+    invalidOtp: "Invalid OTP.",
+    otpVerified: "OTP verified successfully.",
+    passwordUpdated: "Password updated successfully.",
+  
+    // sign up
+    signupSuccess: "Account created.",
+    emailVerified: "Email is verified.",
+  
+    // sign in
+    loginSuccess: "Login Successfull.",
+    invalidLogin: "Invalid email or password.",
+    invalidAddress: "Invalid account address.",
+  
+    // property
+    propertyAddSucces: "Property added successfully.",
+    otpSent: "OTP sent successfully.",
+  };
+  
+  const codes = {
+    success: 200,
+    created: 201,
+    accepted: 202,
+    noContent: 204,
+    partialContent: 206,
+    moved: 301,
+    badRequest: 400,
+    unauthorized: 401,
+    paymentRequired: 402,
+    forbidden: 403,
+    notFound: 404,
+    serverError: 500,
+    badGateway: 502,
+    unavailable: 503,
+  };
+  
+  const exceptions = {
+    validation: "ValidationError",
+  };
+  
+  const otpTypes = {
+    loggedInUser: "LOGGEDINUSER",
+    notLoggedInUser: "NOTLOGGEDINUSER",
+  };
+  
+  const verifyTypes = {
+    email: "email",
+    mobile: "mobile",
+  };
+  
+  const expiryIn = {
+    tenMinutes: "10m",
+  };
+  
+  module.exports = {
+    strings,
+    codes,
+    exceptions,
+    otpTypes,
+    verifyTypes,
+    otpLength: 6,
+    expiryIn,
+  };
+  
