@@ -1,0 +1,7 @@
+.pauseIcon{
+    position: relative;
+    left: 24px !important;
+    top: -10px;
+}
+
+.hidding-x-scroll::-webkit-scrollbar{ display: none; }
