@@ -6,7 +6,9 @@ import {
   redirect,
 } from "react-router-dom";
 import './App.css';
-import Home from "./Components/RecentlyPlayed/Home";
+import LikedPlayList from "./Components/LikedPlayList/LikedPlayList";
+import Home from './Components/Home/Home'
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
@@ -14,8 +16,9 @@ function App() {
    <Router>
    <Routes>
    <Route path="/" element={<Home />} />
-    
+   <Route path="/likedMusic" element={<LikedPlayList />} />
    </Routes>
+   <Footer />
 
    </Router>
    </>
