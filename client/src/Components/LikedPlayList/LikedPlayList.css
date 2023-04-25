@@ -5,5 +5,6 @@
   align-items: center;
   padding-top: 7px;
   padding-bottom: 7px;
+  height:72px
 }
 .musicList::-webkit-scrollbar{ display: none; }

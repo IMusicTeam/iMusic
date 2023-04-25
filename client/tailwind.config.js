@@ -23,7 +23,8 @@ module.exports = {
       iBlack:"#242424",
       iGray1:"#767676",
       iGray2:"#EEEEEE",
-      iWhite:"#fff"
+      iGray4:"#707070",
+      iWhite:"#fff",
     },
 
     extend: {}
