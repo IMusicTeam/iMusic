@@ -27,6 +27,8 @@ module.exports = {
       iGray3:'#818B9C',
       iWhite:"#fff",
       iNavyBlue:'#000116',
+      iGray4:"#707070",
+      iWhite:"#fff",
     },
 
     extend: {}
