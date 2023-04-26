@@ -10,7 +10,7 @@ function MusicCarousel() {
         <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
         </div>
 
-        <div className='flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {data.map((item)=>{
           return(
             <div>
@@ -26,7 +26,7 @@ function MusicCarousel() {
         <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
         </div>
 
-        <div className='flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data.map((item)=>{
               return(
@@ -43,7 +43,7 @@ function MusicCarousel() {
          <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
       </div>   
 
-      <div className='flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+      <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data.map((item)=>{
               return(
@@ -59,7 +59,7 @@ function MusicCarousel() {
       <h1 className='text-[30px] font-semibold mt-[28px]'>Featured playlists Based on Mood</h1>
       <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
     </div>
-    <div className='flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+    <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data.map((item)=>{
               return(
@@ -75,7 +75,7 @@ function MusicCarousel() {
       <h1 className='text-[30px] font-semibold mt-[28px]'>Last Spotlight</h1>
       <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
     </div>
-    <div className='flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+    <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data.map((item)=>{
               return(
@@ -105,7 +105,7 @@ function MusicCarousel() {
       <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
     </div>
 
-    <div className='flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+    <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data.map((item)=>{
               return(
@@ -123,7 +123,7 @@ function MusicCarousel() {
       <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
     </div>
 
-    <div className='flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+    <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data.map((item)=>{
               return(
@@ -141,7 +141,7 @@ function MusicCarousel() {
       <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
     </div>
 
-    <div className='flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+    <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data.map((item)=>{
               return(
@@ -158,7 +158,7 @@ function MusicCarousel() {
       <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
     </div>
       
-    <div className='flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+    <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data.map((item)=>{
               return(
