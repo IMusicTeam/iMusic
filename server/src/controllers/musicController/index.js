@@ -1,34 +1,104 @@
-const { codes } = require("../../Constants");
-const Songs = require("../../models/saveMusic");
+const { codes, strings } = require("../../Constants");
+const { serverDown } = require("../../helpers/hooks");
+const Songs = require("../../models/music");
 
 class MusicController {
-  //My music list
-  async GET_allSongs(req, res) {
+  //save song
+  async POST_song(req, res) {
+    const {
+      albumName,
+      songName,
+      songDuration,
+      songThumbnail,
+      endDuration,
+      numberOfViews,
+      tune,
+    } = req.body;
+    if (!albumName || !songName || !songDuration || !songThumbnail || !tune) {
+      return res
+        .status(codes.badRequest)
+        .json({ message: strings.fillAll, data: {} });
+    } else if (!tune.endsWith("mp3")) {
+      return res
+        .status(codes.badRequest)
+        .json({ message: strings.validateAudio, data: {} });
+    }
     try {
-      let data = await Songs.find();
-      res.send(data);
-    } catch (e) {
-      console.log(e.message);
-      res.send(e);
+      const save = new Songs({
+        tune,
+        albumName,
+        songName,
+        songDuration,
+        songThumbnail,
+        endDuration,
+        numberOfViews,
+      });
+      await save.save();
+      const data = save.toObject();
+      res.status(codes.created).json({ message: strings.saveSong, data });
+    } catch (error) {
+      if (error.code === 11000) {
+        res.status(codes.badRequest).json({
+          message: `${
+            Object.keys(error.keyPattern)[0]
+          } already exists in the database`,
+        });
+      } else {
+        serverDown(res);
+      }
     }
   }
 
-  //Uploading Music
-  async POST_song(req, res) {
+  //all songs
+  async GET_allSongs(req, res) {
     try {
-      const { audio, image, album, artist } = req.body; // Access the base64-encoded file data from the request body
-      // Save the base64 data to your Mongoose database
-      const result = new Songs({
-        audio: audio,
-        image: image,
-        album: album,
-        artist: artist,
-      });
-      await result.save();
-      res.json({ success: true, result });
-    } catch (error) {
-      console.error(error);
-      res.status(codes.serverError).json({ error: "Failed to upload file" });
+      let data = await Songs.find();
+      res.status(codes.success).json({ message: strings.sucesss, data });
+    } catch (e) {
+      serverDown(res);
+    }
+  }
+
+  //update music
+  async UPDATE_song(req, res) {
+    const { _id } = req.body;
+    const {
+      albumName,
+      songName,
+      songDuration,
+      songThumbnail,
+      endDuration,
+      numberOfViews,
+    } = req.body;
+    if (_id) {
+      if (!albumName || !songName || !songDuration || !songThumbnail) {
+        return res
+          .status(codes.badRequest)
+          .json({ message: strings.fillAll, data: {} });
+      }
+      try {
+        const data = await Songs.findOneAndUpdate(
+          { _id: _id },
+          {
+            $set: {
+              albumName,
+              songName,
+              songDuration,
+              songThumbnail,
+              endDuration,
+              numberOfViews,
+            },
+          },
+          {
+            returnOriginal: false,
+          }
+        );
+        res.status(codes.success).json({ message: strings.updateSong, data });
+      } catch (error) {
+        serverDown(res);
+      }
+    } else {
+      res.json({ message: strings.idNotFound });
     }
   }
 }

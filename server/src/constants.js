@@ -19,9 +19,21 @@ const strings = {
     invalidLogin: "Invalid email or password.",
     invalidAddress: "Invalid account address.",
   
-    // property
-    propertyAddSucces: "Property added successfully.",
     otpSent: "OTP sent successfully.",
+
+    //Music
+    saveSong: "Saved Successfully",
+    updateSong: "Updated Successfully",
+    uploadedSong: "Uploaded Song Successfully",
+
+    //success || failure
+    sucesss: "Success",
+    failure: "Failure",
+    //id
+    idNotFound: "Id not found",
+    //upload audio
+    validateAudio: "Please Upload Audio file only",
+    validationOnUpload: "only jpg png mp3 files are accepted"
   };
   
   const codes = {
