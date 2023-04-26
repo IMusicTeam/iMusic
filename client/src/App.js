@@ -14,6 +14,7 @@ import Player from "./Components/Player/Player";
 import AudioPlayer from "./Components/Player/AudioPlayer";
 import Search from "./Components/Search/Search";
 import UploadMusic from "./Components/UploadMusic/UploadMusic";
+import Explore from "./Components/Explore/Explore";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
    <Route path="/audioPlayer" element ={<AudioPlayer /> } />
    <Route path="/search" element={<Search />} />
    <Route path="/uploadMusic" element={<UploadMusic /> }/>
+   <Route path="/ExploreScreen" element={<Explore />}/>
    </Routes>
    <Player />
    <Footer />
