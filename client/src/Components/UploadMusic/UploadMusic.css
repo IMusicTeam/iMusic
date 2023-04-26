@@ -1,0 +1,16 @@
+.upload{
+    display: none;
+}
+
+.uploaded-img-label {
+	position: relative;
+}
+/* .uploaded-img-label:hover .edit-icon-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+} */
+
+input::placeholder{
+    font-size: 18px;
+}
