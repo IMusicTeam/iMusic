@@ -10,6 +10,7 @@ import LikedPlayList from "./Components/LikedPlayList/LikedPlayList";
 import Home from './Components/Home/Home'
 import Footer from "./Components/Footer/Footer";
 import RoundedCardFullDetails from "./Components/musicCarosal/ProfileCrad/RoundedCardFullDetails";
+import Explore from "./Components/Explore/Explore";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
    <Route path="/" element={<Home />} />
    <Route path="/likedMusic" element={<LikedPlayList />} />
    <Route path="/RoundedCradFullDetails/:id" element={<RoundedCardFullDetails />}/>
+   <Route path="/ExploreScreen" element={<Explore />}/>
    </Routes>
    <Footer />
 
