@@ -1,0 +1,10 @@
+.searchSong::placeholder{
+    color: black;
+    font-size:28px;
+    font-weight: 600;
+}
+.searchSong{
+    color: black;
+    font-size:28px;
+    font-weight: 600; 
+}
