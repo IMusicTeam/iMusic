@@ -5,12 +5,28 @@
 .uploaded-img-label {
 	position: relative;
 }
-/* .uploaded-img-label:hover .edit-icon-btn {
+.uploaded-img-label:hover .edit-icon-btn {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-} */
+}
 
 input::placeholder{
     font-size: 18px;
+}
+/* -------------------------------------- */
+
+.upload-img-div:hover {
+	cursor: pointer;
+	/* background-color: rgba(244, 242, 242, 0.516); */
+	/* color: #030303; */
+}
+
+.upload-cover-img-option {
+	width: 28px;
+	margin-bottom: 5px;
+}
+/* Hide input field text */
+.upload_text_inp {
+	display: none;
 }

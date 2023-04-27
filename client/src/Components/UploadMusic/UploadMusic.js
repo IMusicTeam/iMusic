@@ -1,21 +1,30 @@
 import React, { useState } from "react";
+import axios from 'axios'
 import { BiLeftArrowAlt } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
 import { BsUpload } from "react-icons/bs";
 import "./UploadMusic.css";
-import image from './../../Assets/images/player.png'
+import images from "./../../Assets/images/player.png";
 
 function UploadMusic() {
-  const [image, setImage]=useState([])
-  const HandelImage =(event)=>{
-    debugger
-    const myMemoObj = URL.createObjectURL(event.target.files[0]);
-		// el.src = URL.createObjectURL(event.target.files[0]);
-		URL.revokeObjectURL(myMemoObj); //Manging memo leak
-  }
+  const [image, setImage] = useState();
+
+  const fileUploadHandler = (event) => {
+    const file=event.target.files[0]
+    
+    let formData = new FormData()
+    formData.append("file", file)  
+    axios.post("http://localhost:6000/IMusic/upload-audio", formData)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err, "Error"))
+		const myMemoObj = URL.createObjectURL(file);
+		setImage(myMemoObj);
+    
+  };
+
   return (
     <>
-      <div className="flex flex-row justify-center my-[100px]">
+      <div className="flex flex-row justify-center my-[75px]">
         <div className="w-[1000px] bg-iWhite shadow-2xl rounded-2xl p-[38px]">
           <BiLeftArrowAlt size={38} className="mb-[33px]" />
           <div className="flex flex-row gap-4">
@@ -25,7 +34,46 @@ function UploadMusic() {
                   Upload Music
                 </h1>
 
-                <div className="w-[156px] h-[165px] border-iBlue border-2 rounded-2xl relative">
+                <div className="w-[156px] h-[165px] border-iBlue relative border-2 rounded-2xl">
+                {!image ? <img src={images} className="w-[153px] h-[162px] rounded-2xl"/> : <img src={image} className="w-[153px] h-[163px] rounded-2xl"/> }
+                  <label htmlFor="upload-image-inp">
+                    <div className=" upload-img-div glass_effect glass_effect_border">
+                      
+                    <span className="p-1 pl-2  bg-iWhite absolute -bottom-[13px] -right-[17px]" >
+                      <FaEdit size={21} />
+                    </span>
+                       <input
+                        type="file"
+                        id="upload-image-inp"
+                        onChange={fileUploadHandler}
+                        accept=".jpg, .jpeg, .png, .bmp, .gif, .mp4, .mp3, .mkv, .ogg, .wmv"
+                        className="mt-2 mb-5 upload_text_inp"
+                      />
+                    </div>
+                  </label>
+                
+                </div>
+                {/* <label
+                  className="uploaded-img-label"
+                  htmlFor="upload-image-inp"
+                  style={imageUploadState ? {} : { display: "none" }}
+                >
+                  <img id="uploaded-img" alt="uploaded file" />
+                  <input
+                    type="file"
+                    id="upload-image-inp"
+                    onChange={fileUploadHandler}
+                    accept=".jpg, .jpeg, .png, .bmp, .gif, .mp4, .mkv, .ogg, .wmv"
+                    className="mt-2 mb-5 upload_text_inp"
+                  />
+                  <label className="edit-icon-btn" htmlFor="upload-image-inp">
+                    <i className="far fa-edit"></i>
+                  </label>
+                </label> */}
+
+  {/*--------------- ------------------------------------------------------------------- */}
+
+                {/* <div className="w-[156px] h-[165px] border-iBlue border-2 rounded-2xl relative">
                   <label
                     className="uploaded-img-label"
                     htmlFor="upload-image-inp"
@@ -43,7 +91,7 @@ function UploadMusic() {
                       <FaEdit size={21} />
                     </div>
                   </label>
-                </div>
+                </div> */}
               </div>
               <div className="flex flex-col gap-4 mx-[15px] mt-10 mb-[40px] ">
                 <div>
@@ -60,7 +108,6 @@ function UploadMusic() {
                     placeholder="Album Name"
                   />
                 </div>
-
 
                 <div>
                   <label
@@ -95,12 +142,27 @@ function UploadMusic() {
             </div>
 
             <div className="w-[800px] border-iBlue border-2 rounded-3xl pl-[58px] pt-[26px]">
+            <label htmlFor="upload-image-inp">
+                    <div className=" upload-img-div glass_effect glass_effect_border">
+                      
+                    <span className="absolute flex py-2.5 px-5 hover:bg-iOrange bg-iBlue text-iWhite text-[20px] rounded-lg" >
+                    <BsUpload size={33} className="px-2 font-bold" />
+                Upload Song
+                   </span>
+                       <input
+                        type="file"
+                        id="upload-image-inp"
+                        onChange={fileUploadHandler}
+                        accept=".jpg, .jpeg, .png, .bmp, .gif, .mp4, .mkv, .ogg, .wmv"
+                        className="mt-2 mb-5 upload_text_inp"
+                      />
+                    </div>
+                  </label>
               <button
                 type="button"
                 class="flex flex-row items-center py-2.5 px-5 hover:bg-iOrange bg-iBlue text-iWhite text-[20px] rounded-lg"
               >
-                <BsUpload size={33} className="px-2 font-bold" />
-                Upload Song
+                <BsUpload size={33} className="px-2 font-bold" />            
               </button>
 
               <div className="flex flex-col gap-[26px]">
@@ -122,7 +184,7 @@ function UploadMusic() {
                       for="default-radio-1"
                       class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
-                     Private Album
+                      Private Album
                     </label>
                   </div>
                   <div class="flex items-center">
@@ -143,7 +205,6 @@ function UploadMusic() {
                   </div>
                 </div>
 
-
                 <div>
                   <label
                     for="first_name"
@@ -158,8 +219,6 @@ function UploadMusic() {
                     placeholder="Song Name"
                   />
                 </div>
-
-                
 
                 <div>
                   <label
@@ -177,8 +236,9 @@ function UploadMusic() {
                 </div>
               </div>
 
-              <button className="py-3 mt-5 w-[305px] hover:bg-iOrange mb-[20px] center bg-iBlue rounded-[30px] text-iWhite text-[20px]">Submit</button>
-
+              <button className="py-3 mt-5 w-[305px] hover:bg-iOrange mb-[20px] center bg-iBlue rounded-[30px] text-iWhite text-[20px]">
+                Submit
+              </button>
             </div>
           </div>
         </div>
