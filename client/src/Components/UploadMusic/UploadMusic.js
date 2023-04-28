@@ -5,21 +5,25 @@ import { FaEdit } from "react-icons/fa";
 import { BsUpload } from "react-icons/bs";
 import "./UploadMusic.css";
 import images from "./../../Assets/images/player.png";
+import { APIConstants } from "../../Services/api-constants";
 
 function UploadMusic() {
   const [image, setImage] = useState();
 
-  const fileUploadHandler = (event) => {
-    const file=event.target.files[0]
-    
-    let formData = new FormData()
-    formData.append("file", file)  
-    axios.post("http://localhost:6000/IMusic/upload-audio", formData)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err, "Error"))
-		const myMemoObj = URL.createObjectURL(file);
-		setImage(myMemoObj);
-    
+  const fileUploadHandler = async (event) => {
+    const file = event.target.files;
+    if (file.length > 0) {
+      let formData = new FormData();
+      formData.append("file", file[0]);
+      console.log(file[0], " file[0]");
+      const response = await fetch(APIConstants.fileUpload, {
+        method: "POST",
+        body: formData,
+      });
+      const json = await response.json();
+      const validateJSON = json && json?.data ? json.data : "";
+      setImage(validateJSON);
+    }
   };
 
   return (
