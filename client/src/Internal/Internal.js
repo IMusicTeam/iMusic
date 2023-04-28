@@ -39,7 +39,7 @@ const Internal = () => {
             {/* <ToastProvider /> */}
             <TopBar />
             <Outlet />
-            <Player />
+            {/* <Player /> */}
    <Footer />
           {/* </div> */}
           <div>

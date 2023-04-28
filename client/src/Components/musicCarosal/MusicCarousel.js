@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import RoundedCard from './ProfileCrad/RoundedCard';
 import ProfileCard from './ProfileCrad/ProfilesCard'
 import CardImage1 from '../../Assets/CardImage1.png'
@@ -39,9 +39,11 @@ import Card17 from '../../Assets/Card17.png'
 import Card18 from '../../Assets/Card18.png'
 import Card19 from '../../Assets/Card19.png'
 import Card20 from '../../Assets/Card20.png'
-
+import axios from 'axios'
 
 function MusicCarousel() {
+  const [musicList, setMusicList] = useState([]);
+  const [loading, setLoading] = useState(true);
   const data = [
     { id: 1, src: CardImage1},
     { id: 2, src: CardImage2},
@@ -150,6 +152,23 @@ function MusicCarousel() {
     { id: 9, src: CardImage11},
     { id: 10, src: CardImage12}
   ] 
+
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/IMusic/all-songs")
+      .then((res) => {
+        const data = res.data.data;
+        setMusicList(data);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+  }, []);
   
   
    return (
@@ -160,10 +179,10 @@ function MusicCarousel() {
         </div>
 
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
-        {data.map((item)=>{
+        {musicList.map((item)=>{
           return(
             <div>
-              <ProfileCard data={item} src={item.src}/>
+              <ProfileCard data={item} src={item.src} newRelease={true}/>
             </div>
           )
         })}
