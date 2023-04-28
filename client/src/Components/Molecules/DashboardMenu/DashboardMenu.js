@@ -1,6 +1,6 @@
 import LeftArrow from "./../../../Assets/images/MenuLeftIcon.svg";
 import RightArrow from "./../../../Assets/images/MenuRightIcon.svg";
-import  DashboardMenuItems  from "./../../Atoms/MenuItem/MenuItem";
+import DashboardMenuItems from "./../../Atoms/MenuItem/MenuItem";
 import MultiColorIcon from "./../../Atoms/MultiColorIcon/MultiColorIcon";
 import MenuItem from "./../../Atoms/MenuItem/MenuItem";
 import { motion } from "framer-motion";
@@ -9,7 +9,10 @@ import { useOutsideClick } from "./../../../Hooks/useOutsideClick";
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
+import logo from "./../../../Assets/logo.svg";
+import profile from "./../../../Assets/profile.png";
 import styles from "./DashboardMenu.module.scss";
+
 
 export const DashboardMenu = () => {
   const location = useLocation();
@@ -26,6 +29,20 @@ export const DashboardMenu = () => {
   return (
     <div className={`${styles.menu}`}>
       <div className="flex flex-col items-center mt-8">
+        <div className="p-2">
+          <img src={logo} className="w-[226px] h-[82px]" />
+        </div>
+
+        <div className="p-2 flex flex-col gap-[15px] pb-5">
+          <div><img src={profile}  /></div>
+          <div className="text-[18px] font-bold">
+            Jane Willin
+          </div>
+          <div className="font-semibold text-[14px]">
+            Account ID: p-1234
+          </div>
+        </div>
+
         <div>
           <div>
             {/* Home-button */}
@@ -34,7 +51,7 @@ export const DashboardMenu = () => {
                 isActive={true}
                 logo={
                   <MultiColorIcon
-                    icon="Home-1"
+                    icon=""
                     className={`${styles.iconHome}`}
                   />
                 }
