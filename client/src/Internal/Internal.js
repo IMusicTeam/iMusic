@@ -4,6 +4,7 @@ import styles from "./Internal.module.scss";
 import { DashboardMenu, DashboardMenuFloat, DashboardMenuMini } from "../Components/Molecules/DashboardMenu/DashboardMenu";
 import Player from "../Components/Player/Player";
 import Footer from "../Components/Footer/Footer";
+import TopBar from "../Components/TopBar/TopBar";
 // import {
 //   DashboardMenu,
 //   DashboardMenuFloat,
@@ -36,6 +37,7 @@ const Internal = () => {
           {/* <div className={styles.internal_template__container}> */}
             {/* <InternalHeader /> */}
             {/* <ToastProvider /> */}
+            <TopBar />
             <Outlet />
             <Player />
    <Footer />

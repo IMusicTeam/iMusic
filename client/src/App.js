@@ -25,9 +25,8 @@ function App() {
   return (
    <>
    <Router>
-   <TopBar/>
    <Routes>
-    <Route element={<Internal />}>
+   <Route element={<Internal />}>
    <Route path="/" element={<Home />} />
    <Route path="/likedMusic" element={<LikedPlayList />} />
    <Route path="/RoundedCradFullDetails/:id" element={<RoundedCardFullDetails />}/>
