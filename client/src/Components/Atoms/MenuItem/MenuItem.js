@@ -102,7 +102,8 @@ export default function MenuItem({
         >
           <div className="w-[40px]">
             <div>
-              <MultiColorIcon icon={`${icon}`} className={`${iconClassname}`} />
+              <img src={''}/>
+              {/* <MultiColorIcon icon={`${icon}`} className={`${iconClassname}`} /> */}
             </div>
           </div>
           {/* <span
@@ -121,7 +122,7 @@ export default function MenuItem({
           </span>
         </div>
         {/* <div>{!isDisable && <span className={`icon-arrow-down`}></span>}</div> */}
-        {!isDropDown ? (
+        {/* {!isDropDown ? (
           <img
             className={`${styles.caret} -rotate-90 duration-300 ease-in ${
               activeTab || isDropDown ? "visible" : "invisible"
@@ -137,7 +138,7 @@ export default function MenuItem({
             src={small_arrow}
             alt="arrow-down"
           />
-        )}
+        )} */}
       </button>
       <AnimatePresence>
         {isDropDown && (
