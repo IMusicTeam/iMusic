@@ -1,0 +1,52 @@
+//Wallets colors style
+/* prettier-ignore */
+$wallet-color: 
+'btc' #f7931a #fff1d6,
+'bth' #8dc351 #edf5e3,
+'dash' #008ce7 #d6ecfb,
+  'eth' #627eea #e5e9fb,
+'ltc' #bfbbbb #f5f4f4,
+'xlm' #000 #d6d6d6,
+'xrp' #00aae4 #d5f1fa,
+  'aion' #00bfec #d6f5fc,
+'bat' #ff5000 #ffe3d6,
+'usdc' #2775ca #dce9f7,
+'usdt' #279c79 #dcefe9,
+  'bnt' #000d2b #d6d8dd,
+'cvc' #3ab03e #dff2e0,
+'enj' #624dbf #e6e2f5,
+'fun' #ed1968 #fcdae7,
+  'knc' #188c92 #d9eced,
+'link' #01a6fb #d6f1ff,
+'lrc' #2ab6f6 #dcf3fe,
+'mith' #00316d #d6dee7,
+  'mtl' #1e1f25 #dadbdc,
+'omg' #1a53f0 #dae3fd,
+'rep' #602a52 #e5dce3,
+'zil' #49c1bf #e1f5f5;
+
+@each $wallet, $primary, $secondary in $wallet-color {
+  .color-#{$wallet}-primary {
+    color: #{$primary} !important;
+  }
+
+  .wallet-hover-#{$wallet} {
+    &:hover {
+      background-color: #{$secondary};
+    }
+  }
+
+  .wallet-action-button-#{$wallet} {
+    &:hover {
+      background-color: #{$secondary} !important;
+      border-color: #{$primary} !important;
+      .action-button-icon {
+        color: #{$primary};
+      }
+    }
+  }
+
+  .border-#{$wallet} {
+    border-color: #{$primary} !important;
+  }
+}

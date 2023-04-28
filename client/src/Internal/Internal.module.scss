@@ -1,0 +1,92 @@
+@import './../Styles/_include-media';
+
+.internal_template {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+    &__menu {
+        height: 100%;
+    }
+
+    &__content {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        scrollbar-width: none !important;
+        background-image: url('./../Assets/images/dashBoardBackground.png');
+        background-size: cover;
+        padding-left: 40px;
+        // padding-right: 39px;
+        // padding-bottom: 40px;
+
+        @media (min-width: 374px) and (max-width: 575px) {
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-bottom: 0px;
+            width: 100%;
+        }
+
+        @media (min-width: 374px) and (max-width: 575px) {
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-bottom: 4px;
+        }
+
+        @media (min-width: 576px) {
+            padding-left: 40px;
+        }
+
+        @media (min-width: 768px) {
+            padding-left: 127px;
+        }
+
+        @media (min-width: 1200px) {
+            padding-left: 248px;
+        }
+    }
+
+    &__container {
+        width: 100%;
+    }
+}
+
+// .internal_template {
+//   position: relative;
+//   width: 100%;
+//   display: flex;
+
+//   &__menu {
+//     height: 100%;
+//   }
+
+//   &__content {
+//     width: 100%;
+//     height: 100%;
+//     overflow-x: hidden;
+//     overflow-y: scroll;
+//     scrollbar-width: none;
+//     background-image: url('../../../Assets/Images/dashBoardBackground.png');
+//     background-size: cover;
+//     padding-left: 40px;
+//     padding-right: 39px;
+//     padding-bottom: 40px;
+
+//     @media (min-width: 576px) {
+//       padding-left: 40px;
+//     }
+//     @media (min-width: 768px) {
+//       padding-left: 127px;
+//     }
+
+//     @media (min-width: 1200px) {
+//       padding-left: 290px;
+//     }
+//   }
+
+//   &__container {
+//     width: 100%;
+//   }
+// }

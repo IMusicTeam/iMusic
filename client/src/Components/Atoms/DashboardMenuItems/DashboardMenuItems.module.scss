@@ -1,0 +1,51 @@
+@import './../../../Styles/_mixins.scss';
+@import './../../../Styles/_include-media';
+
+.profile_nav_btn {
+  color: var(--cgy2);
+  background-color: #fff;
+  padding: 7px 0;
+  @include rounded;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #fff4ec;
+    color: var(--cm3);
+    // .label {
+    //   color: #ea7625;
+    // }
+
+    // .caret {
+    //   visibility: hidden;
+    // }
+
+    // @media (min-width: 1123px) {
+    //   margin-left: -4px;
+    // }
+  }
+
+  .caret {
+    // visibility: hidden;
+    width: 6.62px;
+    height: 11.24px;
+  }
+
+  .active {
+    color: var(--cgy4);
+    .profile_nav_btn {
+      background-color: var(--cbl2);
+    }
+    .imgLogo {
+      color: var(--cm3);
+    }
+    .label {
+      color: var(--ibgy1);
+    }
+    .caret {
+      visibility: visible;
+    }
+    // &:hover {
+    //   color: var(--cgy4);
+    // }
+  }
+}

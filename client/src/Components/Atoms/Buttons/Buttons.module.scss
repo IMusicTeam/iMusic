@@ -1,0 +1,504 @@
+@import "Styles/_mixins";
+@import "Styles/_include-media";
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+a.active {
+  .btn--link {
+    color: #555;
+    background: transparent;
+    font-weight: 400;
+  }
+}
+
+.btn {
+  width: 6rem;
+  position: relative;
+  padding: 10px 16px;
+  height: 40px;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+
+  &:focus {
+    outline: none;
+  }
+
+  &--primary,
+  &--secondary,
+  &--cancel,
+  &__icon {
+    transition: all 0.3s linear;
+  }
+
+  &__primary {
+    color: var(--gray-500);
+    border: none;
+    @include shadow-light;
+
+    &--blue {
+      background: #35bab6;
+      color: #fff;
+
+      &:hover {
+        background: #2fa2a2;
+        color: #fff;
+      }
+    }
+
+    &--red {
+      background: #d45858;
+
+      &:hover {
+        background: #d45858;
+      }
+    }
+
+    &--green {
+      background: #00cc6e;
+
+      &:hover {
+        background: #00cc6e;
+      }
+    }
+
+    &__primary_yellow {
+      background: #ffd95a;
+
+      &:hover {
+        background: #ffda00;
+      }
+    }
+
+    &--yellow {
+      background: #ffd95a;
+
+      &:hover {
+        background: #ffca37;
+      }
+    }
+
+    &--orange {
+      background: #ffa701;
+
+      &:hover {
+        background: #ffa701;
+      }
+    }
+
+    &--navy {
+      background: var(--navy);
+
+      &:hover {
+        background: var(--navy);
+      }
+    }
+
+    &--gray {
+      background: #efefef;
+
+      &:hover {
+        background: #efefef;
+      }
+    }
+
+    &:disabled {
+      background: #e8e8e8;
+      color: #adadad;
+      cursor: default;
+      transition: 0.3 all linear;
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  &__secondary {
+    border: none;
+    background-color: transparent;
+    color: var(--gray-500);
+
+    &:disabled {
+      background: #e8e8e8;
+      color: #adadad;
+      cursor: default;
+      transition: 0.3 all linear;
+      border: none;
+      box-shadow: none;
+    }
+
+    &:hover {
+      @include shadow-light;
+      background: #fef9e2;
+    }
+  }
+
+  &--cancel {
+    background: transparent;
+    color: var(--gray-500);
+    border: none;
+
+    &:disabled {
+      background: #e8e8e8;
+      color: #adadad;
+      cursor: default;
+      transition: 0.3 all linear;
+      border: none;
+      box-shadow: none;
+    }
+
+    &:hover {
+      background: #d45858;
+      color: #fff;
+    }
+  }
+
+  &__anchor {
+    background: transparent;
+    text-decoration: underline;
+    color: #35bab6;
+    border: none;
+    transition: all 0.3s ease;
+
+    &:disabled {
+      background: #e8e8e8;
+      color: #adadad;
+      cursor: default;
+      border: none;
+      box-shadow: none;
+    }
+
+    &:hover {
+      background: #35bab6;
+      color: #fff;
+    }
+  }
+
+  &:disabled {
+    // background: #e8e8e8;
+    color: #adadad;
+    cursor: default;
+    transition: 0.3 all linear;
+    border: none;
+    box-shadow: none;
+  }
+
+  &__custom_button {
+    // border: 2px solid #ffd95a;
+    color: var(--cgy4);
+    background: white;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: 0.2s all ease-in;
+    @include shadow-light;
+
+    &:disabled {
+      color: var(--cgy2);
+      cursor: default;
+      transition: 0.3 all linear;
+      border: none;
+      box-shadow: none;
+
+      &:hover {
+        border: none;
+        color: var(--cgy2);
+      }
+    }
+
+    &:hover {
+      border: 2px solid var(--cm3);
+      // background: #fef9e2;
+      color: var(--cm3);
+    }
+
+    &:active {
+      // background-color: #35bab6;
+      color: white;
+    }
+
+    &__icon {
+      display: inline-block;
+      margin-right: 10px;
+      color: var(--cm3);
+    }
+
+    &__selected {
+      color: #fff;
+      background: #35bab6;
+      border: none;
+
+      span {
+        color: var(--cm3);
+        transition: all 0.3s linear;
+      }
+
+      &:hover {
+        color: #fff;
+        background: var(--cm3);
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    &__small {
+      height: 30px;
+      padding: 8px;
+      font-size: 14px;
+      background: #fff;
+      color: #555;
+      border: 2px solid #35bab6;
+
+      span {
+        font-size: 12px;
+        margin-right: 10px;
+        color: #efefef;
+        transition: all 0.3s linear;
+      }
+
+      &:hover {
+        background: var(--light-blue);
+        box-shadow: none;
+
+        span {
+          color: #35bab6;
+        }
+      }
+    }
+  }
+
+  &__team_filter_button {
+    // border: 2px solid #ffd95a;
+    color: var(--cgy4);
+
+    font-size: 14px;
+
+    transition: 0.2s all ease-in;
+
+    &:disabled {
+      color: var(--cgy2);
+      cursor: default;
+      transition: 0.3 all linear;
+      border: none;
+      box-shadow: none;
+
+      &:hover {
+        border: none;
+        color: var(--cgy2);
+      }
+    }
+
+    &:hover {
+      // border: 2px solid var(--cm3);
+      // background: #fef9e2;
+      color: var(--cm3);
+    }
+
+    &:active {
+      color: var(--cm3);
+    }
+
+    &__icon {
+      display: inline-block;
+      margin-right: 10px;
+      color: var(--cm3);
+    }
+
+    &__selected {
+      color: var(--cm3);
+
+      span {
+        color: var(--cm3);
+        transition: all 0.3s linear;
+      }
+
+      &:hover {
+        color: var(--cm3);
+
+        border: none;
+        box-shadow: none;
+      }
+    }
+  }
+  &--loading-overlay {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8e8e8;
+  }
+
+  &__text {
+    color: var(--cgy3);
+    font-size: 15px;
+  }
+}
+
+.bigButton {
+  @include shadow-light;
+  min-width: 100px;
+  max-width: 600px;
+  width: 100%;
+  color: #fff;
+  padding: 47px;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  transition: all 0.3s linear;
+  cursor: pointer;
+
+  @include media("width<=1160px") {
+    padding: 32px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &--green {
+    background-color: #35bab6;
+
+    &:hover {
+      background-color: #249d99;
+    }
+  }
+
+  &--yellow {
+    background-color: #ffd95a;
+
+    &:hover {
+      background-color: #ffca37;
+    }
+  }
+}
+
+.btn--giant {
+  background-color: #fff;
+  min-width: 320px;
+  height: 192px;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  gap: 24px;
+  transition: all 0.1s linear;
+  .giant-button-image {
+    height: 44px;
+  }
+  &:hover {
+    border-color: #35bab6;
+    box-shadow: 0 0 0 1px #35bab6;
+  }
+}
+
+a.btn--link {
+  display: flex;
+  padding: 0 16px;
+  font-size: 14px;
+  height: 40px;
+  margin: 0;
+  align-items: center;
+  justify-content: space-between;
+  color: #828282;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+  &.disabled {
+    pointer-events: none;
+  }
+  .btn--link__icon {
+    color: #efefef;
+    margin-right: 16px;
+    transition: color 0.2s ease;
+    font-size: 18px;
+  }
+  .btn--link__label {
+    flex: 1;
+  }
+  .icon-lock {
+    color: #efefef;
+  }
+  &:hover {
+    background-color: var(--medium-gray);
+    .btn--link__icon {
+      color: #35bab6;
+    }
+    .btn--link__label {
+      font-weight: bold;
+    }
+  }
+  &.active {
+    background-color: var(--light-blue);
+    cursor: default;
+    .btn--link__icon {
+      color: #35bab6;
+    }
+    .btn--link__label {
+      font-weight: bold;
+      color: #35bab6;
+    }
+  }
+}
+
+.group {
+  border: 1px solid var(--cwhite);
+  transition: all 0.2s ease;
+
+  &:hover {
+    border: 1px solid var(--ibm2);
+    background-color: var(--ibm2);
+    box-shadow: 0px 1px 5px var(--cgy6);
+  }
+}
+.denyGroup {
+  border: 1px solid var(--cwhite);
+  transition: all 0.2s ease;
+
+  &:hover {
+    border: 1px solid var(--crd5);
+    box-shadow: 0px 1px 5px var(--cgy6);
+  }
+}
+
+.boxShadow {
+  box-shadow: 0px 1px 3px var(--cgy6);
+}
+
+.Active {
+  background-color: var(--cm3);
+  color: white;
+  &:hover {
+    color: #fff;
+  }
+}
+
+.TeamActive {
+  color: var(--ibm1);
+  &:hover {
+    color: var(--ibm1);
+    background-color: var(--ibm2);
+  }
+}
+.ActionFilter {
+  background-color: #fff;
+  color: var(--gray-500);
+}
