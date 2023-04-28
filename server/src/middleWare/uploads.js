@@ -1,5 +1,7 @@
 const path = require("path")
 const multer = require("multer")
+const uploasdfad = multer({ dest: 'uploads/' });
+
 
 const storage = multer.diskStorage({
     filename: function (req, file, cb) {
@@ -11,6 +13,7 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage: storage,
     fileFilter: function (req, file, cb) {
+        console.log(file)
         if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg" ||   file.mimetype == "audio/mpeg" || file.mimetype == "audio/vnd.wav" || file.mimetype == "audio/basic") {
             cb(null, true)
         } else {
@@ -18,7 +21,7 @@ const upload = multer({
         }
     },
     limits: {
-        fileSize: 1024 * 1024 * 2
+        fileSize: 10000000
     }
 
 })

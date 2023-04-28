@@ -5,5 +5,6 @@ function returnApis(url) {
 }
 
 export const APIConstants = {
-    fileUpload :  returnApis("upload-audio")
+    fileUpload :  returnApis("upload-audio"),
+    formUpload:returnApis("upload-song")
 }

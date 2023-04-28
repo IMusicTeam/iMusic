@@ -21,6 +21,7 @@ const blobOptions = {
   },
 };
 const uploadImage = async (req, res, next) => {
+  console.log(req)
   try {
     if (req.file) {
       const blobName = req.file.filename;

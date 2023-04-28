@@ -1,0 +1,10 @@
+<svg id="Component_493_16" data-name="Component 493 – 16" xmlns="http://www.w3.org/2000/svg" width="186" height="64" viewBox="0 0 186 64">
+  <g id="Rectangle_1950" data-name="Rectangle 1950" fill="#295d93" stroke="#ea7525" stroke-width="0.2">
+    <rect width="186" height="64" rx="8" stroke="none"/>
+    <rect x="0.1" y="0.1" width="185.8" height="63.8" rx="7.9" fill="none"/>
+  </g>
+  <text id="Upload_Music" data-name="Upload Music" transform="translate(54 39)" fill="#fff" font-size="20" font-family="Kanit-Regular, Kanit"><tspan x="0" y="0">Upload Music</tspan></text>
+  <g id="upload_FILL0_wght400_GRAD0_opsz48" transform="translate(16 18)">
+    <path id="upload_FILL0_wght400_GRAD0_opsz48-2" data-name="upload_FILL0_wght400_GRAD0_opsz48" d="M172.732,286.909a1.143,1.143,0,0,1-.849-.343,1.164,1.164,0,0,1-.338-.851V272.14l-3.941,3.941a1.078,1.078,0,0,1-.836.338,1.222,1.222,0,0,1-.836-.378,1.2,1.2,0,0,1,0-1.712l5.971-5.971a1.11,1.11,0,0,1,.841-.358,1.154,1.154,0,0,1,.433.08,1.213,1.213,0,0,1,.4.279l6.011,6.011a1.154,1.154,0,0,1,0,1.672,1.2,1.2,0,0,1-1.712,0l-3.941-3.9v13.575a1.152,1.152,0,0,1-.345.851A1.166,1.166,0,0,1,172.732,286.909ZM162.389,293A2.449,2.449,0,0,1,160,290.611v-4.5a1.152,1.152,0,0,1,.345-.851,1.166,1.166,0,0,1,.856-.343,1.143,1.143,0,0,1,.849.343,1.164,1.164,0,0,1,.338.851v4.5h20.7v-4.5a1.152,1.152,0,0,1,.345-.851,1.166,1.166,0,0,1,.856-.343,1.143,1.143,0,0,1,.849.343,1.164,1.164,0,0,1,.338.851v4.5A2.449,2.449,0,0,1,183.089,293Z" transform="translate(-158 -266)" fill="#fff"/>
+  </g>
+</svg>

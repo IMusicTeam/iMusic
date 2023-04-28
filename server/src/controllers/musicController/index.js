@@ -5,33 +5,37 @@ const Songs = require("../../models/music");
 class MusicController {
   //save song
   async POST_song(req, res) {
+    console.log(req,"REQ:")
     const {
       albumName,
+      artistName,
+      price,
+      selectedOption,
       songName,
-      songDuration,
-      songThumbnail,
-      endDuration,
-      numberOfViews,
-      tune,
+      songDes,
+      audio,
+      image
     } = req.body;
-    if (!albumName || !songName || !songDuration || !songThumbnail || !tune) {
-      return res
-        .status(codes.badRequest)
-        .json({ message: strings.fillAll, data: {} });
-    } else if (!tune.endsWith("mp3")) {
-      return res
-        .status(codes.badRequest)
-        .json({ message: strings.validateAudio, data: {} });
-    }
+
+    // if (!albumName || !artistName || !price || !selectedOption || !songName||  !songDes || !audio || !image) {
+    //   return res
+    //     .status(codes.badRequest)
+    //     .json({ message: strings.fillAll, data: {} });
+    // } else if (!tune.endsWith("mp3")) {
+    //   return res
+    //     .status(codes.badRequest)
+    //     .json({ message: strings.validateAudio, data: {} });
+    // }
     try {
       const save = new Songs({
-        tune,
-        albumName,
-        songName,
-        songDuration,
-        songThumbnail,
-        endDuration,
-        numberOfViews,
+      albumName,
+      artistName,
+      price,
+      selectedOption,
+      songName,
+      songDes,
+      audio,
+      image
       });
       await save.save();
       const data = save.toObject();
