@@ -5,7 +5,6 @@ const Songs = require("../../models/music");
 class MusicController {
   //save song
   async POST_song(req, res) {
-    console.log(req,"REQ:")
     const {
       albumName,
       artistName,

@@ -4,6 +4,8 @@ const musicController = require("../controllers/musicController");
 const cors = require("cors")
 const { uploadImage } = require("../helpers/upload");
 const upload = require("../middleWare/uploads");
+var bodyParser = require('body-parser');
+var jsonParser = bodyParser.json();
 
 //add routes here
 router.post("/upload-song", musicController.POST_song);
