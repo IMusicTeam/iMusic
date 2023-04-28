@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import likedImage from "../../Assets/images/likedImage.png";
 import { BsFillShareFill, BsFillPlayFill } from "react-icons/bs";
 import { AiOutlineDownload } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FiShuffle } from "react-icons/fi";
+import { MdDownloadDone } from "react-icons/md";
 import "../LikedPlayList/LikedPlayList.css";
 import ProfileCard from "../musicCarosal/ProfileCrad/ProfilesCard";
 
 function LikedPlayList() {
+  const [download, setDownload] = useState(false);
+
+  function changeDownload() {
+    setDownload((prev) => !prev);
+  }
   const data = [
     {
       image: { likedImage },
@@ -136,7 +142,18 @@ function LikedPlayList() {
       year: 1989,
     },
   ];
-  const cardData = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 },{ id: 6 }, { id: 7 }, { id: 8 }, { id: 9 }, { id: 10 }];
+  const cardData = [
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 },
+    { id: 6 },
+    { id: 7 },
+    { id: 8 },
+    { id: 9 },
+    { id: 10 },
+  ];
   return (
     <div className="bg-iGray2">
       <div className="h-[389px] bg-iLightBlue pl-[142px] border-iGray4 border">
@@ -158,7 +175,13 @@ function LikedPlayList() {
             </p>
             <div className="flex gap-5 mb-[40px] mt-12">
               <BsFillShareFill className="text-iOrange h-6 w-[21px]" />
-              <AiOutlineDownload className="w-6 h-6 text-iOrange" />
+              <button type="button" onClick={changeDownload}>
+                {!download ? (
+                  <AiOutlineDownload className="w-6 h-6 text-iOrange" />
+                ) : (
+                  <MdDownloadDone className="w-6 h-6 text-iOrange" />
+                )}
+              </button>
               <BsThreeDotsVertical className="h-6 text-iOrange" />
             </div>
             <div className="flex gap-6">
@@ -204,9 +227,11 @@ function LikedPlayList() {
         </div>
       </div>
       <div className="pl-[142px]">
-        <h1 className="text-3xl font-semibold text-iBlack mb-7">Suggested Videos</h1>
+        <h1 className="text-3xl font-semibold text-iBlack mb-7">
+          Suggested Videos
+        </h1>
         <div>
-            <ProfileCard data={cardData}/>
+          <ProfileCard data={cardData} />
         </div>
       </div>
     </div>
