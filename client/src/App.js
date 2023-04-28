@@ -20,6 +20,7 @@ import Library from "./Components/Library/Library";
 import Albums from "./Components/Albums/Albums";
 import Internal from "./Internal/Internal";
 import TopBar from "./Components/TopBar/TopBar";
+import Playing from "./Components/Player/music/Playing";
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
    <Route path="/playlistPage" element={<Playlist />}/>
    <Route path="/yourlibrary" element={<Library />} />
    <Route path="/albums" element={<Albums />} />
+   <Route path="/playing-music" element={<Playing />} />
+
    </Route>
    </Routes>
    </Router>

@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { BsFillPlayFill } from "react-icons/bs";
 import "./ProfileCard.css";
+import { useNavigate } from "react-router";
 
-function ProfileCard({ data, src }) {
+function ProfileCard({ data, src,newRelease }) {
+  var src=src
+  if(newRelease){
+ src=data.image
+  }
+  const navigateTo=useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [indexValue, setIndexValue] = useState("");
   const MouseEnter = (index) => {
@@ -13,6 +19,13 @@ function ProfileCard({ data, src }) {
     setIsHovered(false);
     setIndexValue("");
   };
+  const PlayMusic =()=>{
+    if(newRelease){
+      navigateTo('/playing-music',{
+        state:data
+      })
+    }
+  }
   return (
     <div
       className=""
@@ -28,7 +41,9 @@ function ProfileCard({ data, src }) {
           />
 
           {isHovered && indexValue === data.id && (
-            <button className="z-10 absolute !left-[200px] !top-[150px] start-0 w-[80px] h-[80px] bg-iOrange rounded-full border-indigo-600 hover:border-2 hover:border-iWhite">
+            <button 
+            onClick={PlayMusic}
+            className="z-10 absolute !left-[200px] !top-[150px] start-0 w-[80px] h-[80px] bg-iOrange rounded-full border-indigo-600 hover:border-2 hover:border-iWhite">
               <BsFillPlayFill className="pl-1 w-[32px] h-[100px] pauseIcon text-iWhite" />
             </button>
           )}

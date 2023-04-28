@@ -167,7 +167,7 @@ function UploadMusic() {
                        <input
                         type="file"
                         id="upload-image-inp"
-                        onChange={AudioUpload}
+                        onChange={fileUploadHandler}
                         accept=".jpg, .jpeg, .png, .bmp, .gif, .mp4, .mkv, .ogg, .wmv"
                         className="mt-2 mb-5 upload_text_inp"
                       />
