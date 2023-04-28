@@ -44,7 +44,7 @@ function ProfileCard({ data, src,newRelease }) {
             <button 
             onClick={PlayMusic}
             className="z-10 absolute !left-[200px] !top-[150px] start-0 w-[80px] h-[80px] bg-iOrange rounded-full border-indigo-600 hover:border-2 hover:border-iWhite">
-              <BsFillPlayFill className="pl-1 w-[32px] h-[100px] pauseIcon text-iWhite" />
+              <BsFillPlayFill className="pl-1 !w-[55px] !h-[130px] pauseIcon text-iWhite" />
             </button>
           )}
         </div>
