@@ -18,6 +18,7 @@ import Explore from "./Components/Explore/Explore";
 import Playlist from "./Components/Playlists/Playlist";
 import Library from "./Components/Library/Library";
 import Albums from "./Components/Albums/Albums";
+import Internal from "./Internal/Internal";
 import TopBar from "./Components/TopBar/TopBar";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
    <Router>
    <TopBar/>
    <Routes>
+    <Route element={<Internal />}>
    <Route path="/" element={<Home />} />
    <Route path="/likedMusic" element={<LikedPlayList />} />
    <Route path="/RoundedCradFullDetails/:id" element={<RoundedCardFullDetails />}/>
@@ -34,11 +36,10 @@ function App() {
    <Route path="/uploadMusic" element={<UploadMusic /> }/>
    <Route path="/exploreScreen" element={<Explore />}/>
    <Route path="/playlistPage" element={<Playlist />}/>
-   <Route path="/library" element={<Library />} />
+   <Route path="/yourlibrary" element={<Library />} />
    <Route path="/albums" element={<Albums />} />
+   </Route>
    </Routes>
-   <Player />
-   <Footer />
    </Router>
    </>
  );

@@ -18,12 +18,10 @@ function UploadMusic() {
   const [songDes, setSongDes]=useState('')
 
   const fileUploadHandler = async (event) => {
-    debugger
     const file = event.target.files;
     if (file.length > 0) {
       let formData = new FormData();
       formData.append("file", file[0]);
-      console.log(file[0], " file[0]");
       const response = await fetch(APIConstants.fileUpload, {
         method: "POST",
         body: formData,
@@ -46,7 +44,6 @@ function UploadMusic() {
     if (file.length > 0) {
       let formData = new FormData();
       formData.append("file", file[0]);
-      console.log(file[0], " file[0]");
       const response = await fetch(APIConstants.fileUpload, {
         method: "POST",
         body: formData,
@@ -57,18 +54,23 @@ function UploadMusic() {
     }
   }
 
-  const UploadAudio=async ()=>{
-    const payload={albumName,artistName,price,selectedOption,songName,songDes,audio,image}
-    const response = await fetch(APIConstants.formUpload, {
-      method: "POST",
-      "Content-Type":" application/json",
-      body: payload,
-    });
-    const json = await response.json();
-    const validateJSON = json && json?.data ? json.data : "";
-    
-    console.log(albumName,artistName,price,selectedOption,songName,songDes,audio,image)
-  }
+  const UploadAudio = async () => {
+    const reqBody = {
+      albumName: albumName,
+      artistName: artistName,
+      price: price,
+      selectedOption: selectedOption,
+      songName: songName,
+      songDes: songDes,
+      audio: audio,
+      image: image,
+    };
+    axios.post(APIConstants.formUpload, reqBody)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => alert("Failed"));
+  };
 
   return (
     <>
