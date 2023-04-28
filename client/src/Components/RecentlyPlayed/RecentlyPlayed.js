@@ -2,6 +2,10 @@ import React from "react";
 import { FiShuffle } from "react-icons/fi";
 import image from "./../../Assets/image1.png";
 import { BsFillPlayFill } from "react-icons/bs";
+import image2 from "../../Assets/image2.png";
+import image3 from "../../Assets/image3.png";
+
+
 function RecentlyPlayed() {
   const data = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
   return (
@@ -56,12 +60,12 @@ function RecentlyPlayed() {
         })}
         </div>
         <div className="relative transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
-            <img src={'https://www.mmppicture.co.in/wp-content/uploads/2020/09/Background-1-802x1080.jpg'} alt="image" className="w-[387px] h-[492px] rounded-2xl"/>
+            <img src={image3} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
        <p className="text-[63px] px-[14px] absolute bottom-0 text-iWhite shadow-[12px] drop-shadow-2xl font-bold">Listen to your owned Music</p>
         </div>
 
         <div className="relative transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
-            <img src={'https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFja2dyb3VuZCUyMGRlc2lnbnxlbnwwfHwwfHw%3D&w=1000&q=80'} alt="image" className="w-[387px] h-[492px] rounded-2xl"/>
+            <img src={image2} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
        <p className="text-[63px] px-[14px] absolute bottom-[40px] text-iWhite shadow-[12px] drop-shadow-2xl font-bold">Listen to your own Music</p>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BsFillPlayFill } from "react-icons/bs";
 import "./ProfileCard.css";
 
-function ProfileCard({ data }) {
+function ProfileCard({ data, src }) {
   const [isHovered, setIsHovered] = useState(false);
   const [indexValue, setIndexValue] = useState("");
   const MouseEnter = (index) => {
@@ -22,8 +22,8 @@ function ProfileCard({ data }) {
       <div className="w-[300px] h-[270px] rounded-[20px] relative transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-400">
         <div className="w-[300px]">
           <img
-            className="rounded-t-[20px]"
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+            className="rounded-t-[20px] w-[100%] h-[200px]"
+            src={src}
             alt="ui/ux review check"
           />
 
