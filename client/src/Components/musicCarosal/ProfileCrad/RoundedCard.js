@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory, useNavigate } from "react-router-dom";
 
-function RoundedCard({ data }) {
+function RoundedCard({ data,src}) {
 
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ function RoundedCard({ data }) {
         <div className="w-[140px] h-[140px]">
           <img
             className="w-[140px] h-[140px] rounded-full"
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+            src={src}
             alt="ui/ux review check"
           />
         </div>
