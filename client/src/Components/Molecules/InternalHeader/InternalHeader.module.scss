@@ -1,0 +1,234 @@
+.headerText {
+  text-shadow: 0px 5px 2px #00000029;
+  opacity: 1;
+  @media (min-width: 374px) and (max-width: 575px) {
+    display: none;
+  }
+  @media (min-width: 576px) {
+    margin-left: -112px;
+    letter-spacing: -1px;
+  }
+  @media (min-width: 768px) {
+    margin-left: -29px;
+  }
+}
+.internalHeaderCircle {
+  @media (min-width: 576px) {
+    margin-right: 0px;
+  }
+  @media (min-width: 768px) {
+    margin-right: -18px;
+  }
+}
+.quickLinks {
+  @media (max-width: 768px) {
+    // visibility: hidden;
+    display: none;
+  }
+}
+.logoContainer {
+  background-color: #ffff;
+  border-radius: 22px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  @media (max-width: 768px) {
+    visibility: hidden;
+  }
+  @media (max-width: 1200px) {
+    padding-left: 15px;
+  }
+}
+.searchContainer {
+  width: 100%;
+  @media (max-width: 992px) {
+    margin-left: -10px;
+  }
+  .searchInputBox {
+    @media (max-width: 768px) {
+      visibility: hidden;
+    }
+  }
+}
+.searchContainer > input {
+  @media (max-width: 992px) {
+    width: 129px;
+  }
+}
+.bellIcon {
+  position: relative;
+  z-index: 5;
+  @media (max-width: 1200px) {
+    position: absolute;
+    top: 20%;
+  }
+  @media (max-width: 992px) {
+    position: relative;
+    margin-right: 0px;
+  }
+  @media (max-width: 768px) {
+    position: relative;
+    margin-left: 26px;
+  }
+  @media (max-width: 576px) {
+    position: relative;
+    margin-left: 0px;
+  }
+}
+// .absolute right-[13%] pt-[11px] pr-[16px] pb-[16px]
+.searchIconContainer {
+  position: absolute;
+  right: 13%;
+  padding-top: 11px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+
+  @media (max-width: 992px) {
+    right: 44%;
+  }
+
+  @media (max-width: 768px) {
+    right: 61%;
+    border-radius: 22px;
+    box-shadow: 0px 3px 6px var(--ibgy7);
+    border: 1px solid #93c4f6;
+    width: 47px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    background-color: #ffff;
+  }
+}
+.leftContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.rightContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 7px;
+  margin-left: 100px;
+  @media (max-width: 768px) {
+    padding-left: 0px;
+    margin-left: 18px;
+  }
+  @media (max-width: 576px) {
+    padding-left: 0px;
+    margin-left: -60px;
+  }
+}
+
+.bgInternalHeader1Container {
+  position: absolute;
+  border-radius: 15px;
+  max-height: 75px;
+  overflow: hidden;
+  @media (max-width: 576px) {
+    display: none;
+  }
+  @media (min-width: 576px) {
+    left: -10px;
+    top: -10px;
+    height: 73px;
+  }
+  @media (min-width: 1920px) {
+    left: -10px;
+    top: -10px;
+    height: 74px;
+  }
+  .bgInternalHeader1 {
+    z-index: 0;
+    position: relative;
+    left: -4px;
+    height: 76px;
+    transform: scaleX(0.96) scaleY(1.2);
+    @media (min-width: 576px) {
+      top: -5px;
+      left: -22px;
+      transform: rotate(19deg) scale(3);
+    }
+    @media (min-width: 768px) {
+      top: -7px;
+      left: -12px;
+      transform: rotate(22deg) scale(3);
+    }
+    @media (min-width: 992px) {
+      top: -5px;
+      left: -4px;
+      transform: scaleX(0.96) scaleY(1.2);
+    }
+  }
+}
+.bgInternalHeader2Container {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  height: 73px;
+  border-radius: 15px;
+  max-height: 75px;
+  overflow: hidden;
+  @media (max-width: 992px) {
+    top: -10px;
+  }
+  @media (max-width: 768px) {
+    top: -11px;
+    right: -9px;
+    height: 74px;
+  }
+  @media (max-width: 576px) {
+    right: -11px;
+    top: -10px;
+  }
+  .bgInternalHeader2 {
+    z-index: 0;
+    position: relative;
+    height: 76px;
+    right: -5px;
+    transform: scaleX(0.96) scaleY(1.2);
+    @media (max-width: 992px) {
+      top: 9px;
+      right: -40px;
+      border-radius: 0px;
+      transform: rotate(7deg) scale(1.8);
+    }
+    @media (max-width: 768px) {
+      right: -60px;
+      transform: rotate(19deg) scale(2);
+    }
+    @media (max-width: 576px) {
+      display: none;
+      right: 11px;
+      transform: rotate(18deg) scale(2);
+      top: -20px;
+    }
+  }
+}
+
+.arrowButtonContainer {
+  @media (max-width: 768px) {
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+    box-shadow: 0px 3px 6px var(--ibgy7);
+    border: 1px solid #93c4f6;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -6px;
+    right: -35px;
+  }
+  @media (max-width: 576px) {
+    right: 20px;
+  }
+}
+.arrowButtonContainer > img {
+  @media (max-width: 768px) {
+    width: 16px;
+  }
+}
