@@ -6,7 +6,6 @@ import TopBar from "../TopBar/TopBar";
 function Home() {
   return (
     <div className="bg-iGray2">
-      <TopBar/>
       <RecentlyPlayed />
       <MusicCarousel />
     </div>

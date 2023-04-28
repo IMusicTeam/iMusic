@@ -19,13 +19,14 @@ import Playlist from "./Components/Playlists/Playlist";
 import Library from "./Components/Library/Library";
 import Albums from "./Components/Albums/Albums";
 import Internal from "./Internal/Internal";
+import TopBar from "./Components/TopBar/TopBar";
 
 function App() {
   return (
    <>
    <Router>
    <Routes>
-    <Route element={<Internal />}>
+   <Route element={<Internal />}>
    <Route path="/" element={<Home />} />
    <Route path="/likedMusic" element={<LikedPlayList />} />
    <Route path="/RoundedCradFullDetails/:id" element={<RoundedCardFullDetails />}/>
