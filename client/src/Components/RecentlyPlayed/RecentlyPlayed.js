@@ -13,7 +13,7 @@ function RecentlyPlayed() {
       <div className="flex flex-row gap-[28px]">
         <div className="max-w-[752px] p-[23px] bg-iWhite rounded-2xl">
         <div className="flex flex-row items-center justify-between pb-[28px]">
-          <h1 className="text-[28px] font-bold">Recently Played</h1>
+          <h1 className="text-[28px] font-bold">Recently Playedd</h1>
           <div className="flex flex-row gap-[22px]">
             <div>
               <button class="bg-transparent hover:bg-iLightBlue text-iBlue font-semibold py-2 px-4 border border-iBlue hover:border- hover:text-iDarkBlue hover:border-transparent rounded">

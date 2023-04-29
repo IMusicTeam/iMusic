@@ -12,6 +12,9 @@ router.post("/upload-song", musicController.POST_song);
 router.get("/all-songs", musicController.GET_allSongs);
 router.put("/update-song", musicController.UPDATE_song);
 router.post("/upload-audio", upload.single("file"), cors(), uploadImage);
+router.post('/liked-song', musicController.UploadLikedSong)
+router.get('/liked-songs', musicController.GetLikedSongs)
+
 
 
 module.exports = router;

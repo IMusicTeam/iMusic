@@ -1,5 +1,6 @@
 const { codes, strings } = require("../../Constants");
 const { serverDown } = require("../../helpers/hooks");
+const LikedSong = require("../../models/liked");
 const Songs = require("../../models/music");
 
 class MusicController {
@@ -102,6 +103,54 @@ class MusicController {
       }
     } else {
       res.json({ message: strings.idNotFound });
+    }
+  }
+
+  async UploadLikedSong(req, res) {
+    const {
+      albumName,
+      artistName,
+      price,
+      selectedOption,
+      songName,
+      songDes,
+      audio,
+      image
+    } = req.body;
+
+    try {
+      const save = new LikedSong({
+      albumName,
+      artistName,
+      price,
+      selectedOption,
+      songName,
+      songDes,
+      audio,
+      image
+      });
+      await save.save();
+      const data = save.toObject();
+      res.status(codes.created).json({ message: strings.saveSong, data });
+    } catch (error) {
+      if (error.code === 11000) {
+        res.status(codes.badRequest).json({
+          message: `${
+            Object.keys(error.keyPattern)[0]
+          } already exists in the database`,
+        });
+      } else {
+        serverDown(res);
+      }
+    }
+  }
+
+  async GetLikedSongs (req, res){
+    try {
+      let data = await LikedSong.find();
+      res.status(codes.success).json({ message: strings.sucesss, data });
+    } catch (e) {
+      serverDown(res);
     }
   }
 }

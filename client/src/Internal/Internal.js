@@ -5,6 +5,7 @@ import { DashboardMenu, DashboardMenuFloat, DashboardMenuMini } from "../Compone
 import Player from "../Components/Player/Player";
 import Footer from "../Components/Footer/Footer";
 import TopBar from "../Components/TopBar/TopBar";
+import App from "../Components/connectToWallet/ConnectToWallet";
 // import {
 //   DashboardMenu,
 //   DashboardMenuFloat,
@@ -37,6 +38,7 @@ const Internal = () => {
           {/* <div className={styles.internal_template__container}> */}
             {/* <InternalHeader /> */}
             {/* <ToastProvider /> */}
+            <App/>
             <TopBar />
             <Outlet />
             {/* <Player /> */}

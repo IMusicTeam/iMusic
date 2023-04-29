@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import likedImage from "../../Assets/images/likedImage.png";
 import { BsFillShareFill, BsFillPlayFill } from "react-icons/bs";
 import { AiOutlineDownload } from "react-icons/ai";
@@ -7,14 +7,17 @@ import { FiShuffle } from "react-icons/fi";
 import { MdDownloadDone } from "react-icons/md";
 import "../LikedPlayList/LikedPlayList.css";
 import ProfileCard from "../musicCarosal/ProfileCrad/ProfilesCard";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
 function LikedPlayList() {
   const [download, setDownload] = useState(false);
-
+  const [likedData, setLikedData] = useState();
+  const navigateTo = useNavigate();
   function changeDownload() {
     setDownload((prev) => !prev);
   }
-  const data = [
+  const datas = [
     {
       image: { likedImage },
       text1: "Taylor Swift",
@@ -154,11 +157,40 @@ function LikedPlayList() {
     { id: 9 },
     { id: 10 },
   ];
+  const [duration, setDuration] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/IMusic/liked-songs")
+      .then(async (res) => {
+        const musicWithDurations = await Promise.all(
+          res.data.data.map(async (music) => {
+            const audio = new Audio(music.audio);
+            const duration = await new Promise((resolve) => {
+              audio.addEventListener("loadedmetadata", () => {
+                resolve(audio.duration);
+              });
+            });
+            return { ...music, duration };
+          })
+        );
+        setLikedData(musicWithDurations);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
+  function formatDuration(duration) {
+    const minutes = Math.round(duration / 60);
+    const seconds = Math.round(duration % 60);
+    return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+  }
   return (
     <div className="bg-iGray2">
       <div className="h-[389px] bg-iLightBlue pl-[142px] border-iGray4 border">
         <h3 className="text-iOrange font-semibold text-[28px] mb-[28px] mt-12">
-          Liked Songs
+          Liked Songs {duration}
         </h3>
         <div className="flex">
           <img
@@ -197,29 +229,39 @@ function LikedPlayList() {
       </div>
       <div className="pl-[142px] pt-[139px] pr-14">
         <div className="h-[864px] overflow-y-auto musicList mb-5">
-          {data.map((item, index) => {
+          {likedData?.map((item, index) => {
             return (
               <div key={index}>
                 <div className="listed-rows w-[1477px]">
                   <img
-                    src={likedImage}
+                    src={item.image}
                     alt=""
                     className="w-16 h-16 rounded-full"
                   />
                   <div className="flex flex-col">
-                    <span className="text-lg text-iGray1">Taylor Swift</span>
+                    <span className="text-lg text-iGray1">{item.songName}</span>
                     <span className="text-xl font-semibold text-iBlack">
-                      Shake it Off!
+                      {item.artistName}
                     </span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-lg text-iGray1">Album</span>
                     <span className="text-xl font-semibold text-iBlack">
-                      1989
+                      {item.albumName}
                     </span>
                   </div>
-                  <div className="text-xl text-iOrange">3:40 Min</div>
-                  <BsFillPlayFill className="w-12 h-12 pl-1 hover:duration-500 hover:delay-100 text-iBlue hover:bg-iBlue hover:scale-110 hover:text-iWhite hover:rounded-full" />
+                  <div className="text-xl text-iOrange">
+                    {formatDuration(item.duration)} Min
+                  </div>
+                  <button
+                    onClick={() =>
+                      navigateTo("/playing-music", {
+                        state: item
+                      })
+                    }
+                  >
+                    <BsFillPlayFill className="w-12 h-12 pl-1 hover:duration-500 hover:delay-100 text-iBlue hover:bg-iBlue hover:scale-110 hover:text-iWhite hover:rounded-full" />
+                  </button>
                 </div>
               </div>
             );

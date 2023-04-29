@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const uploadSong = new mongoose.Schema(
+const likedSongs = new mongoose.Schema(
   {
     albumName:{
       type: String,
@@ -38,5 +38,5 @@ const uploadSong = new mongoose.Schema(
   { timestamps: true }
 );
 // Create a Mongoose model for the Audio model
-const Songs = mongoose.model("songs", uploadSong);
-module.exports = Songs;
+const LikedSong = mongoose.model("liked", likedSongs);
+module.exports = LikedSong;
