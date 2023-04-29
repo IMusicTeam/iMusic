@@ -160,8 +160,7 @@ function UploadMusic() {
             <label htmlFor="upload-image-inp">
                     <div className=" upload-img-div glass_effect glass_effect_border">
                       
-                    <span className="absolute flex py-2.5 px-5 hover:bg-iOrange bg-iBlue text-iWhite text-[20px] rounded-lg" >
-                    <BsUpload size={33} className="px-2 font-bold" />
+                    <span className="flex w-[212px] py-2.5 px-5 hover:bg-iOrange bg-iBlue text-iWhite text-[20px] rounded-lg" >                    <BsUpload size={33} className="px-2 font-bold" />
                 Upload Audio
                    </span>
                        <input
@@ -173,12 +172,12 @@ function UploadMusic() {
                       />
                     </div>
                   </label>
-              <button
+              {/* <button
                 type="button"
                 class="flex flex-row items-center py-2.5 px-5 hover:bg-iOrange bg-iBlue text-iWhite text-[20px] rounded-lg"
               >
                 <BsUpload size={33} className="px-2 font-bold" />            
-              </button>
+              </button> */}
 
               <div className="flex flex-col gap-[26px]">
                 <div>

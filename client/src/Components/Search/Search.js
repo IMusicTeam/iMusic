@@ -3,7 +3,8 @@ import "./Search.css";
 import { FiSearch } from "react-icons/fi";
 import RoundedCard from "../musicCarosal/ProfileCrad/RoundedCard";
 import ProfileCard from "../musicCarosal/ProfileCrad/ProfilesCard";
-
+import {BiLeftArrowAlt} from 'react-icons/bi'
+import { useNavigate } from "react-router";
 function Search() {
   const rounded = [{ id: 1 }, { id: 2 }];
   const data = [
@@ -18,13 +19,20 @@ function Search() {
     { id: 9 },
     { id: 10 },
   ];
+const navigateTo=useNavigate();
+  const HandelBack =()=>{
+    navigateTo(-1)
+  }
 
   return (
-    <div className="pt-[100px] pl-[36px] pb-[136px]">
+    <div className="pt-[24px] pl-[36px] pb-[136px]">
+      <button onClick={HandelBack}>
+      <BiLeftArrowAlt size={38} className="mb-[33px] -ml-[9px]" />
+      </button>
       <div className="flex flex-row items-center pr-[272px] pl-[197px] pb-[87px]">
         <input
           type="text"
-          className="w-full p-2 text-sm border-b-4 outline-none searchSong border-iOrange focus:border-iOrange"
+          className="w-full p-2 border-b-4 outline-none bg-iGray2 searchSong border-iOrange focus:border-iOrange"
           placeholder="Search Song"
         />
         <FiSearch size={49} className="-ml-[50px] pb-2 text-iBlue text-bold" />
