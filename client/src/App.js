@@ -21,7 +21,9 @@ import Albums from "./Components/Albums/Albums";
 import Internal from "./Internal/Internal";
 import TopBar from "./Components/TopBar/TopBar";
 import Playing from "./Components/Player/music/Playing";
-
+// import Internal from "./Internal/Internal";
+// import TopBar from "./Components/TopBar/TopBar";
+import Dashboard from "./Components/Dashboard/Component";
 function App() {
   return (
    <>
@@ -41,6 +43,7 @@ function App() {
    <Route path="/playing-music" element={<Playing />} />
 
    </Route>
+   <Route path="/dashboard" element={<Dashboard />} />
    </Routes>
    </Router>
    </>
