@@ -1,19 +1,24 @@
 const mongoose = require("mongoose");
 const uploadSong = new mongoose.Schema(
   {
-    albumName:{
+    songThumbnail: {
       type: String,
       required: true
+    },
+    albumName: {
+      type: String,
+      required: true,
     },
     artistName: {
       type: String,
       required: true,
     },
     price: {
-      type: String,
+      type: Number,
       required: true,
     },
-    selectedOption: {
+    tune: Array,
+    lyrics: {
       type: String,
       required: true,
     },
@@ -21,15 +26,7 @@ const uploadSong = new mongoose.Schema(
       type: String,
       required: true,
     },
-    songDes: {
-      type: String,
-      required: true,
-    },
-    audio: {
-      type: String,
-      required: true,
-    },
-    image: {
+    songDescription: {
       type: String,
       required: true,
     },
