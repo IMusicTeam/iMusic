@@ -2,8 +2,8 @@ import React from "react";
 import { FiShuffle } from "react-icons/fi";
 import image from "./../../Assets/image1.png";
 import { BsFillPlayFill } from "react-icons/bs";
-import image2 from "../../Assets/image2.png";
-import image3 from "../../Assets/image3.png";
+import HomeCard1 from "../../Assets/Assets/CardImages/HomeCard1.png"
+import HomeCard2 from "../../Assets/Assets/CardImages/HomeCard2.png"
 
 
 function RecentlyPlayed() {
@@ -60,12 +60,12 @@ function RecentlyPlayed() {
         })}
         </div>
         <div className="relative transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
-            <img src={image3} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
+            <img src={HomeCard1} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
        <p className="text-[63px] px-[14px] absolute bottom-0 text-iWhite shadow-[12px] drop-shadow-2xl font-bold">Listen to your owned Music</p>
         </div>
 
         <div className="relative transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
-            <img src={image2} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
+            <img src={HomeCard2} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
        <p className="text-[63px] px-[14px] absolute bottom-[40px] text-iWhite shadow-[12px] drop-shadow-2xl font-bold">Listen to your own Music</p>
         </div>
       </div>
