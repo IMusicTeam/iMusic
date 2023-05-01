@@ -8,7 +8,7 @@ function ListenedCard(data) {
         alt="card"
         className='h-[360px] w-[316px] rounded-2xl'
       />
-      <p className="text-[48px] leading-none absolute bottom-0 text-iWhite font-semibold ml-2 mb-10">
+      <p className="text-[48px] leading-none absolute bottom-0 text-iWhite font-semibold ml-2 mb-10 mr-0.5">
         {data.text}
       </p>
     </div>

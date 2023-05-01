@@ -7,6 +7,16 @@ import { FiShuffle } from "react-icons/fi";
 import { MdDownloadDone } from "react-icons/md";
 import "../LikedPlayList/LikedPlayList.css";
 import ProfileCard from "../musicCarosal/ProfileCrad/ProfilesCard";
+import Card1 from '../../Assets/Assets/CardImages/Card1.png';
+import Card2 from '../../Assets/Assets/CardImages/Card2.png';
+import Card3 from '../../Assets/Assets/CardImages/Card3.png';
+import Card4 from '../../Assets/Assets/CardImages/Card4.png';
+import Card5 from '../../Assets/Assets/CardImages/Card5.png';
+import Card6 from '../../Assets/Assets/CardImages/Card6.png';
+import Card7 from '../../Assets/Assets/CardImages/Card7.png';
+import Card8 from '../../Assets/Assets/CardImages/Card8.png';
+import Card9 from '../../Assets/Assets/CardImages/Card9.png';
+import Card10 from '../../Assets/Assets/CardImages/Card10.png';
 import axios from "axios";
 import { useNavigate } from "react-router";
 
@@ -145,18 +155,18 @@ function LikedPlayList() {
       year: 1989,
     },
   ];
-  const cardData = [
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 },
-    { id: 5 },
-    { id: 6 },
-    { id: 7 },
-    { id: 8 },
-    { id: 9 },
-    { id: 10 },
-  ];
+  const data = [
+    { id: 1, src: Card1},
+    { id: 2, src: Card2},
+    { id: 3, src: Card3},
+    { id: 4, src: Card4},
+    { id: 5, src: Card5},
+    { id: 6, src: Card6},
+    { id: 7, src: Card7},
+    { id: 8, src: Card8 },
+    { id: 9, src: Card9},
+    { id: 10, src: Card10}
+  ]
   const [duration, setDuration] = useState(null);
 
   useEffect(() => {
@@ -272,8 +282,16 @@ function LikedPlayList() {
         <h1 className="text-3xl font-semibold text-iBlack mb-7">
           Suggested Videos
         </h1>
-        <div>
-          <ProfileCard data={cardData} />
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+          {
+            data.map((item)=>{
+              return(
+                <div>
+                   <ProfileCard data={item} src={item.src}/>
+                </div>
+              )
+            })
+          }
         </div>
       </div>
     </div>
