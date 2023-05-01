@@ -1,7 +1,7 @@
 const { codes, strings } = require("../../Constants");
 const { serverDown } = require("../../helpers/hooks");
-const LikedSong = require("../../models/liked");
 const Songs = require("../../models/music");
+const SaveFavourite = require("../../models/favourites");
 
 class MusicController {
   async POST_song(req, res) {
@@ -122,54 +122,6 @@ class MusicController {
     }
   }
 
-  async UploadLikedSong(req, res) {
-    const {
-      albumName,
-      artistName,
-      price,
-      selectedOption,
-      songName,
-      songDes,
-      audio,
-      image
-    } = req.body;
-
-    try {
-      const save = new LikedSong({
-      albumName,
-      artistName,
-      price,
-      selectedOption,
-      songName,
-      songDes,
-      audio,
-      image
-      });
-      await save.save();
-      const data = save.toObject();
-      res.status(codes.created).json({ message: strings.saveSong, data });
-    } catch (error) {
-      if (error.code === 11000) {
-        res.status(codes.badRequest).json({
-          message: `${
-            Object.keys(error.keyPattern)[0]
-          } already exists in the database`,
-        });
-      } else {
-        serverDown(res);
-      }
-    }
-  }
-
-  async GetLikedSongs (req, res){
-    try {
-      let data = await LikedSong.find();
-      res.status(codes.success).json({ message: strings.sucesss, data });
-    } catch (e) {
-      serverDown(res);
-    }
-  }
-
   //get songByID
   async GET_song(req, res) {
     const { id } = req.query;
@@ -189,13 +141,58 @@ class MusicController {
 
   //allCharts
   async GET_allCharts(req, res) {
-      const allCharts = {
-        "newRelease" : Songs.find({}).sort({_id:-1}) 
-        // newReleases:  Songs.findOne({ _id: "644cc49112cb5815289a3902" })
-      }
-      res
+    const allCharts = {
+      newRelease: Songs.find({}).sort({ _id: -1 }),
+      // newReleases:  Songs.findOne({ _id: "644cc49112cb5815289a3902" })
+    };
+    res
       .status(codes.success)
       .json({ message: strings.sucesss, data: JSON.stringify(allCharts) });
+  }
+
+  //saveLikedSong
+  async POST_likedSong(req, res) {
+    const { userID, songId } = req.body;
+    if ((userID, songId)) {
+      const findSong = await Songs.find({ _id: songId });
+      if (findSong && findSong.length > 0) {
+        const findUserHasCollection = await SaveFavourite.find({
+          userID: userID,
+        });
+        if (
+          findUserHasCollection !== null &&
+          Object.keys(findUserHasCollection).length > 0
+        ) {
+          const validateSong_ = findUserHasCollection.map((each) =>
+            each.allSongs.findIndex((item) => item._id == songId)
+          )[0];
+          if (validateSong_ < 0) {
+            const data = await SaveFavourite.findOneAndUpdate(
+              { userID: userID },
+              { $push: { allSongs: findSong[0] } },
+              { returnOriginal: false }
+            );
+          } else {
+            return res
+              .status(codes.moved)
+              .json({ message: strings.alreadyExists });
+          }
+        } else {
+          const data = new SaveFavourite({
+            userID,
+            allSongs: findSong[0],
+          });
+          await data.save();
+        }
+        res.status(codes.created).json({ message: strings.liked });
+      } else {
+        res
+          .status(codes.badRequest)
+          .json({ message: strings.idNotFound});
+      }
+    } else {
+      res.status(codes.badRequest).json({ message: strings.failure});
+    }
   }
 }
 const musicController = new MusicController();
