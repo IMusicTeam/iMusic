@@ -18,9 +18,7 @@
       color: #ea7625;
     }
 
-    .caret {
-      visibility: visible;
-    }
+    
 
     @media (min-width: 1123px) {
       // margin-left: -4px;
@@ -46,9 +44,6 @@
     }
     .label {
       color: var(--cgy4);
-    }
-    .caret {
-      visibility: visible;
     }
     &:hover {
       color: var(--cgy4);

@@ -8,17 +8,37 @@ import { useMediaQuery } from "./../../../Hooks/useMediaQuery";
 import { useOutsideClick } from "./../../../Hooks/useOutsideClick";
 import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-
+import home from "./../../../Assets/images/home.png";
+import profile from "./../../../Assets/images/profile.png"
+import explore from "./../../../Assets/images/explore.png"
+import yourlibrary from "./../../../Assets/images/yourlibrary.png"
+import album from "./../../../Assets/images/album.png"
+import playlist from "./../../../Assets/images/playlist.png"
+import liked from "./../../../Assets/images/liked.png"
 import logo from "./../../../Assets/logo.svg";
-import profile from "./../../../Assets/profile.png";
 import styles from "./DashboardMenu.module.scss";
-
+import sideprofileImage from "./../../../Assets/profile.png";
+import signout from "./../../../Assets/images/signout.png";
+import dashboard from "./../../../Assets/images/dashboard.png";
+import profilesetting from "./../../../Assets/images/profilesetting.png";
+import help from "./../../../Assets/images/help.png"
 
 export const DashboardMenu = () => {
   const location = useLocation();
   const [show, setShow] = useState(false);
   const selectRef = useRef(null);
   const navigate = useNavigate();
+  
+  const [isOpen, setIsOpen] = useState(false);
+
+  // const menuRef = useRef(null);
+
+  // useOutsideClick(menuRef, () => {
+  //   // ClickedOut(true);
+  //   if (isOpen) {
+  //     setIsOpen(false);
+  //   }
+  // });
 
   useOutsideClick(selectRef, () => {
     if (show) {
@@ -34,7 +54,7 @@ export const DashboardMenu = () => {
         </div>
 
         <div className="p-2 flex flex-col gap-[15px] pb-5">
-          <div><img src={profile}  /></div>
+          <div><img src={sideprofileImage}  /></div>
           <div className="text-[18px] font-bold">
             Jane Willin
           </div>
@@ -49,11 +69,8 @@ export const DashboardMenu = () => {
             <div className="mb-2" onClick={() => navigate("/")}>
               <DashboardMenuItems
                 isActive={true}
-                logo={
-                  <MultiColorIcon
-                    icon=""
-                    className={`${styles.iconHome}`}
-                  />
+                icon={
+                  home
                 }
                 label="Home"
                 url={"/"}
@@ -61,30 +78,97 @@ export const DashboardMenu = () => {
               />
             </div>
             {/*Customer Dashboard*/}
-            {/* <div className="mb-2" onClick={() => navigate("/Home/dashboard")}>
-              <DashboardMenuItems
-                isActive={true}
-                logo={
-                  <MultiColorIcon
-                    icon="ibaas-account"
-                    className={`${styles.iconHome}`}
-                  />
-                }
-                label="Profile"
-                url={"/Home/dashboard"}
-                id={"Home-dashboard"}
-              />
-            </div> */}
+            <div className="mb-2" onClick={() => setIsOpen(true)}>
+              <MenuItem
+                onClickOutside={true}
+                ClickedOut={isOpen}
+                url={"/my-profile"}
+                icon={profile}
+                iconClassname={`${styles.iconProfile}`}
+                label={ "Profile"}
+                key={"merchant-activity"}
+                className={`${styles.iconProfile}`}
+                // isDisable={
+                //   accountStatus == AccountStatusEnum.Declined ||
+                //   accountStatus == AccountStatusEnum.Canceled
+                // }
+                id={"profile"}
+              >
+                <div className="">
+                  {/* user-details */}
+                  <NavLink
+                    to={"/profile/dashboard"}
+                    key="customer-details"
+                  >
+                    <div
+                      className={`${styles.NavLinkButtons} ${
+                        location.pathname.includes(
+                          "/my-profile/user-details"
+                        ) && "bg-ibm8 text-ibm2 rounded-[10px]"
+                      } text-ibgy1 hover:text-ibm2`}
+                    >
+                      <button
+                        type="button"
+                        className="flex flex-row leading-[43px]"
+                      >
+                         { <span className="pt-2 pl-2"><img src={dashboard}/></span> }
+                         {<span className="pl-3">DashBoard</span>}
+                       
+                       
+                      </button>
+                    </div>
+                  </NavLink>
+                  {/* payment-methods */}
+                  <NavLink
+                    to={"/my-profile/payment-methods"}
+                    key="customer-payments"
+                  >
+                    <div
+                      className={`${styles.NavLinkButtons} ${
+                        location.pathname.includes(
+                          "/my-profile/payment-methods"
+                        ) && "bg-ibm8 text-ibm2 rounded-[10px]"
+                      } text-ibgy1 hover:text-ibm2`}
+                    >
+                      <button
+                        type="button"
+                        className="flex flex-row leading-[43px]"
+                      >
+                         { <span className="pt-2 pl-2"><img src={profilesetting}/></span> }
+                         {<span className="pl-3">Profile Settings</span>}
+                      </button>
+                    </div>
+                  </NavLink>
+            
+                  {/* change-password */}
+                  <NavLink
+                    to={"/my-profile/change-password"}
+                    key="customer-change-password"
+                  >
+                    <div
+                      className={`${styles.NavLinkButtons} ${
+                        location.pathname.includes(
+                          "/my-profile/change-password"
+                        ) && "bg-ibm8 text-ibm2 rounded-[10px]"
+                      } text-ibgy1 hover:text-ibm2`}
+                    >
+                      <button
+                        type="button"
+                        className="flex flex-row leading-[43px]"
+                      >
+                        { <span className="pt-2 pl-2"><img src={help}/></span> }
+                        {<span className="pl-3"> Get Help</span>}
+                      </button>
+                    </div>
+                  </NavLink>
+                </div>
+              </MenuItem>
+            </div>
             {/* settings-button */}
             <div className="mb-2" onClick={() => navigate("/exploreScreen")}>
               <DashboardMenuItems
                 isActive={true}
-                logo={
-                  <MultiColorIcon
-                    icon="setting"
-                    className={`${styles.iconHome}`}
-                  />
-                }
+                icon={ explore }
                 label="Explore"
                 url={"/exploreScreen"}
                 id={"settings"}
@@ -93,11 +177,8 @@ export const DashboardMenu = () => {
             {/* Statement-button */}
             <div className="mb-2" onClick={() => navigate("/yourlibrary")}>
               <DashboardMenuItems
-                logo={
-                  <MultiColorIcon
-                    icon="Statement"
-                    className={`${styles.iconStatement}`}
-                  />
+                icon={
+                  yourlibrary
                 }
                 url={"/yourlibrary"}
                 to={"/statements"}
@@ -108,11 +189,8 @@ export const DashboardMenu = () => {
             {/* ContactUs-button */}
             <div className="mb-2" onClick={() => navigate("/albums")}>
               <DashboardMenuItems
-                logo={
-                  <MultiColorIcon
-                    icon="Contact_Us"
-                    className={`${styles.iconContact_Us}`}
-                  />
+                icon={
+                  album
                 }
                 label="Albums"
                 id={"contactUs"}
@@ -123,11 +201,8 @@ export const DashboardMenu = () => {
             {/* Export-button */}
             <div className="mb-2" onClick={() => navigate("/playlistPage")}>
               <DashboardMenuItems
-                logo={
-                  <MultiColorIcon
-                    icon="export-files"
-                    className={`${styles.iconExport}`}
-                  />
+                icon={
+                  playlist
                 }
                 label="Playlists"
                 url={"/playlistPage"}
@@ -137,11 +212,8 @@ export const DashboardMenu = () => {
             {/* GetHelp-button */}
             <div className="mb-2" onClick={() => navigate("/likedMusic")}>
               <DashboardMenuItems
-                logo={
-                  <MultiColorIcon
-                    icon="get-help"
-                    className={`${styles.iconGet_Help}`}
-                  />
+                icon={
+                  liked
                 }
                 label="Liked Songs"
                 id={"getHelp"}
@@ -154,11 +226,8 @@ export const DashboardMenu = () => {
           <div className="mt-10 pb-[138px]">
             <div className="mb-2">
               <DashboardMenuItems
-                logo={
-                  <MultiColorIcon
-                    icon="signout"
-                    className={`${styles.iconLogout}`}
-                  />
+                icon={
+                  signout
                 }
                 label="Sign Out"
                 id={"Logout"}
