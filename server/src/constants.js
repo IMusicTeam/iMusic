@@ -25,6 +25,8 @@ const strings = {
     saveSong: "Saved Successfully",
     updateSong: "Updated Successfully",
     uploadedSong: "Uploaded Song Successfully",
+    liked: "Added to your favourites",
+    alreadyExists: "Already added this song to liked list",
 
     //success || failure
     sucesss: "Success",
@@ -33,7 +35,10 @@ const strings = {
     idNotFound: "Id not found",
     //upload audio
     validateAudio: "Please Upload Audio file only",
-    validationOnUpload: "only jpg png mp3 files are accepted"
+    validationOnUpload: "only jpg png mp3 files are accepted",
+
+    //liked
+    notFoundUser: "UserID not found"
   };
   
   const codes = {
