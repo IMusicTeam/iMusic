@@ -120,7 +120,7 @@ export const DashboardMenu = () => {
                   </NavLink>
                   {/* payment-methods */}
                   <NavLink
-                    to={"/my-profile/payment-methods"}
+                    to={"/profile/settings"}
                     key="customer-payments"
                   >
                     <div
@@ -142,7 +142,7 @@ export const DashboardMenu = () => {
             
                   {/* change-password */}
                   <NavLink
-                    to={"/my-profile/change-password"}
+                    to={"/profile/get-help"}
                     key="customer-change-password"
                   >
                     <div

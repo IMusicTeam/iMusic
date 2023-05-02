@@ -26,8 +26,15 @@ import Playing from "./Components/Player/music/Playing";
 import Dashboard from "./Components/Dashboard/Component";
 import ProfileDashboard from "./Components/ProfileDashboard/ProfileDashboard";
 import WalletDashboard from "./Components/ProfileDashboard/WalletDashboard";
+import Gethelp from "./Components/Gethelp/Gethelp";
+import ProfileSettings from "./Components/ProfileSettings/ProfileSettings";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+
+  })
   return (
    <>
    <Router>
@@ -46,6 +53,9 @@ function App() {
    <Route path="/playing-music" element={<Playing />} />
    <Route path="/profile/dashboard" element={<ProfileDashboard />}/>
    <Route path="/profile/walletdashboard" element={<WalletDashboard/>}/>
+   <Route path="/profile/settings" element={<ProfileSettings/>}/>
+   <Route path="/profile/get-help" element={<Gethelp/>}/>
+   
    </Route>
    <Route path="/dashboard" element={<Dashboard />} />
    </Routes>
