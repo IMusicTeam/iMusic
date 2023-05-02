@@ -7,16 +7,16 @@ import { FiShuffle } from "react-icons/fi";
 import { MdDownloadDone } from "react-icons/md";
 import "../LikedPlayList/LikedPlayList.css";
 import ProfileCard from "../musicCarosal/ProfileCrad/ProfilesCard";
-import Card1 from '../../Assets/Assets/CardImages/Card1.png';
-import Card2 from '../../Assets/Assets/CardImages/Card2.png';
-import Card3 from '../../Assets/Assets/CardImages/Card3.png';
-import Card4 from '../../Assets/Assets/CardImages/Card4.png';
-import Card5 from '../../Assets/Assets/CardImages/Card5.png';
-import Card6 from '../../Assets/Assets/CardImages/Card6.png';
-import Card7 from '../../Assets/Assets/CardImages/Card7.png';
-import Card8 from '../../Assets/Assets/CardImages/Card8.png';
-import Card9 from '../../Assets/Assets/CardImages/Card9.png';
-import Card10 from '../../Assets/Assets/CardImages/Card10.png';
+import Card1 from "../../Assets/Assets/CardImages/Card1.png";
+import Card2 from "../../Assets/Assets/CardImages/Card2.png";
+import Card3 from "../../Assets/Assets/CardImages/Card3.png";
+import Card4 from "../../Assets/Assets/CardImages/Card4.png";
+import Card5 from "../../Assets/Assets/CardImages/Card5.png";
+import Card6 from "../../Assets/Assets/CardImages/Card6.png";
+import Card7 from "../../Assets/Assets/CardImages/Card7.png";
+import Card8 from "../../Assets/Assets/CardImages/Card8.png";
+import Card9 from "../../Assets/Assets/CardImages/Card9.png";
+import Card10 from "../../Assets/Assets/CardImages/Card10.png";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
@@ -24,6 +24,16 @@ function LikedPlayList() {
   const [download, setDownload] = useState(false);
   const [likedData, setLikedData] = useState();
   const navigateTo = useNavigate();
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowDropdown(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowDropdown(false);
+  };
+
   function changeDownload() {
     setDownload((prev) => !prev);
   }
@@ -156,17 +166,17 @@ function LikedPlayList() {
     },
   ];
   const data = [
-    { id: 1, src: Card1},
-    { id: 2, src: Card2},
-    { id: 3, src: Card3},
-    { id: 4, src: Card4},
-    { id: 5, src: Card5},
-    { id: 6, src: Card6},
-    { id: 7, src: Card7},
+    { id: 1, src: Card1 },
+    { id: 2, src: Card2 },
+    { id: 3, src: Card3 },
+    { id: 4, src: Card4 },
+    { id: 5, src: Card5 },
+    { id: 6, src: Card6 },
+    { id: 7, src: Card7 },
     { id: 8, src: Card8 },
-    { id: 9, src: Card9},
-    { id: 10, src: Card10}
-  ]
+    { id: 9, src: Card9 },
+    { id: 10, src: Card10 },
+  ];
   const [duration, setDuration] = useState(null);
 
   useEffect(() => {
@@ -224,7 +234,22 @@ function LikedPlayList() {
                   <MdDownloadDone className="w-6 h-6 text-iOrange" />
                 )}
               </button>
-              <BsThreeDotsVertical className="h-6 text-iOrange" />
+              <div
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className="relative"
+              >
+                <BsThreeDotsVertical className="h-6 text-iOrange" />
+                {showDropdown && (
+                  <ul className="dropdown">
+                    <li>Add to Queue</li>
+                    <li>Add to Profile</li>
+                    <li>Add to Playlist</li>
+                    <li>Add to Library</li>
+                    <li>Report</li>
+                  </ul>
+                )}
+              </div>
             </div>
             <div className="flex gap-6">
               <button className="w-[102px] h-[38px] text-iBlue border border-iBlue rounded bg-iWhite hover:bg-iLightBlue">
@@ -266,7 +291,7 @@ function LikedPlayList() {
                   <button
                     onClick={() =>
                       navigateTo("/playing-music", {
-                        state: item
+                        state: item,
                       })
                     }
                   >
@@ -282,16 +307,14 @@ function LikedPlayList() {
         <h1 className="text-3xl font-semibold text-iBlack mb-7">
           Suggested Videos
         </h1>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
-          {
-            data.map((item)=>{
-              return(
-                <div>
-                   <ProfileCard data={item} src={item.src}/>
-                </div>
-              )
-            })
-          }
+        <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+          {data.map((item) => {
+            return (
+              <div>
+                <ProfileCard data={item} src={item.src} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

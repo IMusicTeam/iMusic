@@ -8,3 +8,32 @@
   height:72px
 }
 .musicList::-webkit-scrollbar{ display: none; }
+
+.dropdown {
+  position: absolute;
+  top: 49%;
+  left: 17px;
+  background-color: white;
+  border: 0.5px solid #f1995e;
+  border-radius: 5px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width:148px;
+  height:auto;
+  text-align: left;
+}
+
+.dropdown li {
+  padding: 8px 5px 8px 26px;
+  border: #f1995e 0.5px solid;
+  font-size: 16px;
+  border-radius: 5px;
+  margin:-1px;
+}
+
+.dropdown li:hover {
+  background-color: #DEEEFF;
+}

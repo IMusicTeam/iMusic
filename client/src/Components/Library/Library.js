@@ -31,6 +31,16 @@ import Card27 from '../../Assets/Assets/CardImages/Card27.png';
 import Card28 from '../../Assets/Assets/CardImages/Card28.png';
 import Card29 from '../../Assets/Assets/CardImages/Card29.png';
 import Card30 from '../../Assets/Assets/CardImages/Card30.png';
+import rounded1 from "../../Assets/Assets/CardImages/Rounded1.png";
+import rounded2 from "../../Assets/Assets/CardImages/Rounded2.png";
+import rounded3 from "../../Assets/Assets/CardImages/Rounded3.png";
+import rounded4 from "../../Assets/Assets/CardImages/Rounded4.png";
+import rounded5 from "../../Assets/Assets/CardImages/Rounded5.png";
+import rounded6 from "../../Assets/Assets/CardImages/Rounded6.png";
+import rounded7 from "../../Assets/Assets/CardImages/Rounded7.png";
+import rounded8 from "../../Assets/Assets/CardImages/Rounded8.png";
+import rounded9 from "../../Assets/Assets/CardImages/Rounded9.png";
+import rounded10 from "../../Assets/Assets/CardImages/Rounded10.png";
 
 function Library() {
   const data6 = [
@@ -118,16 +128,16 @@ function Library() {
     { id: 10, src: Card5},
   ] 
   const data7 = [
-    { id: 1, src: Card20},
-    { id: 2, src: Card11},
-    { id: 3, src: Card12},
-    { id: 4, src: Card13 },
-    { id: 5, src: Card14},
-    { id: 6, src: Card15},
-    { id: 7, src: Card6},
-    { id: 8, src: Card6},
-    { id: 9, src: Card8},
-    { id: 10, src: Card9}
+    { id: 1, src: Card21},
+    { id: 2, src: Card22},
+    { id: 3, src: Card23},
+    { id: 4, src: Card24 },
+    { id: 5, src: Card25},
+    { id: 6, src: Card26},
+    { id: 7, src: Card27},
+    { id: 8, src: Card28},
+    { id: 9, src: Card29},
+    { id: 10, src: Card30}
   ] 
   const data2 = [
     { id: 1, src: Card1},
@@ -141,6 +151,18 @@ function Library() {
     { id: 9, src: Card11},
     { id: 10, src: Card12}
   ] 
+  const rounded = [
+    { id: 1, src: rounded1},
+    { id: 2, src: rounded2},
+    { id: 3, src: rounded3},
+    { id: 4, src: rounded4},
+    { id: 5, src: rounded5},
+    { id: 6, src: rounded6},
+    { id: 7, src: rounded7},
+    { id: 8, src: rounded8 },
+    { id: 9, src: rounded9},
+    { id: 10, src: rounded10}
+  ]
 
   return (
     <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px]">
@@ -233,7 +255,7 @@ function Library() {
       </div>
       <div>
         <div className="flex gap-6 max-w-[1632px] pl-[13px] overflow-x-scroll hidding-x-scroll">
-          {data5?.map((item) => {
+          {rounded?.map((item) => {
             return (
               <div>
                 <RoundedCard data={item} src={item.src}/>
