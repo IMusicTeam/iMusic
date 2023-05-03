@@ -1,6 +1,7 @@
 import React from "react";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import profile from "./../../Assets/profile.png"
+import EditIcon from "./../../Assets/EditIcon.png"
 
 function ProfileSettings(){
     return(
@@ -13,27 +14,27 @@ function ProfileSettings(){
        <div className=" flex flex-row gap-[76px] justify-start mt-[80px]">
         <div className="flex flex-col gap-[18px] mt-[60px]">
           <div>
-            <img src={profile} alt=""/> 
+            <img src={profile} alt="" className="w-[177px] h-[188px]"/> 
           </div>
           <div>
-            <p>Jane William</p>
+            <p className="text-[28px] text-cgy4">Jane William</p>
             <p className="mt-[9px]">Account ID: P1234</p>
           </div>
         </div>
 
         <div className="flex flex-col gap-[52px]">
           <div>
-            <p className="text-[20px] font-semibold">Email</p>
+            <p className="text-[20px] flex flex-row items-center gap-3 font-semibold"><div>Email</div><div><img src={EditIcon}/></div></p>
             <p className="text-iBlue text-[16px]">Janewilliam123@gmail.com</p>
           </div>
 
           <div>
-            <p className="text-[20px] font-semibold">Phone Number</p>
+            <p className="text-[20px] flex flex-row items-center gap-3 font-semibold"><div>Phone Number</div><div><img src={EditIcon}/></div></p>
             <p className="text-iBlue text-[16px]">+1 94)0-763-2207</p>
           </div>
 
           <div>
-            <p className="text-[20px] font-semibold">Address</p>
+            <p className="text-[20px] flex flex-row items-center gap-3 font-semibold"><div>Address</div><div><img src={EditIcon}/></div></p>
             <p className="text-iBlue text-[16px] w-[210px]">Street: 4480 Elk Creek Road. City: Norcross. State/province/area: Georgia. Zip code 30071</p>
           </div>
 

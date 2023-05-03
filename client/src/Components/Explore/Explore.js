@@ -217,8 +217,8 @@ function Explore() {
         <div className="pb-[32px]">
           <div className="flex flex-row justify-between pt-[28px]">
             <h1 className="text-[30px] font-semibold">New releases</h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              Sell All
+            <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
+              See All
             </h5>
           </div>
 
@@ -235,7 +235,7 @@ function Explore() {
           <div className="flex flex-row justify-between">
             <h1 className="text-[30px] font-semibold mt-[28px]">Top charts</h1>
             <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              Sell All
+              See All
             </h5>
           </div>
 
@@ -254,7 +254,7 @@ function Explore() {
               Recommended for you
             </h1>
             <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              Sell All
+              See All
             </h5>
           </div>
 
@@ -273,7 +273,7 @@ function Explore() {
               Featured playlists Based on Mood
             </h1>
             <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              Sell All
+              See All
             </h5>
           </div>
           <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -291,7 +291,7 @@ function Explore() {
               Last Spotlight
             </h1>
             <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              Sell All
+              See All
             </h5>
           </div>
           <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -309,7 +309,7 @@ function Explore() {
               Radio stations
             </h1>
             <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              Sell All
+              See All
             </h5>
           </div>
 
@@ -328,7 +328,7 @@ function Explore() {
               Your Playlists
             </h1>
             <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              Sell All
+              See All
             </h5>
           </div>
 
@@ -347,7 +347,7 @@ function Explore() {
               Top Playlists
             </h1>
             <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              Sell All
+              See All
             </h5>
           </div>
 
@@ -366,7 +366,7 @@ function Explore() {
               Top Playlists
             </h1>
             <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              Sell All
+              See All
             </h5>
           </div>
 
