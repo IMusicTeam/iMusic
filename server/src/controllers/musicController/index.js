@@ -135,7 +135,7 @@ class MusicController {
         res.status(codes.badRequest).json({ message: strings.idNotFound });
       }
     } catch (err) {
-      res.status(codes.serverError).json({ message: strings.serverError });
+      serverDown(res);
     }
   }
 
@@ -173,6 +173,15 @@ class MusicController {
               { returnOriginal: false }
             );
           } else {
+            // const data = SaveFavourite.findOneAndDelete(
+            //   { userID: userID },
+            //   { $pull: {allSongs: {_id : songId}} },
+            //   { returnOriginal: false }
+            // )
+            //   return res
+            //     .status(codes.moved)
+            //     .json({ message: strings.alreadyExists, data });
+            // }
             return res
               .status(codes.moved)
               .json({ message: strings.alreadyExists });
@@ -194,6 +203,27 @@ class MusicController {
       res.status(codes.badRequest).json({ message: strings.failure});
     }
   }
+
+  async GET_allFavourites(req, res) {
+    const { userID } = req.query;
+    const getAll = await SaveFavourite.aggregate(
+      [ { $match : { userID : userID } } ]
+    );
+    try {
+      if(getAll){
+        return res
+          .status(codes.found)
+          .json({ message: strings.sucesss, data: getAll });
+      }else {
+        res.status(codes.badRequest).json({ message: strings.idNotFound });
+      }
+    }catch {
+      serverDown(res);
+    }
+  }
+
+
+
 }
 const musicController = new MusicController();
 module.exports = musicController;

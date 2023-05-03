@@ -48,6 +48,7 @@ const strings = {
     noContent: 204,
     partialContent: 206,
     moved: 301,
+    found: 302,
     badRequest: 400,
     unauthorized: 401,
     paymentRequired: 402,
