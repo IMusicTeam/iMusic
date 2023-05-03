@@ -167,10 +167,10 @@ function MusicCarousel() {
     <div className='pl-[34px] pb-[32px]'>
         <div className='flex flex-row justify-between'>
         <h1 className='text-[30px] font-semibold'>New releases</h1>
-        <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
+        <h5 className='underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]'>See All</h5>
         </div>
 
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+      <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {musicList.map((item)=>{
           return(
             <div>
@@ -182,7 +182,7 @@ function MusicCarousel() {
 
         <div className='flex flex-row justify-between'>
         <h1 className='text-[30px] font-semibold mt-[28px]'>Top charts</h1>
-        <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
+        <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
         </div>
 
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -199,7 +199,7 @@ function MusicCarousel() {
 
       <div className='flex flex-row justify-between'>
          <h1 className='text-[30px] font-semibold mt-[28px]'>Recommended for you</h1>
-         <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
+         <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
       </div>   
 
       <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -216,7 +216,7 @@ function MusicCarousel() {
 
       <div className='flex flex-row justify-between'>
       <h1 className='text-[30px] font-semibold mt-[28px]'>Featured playlists Based on Mood</h1>
-      <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
+      <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
     </div>
     <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
@@ -232,7 +232,7 @@ function MusicCarousel() {
 
       <div className='flex flex-row justify-between'>
       <h1 className='text-[30px] font-semibold mt-[28px]'>Last Spotlight</h1>
-      <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
+      <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
     </div>
     <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
@@ -261,7 +261,7 @@ function MusicCarousel() {
 
       <div className='flex flex-row justify-between'>
       <h1 className='text-[30px] font-semibold mt-[28px]'>Radio stations</h1>
-      <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
+      <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
     </div>
 
     <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -279,7 +279,7 @@ function MusicCarousel() {
 
       <div className='flex flex-row justify-between'>
       <h1 className='text-[30px] font-semibold mt-[28px]'>Your Playlists</h1>
-      <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
+      <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
     </div>
 
     <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -297,7 +297,7 @@ function MusicCarousel() {
 
       <div className='flex flex-row justify-between'>
       <h1 className='text-[30px] font-semibold mt-[28px]'>Top Playlists</h1>
-      <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
+      <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
     </div>
 
     <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -314,7 +314,7 @@ function MusicCarousel() {
 
      <div className='flex flex-row justify-between'>
      <h1 className='text-[30px] font-semibold mt-[28px]'>Top Playlists</h1>
-      <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>Sell All</h5>
+      <h5 className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
     </div>
       
     <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>

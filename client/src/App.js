@@ -47,7 +47,7 @@ function App() {
    <Route path="/search" element={<Search />} />
    <Route path="/uploadMusic" element={<UploadMusic /> }/>
    <Route path="/exploreScreen" element={<Explore />}/>
-   <Route path="/playlistPage" element={<Playlist />}/>
+   <Route path="/playlists" element={<Playlist />}/>
    <Route path="/yourlibrary" element={<Library />} />
    <Route path="/albums" element={<Albums />} />
    <Route path="/playing-music" element={<Playing />} />

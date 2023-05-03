@@ -31,6 +31,8 @@ module.exports = {
       iWhite:"#fff",
       igray: "#EBEBEB",
       igray1:'#2E374E',
+      igray2:'#32CD32',
+      igray3:'#CDFFCD',
       // 'c' refers to coyni,ib refers to ibaas, 'gy' refers to Gray color
 
          ibgy1: "#404040",
