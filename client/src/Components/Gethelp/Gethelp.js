@@ -14,6 +14,10 @@ const HandelNavigation = (val) =>{
   navigatTo(val)
 }
 
+const handleContactUs = () =>{
+  navigatTo('/profiles/getHelp/contactUs')
+}
+
   const HandelShow = (item) => {
     if (select === item.id) {
       setSelect("");
@@ -92,12 +96,16 @@ const HandelNavigation = (val) =>{
           );
         })}
 
-        <p className="mt-[212px] text-center">
+        <div className="mt-[212px] text-center">
+        <span style={{display: 'inline-block'}}> <p>
         Not yet answered your Query?
-          <a href="" className="text-iBlue hover:underline">
+        </p></span>
+        <span style={{display: 'inline-block'}}>
+        <p className="text-iBlue underline hover:text-iOrange" onClick={handleContactUs}>
             Contact Us
-          </a>
-        </p>
+          </p>
+        </span>
+        </div>
       </div>
     )
 }

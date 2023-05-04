@@ -1,6 +1,6 @@
 import LeftArrow from "./../../../Assets/images/MenuLeftIcon.svg";
 import RightArrow from "./../../../Assets/images/MenuRightIcon.svg";
-import DashboardMenuItems from "./../../Atoms/MenuItem/MenuItem";
+// import MenuItem from "./../../Atoms/MenuItem/MenuItem";
 import MultiColorIcon from "./../../Atoms/MultiColorIcon/MultiColorIcon";
 import MenuItem from "./../../Atoms/MenuItem/MenuItem";
 import { motion } from "framer-motion";
@@ -67,7 +67,7 @@ export const DashboardMenu = () => {
           <div>
             {/* Home-button */}
             <div className="mb-2" onClick={() => navigate("/")}>
-              <DashboardMenuItems
+              <MenuItem
                 isActive={true}
                 icon={
                   home
@@ -82,10 +82,10 @@ export const DashboardMenu = () => {
               <MenuItem
                 onClickOutside={true}
                 ClickedOut={isOpen}
-                url={"/my-profile"}
+                url={"/profile"}
                 icon={profile}
                 iconClassname={`${styles.iconProfile}`}
-                label={ "Profile"}
+                label={"Profile"}
                 key={"merchant-activity"}
                 className={`${styles.iconProfile}`}
                 // isDisable={
@@ -126,7 +126,7 @@ export const DashboardMenu = () => {
                     <div
                       className={`${styles.NavLinkButtons} ${
                         location.pathname.includes(
-                          "/my-profile/payment-methods"
+                          "/profile/settings"
                         ) && "bg-ibm8 text-ibm2 rounded-[10px]"
                       } text-ibgy1 hover:text-ibm2`}
                     >
@@ -148,7 +148,7 @@ export const DashboardMenu = () => {
                     <div
                       className={`${styles.NavLinkButtons} ${
                         location.pathname.includes(
-                          "/my-profile/change-password"
+                          "/profile/get-help"
                         ) && "bg-ibm8 text-ibm2 rounded-[10px]"
                       } text-ibgy1 hover:text-ibm2`}
                     >
@@ -166,7 +166,7 @@ export const DashboardMenu = () => {
             </div>
             {/* settings-button */}
             <div className="mb-2" onClick={() => navigate("/exploreScreen")}>
-              <DashboardMenuItems
+              <MenuItem
                 isActive={true}
                 icon={ explore }
                 label="Explore"
@@ -176,7 +176,7 @@ export const DashboardMenu = () => {
             </div>
             {/* Statement-button */}
             <div className="mb-2" onClick={() => navigate("/yourlibrary")}>
-              <DashboardMenuItems
+              <MenuItem
                 icon={
                   yourlibrary
                 }
@@ -188,7 +188,7 @@ export const DashboardMenu = () => {
             </div>
             {/* ContactUs-button */}
             <div className="mb-2" onClick={() => navigate("/albums")}>
-              <DashboardMenuItems
+              <MenuItem
                 icon={
                   album
                 }
@@ -200,7 +200,7 @@ export const DashboardMenu = () => {
             </div>
             {/* Export-button */}
             <div className="mb-2" onClick={() => navigate("/playlists")}>
-              <DashboardMenuItems
+              <MenuItem
                 icon={
                   playlist
                 }
@@ -211,7 +211,7 @@ export const DashboardMenu = () => {
             </div>
             {/* GetHelp-button */}
             <div className="mb-2" onClick={() => navigate("/likedMusic")}>
-              <DashboardMenuItems
+              <MenuItem
                 icon={
                   liked
                 }
@@ -225,7 +225,7 @@ export const DashboardMenu = () => {
           {/* SignOut-button */}
           <div className="mt-10 pb-[138px]">
             <div className="mb-2">
-              <DashboardMenuItems
+              <MenuItem
                 icon={
                   signout
                 }
@@ -332,7 +332,7 @@ export const DashboardMenuMini = () => {
               className="mb-2"
               onClick={() => navigate("/merchant-activity")}
             >
-              <DashboardMenuItems
+              <MenuItem
                 isActive={true}
                 logo={
                   <MultiColorIcon
@@ -347,7 +347,7 @@ export const DashboardMenuMini = () => {
             </div>
             {/* Customer Dashboard*/}
             <div className="mb-2" onClick={() => navigate("/Home/dashboard")}>
-              <DashboardMenuItems
+              <MenuItem
                 isActive={true}
                 logo={
                   <MultiColorIcon
@@ -362,7 +362,7 @@ export const DashboardMenuMini = () => {
             </div>
             {/* settings-button */}
             <div className="mb-2" onClick={() => navigate("/settings")}>
-              <DashboardMenuItems
+              <MenuItem
                 isActive={true}
                 logo={
                   <MultiColorIcon
@@ -523,7 +523,7 @@ export const DashboardMenuMini = () => {
             </div>
             {/* Statement-button */}
             <div className="mb-2" onClick={() => navigate("/statements")}>
-              <DashboardMenuItems
+              <MenuItem
                 logo={
                   <MultiColorIcon
                     icon="Statement"
@@ -538,7 +538,7 @@ export const DashboardMenuMini = () => {
             </div>
             {/* ContactUs-button */}
             <div className="mb-2">
-              <DashboardMenuItems
+              <MenuItem
                 logo={
                   <MultiColorIcon
                     icon="Contact_Us"
@@ -553,7 +553,7 @@ export const DashboardMenuMini = () => {
             </div>
             {/* Export-button */}
             <div className="mb-2" onClick={() => navigate("/exported-files")}>
-              <DashboardMenuItems
+              <MenuItem
                 logo={
                   <MultiColorIcon
                     icon="export-files"
@@ -567,7 +567,7 @@ export const DashboardMenuMini = () => {
             </div>
             {/* GetHelp-button */}
             <div className="mb-2">
-              <DashboardMenuItems
+              <MenuItem
                 logo={
                   <MultiColorIcon
                     icon="get-help"
@@ -583,7 +583,7 @@ export const DashboardMenuMini = () => {
             {/* SignOut-button */}
             <div className="mt-10 mb-[146px] pb-[138px]">
               <div className="mb-2">
-                <DashboardMenuItems
+                <MenuItem
                   logo={
                     <MultiColorIcon
                       icon="signout"
@@ -682,7 +682,7 @@ export const DashboardMenuMini = () => {
 //                   className="mb-2"
 //                   onClick={() => navigate("/merchant-activity")}
 //                 >
-//                   <DashboardMenuItems
+//                   <MenuItem
 //                     isActive={true}
 //                     logo={
 //                       <MultiColorIcon
@@ -700,7 +700,7 @@ export const DashboardMenuMini = () => {
 //                   className="mb-2"
 //                   onClick={() => navigate("/Home/dashboard")}
 //                 >
-//                   <DashboardMenuItems
+//                   <MenuItem
 //                     isActive={true}
 //                     logo={
 //                       <MultiColorIcon
@@ -715,7 +715,7 @@ export const DashboardMenuMini = () => {
 //                 </div>
 //                 {/* settings-button */}
 //                 <div className="mb-2" onClick={() => navigate("/settings")}>
-//                   <DashboardMenuItems
+//                   <MenuItem
 //                     isActive={true}
 //                     logo={
 //                       <MultiColorIcon
@@ -872,7 +872,7 @@ export const DashboardMenuMini = () => {
 //                 </div>
 //                 {/* Statement-button */}
 //                 <div className="mb-2" onClick={() => navigate("/statements")}>
-//                   <DashboardMenuItems
+//                   <MenuItem
 //                     logo={
 //                       <MultiColorIcon
 //                         icon="Statement"
@@ -887,7 +887,7 @@ export const DashboardMenuMini = () => {
 //                 </div>
 //                 {/* ContactUs-button */}
 //                 <div className="mb-2">
-//                   <DashboardMenuItems
+//                   <MenuItem
 //                     logo={
 //                       <MultiColorIcon
 //                         icon="Contact_Us"
@@ -905,7 +905,7 @@ export const DashboardMenuMini = () => {
 //                   className="mb-2"
 //                   onClick={() => navigate("/exported-files")}
 //                 >
-//                   <DashboardMenuItems
+//                   <MenuItem
 //                     logo={
 //                       <MultiColorIcon
 //                         icon="export-files"
@@ -919,7 +919,7 @@ export const DashboardMenuMini = () => {
 //                 </div>
 //                 {/* GetHelp-button */}
 //                 <div className="mb-2">
-//                   <DashboardMenuItems
+//                   <MenuItem
 //                     logo={
 //                       <MultiColorIcon
 //                         icon="get-help"
@@ -936,7 +936,7 @@ export const DashboardMenuMini = () => {
 //               {/* SignOut-button */}
 //               <div className="mt-10 pb-[138px]">
 //                 <div className="mb-2">
-//                   <DashboardMenuItems
+//                   <MenuItem
 //                     logo={
 //                       <MultiColorIcon
 //                         icon="signout"
@@ -1039,7 +1039,7 @@ export const DashboardMenuFloat = () => {
                 className="mb-2"
                 // onClick={() => history.push("/merchant-activity")}
               >
-                <DashboardMenuItems
+                <MenuItem
                   isActive={true}
                   logo={
                     <MultiColorIcon
@@ -1057,7 +1057,7 @@ export const DashboardMenuFloat = () => {
                 className="mb-2"
                 // onClick={() => history.push("/Home/dashboard")}
               >
-                <DashboardMenuItems
+                <MenuItem
                   isActive={true}
                   logo={
                     <MultiColorIcon
@@ -1075,7 +1075,7 @@ export const DashboardMenuFloat = () => {
                 className="mb-2"
                 // onClick={() => history.push("/settings")}
               >
-                <DashboardMenuItems
+                <MenuItem
                   isActive={true}
                   logo={
                     <MultiColorIcon
@@ -1199,7 +1199,7 @@ export const DashboardMenuFloat = () => {
                 className="mb-2"
                 // onClick={() => history.push("/statements")}
               >
-                <DashboardMenuItems
+                <MenuItem
                   logo={
                     <MultiColorIcon
                       icon="Statement"
@@ -1214,7 +1214,7 @@ export const DashboardMenuFloat = () => {
               </div>
               {/* ContactUs-button */}
               <div className="mb-2">
-                <DashboardMenuItems
+                <MenuItem
                   logo={
                     <MultiColorIcon
                       icon="Contact_Us"
@@ -1232,7 +1232,7 @@ export const DashboardMenuFloat = () => {
                 className="mb-2"
                 // onClick={() => history.push("/exported-files")}
               >
-                <DashboardMenuItems
+                <MenuItem
                   logo={
                     <MultiColorIcon
                       icon="export-files"
@@ -1246,7 +1246,7 @@ export const DashboardMenuFloat = () => {
               </div>
               {/* GetHelp-button */}
               <div className="mb-2">
-                <DashboardMenuItems
+                <MenuItem
                   logo={
                     <MultiColorIcon
                       icon="get-help"
@@ -1266,7 +1266,7 @@ export const DashboardMenuFloat = () => {
               // onClick={handleLogout}
             >
               <div className="mb-2">
-                <DashboardMenuItems
+                <MenuItem
                   logo={
                     <MultiColorIcon
                       icon="signout"

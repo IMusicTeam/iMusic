@@ -6,6 +6,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { FiShuffle } from "react-icons/fi";
 import { MdDownloadDone } from "react-icons/md";
 import "../LikedPlayList/LikedPlayList.css";
+import Loadingforimusic from "./../../Assets/Loadingforimusic.gif"
 import ProfileCard from "../musicCarosal/ProfileCrad/ProfilesCard";
 import Card1 from "../../Assets/Assets/CardImages/Card1.png";
 import Card2 from "../../Assets/Assets/CardImages/Card2.png";
@@ -25,6 +26,7 @@ function LikedPlayList() {
   const [likedData, setLikedData] = useState();
   const navigateTo = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
+  const [loader, setLoader] = useState(true);
 
   const handleMouseEnter = () => {
     setShowDropdown(true);
@@ -202,12 +204,21 @@ function LikedPlayList() {
       });
   }, []);
 
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setLoader(false)
+    },5000)
+  },[])
+
   function formatDuration(duration) {
     const minutes = Math.round(duration / 60);
     const seconds = Math.round(duration % 60);
     return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
   }
   return (
+    <>
+    {loader ? <div className="flex justify-center items-center h-[705px]"><img src={Loadingforimusic}/></div> :
     <div className="bg-iGray2">
       <div className="h-[389px] bg-iLightBlue pl-[142px] border-iGray4 border">
         <h3 className="text-iOrange font-semibold text-[28px] mb-[28px] mt-12">
@@ -263,7 +274,7 @@ function LikedPlayList() {
           </div>
         </div>
       </div>
-      <div className="pl-[142px] pt-[139px] pr-14">
+       <div className="pl-[142px] pt-[139px] pr-14">
         <div className="h-[864px] overflow-y-auto musicList mb-5">
           {likedData?.map((item, index) => {
             return (
@@ -318,7 +329,8 @@ function LikedPlayList() {
           })}
         </div>
       </div>
-    </div>
+    </div>}
+    </>
   );
 }
 export default LikedPlayList;
