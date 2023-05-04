@@ -31,22 +31,34 @@ import Card27 from '../../Assets/Assets/CardImages/Card27.png';
 import Card28 from '../../Assets/Assets/CardImages/Card28.png';
 import Card29 from '../../Assets/Assets/CardImages/Card29.png';
 import Card30 from '../../Assets/Assets/CardImages/Card30.png';
+import rounded1 from "../../Assets/Assets/CardImages/Rounded1.png";
+import rounded2 from "../../Assets/Assets/CardImages/Rounded2.png";
+import rounded3 from "../../Assets/Assets/CardImages/Rounded3.png";
+import rounded4 from "../../Assets/Assets/CardImages/Rounded4.png";
+import rounded5 from "../../Assets/Assets/CardImages/Rounded5.png";
+import rounded6 from "../../Assets/Assets/CardImages/Rounded6.png";
+import rounded7 from "../../Assets/Assets/CardImages/Rounded7.png";
+import rounded8 from "../../Assets/Assets/CardImages/Rounded8.png";
+import rounded9 from "../../Assets/Assets/CardImages/Rounded9.png";
+import rounded10 from "../../Assets/Assets/CardImages/Rounded10.png";
+
 import axios from 'axios'
 
 function MusicCarousel() {
   const [musicList, setMusicList] = useState([]);
   const [loading, setLoading] = useState(true);
+
   const data = [
-    { id: 1, src: Card1},
-    { id: 2, src: Card2},
-    { id: 3, src: Card3},
-    { id: 4, src: Card4},
-    { id: 5, src: Card5},
-    { id: 6, src: Card6},
-    { id: 7, src: Card7},
-    { id: 8, src: Card8 },
-    { id: 9, src: Card9},
-    { id: 10, src: Card10}
+    { id: 1, src: rounded1},
+    { id: 2, src: rounded2},
+    { id: 3, src: rounded3},
+    { id: 4, src: rounded4},
+    { id: 5, src: rounded5},
+    { id: 6, src: rounded6},
+    { id: 7, src: rounded7},
+    { id: 8, src: rounded8 },
+    { id: 9, src: rounded9},
+    { id: 10, src: rounded10}
   ]
   const data1 = [
     { id: 1, src: Card11},
@@ -248,7 +260,7 @@ function MusicCarousel() {
 
         <div className='flex flex-row gap-[30px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
-            data2.map((item)=>{
+            data.map((item)=>{
               return (
                 <div>
                   <RoundedCard data={item} src={item.src}/>
