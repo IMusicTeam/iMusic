@@ -170,12 +170,13 @@ function LikedPlayList() {
   const [duration, setDuration] = useState(null);
 
   useEffect(() => {
+    const userId="Shahul123"
     axios
-      .get("http://localhost:3000/IMusic/liked-songs")
+      .get("http://localhost:3000/IMusic/get-all-favourites?userID="+userId)
       .then(async (res) => {
         const musicWithDurations = await Promise.all(
-          res.data.data.map(async (music) => {
-            const audio = new Audio(music.audio);
+          res.data.data[0].allSongs.map(async (music) => {
+            const audio = new Audio(music.tune[0]);
             const duration = await new Promise((resolve) => {
               audio.addEventListener("loadedmetadata", () => {
                 resolve(audio.duration);
@@ -244,7 +245,7 @@ function LikedPlayList() {
               <div key={index}>
                 <div className="listed-rows w-[1477px]">
                   <img
-                    src={item.image}
+                    src={item.songThumbnail}
                     alt=""
                     className="w-16 h-16 rounded-full"
                   />

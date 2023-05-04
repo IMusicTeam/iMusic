@@ -4,7 +4,7 @@ import ReduxSlice from './../Redux/Redux'
 // import rootReducer from './reducers';
 
 const store = configureStore({
-  reducer: ReduxSlice,
+ reducer:{  ReduxSlice}
 });
 
 export default store

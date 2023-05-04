@@ -174,7 +174,7 @@ function MusicCarousel() {
         {musicList.map((item)=>{
           return(
             <div>
-              <ProfileCard data={item} src={item.src} newRelease={true}/>
+              <ProfileCard data={item} src={item.songThumbnail} newRelease={true}/>
             </div>
           )
         })}

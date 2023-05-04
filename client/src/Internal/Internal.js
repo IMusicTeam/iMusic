@@ -38,7 +38,7 @@ const Internal = () => {
           {/* <div className={styles.internal_template__container}> */}
             {/* <InternalHeader /> */}
             {/* <ToastProvider /> */}
-            <App/>
+            {/* <App/> */}
             <TopBar />
             <Outlet />
             {/* <Player /> */}
