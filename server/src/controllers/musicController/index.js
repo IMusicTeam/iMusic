@@ -212,7 +212,7 @@ class MusicController {
     try {
       if(getAll){
         return res
-          .status(codes.found)
+          .status(codes.success)
           .json({ message: strings.sucesss, data: getAll });
       }else {
         res.status(codes.badRequest).json({ message: strings.idNotFound });

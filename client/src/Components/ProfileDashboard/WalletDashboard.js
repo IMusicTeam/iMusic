@@ -5,7 +5,10 @@ import styles from "./WalletDashboard.module.scss";
 import image2 from "./../../Assets/Assets/CardImages/HomeCard1.png";
 import image3 from "./../../Assets/Assets/CardImages/HomeCard2.png";
 import EditIcon from "../../Assets/EditIcon.png";
+import { useSelector } from "react-redux";
 function WalletDashboard() {
+  const wallet = useSelector(state => state.ReduxSlice.data);
+
   const data = [
     {
       date: "16/09/22 - 12:05:45",
@@ -126,10 +129,10 @@ function WalletDashboard() {
 
           <div className="flex flex-col gap-[37px]">
             <div className="text-igray1 text-[22px] font-semibold pt-[36px] pl-[19px] w-[225px] h-[63px]">
-              Wallet ID: XXXX XXXX XXXX XX39
+              Wallet ID: {wallet.account}
             </div>
             <div className="mt-[37px] text-cgy4 text-[54px] font-semibold pl-[57px]">
-              $180.00
+              ${wallet.balanceInEther}
             </div>
           </div>
           

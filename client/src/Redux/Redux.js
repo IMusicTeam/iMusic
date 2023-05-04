@@ -1,17 +1,22 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-    darkMode:false
+   data:{
+     metaMaskDetails:{
+     }
+   }
 }
 
 const ReduxSlice = createSlice({
-    name:"Todo",
+    name:"Metamask",
     initialState,
     reducers:{
-        
+        updateMetaMaskDetails: (state,{payload}) => {
+            state.data.metaMaskDetails= {...state.data.metaMaskDetails, ...payload.data}
+        }
     }
 
 })
 
+export const {updateMetaMaskDetails} = ReduxSlice.actions
 export default ReduxSlice.reducer
-export const {changeBg} = ReduxSlice.actions

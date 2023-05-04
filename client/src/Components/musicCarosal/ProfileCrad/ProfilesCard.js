@@ -4,10 +4,10 @@ import "./ProfileCard.css";
 import { useNavigate } from "react-router";
 
 function ProfileCard({ data, src,newRelease }) {
-  var src=src
-  if(newRelease){
- src=data.image
-  }
+//   var src=src
+//   if(newRelease){
+//  src=data.image
+//   }
   const navigateTo=useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [indexValue, setIndexValue] = useState("");

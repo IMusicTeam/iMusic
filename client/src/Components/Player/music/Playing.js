@@ -18,7 +18,11 @@ function Playing() {
   },[data])
 const HandelLikeSong =()=>{
   setIsLiked(!isLiked)
-axios.post("http://localhost:3000/IMusic/liked-song", data).then((res)=>{
+  const payload ={
+    userID:"Shahul123",
+    songId:data._id
+  }
+axios.post("http://localhost:3000/IMusic/save-as-favourites", payload).then((res)=>{
   console.log(res)
 }).catch((err)=>{
   console.log(err.message)
@@ -33,7 +37,7 @@ axios.post("http://localhost:3000/IMusic/liked-song", data).then((res)=>{
         <div className="absolute z-1 top-[126px]">
           <img
             className="musicCover max-w-[280px] h-[190px]"
-            src={player.image}
+            src={player.songThumbnail}
             alt="image"
           />
         </div>
@@ -48,7 +52,7 @@ axios.post("http://localhost:3000/IMusic/liked-song", data).then((res)=>{
           <div className="relative">
             <div>
             <ReactAudioPlayer
-              src={player.audio}
+              src={player.tune[0]}
               className="custom-audio-player" // Add your own class name here
               controls
             />
