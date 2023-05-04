@@ -199,13 +199,13 @@ export const DashboardMenu = () => {
               />
             </div>
             {/* Export-button */}
-            <div className="mb-2" onClick={() => navigate("/playlistPage")}>
+            <div className="mb-2" onClick={() => navigate("/playlists")}>
               <DashboardMenuItems
                 icon={
                   playlist
                 }
                 label="Playlists"
-                url={"/playlistPage"}
+                url={"/playlists"}
                 id={"exportedFiles"}
               />
             </div>

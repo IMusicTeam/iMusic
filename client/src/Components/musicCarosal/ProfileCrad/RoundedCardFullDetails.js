@@ -129,7 +129,7 @@ function RoundedCardFullDetails({data}) {
           Recommended for you
         </h1>
         <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-          Sell All
+          See All
         </h5>
       </div>
       <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -147,7 +147,7 @@ function RoundedCardFullDetails({data}) {
           Featured playlists Based on Mood
         </h1>
         <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-          Sell All
+          See All
         </h5>
       </div>
       <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -163,7 +163,7 @@ function RoundedCardFullDetails({data}) {
       <div className="flex flex-row justify-between">
         <h1 className="text-[30px] font-semibold mt-[28px]">Last Spotlight</h1>
         <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-          Sell All
+          See All
         </h5>
       </div>
       <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -179,7 +179,7 @@ function RoundedCardFullDetails({data}) {
       <div className="flex flex-row justify-between">
         <h1 className="text-[30px] font-semibold mt-[28px]">Radio stations</h1>
         <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-          Sell All
+          See All
         </h5>
       </div>
       <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -195,7 +195,7 @@ function RoundedCardFullDetails({data}) {
       <div className="flex flex-row justify-between">
         <h1 className="text-[30px] font-semibold mt-[28px]">Your Playlists</h1>
         <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-          Sell All
+          See All
         </h5>
       </div>
       <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -211,7 +211,7 @@ function RoundedCardFullDetails({data}) {
       <div className="flex flex-row justify-between">
         <h1 className="text-[30px] font-semibold mt-[28px]">Top Playlists</h1>
         <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-          Sell All
+          See All
         </h5>
       </div>
       <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -227,7 +227,7 @@ function RoundedCardFullDetails({data}) {
       <div className="flex flex-row justify-between">
         <h1 className="text-[30px] font-semibold mt-[28px]">Top Playlists</h1>
         <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-          Sell All
+          See All
         </h5>
       </div>
       <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">

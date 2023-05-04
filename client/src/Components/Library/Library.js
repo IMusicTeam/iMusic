@@ -169,11 +169,11 @@ function Library() {
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">New releases</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-            Sell All
+          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
+            See All
           </h5>
         </div>
-        <div className="flex gap-6 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data?.map((item) => {
             return (
               <div>
@@ -186,11 +186,11 @@ function Library() {
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">Top charts</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-            Sell All
+          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
+            See All
           </h5>
         </div>
-        <div className="flex gap-6 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data1?.map((item) => {
             return (
               <div>
@@ -203,11 +203,11 @@ function Library() {
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">Recommended for you</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-            Sell All
+          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
+            See All
           </h5>
         </div>
-        <div className="flex gap-6 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data2?.map((item) => {
             return (
               <div>
@@ -222,11 +222,11 @@ function Library() {
           <h1 className="text-[30px] font-semibold">
             Featured playlists Based on Mood
           </h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-            Sell All
+          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
+            See All
           </h5>
         </div>
-        <div className="flex gap-6 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data3?.map((item) => {
             return (
               <div>
@@ -239,11 +239,11 @@ function Library() {
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">Last Spotlight</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-            Sell All
+          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
+            See All
           </h5>
         </div>
-        <div className="flex gap-6 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data4?.map((item) => {
             return (
               <div>
@@ -267,11 +267,11 @@ function Library() {
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">Radio stations</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-            Sell All
+          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
+            See All
           </h5>
         </div>
-        <div className="flex gap-6 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data6?.map((item) => {
             return (
               <div>
@@ -284,11 +284,11 @@ function Library() {
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">Your Playlists</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-            Sell All
+          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
+            See All
           </h5>
         </div>
-        <div className="flex gap-6 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data7?.map((item) => {
             return (
               <div>
@@ -301,11 +301,11 @@ function Library() {
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">Top Playlists</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-            Sell All
+          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
+            See All
           </h5>
         </div>
-        <div className="flex gap-6 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data8?.map((item) => {
             return (
               <div>
@@ -318,11 +318,11 @@ function Library() {
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">Top Playlists</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-            Sell All
+          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
+            See All
           </h5>
         </div>
-        <div className="flex gap-6 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data?.map((item) => {
             return (
               <div>

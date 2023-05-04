@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import arrow_drop_down_circle from "./../../Assets/images/arrow_drop_down_circle.svg";
 
@@ -6,7 +7,12 @@ function Gethelp(){
     const data = [{id:1, title:"What is NFT in iMusic?", dec:"An NFT can represent ownership of a specific music track, album, or even a concert ticket. The ownership can be transferred from one person to another through blockchain technology, and the token can be used to verify the authenticity of the music file. Moreover, it can help to track and distribute royalties for the artist and other contributors involved in the production of the music."},
     { id: 2, title:"Why is wallet Connection is mandatory in iMusic", dec:"iMusic is one of a handful of streaming platforms with its own cryptocurrency, iMUSIC. When an artist publishes music on iMusic, the artist receives compensation on a pay per play basis. iMusic listeners can listen to ad-free music at no charge, but are encouraged to tip their favorite artist or purchase merchandise and concert tickets with the iMusic currency."},
      { id: 3 , title:"How iMusic manages my wallet?", dec:"The smart contract component of blockchain technology can potentially solve this issue. Smart contracts can include which percentage of the revenue goes to each member of the band, the music label, the manager, etc., and pay artists immediately."}];
-  const [select, setSelect] = useState("");
+     const navigatTo=useNavigate();
+     const [select, setSelect] = useState("");
+
+const HandelNavigation = (val) =>{
+  navigatTo(val)
+}
 
   const HandelShow = (item) => {
     if (select === item.id) {
@@ -25,26 +31,26 @@ function Gethelp(){
 
         <div className="flex flex-col justify-start flex-wrap text-ibm1 gap-5 text-[16px] mt-5">
           <div className="flex flex-row gap-[135px]">
-            <p className="w-[128px] underline hover:text-iOrange">
+            <p onClick={()=>HandelNavigation('/uploadMusic')} className="w-[128px] underline hover:text-iOrange">
               Upload Music
             </p>
-            <p className="w-[128px] underline hover:text-iOrange">
+            <p onClick={()=>HandelNavigation('/profile/settings')} className="w-[128px] underline hover:text-iOrange">
               Change my Email
             </p>
-            <p className="w-[128px] underline hover:text-iOrange">Playlist</p>
-            <p className="w-[128px] underline hover:text-iOrange">Explore</p>
-            <p className="w-[128px] underline hover:text-iOrange">My Library</p>
+            <p onClick={()=>HandelNavigation('/playlists')} className="w-[128px] underline hover:text-iOrange">Playlist</p>
+            <p onClick={()=>HandelNavigation('/exploreScreen')} className="w-[128px] underline hover:text-iOrange">Explore</p>
+            <p onClick={()=>HandelNavigation('/yourlibrary')} className="w-[128px] underline hover:text-iOrange">My Library</p>
           </div>
           <div className="flex flex-row gap-[135px]">
-            <p className="w-[128px] underline hover:text-iOrange">
+            <p onClick={()=>HandelNavigation('/profile/settings')} className="w-[128px] underline hover:text-iOrange">
               Edit Profile
             </p>
-            <p className="w-[128px] underline hover:text-iOrange">Albums</p>
-            <p className="w-[128px] underline hover:text-iOrange">
+            <p onClick={()=>HandelNavigation('/albums')} className="w-[128px] underline hover:text-iOrange">Albums</p>
+            <p onClick={()=>HandelNavigation('/profile/walletdashboard')} className="w-[128px] underline hover:text-iOrange">
               Wallet Dashboard
             </p>
-            <p className="w-[128px] underline hover:text-iOrange">Playlists</p>
-            <p className="w-[128px] underline hover:text-iOrange">
+            <p onClick={()=>HandelNavigation('/playlists')} className="w-[128px] underline hover:text-iOrange">Playlists</p>
+            <p onClick={()=>HandelNavigation('/likedMusic')} className="w-[128px] underline hover:text-iOrange">
               Liked Songs
             </p>
           </div>
