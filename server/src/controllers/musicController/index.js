@@ -2,6 +2,7 @@ const { codes, strings } = require("../../Constants");
 const { serverDown } = require("../../helpers/hooks");
 const Songs = require("../../models/music");
 const SaveFavourite = require("../../models/favourites");
+const { default: mongoose } = require("mongoose");
 
 class MusicController {
   async POST_song(req, res) {
@@ -173,15 +174,6 @@ class MusicController {
               { returnOriginal: false }
             );
           } else {
-            // const data = SaveFavourite.findOneAndDelete(
-            //   { userID: userID },
-            //   { $pull: {allSongs: {_id : songId}} },
-            //   { returnOriginal: false }
-            // )
-            //   return res
-            //     .status(codes.moved)
-            //     .json({ message: strings.alreadyExists, data });
-            // }
             return res
               .status(codes.moved)
               .json({ message: strings.alreadyExists });
@@ -195,35 +187,50 @@ class MusicController {
         }
         res.status(codes.created).json({ message: strings.liked });
       } else {
-        res
-          .status(codes.badRequest)
-          .json({ message: strings.idNotFound});
+        res.status(codes.badRequest).json({ message: strings.idNotFound });
       }
     } else {
-      res.status(codes.badRequest).json({ message: strings.failure});
+      res.status(codes.badRequest).json({ message: strings.failure });
     }
   }
 
+  async DeleteFromFavourites(req, res) {
+    const { userID, songId } = req.body;
+    console.log(userID, songId);
+    if ((userID, songId)) {
+      try {
+        const data = await SaveFavourite.updateOne(
+          { userID },
+          { $pull: { allSongs: { _id: songId.toString() } } },
+          { upsert: false, multi: true }
+        );
+        res.status(codes.success).json({ message: strings.sucesss, data });
+      } catch {
+        res.status(codes.badRequest).json({ message: strings.failure });
+      }
+    } else {
+      res.status(codes.badRequest).json({ message: strings.failure });
+    }
+  }
+
+  
   async GET_allFavourites(req, res) {
     const { userID } = req.query;
-    const getAll = await SaveFavourite.aggregate(
-      [ { $match : { userID : userID } } ]
-    );
+    const getAll = await SaveFavourite.aggregate([
+      { $match: { userID: userID } },
+    ]);
     try {
-      if(getAll){
+      if (getAll) {
         return res
           .status(codes.success)
           .json({ message: strings.sucesss, data: getAll });
-      }else {
+      } else {
         res.status(codes.badRequest).json({ message: strings.idNotFound });
       }
-    }catch {
+    } catch {
       serverDown(res);
     }
   }
-
-
-
 }
 const musicController = new MusicController();
 module.exports = musicController;
