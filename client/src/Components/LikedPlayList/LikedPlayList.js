@@ -198,6 +198,7 @@ function LikedPlayList() {
           })
         );
         setLikedData(musicWithDurations);
+        setLoader(false)
       })
       .catch((err) => {
         console.log(err.message);
@@ -205,11 +206,11 @@ function LikedPlayList() {
   }, []);
 
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      setLoader(false)
-    },5000)
-  },[])
+  // useEffect(()=>{
+  //   setTimeout(()=>{
+  //     setLoader(false)
+  //   },5000)
+  // },[])
 
   function formatDuration(duration) {
     const minutes = Math.round(duration / 60);
