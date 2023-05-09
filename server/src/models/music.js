@@ -26,6 +26,7 @@ const uploadSong = new mongoose.Schema(
       type: String,
       required: true,
     },
+    favourited: Boolean,
     songDescription: {
       type: String,
       required: true,

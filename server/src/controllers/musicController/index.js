@@ -16,6 +16,7 @@ class MusicController {
       lyrics,
       songName,
       songDescription,
+      favourited,
     } = req.body;
     try {
       if (
@@ -41,6 +42,7 @@ class MusicController {
         lyrics,
         songName,
         songDescription,
+        favourited,
       });
       await save.save();
       const data = save.toObject();
@@ -129,10 +131,12 @@ class MusicController {
     const { id } = req.query;
     try {
       if (id) {
+        // await Songs.updateOne({_id: songId }, {favourited: true}, {returnOriginal: false})
         const findSong = await Songs.findOne({ _id: id });
+      // const findSong = await SaveFavourite.find({"allSongs._id": id})
         return res
           .status(codes.success)
-          .json({ message: strings.fillAll, data: findSong });
+          .json({ message: strings.sucesss, data: findSong });
       } else {
         res.status(codes.badRequest).json({ message: strings.idNotFound });
       }
@@ -158,6 +162,7 @@ class MusicController {
     if ((userID, songId)) {
       const findSong = await Songs.find({ _id: songId });
       if (findSong && findSong.length > 0) {
+        //  await Songs.updateOne({_id: songId }, {favourited: true}, {returnOriginal: false})
         const findUserHasCollection = await SaveFavourite.find({
           userID: userID,
         });
@@ -197,24 +202,44 @@ class MusicController {
 
   async DeleteFromFavourites(req, res) {
     const { userID, songId } = req.body;
-    console.log(userID, songId);
     if ((userID, songId)) {
       try {
-        const data = await SaveFavourite.updateOne(
-          { userID },
-          { $pull: { allSongs: { _id: songId.toString() } } },
-          { upsert: false, multi: true }
+        // await Songs.updateOne({_id: songId }, {favourited: false}, {returnOriginal: false})
+        // // const data = await SaveFavourite..update({_id:102},{$unset: {"Information.Name":1}},{multi: true});
+        // const tempData = await SaveFavourite.find({userID})
+        // console.log(tempData)
+        // let filterd =  tempData[0].allSongs.filter(each => each._id !== songId)
+        // const data = await SaveFavourite.updateOne(
+        //   { userID: userID },
+        //   { $pull: { allSongs: {_id: songId} } },
+        //   { returnOriginal: false }
+        // );
+        // updateOne({ userID: "644e1876c2498b7fa15fb605"}, {$pull: {allSongs: {_id: ObjectId('6454f1a5a8b4397d73df5cba')}}})
+        const { modifiedCount } = await SaveFavourite.updateOne(
+          { userID: userID },
+          { $pull: { allSongs: { _id: songId } } },
+          { upsert: true, multi: true }
         );
-        res.status(codes.success).json({ message: strings.sucesss, data });
+        // const data = await SaveFavourite.findOneAndUpdate(
+        //   {'userID': userID},
+        //   {$pull: {'allSongs': {'_id': songId}}},
+        //   {new: true}
+        //   )
+        if (modifiedCount === 1) {
+          res.status(codes.success).json({ message: strings.sucesss });
+        } else {
+          res
+            .status(codes.badRequest)
+            .json({ message: strings.invalidCredentials });
+        }
       } catch {
         res.status(codes.badRequest).json({ message: strings.failure });
       }
     } else {
-      res.status(codes.badRequest).json({ message: strings.failure });
+      res.status(codes.badRequest).json({ message: strings.userNotFound });
     }
   }
 
-  
   async GET_allFavourites(req, res) {
     const { userID } = req.query;
     const getAll = await SaveFavourite.aggregate([

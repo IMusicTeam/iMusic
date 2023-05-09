@@ -38,7 +38,10 @@ const strings = {
     validationOnUpload: "only jpg png mp3 files are accepted",
 
     //liked
-    notFoundUser: "UserID not found"
+    notFoundUser: "UserID not found",
+
+    //OTP success
+    otpSentSuccessfully: "OTP sent successfully"
   };
   
   const codes = {
