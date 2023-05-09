@@ -16,5 +16,9 @@ router.get("/all-charts", musicController.GET_allCharts)
 router.post("/save-as-favourites", musicController.POST_likedSong)
 router.get("/get-all-favourites?:userID", musicController.GET_allFavourites)
 router.put("/remove-from-favourites", musicController.DeleteFromFavourites)
+router.post("/save-as-playlist", musicController.POST_Playlist)
+router.get("/get-all-playlist", musicController.GEt_allPlaylist)
+
+
 
 module.exports = router;

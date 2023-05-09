@@ -4,10 +4,22 @@ import image from "./../../Assets/image1.png";
 import { BsFillPlayFill } from "react-icons/bs";
 import HomeCard1 from "../../Assets/Assets/CardImages/HomeCard1.png"
 import HomeCard2 from "../../Assets/Assets/CardImages/HomeCard2.png"
-
+import rounded1 from "../../Assets/Assets/CardImages/Rounded1.png";
+import rounded2 from "../../Assets/Assets/CardImages/Rounded2.png";
+import rounded3 from "../../Assets/Assets/CardImages/Rounded3.png";
+import rounded4 from "../../Assets/Assets/CardImages/Rounded4.png";
+import rounded5 from "../../Assets/Assets/CardImages/Rounded5.png";
 
 function RecentlyPlayed() {
-  const data = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
+  const data = [
+    { id: 1, src: rounded1},
+    { id: 2, src: rounded2},
+    { id: 3, src: rounded3},
+    { id: 4, src: rounded4},
+    { id: 5, src: rounded5},
+   
+  ]
+  
   return (
     <div className="px-[34px] py-[42px] bg-iGray2">
       <div className="flex flex-row gap-[28px]">
@@ -38,8 +50,8 @@ function RecentlyPlayed() {
                 <div className="w-[204px] flex flex-row items-center gap-5 p-1">
                   <div>
                     <img
-                      src={image}
-                      alt="image"
+                      src={item.src}
+                      alt=""
                       className="w-[64px] h-[64px]"
                     />
                   </div>
