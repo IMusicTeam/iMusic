@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import likedImage from "../../Assets/images/likedImage.png";
 import { BsFillShareFill, BsFillPlayFill } from "react-icons/bs";
 import { AiOutlineDownload } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FiShuffle } from "react-icons/fi";
 import { MdDownloadDone } from "react-icons/md";
 import "../LikedPlayList/LikedPlayList.css";
+import { IoMdArrowBack } from "react-icons/io";
 import Loadingforimusic from "./../../Assets/Loadingforimusic.gif"
 import ProfileCard from "../musicCarosal/ProfileCrad/ProfilesCard";
 import Card1 from "../../Assets/Assets/CardImages/Card1.png";
@@ -18,15 +20,23 @@ import Card7 from "../../Assets/Assets/CardImages/Card7.png";
 import Card8 from "../../Assets/Assets/CardImages/Card8.png";
 import Card9 from "../../Assets/Assets/CardImages/Card9.png";
 import Card10 from "../../Assets/Assets/CardImages/Card10.png";
-import axios from "axios";
+import rounded1 from "../../Assets/Assets/CardImages/Rounded1.png";
+import rounded2 from "../../Assets/Assets/CardImages/Rounded2.png";
+import rounded3 from "../../Assets/Assets/CardImages/Rounded3.png";
+import rounded4 from "../../Assets/Assets/CardImages/Rounded4.png";
+import rounded5 from "../../Assets/Assets/CardImages/Rounded5.png";
+import rounded6 from "../../Assets/Assets/CardImages/Rounded6.png";
+import rounded7 from "../../Assets/Assets/CardImages/Rounded7.png";
+import rounded8 from "../../Assets/Assets/CardImages/Rounded8.png";
+import rounded9 from "../../Assets/Assets/CardImages/Rounded9.png";
+import rounded10 from "../../Assets/Assets/CardImages/Rounded10.png";
+import AlbumView from "../../Assets/Assets/CardImages/AlbumView.png"
 import { useNavigate } from "react-router";
 
-function LikedPlayList() {
+function AlbumsViewPage() {
   const [download, setDownload] = useState(false);
-  const [likedData, setLikedData] = useState();
   const navigateTo = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
-  const [loader, setLoader] = useState(true);
 
   const handleMouseEnter = () => {
     setShowDropdown(true);
@@ -41,127 +51,127 @@ function LikedPlayList() {
   }
   const datas = [
     {
-      image: { likedImage },
+      image: rounded1,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded2,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded3,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded4,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded5,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded6,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded7,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded8,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded9,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded10,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded1,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded2,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded3,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded4,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded5,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded6,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded7,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded8,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded9,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: rounded10,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
     },
     {
-      image: { likedImage },
+      image: likedImage,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
@@ -181,36 +191,7 @@ function LikedPlayList() {
   ];
   const [duration, setDuration] = useState(null);
 
-  useEffect(() => {
-    const userId="Shahul123"
-    axios
-      .get("http://localhost:3000/IMusic/get-all-favourites?userID="+userId)
-      .then(async (res) => {
-        const musicWithDurations = await Promise.all(
-          res.data.data[0].allSongs.map(async (music) => {
-            const audio = new Audio(music.tune[0]);
-            const duration = await new Promise((resolve) => {
-              audio.addEventListener("loadedmetadata", () => {
-                resolve(audio.duration);
-              });
-            });
-            return { ...music, duration };
-          })
-        );
-        setLikedData(musicWithDurations);
-        setLoader(false)
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
-
-
-  // useEffect(()=>{
-  //   setTimeout(()=>{
-  //     setLoader(false)
-  //   },5000)
-  // },[])
+ 
 
   function formatDuration(duration) {
     const minutes = Math.round(duration / 60);
@@ -219,26 +200,30 @@ function LikedPlayList() {
   }
   return (
     <>
-    {loader ? <div className="flex justify-center items-center h-[705px]"><img src={Loadingforimusic}/></div> :
     <div className="bg-iGray2">
-      <div className="h-[389px] bg-iLightBlue pl-[142px] border-iGray4 border">
+    <button type="button" onClick={() => navigateTo(`/`)}>
+        <IoMdArrowBack className="w-6 h-6 ml-[35px] " />
+      </button>
+      <div className="h-[389px] bg-[#DEEEFF] pl-[142px] border-[#EEEEEE] border">
+      
         <h3 className="text-iOrange font-semibold text-[28px] mb-[28px] mt-12">
-          Liked Songs {duration}
+          Albums
         </h3>
         <div className="flex">
           <img
-            src={likedImage}
+            src={AlbumView}
             className="h-[360px] w-[316px] border-iOrange rounded"
             alt="liked"
           />
           <div className="ml-12">
             <h1 className="text-iBlack text-[35px] font-semibold">
-              The Weekend
+            Music
             </h1>
             <p className="text-base text-iBlack w-[248px] font-semibold ">
-              It's Created by you and tune into your hottest songs!!!
+            It's Created by you and tune into your hottest songs!!!
             </p>
             <div className="flex gap-5 mb-[40px] mt-12">
+              <AiOutlineHeart className="h-7 w-7 text-iOrange"/> 
               <BsFillShareFill className="text-iOrange h-6 w-[21px]" />
               <button type="button" onClick={changeDownload}>
                 {!download ? (
@@ -265,10 +250,10 @@ function LikedPlayList() {
               </div>
             </div>
             <div className="flex gap-6">
-              <button className="w-[102px] h-[38px] text-iBlue border border-iBlue rounded bg-iWhite hover:bg-iLightBlue">
-                Play All
-              </button>
-              <button className="w-[102px] h-[38px] text-iBlue border border-iBlue rounded flex justify-center items-center  bg-iWhite hover:bg-iLightBlue">
+            <button className="mt-3 w-[80px] h-[80px] bg-iOrange rounded-full border-indigo-600">
+              <BsFillPlayFill className="pl-1 w-[55px] h-[130px] pauseIcon text-iWhite" />
+            </button>
+              <button className="w-[102px] h-[38px] mt-9 text-iBlue border border-iBlue rounded flex justify-center items-center  bg-iWhite hover:bg-iLightBlue">
                 Shuffle <FiShuffle />
               </button>
             </div>
@@ -277,29 +262,29 @@ function LikedPlayList() {
       </div>
        <div className="pl-[142px] pt-[139px] pr-14">
         <div className="h-[864px] overflow-y-auto musicList mb-5">
-          {likedData?.map((item, index) => {
+          {datas?.map((item, index) => {
             return (
               <div key={index}>
                 <div className="w-full listed-rows">
                   <img
-                    src={item.songThumbnail}
+                    src={item.image}
                     alt=""
                     className="w-16 h-16 rounded-full"
                   />
                   <div className="flex flex-col">
-                    <span className="text-lg text-iGray1">{item.songName}</span>
+                    <span className="text-lg text-iGray1">{item.text1}</span>
                     <span className="text-xl font-semibold text-iBlack">
-                      {item.artistName}
+                      {item.text2}
                     </span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-lg text-iGray1">Album</span>
                     <span className="text-xl font-semibold text-iBlack">
-                      {item.albumName}
+                      {item.year}
                     </span>
                   </div>
                   <div className="text-xl text-iOrange">
-                    {formatDuration(item.duration)} Min
+                    3.40 Min
                   </div>
                   <button
                     onClick={() =>
@@ -330,8 +315,8 @@ function LikedPlayList() {
           })}
         </div>
       </div>
-    </div>}
+    </div>
     </>
   );
 }
-export default LikedPlayList;
+export default AlbumsViewPage;

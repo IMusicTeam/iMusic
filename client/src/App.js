@@ -31,6 +31,7 @@ import ProfileSettings from "./Components/ProfileSettings/ProfileSettings";
 import { useEffect } from "react";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import SeeAll from "./Components/SeeAll/SeeAll";
+import AlbumsViewPage from "./Components/AlbumsViewPage/AlbumsViewPage";
 
 function App() {
   useEffect(()=>{
@@ -59,7 +60,7 @@ function App() {
    <Route path="/profile/get-help" element={<Gethelp/>}/>
    <Route path="/profiles/getHelp/contactUs" element={<ContactUs/>}/>
    <Route path="/see-all/:path" element ={<SeeAll />} />
-   </Route>
+   <Route path="/albumsView" element ={<AlbumsViewPage/>}/></Route>
    <Route path="/dashboard" element={<Dashboard />} />
    </Routes>
    </Router>
