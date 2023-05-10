@@ -12,33 +12,40 @@ class AuthController {
     if (!email) {
       return res.status(codes.badRequest).json({ error: strings.fillAll });
     }
-    try {
-      const user = new User({
-        email: email.toLowerCase(),
-      });
-      await user.save();
-      const data = user.toObject();
-      const userId = data._id;
-      if (userId) {
-        const stored = await storeOtp({email, userId });
-        const data = {
-          userId,
-          email
-        }
-        if (stored) {
-          res
-            .status(codes.success)
-            .json({ message: strings.otpSentSuccessfully, data });
+    const checkEmailVerified = await User.findOne({ email: email });
+    if (checkEmailVerified && checkEmailVerified.emailVerified) {
+      res
+        .status(codes.success)
+        .json({ message: strings.verified, checkEmailVerified });
+    } else {
+      try {
+        const user = new User({
+          email: email.toLowerCase(),
+        });
+        await user.save();
+        const data = user.toObject();
+        const userId = data._id;
+        if (userId) {
+          const stored = await storeOtp({ email, userId });
+          const data = {
+            userId,
+            email,
+          };
+          if (stored) {
+            res
+              .status(codes.success)
+              .json({ message: strings.otpSentSuccessfully, data });
+          } else {
+            res
+              .status(codes.badRequest)
+              .json({ message: strings.failure, stored });
+          }
         } else {
-          res
-            .status(codes.badRequest)
-            .json({ message: strings.failure, stored });
+          serverDown(res);
         }
-      } else {
+      } catch {
         serverDown(res);
       }
-    } catch {
-      serverDown(res);
     }
   }
 
