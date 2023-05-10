@@ -169,15 +169,15 @@ function MusicCarousel() {
     { id: 10, src: Card12,playlist:"Freedom",album:"Weekend"}
   ] 
   const albumsData =[
-    { id: 1, src: AlbumsCard1 },
-    { id: 2, src: AlbumsCard2 },
-    { id: 3, src: AlbumsCard3},
-    { id: 4, src: AlbumsCard4},
-    { id: 5, src: AlbumsCard5 },
-    { id: 6, src: AlbumsCard6 },
-    { id: 7, src: AlbumsCard7},
-    { id: 8, src: AlbumsCard8},
-    { id: 9, src: AlbumsCard9 },
+    { id: 1, src: AlbumsCard4,text:"Listen to your Uploaded Music" },
+    { id: 2, src: AlbumsCard5,text:"Listen to your Purchased Music" },
+    { id: 3, src: AlbumsCard8},
+    { id: 4, src: AlbumsCard9},
+    { id: 5, src: AlbumsCard10 },
+    { id: 6, src: AlbumsCard1 },
+    { id: 7, src: AlbumsCard2},
+    { id: 8, src: AlbumsCard3},
+    { id: 9, src: AlbumsCard6},
     { id: 10, src: AlbumsCard10 },
     
   ]
@@ -338,16 +338,16 @@ const navigateTO=useNavigate();
 
 
       <div className='flex flex-row justify-between'>
-      <h1 className='text-[30px] font-semibold mt-[28px]'>Top Playlists</h1>
+      <h1 className='text-[30px] font-semibold mt-[28px]'>Top Albums</h1>
       <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
     </div>
 
     <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
-            data7.map((item)=>{
+            albumsData.map((item)=>{
               return(
-                <div>
-                   <ProfileCard data={item} src={item.src}/>
+                <div className='w-[360px] h-[360px]'>
+                <ListenedCard image={item.src} text={item.text}/>
                 </div>
               )
             })

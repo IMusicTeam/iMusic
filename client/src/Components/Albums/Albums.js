@@ -20,28 +20,28 @@ import AlbumsCard15 from "../../Assets/Assets/CardImages/AlbumsCard15.png";
 
 function Albums() {
   const data1 = [
-    { id: 1, src: AlbumsCard1, text: "Listen to your own music" },
-    { id: 2, src: AlbumsCard2, text: "Listen to your owned music" },
-    { id: 3, src: AlbumsCard3, text: "90's Music" },
-    { id: 4, src: AlbumsCard4, text: "EDM Beats" },
+    { id: 1, src: AlbumsCard4, text: "Listen to your own music" },
+    { id: 2, src: AlbumsCard5, text: "Listen to your owned music" },
+    { id: 3, src: AlbumsCard3},
+    { id: 4, src: AlbumsCard2},
   ];
   const data2 = [
-    { id: 1, src: AlbumsCard5, text: "Listen to your own music" },
-    { id: 2, src: AlbumsCard6, text: "Listen to your owned music" },
-    { id: 3, src: AlbumsCard7, text: "90's Music" },
-    { id: 4, src: AlbumsCard8, text: "EDM Beats" },
+    { id: 1, src: AlbumsCard1,  },
+    { id: 2, src: AlbumsCard6,  },
+    { id: 3, src: AlbumsCard7,  },
+    { id: 4, src: AlbumsCard8,  },
   ];
   const data3 = [
-    { id: 1, src: AlbumsCard9, text: "Listen to your own music" },
-    { id: 2, src: AlbumsCard10, text: "Listen to your owned music" },
-    { id: 3, src: AlbumsCard11, text: "90's Music" },
-    { id: 4, src: AlbumsCard12, text: "EDM Beats" },
+    { id: 1, src: AlbumsCard9,  },
+    { id: 2, src: AlbumsCard10,  },
+    { id: 3, src: AlbumsCard4,  },
+    { id: 4, src: AlbumsCard12,  },
   ];
   const data4 = [
-    { id: 1, src: AlbumsCard13, text: "Listen to your own music" },
-    { id: 2, src: AlbumsCard14, text: "Listen to your owned music" },
-    { id: 3, src: AlbumsCard15, text: "90's Music" },
-    { id: 4, src: AlbumsCard1, text: "EDM Beats" },
+    { id: 1, src: AlbumsCard13,  },
+    { id: 2, src: AlbumsCard14,  },
+    { id: 3, src: AlbumsCard15,  },
+    { id: 4, src: AlbumsCard1,  },
   ];
 
   const navigate = useNavigate();
@@ -55,7 +55,7 @@ function Albums() {
           {data1?.map((item) => {
             return (
               <div>
-                <ListenedCard image={item.src} text={item.text} />
+                <ListenedCard image={item.src}  text={item.text} />
               </div>
             );
           })}
@@ -66,7 +66,7 @@ function Albums() {
           {data2?.map((item) => {
             return (
               <div>
-                <ListenedCard image={item.src} text={item.text} />
+                <ListenedCard image={item.src}   />
               </div>
             );
           })}
@@ -77,7 +77,7 @@ function Albums() {
           {data3?.map((item) => {
             return (
               <div>
-                <ListenedCard image={item.src} text={item.text} />
+                <ListenedCard image={item.src}   />
               </div>
             );
           })}
@@ -88,7 +88,7 @@ function Albums() {
           {data4?.map((item) => {
             return (
               <div>
-                <ListenedCard image={item.src} text={item.text} />
+                <ListenedCard image={item.src}   />
               </div>
             );
           })}
