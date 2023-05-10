@@ -18,15 +18,15 @@ function RoundedCard({ data,src}) {
             alt="ui/ux review check"
           />
         </div>
-        <div className="ml-[8px]">
-          <h5 className="text-[18px] font-semibold text-iBlack1 mt-[4px]">
-            Rico Verhoeven
+        <div className="ml-[8px] text-center">
+          <h5 className="text-[18px] font-semibold text-iBlack1 mt-[4px] text-center">
+            {data.artist}
           </h5>
-          <p className="text-[12px] font-semibold text-iBlack1 ml-[36px]">
-            Rank - #1
+          <p className="text-[12px] font-semibold text-iBlack1  text-center">
+            Rank - #{data.rank}
           </p>
-          <p className="text-[14px] font-semibold text-iBlack1 ml-[36px]">
-            Mexico
+          <p className="text-[14px] font-semibold text-iBlack1  text-center">
+            {data.place}
           </p>
         </div>
       </div>

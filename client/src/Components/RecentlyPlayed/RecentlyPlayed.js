@@ -12,17 +12,23 @@ import rounded5 from "../../Assets/Assets/CardImages/Rounded5.png";
 
 function RecentlyPlayed() {
   const data = [
-    { id: 1, src: rounded1,title:"Taylor Swift"},
-    { id: 2, src: rounded2,title:"Rico Verh"},
-    { id: 3, src: rounded3,title:"Jan Carter"},
-    { id: 4, src: rounded4,title:"Rov Raa"},
-    { id: 5, src: rounded5,title:"Dane sow"}
+    { id: 1, src: rounded1,smallTitle : "Taylor Swift",
+    title:"Shake it Off"},
+    { id: 2, src: rounded2,smallTitle : "Weekend",
+    title:"Play Boy"},
+    { id: 3, src: rounded3,smallTitle : "Sam Fisher",
+    title:"Willow"},
+    { id: 4, src: rounded4,smallTitle : "Ariana Grande",
+    title:"This City"},
+    { id: 5, src: rounded5,smallTitle : "Taylor Swift",
+    title:"Side to Side"},
+   
   ]
   
   return (
     <div className="px-[34px] py-[42px] bg-iGray2">
-      <div className="flex flex-row gap-[28px]">
-        <div className="max-w-[752px] p-[23px] bg-iWhite rounded-2xl">
+      <div className="flex flex-col gap-[28px] 3xl:flex-row">
+        <div className="w-full p-[23px] bg-iWhite rounded-2xl 3xl:max-w-[752px]">
         <div className="flex flex-row items-center justify-between pb-[28px]">
           <h1 className="text-[28px] font-bold">Recently Playedd</h1>
           <div className="flex flex-row gap-[22px]">
@@ -45,7 +51,7 @@ function RecentlyPlayed() {
           return (
             <div className="px-[23px]">
               <hr className="text-iLightBlue" />
-              <div className="flex flex-row items-center gap-[255px]">
+              <div className="flex flex-row justify-between gap-[255px]">
                 <div className="w-[204px] flex flex-row items-center gap-5 p-1">
                   <div>
                     <img
@@ -55,7 +61,7 @@ function RecentlyPlayed() {
                     />
                   </div>
                   <div>
-                    <p className="text-iGray1 text-[18px]">{item.title}</p>
+                    <p className="text-iGray1 text-[18px]">{item.smallTitle}</p>
                     <p className="text-[20px] font-bold">{item.title}</p>
                   </div>
                 </div>
@@ -70,14 +76,15 @@ function RecentlyPlayed() {
           );
         })}
         </div>
+        <div className="flex">
         <div className="relative transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
             <img src={HomeCard1} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
-       <p className="text-[63px] px-[14px] absolute bottom-0 text-iWhite shadow-[12px] drop-shadow-2xl font-bold">Listen to your owned Music</p>
+       <p className="text-[63px] leading-[70px] px-[14px] absolute bottom-[40px] text-iWhite shadow-[12px] drop-shadow-2xl font-bold">Listen to your Purchased Music</p>
         </div>
-
         <div className="relative transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
             <img src={HomeCard2} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
-       <p className="text-[63px] px-[14px] absolute bottom-[40px] text-iWhite shadow-[12px] drop-shadow-2xl font-bold">Listen to your own Music</p>
+       <p className="text-[63px] px-[14px] leading-[70px] absolute bottom-[40px] text-iWhite shadow-[12px] drop-shadow-2xl font-bold">Listen to your Uploaded Music</p>
+        </div>
         </div>
       </div>
     </div>

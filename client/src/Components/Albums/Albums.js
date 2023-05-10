@@ -50,7 +50,7 @@ function Albums() {
       <button type="button" onClick={() => navigate(`/`)}>
         <IoMdArrowBack className="w-6 h-6 ml-[35px] " />
       </button>
-      <div className="pl-[160px] mb-[42px]">
+      <div className="pl-[90px] mb-[42px]">
         <div className="flex gap-7">
           {data1?.map((item) => {
             return (
@@ -61,7 +61,7 @@ function Albums() {
           })}
         </div>
       </div>
-      <div className="pl-[160px] mb-[42px]">
+      <div className="pl-[90px] mb-[42px]">
         <div className="flex gap-7">
           {data2?.map((item) => {
             return (
@@ -72,7 +72,7 @@ function Albums() {
           })}
         </div>
       </div>
-      <div className="pl-[160px] mb-[42px]">
+      <div className="pl-[90px] mb-[42px]">
         <div className="flex gap-7">
           {data3?.map((item) => {
             return (
@@ -83,7 +83,7 @@ function Albums() {
           })}
         </div>
       </div>
-      <div className="pl-[160px] mb-[42px]">
+      <div className="pl-[90px] mb-[42px]">
         <div className="flex gap-7">
           {data4?.map((item) => {
             return (
