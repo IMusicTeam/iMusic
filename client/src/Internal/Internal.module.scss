@@ -49,6 +49,14 @@
             padding-left: 248px;
         }
     }
+    &__content::-webkit-scrollbar:horizontal {
+        height: 0;
+        width: 0;
+        display: none;
+        }
+    &__content::-webkit-scrollbar-thumb:horizontal {
+        display: none;
+        }
 
     &__container {
         width: 100%;

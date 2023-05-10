@@ -59,118 +59,120 @@ function Explore() {
     setIndexValue("");
   };
   const data = [
-    { id: 1, src: Card1},
-    { id: 2, src: Card2},
-    { id: 3, src: Card3},
-    { id: 4, src: Card4},
-    { id: 5, src: Card5},
-    { id: 6, src: Card6},
-    { id: 7, src: Card7},
-    { id: 8, src: Card8 },
-    { id: 9, src: Card9},
-    { id: 10, src: Card10}
+    { id: 1, src: Card20,playlist:"Trending Playlist ",album:"Weekend"},
+    { id: 2, src: Card17,playlist:"Good Music for Bad Days",album:"Weekend"},
+    { id: 3, src: Card11,playlist:"Trending Playlist",album:"Weekend"},
+    { id: 4, src: Card7,playlist:" Trending on Tiktok",album:"Weekend"},
+    { id: 5, src: Card14,playlist:"XXXtention ",album:"Weekend"},
+    { id: 6, src: Card5,playlist:" EveryThing from Taylor",album:"Weekend"},
+    { id: 7, src: Card4,playlist:" Ariana Grande This Side",album:"Weekend"},
+    { id: 8, src: Card7 ,playlist:" EveryThing from Taylor",album:"Weekend"},
+    { id: 9, src: Card6,playlist:" Ariana Grande This Side",album:"Weekend"},
+    { id: 10, src: Card1,playlist:"Sunset Days",album:"Weekend"}
   ]
   const data1 = [
-    { id: 1, src: Card11},
-    { id: 2, src: Card12},
-    { id: 3, src: Card13},
-    { id: 4, src: Card14},
-    { id: 5, src: Card15},
-    { id: 6, src: Card16},
-    { id: 7, src: Card17},
-    { id: 8, src: Card18 },
-    { id: 9, src: Card19},
-    { id: 10, src: Card20}
+    { id: 1, src: Card30,playlist:"Good Music for Bad Days",album:"Weekend"},
+    { id: 2, src: Card2,playlist:"STAR BOY",album:"Weekend"},
+    { id: 3, src: Card3,playlist:"XXXtention",album:"Weekend"},
+    { id: 4, src: Card4,playlist:"Mine",album:"Weekend"},
+    { id: 5, src: Card5,playlist:"Top Hits of 2000",album:"Weekend"},
+    { id: 6, src: Card6,playlist:"Old School ",album:"Weekend"},
+    { id: 7, src: Card7,playlist:"Smile Vol.1",album:"Weekend"},
+    { id: 8, src: Card8,playlist:"Dig Out your Soul",album:"Weekend" },
+    { id: 9, src: Card11,playlist:"Sunset Days",album:"Weekend"},
+    { id: 10, src: Card12,playlist:"Freedom",album:"Weekend"}
   ] 
   const data2 = [
-    { id: 1, src: Card21},
-    { id: 2, src: Card22},
-    { id: 3, src: Card23},
-    { id: 4, src: Card24},
-    { id: 5, src: Card25},
-    { id: 6, src: Card26},
-    { id: 7, src: Card27},
-    { id: 8, src: Card28 },
-    { id: 9, src: Card29},
-    { id: 10, src: Card30}
+    { id: 1, src: Card21,playlist:"Good Music for Bad Days",album:"Playlists"},
+    { id: 2, src: Card22,playlist:"STAR BOY",album:"Playlists"},
+    { id: 3, src: Card23,playlist:"XXXtention",album:"Playlists"},
+    { id: 4, src: Card24,playlist:"Freedom",album:"Playlists"},
+    { id: 5, src: Card25,playlist:"Sunset Days",album:"Playlists"},
+    { id: 6, src: Card26,playlist:"Dig Out your Soul",album:"Playlists"},
+    { id: 7, src: Card27,playlist:"Smile Vol.1",album:"Playlists"},
+    { id: 8, src: Card28,playlist:"Old School",album:"Playlists" },
+    { id: 9, src: Card29,playlist:"Top Hits of 2000",album:"Weekend"},
+    { id: 10, src: Card30,playlist:"Mine",album:"Weekend"}
   ] 
   const data3 = [
-    { id: 1, src: Card16},
-    { id: 2, src: Card17},
-    { id: 3, src: Card18},
-    { id: 4, src: Card19},
-    { id: 5, src: Card20},
-    { id: 6, src: Card11},
-    { id: 7, src: Card12},
-    { id: 8, src: Card13 },
-    { id: 9, src: Card14},
-    { id: 10, src: Card15}
+    { id: 1, src: Card11,playlist:"STAR BOY",album:"Weekend"},
+    { id: 2, src: Card12,playlist:"Everything From Drake",album:"Albums"},
+    { id: 3, src: Card13,playlist:"Ariana Grande This Side",album:"Trending"},
+    { id: 4, src: Card14,playlist:"EveryThing from Taylor",album:"Playlist"},
+    { id: 5, src: Card15,playlist:"XXXtention",album:"Albums"},
+    { id: 6, src: Card16,playlist:"Trending Playlist",album:"Albums"},
+    { id: 7, src: Card17,playlist:"Trending on Tiktok",album:"Albums"},
+    { id: 8, src: Card18 ,playlist:"Trending Playlist",album:"Albums"},
+    { id: 9, src: Card19,playlist:"All Time Rap's",album:"Albums"},
+    { id: 10, src: Card20,playlist:"Good Music for Bad Days",album:"Albums"}
   ] 
   const data8 = [
-    { id: 1, src: Card1},
-    { id: 2, src: Card2},
-    { id: 3, src: Card3},
-    { id: 4, src: Card4},
-    { id: 5, src: Card5},
-    { id: 6, src: Card6},
-    { id: 7, src: Card7},
-    { id: 8, src: Card8 },
-    { id: 9, src: Card11},
-    { id: 10, src: Card12}
+    { id: 1, src: Card30,playlist:"All Time Rap's",album:"Trending"},
+    { id: 2, src: Card2,playlist:"Trending Playlist",album:"Trending"},
+    { id: 3, src: Card3,playlist:"Trending on Tiktok",album:"Trending"},
+    { id: 4, src: Card4,playlist:"XXXtentio ",album:"Trending"},
+    { id: 5, src: Card10,playlist:"EveryThing from Taylor ",album:"Playlist"},
+    { id: 6, src: Card6,playlist:" Everything From Drake",album:"Playlist"},
+    { id: 7, src: Card5,playlist:"Ariana Grande This Side",album:"Playlist"},
+    { id: 8, src: Card7 ,playlist:"STAR BOY",album:"Weekend"},
+    { id: 9, src: Card8,playlist:" Good Music for Bad Days",album:"Playlist"},
+    { id: 10, src: Card9,playlist:"Trending",album:"Weekend"}
   ] 
   const data5 = [
-    { id: 1, src: Card20},
-    { id: 2, src: Card17},
-    { id: 3, src: Card11},
-    { id: 4, src: Card7},
-    { id: 5, src: Card14},
-    { id: 6, src: Card5},
-    { id: 7, src: Card4},
-    { id: 8, src: Card7 },
-    { id: 9, src: Card6},
-    { id: 10, src: Card1}
+    { id: 1, src: Card11,playlist:"Good Music for Bad Days ",album:"Weekend"},
+    { id: 2, src: Card9,playlist:"Ariana Grande This Side ",album:"Weekend"},
+    { id: 3, src: Card13,playlist:"Everything From Drake",album:"Weekend"},
+    { id: 4, src: Card14,playlist:"Trending Playlist",album:"Weekend"},
+    { id: 5, src: Card15,playlist:"EveryThing from Taylor",album:"Weekend"},
+    { id: 6, src: Card16,playlist:"Everything From Drake",album:"Weekend"},
+    { id: 7, src: Card17,playlist:" STAR BOY",album:"Weekend"},
+    { id: 8, src: Card18 ,playlist:"XXXtention",album:"Weekend"},
+    { id: 9, src: Card19,playlist:"Freedom",album:"Weekend"},
+    { id: 10, src: Card20,playlist:"Good Music for Bad Days",album:"Weekend"}
   ] 
   const data6 = [
-    { id: 1, src: Card6},
-    { id: 2, src: Card6},
-    { id: 3, src: Card7 },
-    { id: 4, src: Card8},
-    { id: 5, src: Card9},
-    { id: 6, src: Card1},
-    { id: 7, src: Card2},
-    { id: 8, src: Card3},
-    { id: 9, src: Card4},
-    { id: 10, src: Card5},
+    { id: 1, src: Card20,playlist:"Trending on Tiktok ",album:"Weekend"},
+    { id: 2, src: Card11,playlist:" Trending on Tiktok",album:"Weekend"},
+    { id: 3, src: Card2,playlist:"Trending Playlist ",album:"Weekend"},
+    { id: 4, src: Card13 ,playlist:"EveryThing from Taylor ",album:"Weekend"},
+    { id: 5, src: Card14,playlist:" Ariana Grande This Side",album:"Weekend"},
+    { id: 6, src: Card15,playlist:"Good Music for Bad Days",album:"Weekend"},
+    { id: 7, src: Card6,playlist:"STAR BOY",album:"Weekend"},
+    { id: 8, src: Card6,playlist:"Everything From Drake",album:"Weekend"},
+    { id: 9, src: Card8,playlist:"XXXtention",album:"Weekend"},
+    { id: 10, src: Card9,playlist:"Dig Out your Soul",album:"Weekend"}
   ] 
   const data7 = [
-    { id: 1, src: Card20},
-    { id: 2, src: Card11},
-    { id: 3, src: Card12},
-    { id: 4, src: Card13 },
-    { id: 5, src: Card14},
-    { id: 6, src: Card15},
-    { id: 7, src: Card6},
-    { id: 8, src: Card6},
-    { id: 9, src: Card8},
-    { id: 10, src: Card9}
+    { id: 1, src: Card1,playlist:"Mine",album:"Radio"},
+    { id: 2, src: Card6,playlist:" Top Hits of 2000",album:"Radio"},
+    { id: 3, src: Card7 ,playlist:"Old School",album:"Radio"},
+    { id: 4, src: Card8,playlist:"Smile Vol.1",album:"Radio"},
+    { id: 5, src: Card9,playlist:"Good Music for Bad Days",album:"Radio"},
+    { id: 6, src: Card1,playlist:"Freedom",album:"Radio"},
+    { id: 7, src: Card2,playlist:"Everything From Drake",album:"Radio"},
+    { id: 8, src: Card3,playlist:"Sunset Days",album:"Weekend"},
+    { id: 9, src: Card4,playlist:"XXXtention",album:"Radio"},
+    { id: 10, src: Card5,playlist:" EveryThing from Taylor",album:"Weekend"},
   ] 
-  const short = [
-    { id: 1, src: Card11},
-    { id: 2, src: Card12},
-    { id: 3, src: Card13},
-    { id: 4, src: Card14}
+  const short1 = [
+    { id: 1, src: Card12,playlist:" EveryThing from Taylor",album:"Weekend"},
+    { id: 2, src: Card11,playlist:"XXXtention",album:"Radio"}
   ];
+  const short2=[
+    { id: 1, src: Card5,playlist:"Old School",album:"Playlist"},
+    { id: 2, src: Card2,playlist:"Good Music for Bad Days",album:"Album"}
+  ]
   const rounded=[
-    { id: 1, src: rounded10},
-    { id: 2, src: rounded9},
-    { id: 3, src: rounded8},
-    { id: 4, src: rounded7},
-    { id: 5, src: rounded6},
-    { id: 6, src: rounded5},
-    { id: 7, src: rounded4},
-    { id: 8, src: rounded3 },
-    { id: 9, src: rounded2},
-    { id: 10, src: rounded1}
+    {id: 1, src: rounded1,artist:"Drake",rank:1,place:"Mexico"},
+    { id: 2, src: rounded2,artist:"Weekend",rank:2,place:"USA"},
+    { id: 3, src: rounded3,artist:"Ariana Grande",rank:3,place:"UK"},
+    { id: 4, src: rounded4,artist:"Taylor Swift",rank:4,place:"Russia"},
+    { id: 5, src: rounded5,artist:"XXXtention",rank:5,place:"England"},
+    { id: 6, src: rounded6,artist:"Drake",rank:6,place:"USA"},
+    { id: 7, src: rounded7,artist:"Ariana Grande",rank:7,place:"UK"},
+    { id: 8, src: rounded8 ,artist:"Weekend",rank:8,place:"Russia"},
+    { id: 9, src: rounded9,artist:"Taylor Swift",rank:9,place:"England"},
+    { id: 10, src: rounded10,artist:"XXXtention",rank:10,place:"Mexico"}
   ]
 const navigateTO=useNavigate();
   const HandelSeeAll=(value)=>{
@@ -190,7 +192,7 @@ const navigateTO=useNavigate();
           {rounded.map((item) => {
             return (
               <div>
-                <RoundedCard data={item} src={item.src} />
+                <RoundedCard data={item} src={item.src} artist={item.artist} rank={item.rank} place={item.place}/>
               </div>
             );
           })}
@@ -202,9 +204,10 @@ const navigateTO=useNavigate();
           </div>
         </div>
 
-        <div className="flex flex-row">
-          <div className="flex flex-row flex-wrap max-w-[624px] gap-6 mt-[28px]" >
-          {short.map((item)=>{
+        <div className="flex">
+          <div className="flex flex-col"> 
+            <div className="flex flex-col 3xl:flex-row max-w-[624px] gap-6 mt-[28px]" >
+          {short1.map((item)=>{
           return(
             <div>
               <ProfileCard data={item} src={item.src}/>
@@ -212,7 +215,16 @@ const navigateTO=useNavigate();
           )
         })}
           </div>
-
+          <div className="flex flex-col 3xl:flex-row max-w-[624px] gap-6 mt-[28px]" >
+          {short2.map((item)=>{
+          return(
+            <div>
+              <ProfileCard data={item} src={item.src}/>
+            </div>
+          )
+        })}
+          </div></div>
+          <div className="flex flex-col 3xl:flex-row">         
           <div className="flex ml-[97px] mt-[45px] h-fit">
             <div className="relative transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
               <img
@@ -242,6 +254,8 @@ const navigateTO=useNavigate();
               </p>
             </div>
           </div>
+          </div>
+
         </div>
 
         <div className="pb-[32px]">
