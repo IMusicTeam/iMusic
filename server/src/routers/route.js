@@ -12,7 +12,7 @@ router.post("/upload-song", musicController.POST_song);
 router.get("/all-songs", musicController.GET_allSongs);
 router.put("/update-song", musicController.UPDATE_song);
 router.post("/upload-audio", upload.single("file"), cors(), uploadImage);
-router.get("/get-song?:id", musicController.GET_song)
+router.get("/get-song", musicController.GET_song)
 router.get("/all-charts", musicController.GET_allCharts)
 router.post("/save-as-favourites", musicController.POST_likedSong)
 router.get("/get-all-favourites?:userID", musicController.GET_allFavourites)
