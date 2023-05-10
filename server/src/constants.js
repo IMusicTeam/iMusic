@@ -42,7 +42,9 @@ const strings = {
     notFoundUser: "UserID not found",
 
     //OTP success
-    otpSentSuccessfully: "OTP sent successfully"
+    otpSentSuccessfully: "OTP sent successfully",
+    //emaiul verified
+    verified: "Email Already Verified"
   };
   
   const codes = {
