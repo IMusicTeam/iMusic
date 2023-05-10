@@ -26,7 +26,7 @@ async function sendOtpToEmail(to, otp) {
     subject: "iMusic Email Verification",
     text: `Verify with following OTP: ${otp}`,
   };
-  console.log("Sending mail");
+  // console.log("Sending mail", mailOptions);
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
