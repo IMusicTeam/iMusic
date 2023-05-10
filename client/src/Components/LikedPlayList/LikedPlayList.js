@@ -280,7 +280,7 @@ function LikedPlayList() {
           {likedData?.map((item, index) => {
             return (
               <div key={index}>
-                <div className="listed-rows w-[1477px]">
+                <div className="w-full listed-rows">
                   <img
                     src={item.songThumbnail}
                     alt=""
