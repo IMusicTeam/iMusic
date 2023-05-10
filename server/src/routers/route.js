@@ -6,6 +6,7 @@ const { uploadImage } = require("../helpers/upload");
 const upload = require("../middleWare/uploads");
 var bodyParser = require('body-parser');
 const authController = require("../controllers/AuthController");
+const transactionController = require("../controllers/TransactionController");
 
 //add routes here
 router.post("/upload-song", musicController.POST_song);
@@ -21,5 +22,7 @@ router.get("/get-all-playlist", musicController.GEt_allPlaylist)
 router.delete("/remove-from-favourites", musicController.DeleteFromFavourites)
 router.post("/signup", authController.ON_SINGNUP)
 router.put("/verify-email", authController.VERIFY_email)
+router.post("/save-transaction", transactionController.SaveTransaction)
+router.get("/get-transaction?:userId", transactionController.getTransactionById)
 
 module.exports = router;
