@@ -30,6 +30,7 @@ import Gethelp from "./Components/Gethelp/Gethelp";
 import ProfileSettings from "./Components/ProfileSettings/ProfileSettings";
 import { useEffect } from "react";
 import ContactUs from "./Components/ContactUs/ContactUs";
+import SeeAll from "./Components/SeeAll/SeeAll";
 
 function App() {
   useEffect(()=>{
@@ -57,7 +58,7 @@ function App() {
    <Route path="/profile/settings" element={<ProfileSettings/>}/>
    <Route path="/profile/get-help" element={<Gethelp/>}/>
    <Route path="/profiles/getHelp/contactUs" element={<ContactUs/>}/>
-   
+   <Route path="/see-all/:path" element ={<SeeAll />} />
    </Route>
    <Route path="/dashboard" element={<Dashboard />} />
    </Routes>

@@ -33,6 +33,7 @@ import Card28 from "../../Assets/Assets/CardImages/Card28.png";
 import Card29 from "../../Assets/Assets/CardImages/Card29.png";
 import Card30 from "../../Assets/Assets/CardImages/Card30.png";
 import axios from "axios";
+import { useNavigate } from "react-router";
 function Playlist() {
   const [listData, setListData]=useState([])
   const[isLoading, setIsLoading]=useState(true)
@@ -160,17 +161,23 @@ function Playlist() {
         console.log(err.message);
       });
   },[]);
+  const navigateTO=useNavigate();
+  const HandelSeeAll=(value)=>{
+    const {path, title}=value
+    navigateTO(`/see-all/${path}`,{
+      state:title
+    })
+  }
   return (
     <>
     {isLoading ? <div className="flex justify-center items-center h-[690px]"><img src={Loadingforimusic}/></div> :
-      <div className="bg-iGray2 w-full pl-[34px]">
-        <div className="pl-[34px] pb-[32px]">
-          <div className="flex flex-row justify-between">
+      <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px]">
+      <div className="flex flex-row justify-between">
             <h1 className="text-[30px] font-semibold pt-[79px]">
               Newly Added
             </h1>
             <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[80px]">
-              See All
+             
             </h5>
           </div>
           <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -186,166 +193,123 @@ function Playlist() {
               );
             })}
           </div>
-
-          <div className="flex flex-row justify-between">
-            <h1 className="text-[30px] font-semibold mt-[28px]">Top charts</h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
-          </div>
-
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
-            {data3.map((item) => {
-              return (
-                <div>
-                  <ProfileCard data={item} src={item.src} />
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="flex flex-row justify-between">
-            <h1 className="text-[30px] font-semibold mt-[28px]">
-              Recommended for you
-            </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
-          </div>
-
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
-            {data7.map((item) => {
-              return (
-                <div>
-                  <ProfileCard data={item} src={item.src} />
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="flex flex-row justify-between">
-            <h1 className="text-[30px] font-semibold mt-[28px]">
-              Featured playlists Based on Mood
-            </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
-          </div>
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
-            {data5.map((item) => {
-              return (
-                <div>
-                  <ProfileCard data={item} src={item.src} />
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="flex flex-row justify-between">
-            <h1 className="text-[30px] font-semibold mt-[28px]">
-              Last Spotlight
-            </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
-          </div>
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
-            {data1.map((item) => {
-              return (
-                <div>
-                  <ProfileCard data={item} src={item.src} />
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="flex flex-row gap-[30px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
-            {data.map((item) => {
-              return (
-                <div>
-                  <RoundedCard data={item} src={item.src} />
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="flex flex-row justify-between">
-            <h1 className="text-[30px] font-semibold mt-[28px]">
-              Radio stations
-            </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
-          </div>
-
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
-            {data4.map((item) => {
-              return (
-                <div>
-                  <ProfileCard data={item} src={item.src} />
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="flex flex-row justify-between">
-            <h1 className="text-[30px] font-semibold mt-[28px]">
-              Your Playlists
-            </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
-          </div>
-
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
-            {data6.map((item) => {
-              return (
-                <div>
-                  <ProfileCard data={item} src={item.src} />
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="flex flex-row justify-between">
-            <h1 className="text-[30px] font-semibold mt-[28px]">
-              Top Playlists
-            </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
-          </div>
-
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
-            {data1.map((item) => {
-              return (
-                <div>
-                  <ProfileCard data={item} src={item.src} />
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="flex flex-row justify-between">
-            <h1 className="text-[30px] font-semibold mt-[28px]">
-              Top Playlists
-            </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
-          </div>
-
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
-            {data2.map((item) => {
-              return (
-                <div>
-                  <ProfileCard data={item} src={item.src} />
-                </div>
-              );
-            })}
-          </div>
+      <div>
+        <div className="flex flex-row justify-between my-7">
+          <h1 className="text-[30px] font-semibold">Top charts</h1>
+          <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-      </div>}
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+          {data1?.map((item) => {
+            return (
+              <div>
+              <ProfileCard data={item} src={item.src}/>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div>
+        <div className="flex flex-row justify-between my-7">
+          <h1 className="text-[30px] font-semibold">Recommended for you</h1>
+          <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+        </div>
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+          {data2?.map((item) => {
+            return (
+              <div>
+              <ProfileCard data={item} src={item.src}/>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div>
+        <div className="flex flex-row justify-between my-7">
+          <h1 className="text-[30px] font-semibold">
+            Featured playlists Based on Mood
+          </h1>
+          <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+        </div>
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+          {data3?.map((item) => {
+            return (
+              <div>
+              <ProfileCard data={item} src={item.src}/>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div>
+        <div className="flex flex-row justify-between my-7">
+          <h1 className="text-[30px] font-semibold">Last Spotlight</h1>
+          <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+        </div>
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+          {data4?.map((item) => {
+            return (
+              <div>
+              <ProfileCard data={item} src={item.src}/>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div>
+        <div className="flex flex-row justify-between my-7">
+          <h1 className="text-[30px] font-semibold">Radio stations</h1>
+          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
+            
+          </h5>
+        </div>
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+          {data6?.map((item) => {
+            return (
+              <div>
+              <ProfileCard data={item} src={item.src}/>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div>
+        <div className="flex flex-row justify-between my-7">
+          <h1 className="text-[30px] font-semibold">Your Playlists</h1>
+          <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+        </div>
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+          {data7?.map((item) => {
+            return (
+              <div>
+              <ProfileCard data={item} src={item.src}/>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div>
+        <div className="flex flex-row justify-between my-7">
+          <h1 className="text-[30px] font-semibold">Top Playlists</h1>
+          <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+        </div>
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+          {data8?.map((item) => {
+            return (
+              <div>
+              <ProfileCard data={item} src={item.src}/>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div>
+        <div className="flex flex-row justify-between my-7">
+          <h1 className="text-[30px] font-semibold"></h1>
+          <h5 onClick={()=>HandelSeeAll({path:'top-playlists',title:'Top Playlists'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
+        </div>
+        
+      </div>
+    </div>}
     </>
   );
 }

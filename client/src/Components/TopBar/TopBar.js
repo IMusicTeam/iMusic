@@ -26,7 +26,7 @@ const navigatTo=useNavigate()
   },[isToggled])
 
   return (
-    <div className="topNav flex  items-center px-10 h-[92px] w-[1590px] ml-[27px] rounded-[10px]">
+    <div className="topNav flex  items-center px-10 h-[92px] max-w-[1590px] w-full ml-[27px] rounded-[10px]">
     <div className="flex items-center  rounded-[100px] -py-2 justify-between h-[56px]  w-[1450px] bg-[#ffffff]">
       <Search onClick={HandelSearch}/>
       <div className="flex items-center  gap-6 w-[500px] ml-[32.5px]">

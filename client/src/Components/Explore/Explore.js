@@ -43,6 +43,7 @@ import rounded7 from "../../Assets/Assets/CardImages/Rounded7.png";
 import rounded8 from "../../Assets/Assets/CardImages/Rounded8.png";
 import rounded9 from "../../Assets/Assets/CardImages/Rounded9.png";
 import rounded10 from "../../Assets/Assets/CardImages/Rounded10.png";
+import { useNavigate } from 'react-router';
 
 
 
@@ -171,6 +172,13 @@ function Explore() {
     { id: 9, src: rounded2},
     { id: 10, src: rounded1}
   ]
+const navigateTO=useNavigate();
+  const HandelSeeAll=(value)=>{
+    const {path, title}=value
+    navigateTO(`/see-all/${path}`,{
+      state:title
+    })
+  }
   return (
     <>
       <div className="bg-iGray2 w-full pl-[34px] pt-[42px]">
@@ -240,7 +248,7 @@ function Explore() {
           <div className="flex flex-row justify-between pt-[28px]">
             <h1 className="text-[30px] font-semibold">New releases</h1>
             <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
-              See All
+              
             </h5>
           </div>
 
@@ -256,9 +264,7 @@ function Explore() {
 
           <div className="flex flex-row justify-between">
             <h1 className="text-[30px] font-semibold mt-[28px]">Top charts</h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
+            <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
 
           <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -275,9 +281,7 @@ function Explore() {
             <h1 className="text-[30px] font-semibold mt-[28px]">
               Recommended for you
             </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
+            <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
 
           <div className="flex flex-row p-3 gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -294,9 +298,7 @@ function Explore() {
             <h1 className="text-[30px] font-semibold mt-[28px]">
               Featured playlists Based on Mood
             </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
+            <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
           <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
             {data5.map((item) => {
@@ -312,9 +314,7 @@ function Explore() {
             <h1 className="text-[30px] font-semibold mt-[28px]">
               Last Spotlight
             </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
+            <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
           <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
             {data6.map((item) => {
@@ -330,9 +330,7 @@ function Explore() {
             <h1 className="text-[30px] font-semibold mt-[28px]">
               Radio stations
             </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
+            <button onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
 
           <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -349,9 +347,7 @@ function Explore() {
             <h1 className="text-[30px] font-semibold mt-[28px]">
               Your Playlists
             </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
+            <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
 
           <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -368,9 +364,7 @@ function Explore() {
             <h1 className="text-[30px] font-semibold mt-[28px]">
               Top Playlists
             </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
+            <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
 
           <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -385,22 +379,11 @@ function Explore() {
 
           <div className="flex flex-row justify-between">
             <h1 className="text-[30px] font-semibold mt-[28px]">
-              Top Playlists
+              
             </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
-              See All
-            </h5>
+            <h5 onClick={()=>HandelSeeAll({path:'top-playlists',title:'Top Playlists'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
           </div>
 
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
-            {data.map((item) => {
-              return (
-                <div>
-                  <ProfileCard data={item} src={item.src} />
-                </div>
-              );
-            })}
-          </div>
         </div>
       </div>
     </>
