@@ -21,10 +21,14 @@ class AuthController {
       const userId = data._id;
       if (userId) {
         const stored = await storeOtp({email, userId });
+        const data = {
+          userId,
+          email
+        }
         if (stored) {
           res
             .status(codes.success)
-            .json({ message: strings.otpSentSuccessfully, stored });
+            .json({ message: strings.otpSentSuccessfully, data });
         } else {
           res
             .status(codes.badRequest)

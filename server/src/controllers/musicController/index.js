@@ -2,7 +2,7 @@ const { codes, strings } = require("../../Constants");
 const { serverDown } = require("../../helpers/hooks");
 const Songs = require("../../models/music");
 const SaveFavourite = require("../../models/favourites");
-const { default: mongoose } = require("mongoose");
+const { default: mongoose, ObjectId } = require("mongoose");
 const SavePlayList = require("../../models/liked");
 
 class MusicController {
@@ -17,8 +17,14 @@ class MusicController {
       songName,
       songDescription,
       favourited,
+      userId,
     } = req.body;
     try {
+      if (!userId) {
+        return res
+          .status(codes.badRequest)
+          .json({ message: strings.userNotFound, data: {} });
+      }
       if (
         !songThumbnail ||
         !albumName ||
@@ -43,6 +49,7 @@ class MusicController {
         songName,
         songDescription,
         favourited,
+        userId,
       });
       await save.save();
       const data = save.toObject();
@@ -128,19 +135,24 @@ class MusicController {
 
   //get songByID
   async GET_song(req, res) {
-    const { id } = req.query;
+    const { _id, userId } = req.body;
     try {
-      if (id) {
-        // await Songs.updateOne({_id: songId }, {favourited: true}, {returnOriginal: false})
-        const findSong = await Songs.findOne({ _id: id });
-      // const findSong = await SaveFavourite.find({"allSongs._id": id})
+      if (_id) {
+        const newId = new mongoose.Types.ObjectId(_id);
+        const findSong = await SaveFavourite.findOne(
+          { userID: userId, "allSongs._id": newId },
+          { allSongs: 1 }
+        );
+        const returnSong = await Songs.findOne({ _id: _id });
+        const favourited = findSong && findSong !== null ? true : false;
         return res
           .status(codes.success)
-          .json({ message: strings.sucesss, data: findSong });
+          .json({ message: strings.sucesss, data: returnSong, favourited });
       } else {
         res.status(codes.badRequest).json({ message: strings.idNotFound });
       }
     } catch (err) {
+      console.log(err);
       serverDown(res);
     }
   }
@@ -149,7 +161,6 @@ class MusicController {
   async GET_allCharts(req, res) {
     const allCharts = {
       newRelease: Songs.find({}).sort({ _id: -1 }),
-      // newReleases:  Songs.findOne({ _id: "644cc49112cb5815289a3902" })
     };
     res
       .status(codes.success)
@@ -162,7 +173,6 @@ class MusicController {
     if ((userID, songId)) {
       const findSong = await Songs.find({ _id: songId });
       if (findSong && findSong.length > 0) {
-        //  await Songs.updateOne({_id: songId }, {favourited: true}, {returnOriginal: false})
         const findUserHasCollection = await SaveFavourite.find({
           userID: userID,
         });
@@ -204,32 +214,17 @@ class MusicController {
     const { userID, songId } = req.body;
     if ((userID, songId)) {
       try {
-        // await Songs.updateOne({_id: songId }, {favourited: false}, {returnOriginal: false})
-        // // const data = await SaveFavourite..update({_id:102},{$unset: {"Information.Name":1}},{multi: true});
-        // const tempData = await SaveFavourite.find({userID})
-        // console.log(tempData)
-        // let filterd =  tempData[0].allSongs.filter(each => each._id !== songId)
-        // const data = await SaveFavourite.updateOne(
-        //   { userID: userID },
-        //   { $pull: { allSongs: {_id: songId} } },
-        //   { returnOriginal: false }
-        // );
-        // updateOne({ userID: "644e1876c2498b7fa15fb605"}, {$pull: {allSongs: {_id: ObjectId('6454f1a5a8b4397d73df5cba')}}})
+        const newId = new mongoose.Types.ObjectId(songId);
         const { modifiedCount } = await SaveFavourite.updateOne(
           { userID: userID },
-          { $pull: { allSongs: { _id: songId } } },
-          { upsert: true, multi: true }
+          { $pull: { allSongs: { _id: newId } } },
+          { upsert: false, multi: true }
         );
-        // const data = await SaveFavourite.findOneAndUpdate(
-        //   {'userID': userID},
-        //   {$pull: {'allSongs': {'_id': songId}}},
-        //   {new: true}
-        //   )
         if (modifiedCount === 1) {
-          res.status(codes.success).json({ message: strings.sucesss });
+          res.status(codes.success).json({ message: strings.rmovedFromFav });
         } else {
           res
-            .status(codes.badRequest)
+            .status(codes.success)
             .json({ message: strings.invalidCredentials });
         }
       } catch {
@@ -258,66 +253,66 @@ class MusicController {
     }
   }
 
-    //save playlist
-    async POST_Playlist(req, res) {
-      const { userID, songId } = req.body;
-      if ((userID, songId)) {
-        const findSong = await Songs.find({ _id: songId });
-        if (findSong && findSong.length > 0) {
-          const findUserHasCollection = await SavePlayList.find({
-            userID: userID,
-          });
-          if (
-            findUserHasCollection !== null &&
-            Object.keys(findUserHasCollection).length > 0
-          ) {
-            const validateSong_ = findUserHasCollection.map((each) =>
-              each.allSongs.findIndex((item) => item._id == songId)
-            )[0];
-            if (validateSong_ < 0) {
-              const data = await SavePlayList.findOneAndUpdate(
-                { userID: userID },
-                { $push: { allSongs: findSong[0] } },
-                { returnOriginal: false }
-              );
-            } else {
-              return res
-                .status(codes.moved)
-                .json({ message: strings.alreadyExists });
-            }
+  //save playlist
+  async POST_Playlist(req, res) {
+    const { userID, songId } = req.body;
+    if ((userID, songId)) {
+      const findSong = await Songs.find({ _id: songId });
+      if (findSong && findSong.length > 0) {
+        const findUserHasCollection = await SavePlayList.find({
+          userID: userID,
+        });
+        if (
+          findUserHasCollection !== null &&
+          Object.keys(findUserHasCollection).length > 0
+        ) {
+          const validateSong_ = findUserHasCollection.map((each) =>
+            each.allSongs.findIndex((item) => item._id == songId)
+          )[0];
+          if (validateSong_ < 0) {
+            const data = await SavePlayList.findOneAndUpdate(
+              { userID: userID },
+              { $push: { allSongs: findSong[0] } },
+              { returnOriginal: false }
+            );
           } else {
-            const data = new SavePlayList({
-              userID,
-              allSongs: findSong[0],
-            });
-            await data.save();
+            return res
+              .status(codes.moved)
+              .json({ message: strings.alreadyExists });
           }
-          res.status(codes.created).json({ message: strings.liked });
         } else {
-          res.status(codes.badRequest).json({ message: strings.idNotFound });
+          const data = new SavePlayList({
+            userID,
+            allSongs: findSong[0],
+          });
+          await data.save();
         }
+        res.status(codes.created).json({ message: strings.liked });
       } else {
-        res.status(codes.badRequest).json({ message: strings.failure });
+        res.status(codes.badRequest).json({ message: strings.idNotFound });
       }
+    } else {
+      res.status(codes.badRequest).json({ message: strings.failure });
     }
+  }
 
-    async GEt_allPlaylist(req, res) {
-      const { userID } = req.query;
-      const getAll = await SavePlayList.aggregate([
-        { $match: { userID: userID } },
-      ]);
-      try {
-        if (getAll) {
-          return res
-            .status(codes.success)
-            .json({ message: strings.sucesss, data: getAll });
-        } else {
-          res.status(codes.badRequest).json({ message: strings.idNotFound });
-        }
-      } catch {
-        serverDown(res);
+  async GEt_allPlaylist(req, res) {
+    const { userID } = req.query;
+    const getAll = await SavePlayList.aggregate([
+      { $match: { userID: userID } },
+    ]);
+    try {
+      if (getAll) {
+        return res
+          .status(codes.success)
+          .json({ message: strings.sucesss, data: getAll });
+      } else {
+        res.status(codes.badRequest).json({ message: strings.idNotFound });
       }
+    } catch {
+      serverDown(res);
     }
+  }
 }
 const musicController = new MusicController();
 module.exports = musicController;

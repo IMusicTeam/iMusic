@@ -27,6 +27,7 @@ const strings = {
     uploadedSong: "Uploaded Song Successfully",
     liked: "Added to your favourites",
     alreadyExists: "Already added this song to liked list",
+    rmovedFromFav: "Removed from favourites",
 
     //success || failure
     sucesss: "Success",

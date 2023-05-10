@@ -9,6 +9,10 @@ const uploadSong = new mongoose.Schema(
       type: String,
       required: true,
     },
+    userId:{
+      type: String,
+      required: true,
+    },
     artistName: {
       type: String,
       required: true,
