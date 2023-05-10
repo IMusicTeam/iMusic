@@ -12,12 +12,11 @@ import rounded5 from "../../Assets/Assets/CardImages/Rounded5.png";
 
 function RecentlyPlayed() {
   const data = [
-    { id: 1, src: rounded1},
-    { id: 2, src: rounded2},
-    { id: 3, src: rounded3},
-    { id: 4, src: rounded4},
-    { id: 5, src: rounded5},
-   
+    { id: 1, src: rounded1,title:"Taylor Swift"},
+    { id: 2, src: rounded2,title:"Rico Verh"},
+    { id: 3, src: rounded3,title:"Jan Carter"},
+    { id: 4, src: rounded4,title:"Rov Raa"},
+    { id: 5, src: rounded5,title:"Dane sow"}
   ]
   
   return (
@@ -56,8 +55,8 @@ function RecentlyPlayed() {
                     />
                   </div>
                   <div>
-                    <p className="text-iGray1 text-[18px]">Taylor Swift</p>
-                    <p className="text-[20px] font-bold">Taylor Swift</p>
+                    <p className="text-iGray1 text-[18px]">{item.title}</p>
+                    <p className="text-[20px] font-bold">{item.title}</p>
                   </div>
                 </div>
                 <div className=" flex flex-row gap-[64px] items-center">

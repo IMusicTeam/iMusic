@@ -41,6 +41,7 @@ import rounded7 from "../../Assets/Assets/CardImages/Rounded7.png";
 import rounded8 from "../../Assets/Assets/CardImages/Rounded8.png";
 import rounded9 from "../../Assets/Assets/CardImages/Rounded9.png";
 import rounded10 from "../../Assets/Assets/CardImages/Rounded10.png";
+import { useNavigate } from "react-router";
 
 function Library() {
   const data6 = [
@@ -163,14 +164,20 @@ function Library() {
     { id: 9, src: rounded9},
     { id: 10, src: rounded10}
   ]
-
+const navigateTO=useNavigate();
+  const HandelSeeAll=(value)=>{
+    const {path, title}=value
+    navigateTO(`/see-all/${path}`,{
+      state:title
+    })
+  }
   return (
     <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px]">
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">New releases</h1>
           <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
-            See All
+            
           </h5>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -186,9 +193,7 @@ function Library() {
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">Top charts</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
-            See All
-          </h5>
+          <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data1?.map((item) => {
@@ -203,9 +208,7 @@ function Library() {
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">Recommended for you</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
-            See All
-          </h5>
+          <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data2?.map((item) => {
@@ -222,9 +225,7 @@ function Library() {
           <h1 className="text-[30px] font-semibold">
             Featured playlists Based on Mood
           </h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
-            See All
-          </h5>
+          <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data3?.map((item) => {
@@ -239,9 +240,7 @@ function Library() {
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">Last Spotlight</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
-            See All
-          </h5>
+          <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data4?.map((item) => {
@@ -268,7 +267,7 @@ function Library() {
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">Radio stations</h1>
           <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
-            See All
+            
           </h5>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -284,9 +283,7 @@ function Library() {
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">Your Playlists</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
-            See All
-          </h5>
+          <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data7?.map((item) => {
@@ -301,9 +298,7 @@ function Library() {
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-semibold">Top Playlists</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
-            See All
-          </h5>
+          <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data8?.map((item) => {
@@ -317,20 +312,10 @@ function Library() {
       </div>
       <div>
         <div className="flex flex-row justify-between my-7">
-          <h1 className="text-[30px] font-semibold">Top Playlists</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
-            See All
-          </h5>
+          <h1 className="text-[30px] font-semibold"></h1>
+          <h5 onClick={()=>HandelSeeAll({path:'top-playlists',title:'Top Playlists'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
-          {data?.map((item) => {
-            return (
-              <div>
-              <ProfileCard data={item} src={item.src}/>
-              </div>
-            );
-          })}
-        </div>
+        
       </div>
     </div>
   );
