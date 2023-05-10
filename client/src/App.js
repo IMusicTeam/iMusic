@@ -30,6 +30,8 @@ import Gethelp from "./Components/Gethelp/Gethelp";
 import ProfileSettings from "./Components/ProfileSettings/ProfileSettings";
 import { useEffect } from "react";
 import ContactUs from "./Components/ContactUs/ContactUs";
+import UpdatedLandingPage from "./Components/UpdatedLandingPage/UpdatedLandingPage";
+import RythamicBackground from "./Components/RythamicBackground/RythamicBackground";
 import SeeAll from "./Components/SeeAll/SeeAll";
 import AlbumsViewPage from "./Components/AlbumsViewPage/AlbumsViewPage";
 
@@ -42,7 +44,9 @@ function App() {
    <>
    <Router>
    <Routes>
+   <Route path="/landingpage" element={<UpdatedLandingPage />}/>
    <Route element={<Internal />}>
+   <Route path="/rythamic" element={<RythamicBackground />}/>
    <Route path="/" element={<Home />} />
    <Route path="/likedMusic" element={<LikedPlayList />} />
    <Route path="/RoundedCradFullDetails/:id" element={<RoundedCardFullDetails />}/>
@@ -60,7 +64,9 @@ function App() {
    <Route path="/profile/get-help" element={<Gethelp/>}/>
    <Route path="/profiles/getHelp/contactUs" element={<ContactUs/>}/>
    <Route path="/see-all/:path" element ={<SeeAll />} />
-   <Route path="/albumsView" element ={<AlbumsViewPage/>}/></Route>
+   <Route path="/albumsView" element ={<AlbumsViewPage/>}/>
+   
+   </Route>
    <Route path="/dashboard" element={<Dashboard />} />
    </Routes>
    </Router>
