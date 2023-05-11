@@ -34,6 +34,8 @@ import UpdatedLandingPage from "./Components/UpdatedLandingPage/UpdatedLandingPa
 import RythamicBackground from "./Components/RythamicBackground/RythamicBackground";
 import SeeAll from "./Components/SeeAll/SeeAll";
 import AlbumsViewPage from "./Components/AlbumsViewPage/AlbumsViewPage";
+import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
+import EmailAuthentication from "./Components/EmailAuthentication/EmailAuthentication";
 
 function App() {
   useEffect(()=>{
@@ -45,6 +47,8 @@ function App() {
    <Router>
    <Routes>
    <Route path="/landingpage" element={<UpdatedLandingPage />}/>
+   <Route path="/verify-email" element={<ForgotPassword />}/>
+   <Route path="/email-authentication" element={<EmailAuthentication />}/>
    <Route element={<Internal />}>
    <Route path="/rythamic" element={<RythamicBackground />}/>
    <Route path="/" element={<Home />} />

@@ -15,7 +15,7 @@ import yourlibrary from "./../../../Assets/images/yourlibrary.png"
 import album from "./../../../Assets/images/album.png"
 import playlist from "./../../../Assets/images/playlist.png"
 import liked from "./../../../Assets/images/liked.png"
-import logo from "./../../../Assets/logo.svg";
+import logo from "./../../../Assets/logo.png";
 import styles from "./DashboardMenu.module.scss";
 import sideprofileImage from "./../../../Assets/profile.png";
 import signout from "./../../../Assets/images/signout.png";
@@ -48,9 +48,9 @@ export const DashboardMenu = () => {
 
   return (
     <div className={`${styles.menu}`}>
-      <div className="flex flex-col items-center mt-8">
+      <div className="flex flex-col items-center mt-6">
         <div className="p-2">
-          <img src={logo} className="w-[226px] h-[82px]" />
+          <img src={logo} className="w-[200px] h-[90px]" />
         </div>
 
         <div className="p-2 flex flex-col gap-[15px] pb-5">

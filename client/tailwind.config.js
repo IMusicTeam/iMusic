@@ -18,6 +18,7 @@ module.exports = {
     colors: {
       iBlue:"#295D93" ,
       iLightBlue:"#DEEEFF",
+      iLightBlue1:"#295D934A",
       iDarkBlue:"#1B3D61",
       iOrange:"#EA7525",    
       iBlack:"#242424",
