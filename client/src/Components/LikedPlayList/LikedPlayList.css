@@ -1,6 +1,6 @@
 .listed-rows {
   display: grid;
-  grid-template-columns: 7% 33% 35% 8% 17%; /* 5 columns with equal width */
+  grid-template-columns:  7% 33% 35% 8% 6% 3%;/* 6 columns with equal width */
   border-top: 1px solid gray;
   align-items: center;
   padding-top: 7px;
