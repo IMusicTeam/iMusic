@@ -23,7 +23,7 @@ const HandelLikeSong =()=>{
     userID:"Shahul123",
     songId:data._id
   }
-    axios.post("http://localhost:3000/IMusic/save-as-playlist", payload).then((res)=>{
+    axios.post("http://localhost:3000/IMusic/save-as-favourites", payload).then((res)=>{
       console.log(res)
     }).catch((err)=>{
       console.log(err.message)
