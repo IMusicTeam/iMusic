@@ -1,9 +1,6 @@
 const { codes, strings } = require("../../Constants");
-const Songs = require("../../models/music");
-const SaveFavourite = require("../../models/favourites");
-const { default: mongoose } = require("mongoose");
 const { storeOtp, verifyOtp } = require("../../helpers/otp");
-const { serverDown } = require("../../helpers/hooks");
+const { serverDown, sendOTP } = require("../../helpers/hooks");
 const User = require("../../models/user");
 
 class AuthController {
@@ -13,52 +10,32 @@ class AuthController {
       return res.status(codes.badRequest).json({ error: strings.fillAll });
     }
     const checkEmailVerified = await User.findOne({ email: email });
-    if (checkEmailVerified && checkEmailVerified.emailVerified) {
-      res
-        .status(codes.success)
-        .json({ message: strings.verified, checkEmailVerified });
-    } else {
-      try {
+    try {
+      if (checkEmailVerified) {
+        sendOTP(email, res)
+      } else {
         const user = new User({
           email: email.toLowerCase(),
         });
         await user.save();
         const data = user.toObject();
-        const userId = data._id;
-        if (userId) {
-          const stored = await storeOtp({ email, userId });
-          const data = {
-            userId,
-            email,
-          };
-          if (stored) {
-            res
-              .status(codes.success)
-              .json({ message: strings.otpSentSuccessfully, data });
-          } else {
-            res
-              .status(codes.badRequest)
-              .json({ message: strings.failure, stored });
-          }
-        } else {
-          serverDown(res);
-        }
-      } catch {
-        serverDown(res);
+        sendOTP(email, res)
       }
+    } catch {
+      serverDown(res);
     }
   }
 
-  // verify-email
+  //verify-email
   async VERIFY_email(req, res) {
     try {
-      const { otp, userId } = req.body;
-      if (!otp || !userId) {
+      const { otp, email } = req.body;
+      if (!otp || !email) {
         return res.status(codes.badRequest).json({ error: strings.fillAll });
       }
       const verified = await verifyOtp({
         otp,
-        userId,
+        email,
       });
       if (!verified) {
         return res
@@ -66,7 +43,7 @@ class AuthController {
           .json({ message: strings.invalidOtp });
       }
       const user = await User.findOneAndUpdate(
-        { _id: userId },
+        { email: email },
         { $set: { emailVerified: true } },
         { returnOriginal: false, projection: { password: 0 } }
       );

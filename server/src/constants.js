@@ -43,6 +43,7 @@ const strings = {
 
     //OTP success
     otpSentSuccessfully: "OTP sent successfully",
+    failedToSendOTP : "Failed to send OTP",
     //emaiul verified
     verified: "Email Already Verified"
   };

@@ -36,17 +36,17 @@ async function sendOtpToEmail(to, otp) {
   });
 }
 
-async function storeOtp({email, userId}) {
+async function storeOtp({email}) {
   const otp = generateOtp(otpLength);
-  const filter = {otp, userId}
-  const set = {otp, userId};
+  const filter = {otp, email}
+  const set = {otp, email};
   await Otp.findOneAndUpdate(filter, { $set: set }, { upsert: true });
   sendOtpToEmail(email, otp);
   return true;
 }
 
-async function verifyOtp({ otp, userId}) {
-  const filter = { otp, userId  };
+async function verifyOtp({ otp, email}) {
+  const filter = { otp, email  };
   const result = await Otp.deleteOne(filter);
   return result ? result.deletedCount === 1 : false;
 }
