@@ -76,7 +76,7 @@ function RecentlyPlayed() {
           );
         })}
         </div>
-        <div className="flex">
+        <div className="flex gap-[30px]">
         <div className="relative transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
             <img src={HomeCard1} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
        <p className="text-[63px] leading-[70px] px-[14px] absolute bottom-[40px] text-iWhite shadow-[12px] drop-shadow-2xl font-bold">Listen to your Purchased Music</p>
