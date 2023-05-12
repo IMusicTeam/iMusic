@@ -1,6 +1,5 @@
 const { codes, strings } = require("../../Constants");
 const Songs = require("../../models/music");
-const SaveFavourite = require("../../models/favourites");
 const { default: mongoose } = require("mongoose");
 const { serverDown } = require("../../helpers/hooks");
 const User = require("../../models/user");
