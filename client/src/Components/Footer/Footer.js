@@ -1,5 +1,5 @@
 import React from "react";
-import iMusic from "../../Assets/images/logo.png";
+import iMusic from "../../Assets/logo.png";
 
 function Footer() {
   return (
