@@ -8,5 +8,5 @@ export const APIConstants = {
     fileUpload :  returnApis("upload-audio"),
     formUpload:returnApis("upload-song"),
     emailVerification: returnApis("signup"),
-    otpVerification: returnApis("otpverification")
+    otpVerification: returnApis("verify-email")
 }

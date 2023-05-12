@@ -4,19 +4,22 @@ import logo from "../../Assets/logo.png"
 import { APIConstants } from "../../Services/api-constants";
 import VerificationInput from "../Atoms/VerificationInput/VerificationInput";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function EmailAuthentication(){
     const navigate = useNavigate();
+    const {email} = useSelector((store)=>store.ReduxSlice.data.userData)
     const blankCode = ['', '', '', '', '', ''];
     const [otpVerification, setOtpVerification] = useState(blankCode);
 
-    const OtpVerification = async () =>{
+    const OtpVerification = () =>{
         const reqBody ={
-            otpVerification: otpVerification
+            otp: otpVerification.join().replace(/,/g, ''),
+            email
         }
-        axios.post(APIConstants.otpVerification,reqBody)
+        axios.put(APIConstants.otpVerification,reqBody)
         .then((res)=>{
-            navigate('/')
+             navigate('/')
         })
         .catch((err)=>{
             alert('Please fill the field')

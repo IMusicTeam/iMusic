@@ -3,8 +3,11 @@ import logo from "../../Assets/logo.png"
 import axios from "axios"
 import { APIConstants } from "../../Services/api-constants";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateUserData } from "../../Redux/Redux";
 function ForgotPassword(){
     const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     const [emailverification, setEmailVerification] = useState(''); 
 
@@ -18,6 +21,7 @@ function ForgotPassword(){
         }
         axios.post(APIConstants.emailVerification, reqBody)
         .then((res)=>{
+            dispatch(updateUserData({data:{email:res.data.data}}))
             navigate("/email-authentication")
         })
         .catch((err)=>{
