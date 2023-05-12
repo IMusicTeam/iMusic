@@ -25,8 +25,12 @@ import Unlockendless1 from "../../Assets/Unlockendless1.png"
 import Unlockendless2 from "../../Assets/Unlockendless2.png"
 import Footer from "../Footer/Footer";
 import './UpdatedLandingPage.css'
+import { useNavigate } from "react-router-dom";
 function UpdatedLandingPage(){
-
+    const navigate = useNavigate();
+    const VerificationEmail = () =>{
+        navigate('/verify-email')
+    }
     const rhythmicdata = [
         {id:1, src:fanpower, text1:"Fan-powered"},
         {id:2, src:fanengagement, text1:"Fans Engagement"},
@@ -57,7 +61,7 @@ function UpdatedLandingPage(){
             <div className="imusicLogo">
                 <img src={imusicLogo}  className="max-w-[185px] h-[196px] pt-[24px] pl-[36px]"/>
             </div>
-            <div className="w-[174px] h-[48px] bg-iBlue rounded-[28px] mt-[83px] mr-[123px] flex items-center justify-center hover:bg-iOrange">
+            <div onClick={VerificationEmail} className="w-[174px] h-[48px] bg-iBlue rounded-[28px] mt-[83px] mr-[123px] flex items-center justify-center hover:bg-iOrange hover:cursor-pointer">
                 <div className="text-center text-iWhite">Sign Up/Sign in</div>
             </div>
             </div>
@@ -120,17 +124,17 @@ function UpdatedLandingPage(){
             </div>
 
             <div className="flex flex-row justify-between gap-[44px] px-[76px] pt-[83px] mb-[150px]">
-            <div className="relative text-center items-center">
+            <div className="relative text-center items-center transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-105 duration-400">
                 <div className="text-[56px] text-iWhite font-semibold w-[490px] h-[144px] absolute top-[160px] 3xl:right-[150px] right-[75px] ">Unlock endless</div>
                 <div className="text-[56px] text-iWhite font-semibold w-[490px] h-[80px] absolute top-[230px] 3xl:right-[150px] right-[75px] leading-none">music possibilities.</div>
                     <img src={Unlockendless1} className="w-[862px] h-[562px]"/>
-                    <div className="w-[204px] h-[66px] bg-iBlue text-iWhite text-[20px] rounded-[45px] flex justify-center items-center absolute bottom-[90px] 3xl:right-[310px] right-[185px] hover:bg-iOrange">Explore Now</div>
+                    <div className="w-[204px] h-[66px] bg-iBlue text-iWhite text-[20px] rounded-[45px] flex justify-center items-center absolute bottom-[90px] 3xl:right-[310px] right-[185px] hover:bg-iOrange hover:cursor-pointer">Explore Now</div>
                 </div>
-                <div className="relative text-center items-center">
+                <div className="relative text-center items-center transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-105 duration-400">
                 <div className="text-[56px] text-iWhite font-semibold w-[490px] h-[144px] absolute top-[160px] 3xl:right-[150px] right-[75px] ">Unlock endless</div>
                 <div className="text-[56px] text-iWhite font-semibold w-[490px] h-[80px] absolute top-[230px] 3xl:right-[150px] right-[75px] leading-none">music possibilities.</div>
                     <img src={Unlockendless2} className="w-[862px] h-[562px]"/>
-                    <div className="w-[204px] h-[66px] bg-iBlue text-iWhite text-[20px] rounded-[45px] flex justify-center items-center absolute bottom-[90px] 3xl:right-[310px] right-[185px] hover:bg-iOrange">Explore Now</div>
+                    <div className="w-[204px] h-[66px] bg-iBlue text-iWhite text-[20px] rounded-[45px] flex justify-center items-center absolute bottom-[90px] 3xl:right-[310px] right-[185px] hover:bg-iOrange hover:cursor-pointer">Explore Now</div>
                 </div>
                 
             </div>

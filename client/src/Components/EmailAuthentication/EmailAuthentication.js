@@ -4,32 +4,54 @@ import logo from "../../Assets/logo.png"
 import { APIConstants } from "../../Services/api-constants";
 import VerificationInput from "../Atoms/VerificationInput/VerificationInput";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { updateUserData } from "../../Redux/Redux";
 
 function EmailAuthentication(){
     const navigate = useNavigate();
+    const dispatch = useDispatch()
     const {email} = useSelector((store)=>store.ReduxSlice.data.userData)
     const blankCode = ['', '', '', '', '', ''];
     const [otpVerification, setOtpVerification] = useState(blankCode);
+    const [codeError, setCodeError] = useState(false);
+    const [codeSuccess, setCodeSuccess] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
-    const OtpVerification = () =>{
+    const onComplete = () =>{
+        setIsLoading(true);
+        setCodeError(false);
+        setCodeSuccess(false);
         const reqBody ={
             otp: otpVerification.join().replace(/,/g, ''),
             email
         }
         axios.put(APIConstants.otpVerification,reqBody)
         .then((res)=>{
-             navigate('/')
+            dispatch(updateUserData({data:{...res.data.data}}))
+            setIsLoading(false);
+            setCodeSuccess(true);
+            setTimeout(() => {
+                navigate('/')
+            }, 2000);
+             
+                
         })
         .catch((err)=>{
-            alert('Please fill the field')
+            setCodeError(true);
+            setOtpVerification(blankCode);
+            setIsLoading(false);
             console.log(err.message)
         })
+
     }
 
+    const onPaste = (value) => {
+        setOtpVerification(value);
+      };
+
     return(
-        <div className="flex items-center justify-center mb-[150px] relative">
-         <div className="max-w-[610px] bg-iWhite shadow-2xl ml-[41px] px-[77px] mt-[29px] rounded-xl absolute top-24">
+        <div className="flex items-center justify-center mb-[200px] relative">
+         <div className="max-w-[610px] h-[636px] bg-iWhite shadow-2xl ml-[41px] px-[77px] mt-[29px] rounded-xl absolute top-24">
             <div className="flex justify-center">
                 <img src={logo}  className="w-[239px] h-[159px] mt-[40px]"/>
             </div>
@@ -39,13 +61,16 @@ function EmailAuthentication(){
 
             <div className="mt-[73px]">
             <VerificationInput
+            className=""
             value={otpVerification}
-            onChange={(value) => setOtpVerification(value)} 
+            onChange={(value) => setOtpVerification(value)}
+            onPaste={onPaste}
+            onComplete={onComplete}
+            error={codeError}
+            success={codeSuccess}
+            isLoading={isLoading} 
             />
             </div>
-            <div className="flex justify-center mb-[40px]">
-                        <button type="submit" onClick={OtpVerification} className={`w-[300px] h-[40px] bg-iBlue text-iWhite font-semibold py-1 px-4 rounded-[80px] mt-[47px]`}>Submit</button>
-                    </div>
       </div>
        </div>
     )
