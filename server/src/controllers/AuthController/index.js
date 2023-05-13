@@ -1,5 +1,5 @@
 const { codes, strings } = require("../../Constants");
-const { storeOtp, verifyOtp } = require("../../helpers/otp");
+const { verifyOtp } = require("../../helpers/otp");
 const { serverDown, sendOTP } = require("../../helpers/hooks");
 const User = require("../../models/user");
 
