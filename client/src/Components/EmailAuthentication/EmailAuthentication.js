@@ -49,6 +49,10 @@ function EmailAuthentication(){
         setOtpVerification(value);
       };
 
+      const BacktoPreviousPage = () =>{
+        navigate('/verify-email')
+      }
+
     return(
         <div className="flex items-center justify-center mb-[200px] relative">
          <div className="max-w-[610px] h-[636px] bg-iWhite shadow-2xl ml-[41px] px-[77px] mt-[29px] rounded-xl absolute top-24">
@@ -71,6 +75,11 @@ function EmailAuthentication(){
             isLoading={isLoading} 
             />
             </div>
+
+            <div className="flex justify-center items-center">
+            <h6 className="flex justify-center items-center mt-[4px] text-iBlue hover:underline hover:cursor-pointer font-semibold" onClick={BacktoPreviousPage}>Go Back</h6>
+            </div>
+            
       </div>
        </div>
     )
