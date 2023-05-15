@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import sideprofileImage from "./../../Assets/profile.png";
 import MetaMask from "./../../Assets/MetaMask.png";
 import styles from "./WalletDashboard.module.scss";
@@ -7,8 +7,8 @@ import image3 from "./../../Assets/Assets/CardImages/HomeCard2.png";
 import EditIcon from "../../Assets/EditIcon.png";
 import { useSelector } from "react-redux";
 function WalletDashboard() {
-  const wallet = useSelector(state => state.ReduxSlice.data);
-
+  const wallet = useSelector(state => state.ReduxSlice.data.metaMaskDetails);
+  const isWalletConnected = Object.keys(wallet).length === 0
   const data = [
     {
       date: "16/09/22 - 12:05:45",
@@ -75,6 +75,8 @@ function WalletDashboard() {
       status: "Completed",
     },
   ];
+
+
   return (
     <>
       <div
@@ -128,11 +130,11 @@ function WalletDashboard() {
         <div className="max-w-[305px] h-[248px] rounded-[15px] bg-iWhite border border-iBlue mt-[65px]">
 
           <div className="flex flex-col gap-[37px]">
-            <div className="text-igray1 text-[22px] font-semibold pt-[36px] pl-[19px] w-[225px] h-[63px]">
+            <div className="text-igray1 text-[22px] font-semibold pt-[36px] pl-[19px] truncate w-[280px] h-[63px]">
               Wallet ID: {wallet.account}
             </div>
-            <div className="mt-[37px] text-cgy4 text-[54px] font-semibold pl-[57px]">
-              ${wallet.balanceInEther}
+            <div className="mt-[37px] text-cgy4 text-[54px] font-semibold pl-[19px]">
+              {Number(wallet.balanceInEther).toFixed(2)} <span className="text-[25px]">ETH</span>
             </div>
           </div>
           

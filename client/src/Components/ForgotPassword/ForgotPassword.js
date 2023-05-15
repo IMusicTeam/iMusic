@@ -1,13 +1,14 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import logo from "../../Assets/logo.png"
 import axios from "axios"
 import { APIConstants } from "../../Services/api-constants";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useNavigate ,Navigate} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { updateUserData } from "../../Redux/Redux";
 function ForgotPassword(){
     const navigate = useNavigate();
     const dispatch = useDispatch()
+    const isAuthed = useSelector((store)=> store.ReduxSlice.data.isAuthed)
 
     const [emailverification, setEmailVerification] = useState(''); 
 
@@ -29,6 +30,11 @@ function ForgotPassword(){
             console.log(err.message)
         })
       }
+        if (isAuthed){
+            return <Navigate to="/home"/>
+        }
+    
+ 
 
 return(
     <>

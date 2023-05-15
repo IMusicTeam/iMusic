@@ -4,6 +4,7 @@ import {
   Routes,
   useNavigate,
   redirect,
+  Navigate
 } from "react-router-dom";
 import "./App.css";
 import LikedPlayList from "./Components/LikedPlayList/LikedPlayList";
@@ -34,8 +35,10 @@ import UpdatedLandingPage from "./Components/UpdatedLandingPage/UpdatedLandingPa
 import RythamicBackground from "./Components/RythamicBackground/RythamicBackground";
 import SeeAll from "./Components/SeeAll/SeeAll";
 import AlbumsViewPage from "./Components/AlbumsViewPage/AlbumsViewPage";
+import AdminDetails from "./Components/AdminDetails/AdminDetails";
 import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
 import EmailAuthentication from "./Components/EmailAuthentication/EmailAuthentication";
+import PrivateRoute from "./ProtectedRoute";
 
 function App() {
   useEffect(()=>{
@@ -49,9 +52,10 @@ function App() {
    <Route path="/landingpage" element={<UpdatedLandingPage />}/>
    <Route path="/verify-email" element={<ForgotPassword />}/>
    <Route path="/email-authentication" element={<EmailAuthentication />}/>
+   <Route path="/" element={<PrivateRoute />}>
    <Route element={<Internal />}>
    <Route path="/rythamic" element={<RythamicBackground />}/>
-   <Route path="/" element={<Home />} />
+   <Route path="/home" element={<Home />} />
    <Route path="/likedMusic" element={<LikedPlayList />} />
    <Route path="/RoundedCradFullDetails/:id" element={<RoundedCardFullDetails />}/>
    <Route path="/audioPlayer" element ={<AudioPlayer /> } />
@@ -68,10 +72,12 @@ function App() {
    <Route path="/profile/get-help" element={<Gethelp/>}/>
    <Route path="/profiles/getHelp/contactUs" element={<ContactUs/>}/>
    <Route path="/see-all/:path" element ={<SeeAll />} />
+   <Route path="/admin-details" element={<AdminDetails/>}/>
+   <Route path="/" element={<Navigate to="/home" replace />} />
    <Route path="/albumsView" element ={<AlbumsViewPage/>}/>
-   
-   </Route>
    <Route path="/dashboard" element={<Dashboard />} />
+   </Route>
+   </Route>
    </Routes>
    </Router>
    </>
