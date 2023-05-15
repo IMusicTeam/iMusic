@@ -9,8 +9,17 @@ import { APIConstants } from "../../Services/api-constants";
 import { useNavigate } from "react-router";
 import verified from "../../Assets/Assets/CardImages/Verified.png";
 import edit from "./../../Assets/EditIcon.png";
+import Web3 from 'web3'
+import { useSelector } from "react-redux";
+// require("dotenv").config();
+const httpUrlKey = "HTTP://127.0.0.1:7545";
+
+const web3 = new Web3(new Web3.providers.HttpProvider(httpUrlKey))
 
 function UploadMusic() {
+  const {metaMaskDetails,adminDetails,userData} = useSelector((store)=>store.ReduxSlice.data)
+  const walletId = adminDetails?.adminWalletAddress ;
+   const privateKey= adminDetails?.adminPrivateKey;
   const [image, setImage] = useState();
   const [audio, setAudio] = useState();
   const [albumName, setAlbumName] = useState("");
@@ -40,6 +49,7 @@ function UploadMusic() {
     }
   };
 
+
   // const AudioUpload = async (event) => {
   //   const file = event.target.files;
   //   if (file.length > 0) {
@@ -65,10 +75,11 @@ function UploadMusic() {
       songDescription: songDes,
       tune: audio,
       songThumbnail: image,
+      userId:userData._id
     };
     axios
       .post(APIConstants.formUpload, reqBody)
-      .then((res) => {
+      .then((res) => {   
         console.log(res);
         setStep(1);
       })
@@ -321,7 +332,7 @@ function UploadMusic() {
               onClick={UploadAgain}
               className=" mt-8 py-2 px-2 border border-[#295D93] rounded-md hover:border-iWhite hover:bg-iBlue text-iBlue hover:text-iWhite"
             >
-              Upload Again
+              Upload New Song
             </button>
           </div>
         </div>

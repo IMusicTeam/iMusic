@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import imusicLogo from "../../Assets/imusicLogo.png"
 import listingMusic from "../../Assets/listingMusic.PNG"
 import rythamic from "../../Assets/rythamic.png";
@@ -25,8 +25,10 @@ import Unlockendless1 from "../../Assets/Unlockendless1.png"
 import Unlockendless2 from "../../Assets/Unlockendless2.png"
 import Footer from "../Footer/Footer";
 import './UpdatedLandingPage.css'
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Navigate} from "react-router-dom";
+import { useSelector } from "react-redux";
 function UpdatedLandingPage(){
+    const isAuthed = useSelector((store)=> store.ReduxSlice.data.isAuthed)
     const navigate = useNavigate();
     const VerificationEmail = () =>{
         navigate('/verify-email')
@@ -55,8 +57,12 @@ function UpdatedLandingPage(){
         {id:9, src:musicbasednfts, text1:"Music-Based", text2:"NFTs"},
     ]
 
+    if (isAuthed){
+        return <Navigate to="/home"/>
+    }
+
     return (
-        <div className="bg-iLightBlue w-full h-full">
+        <div className="w-full h-full bg-iLightBlue">
             <div className="flex flex-row justify-between">
             <div className="imusicLogo">
                 <img src={imusicLogo}  className="max-w-[185px] h-[196px] pt-[24px] pl-[36px]"/>
@@ -83,7 +89,7 @@ function UpdatedLandingPage(){
                <div className="mt-[60px] grid grid-cols-3 gap-[110px]">
                     {
                     rhythmicdata?.map((item)=>{
-                       return <div className="flex flex-col text-center items-center">
+                       return <div className="flex flex-col items-center text-center">
                         <div className="iconsBackground 3xl:w-[200px] w-[150px] h-[170px] flex justify-center items-center">
                             <img src={item.src} className="-ml-[15px]"/>
                             </div>
@@ -104,7 +110,7 @@ function UpdatedLandingPage(){
                 <div className="mt-[74px] grid grid-cols-3 ml-[134px] gap-[110px]">
                     {
                         advantagesdata.map((item)=>{
-                            return <div className="flex flex-col text-center items-center">
+                            return <div className="flex flex-col items-center text-center">
                                <div className="iconsBackground 3xl:w-[200px] w-[150px] h-[170px] flex justify-center items-center">
                                 <img src={item.src} className="-ml-[15px]"/>
                                 </div>
@@ -124,13 +130,13 @@ function UpdatedLandingPage(){
             </div>
 
             <div className="flex flex-row justify-between gap-[44px] px-[76px] pt-[83px] mb-[150px]">
-            <div className="relative text-center items-center transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-105 duration-400">
+            <div className="relative items-center text-center transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-105 duration-400">
                 <div className="text-[56px] text-iWhite font-semibold w-[490px] h-[144px] absolute top-[160px] 3xl:right-[150px] right-[75px] ">Unlock endless</div>
                 <div className="text-[56px] text-iWhite font-semibold w-[490px] h-[80px] absolute top-[230px] 3xl:right-[150px] right-[75px] leading-none">music possibilities.</div>
                     <img src={Unlockendless1} className="w-[862px] h-[562px]"/>
                     <div className="w-[204px] h-[66px] bg-iBlue text-iWhite text-[20px] rounded-[45px] flex justify-center items-center absolute bottom-[90px] 3xl:right-[310px] right-[185px] hover:bg-iOrange hover:cursor-pointer">Explore Now</div>
                 </div>
-                <div className="relative text-center items-center transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-105 duration-400">
+                <div className="relative items-center text-center transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-105 duration-400">
                 <div className="text-[56px] text-iWhite font-semibold w-[490px] h-[144px] absolute top-[160px] 3xl:right-[150px] right-[75px] ">Unlock endless</div>
                 <div className="text-[56px] text-iWhite font-semibold w-[490px] h-[80px] absolute top-[230px] 3xl:right-[150px] right-[75px] leading-none">music possibilities.</div>
                     <img src={Unlockendless2} className="w-[862px] h-[562px]"/>

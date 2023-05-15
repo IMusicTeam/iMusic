@@ -1,15 +1,16 @@
-import React,{useState} from "react"
+import React,{useEffect, useState} from "react"
 import axios from "axios";
 import logo from "../../Assets/logo.png"
 import { APIConstants } from "../../Services/api-constants";
 import VerificationInput from "../Atoms/VerificationInput/VerificationInput";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUserData } from "../../Redux/Redux";
+import { updateAuthVerification, updateUserData } from "../../Redux/Redux";
 
 function EmailAuthentication(){
     const navigate = useNavigate();
     const dispatch = useDispatch()
+    const isAuthed = useSelector((store)=> store.ReduxSlice.data.isAuthed)
     const {email} = useSelector((store)=>store.ReduxSlice.data.userData)
     const blankCode = ['', '', '', '', '', ''];
     const [otpVerification, setOtpVerification] = useState(blankCode);
@@ -27,6 +28,8 @@ function EmailAuthentication(){
         }
         axios.put(APIConstants.otpVerification,reqBody)
         .then((res)=>{
+            localStorage.setItem("id",res.data.data._id)
+            dispatch(updateAuthVerification({data:{id:res.data.data._id}}))
             dispatch(updateUserData({data:{...res.data.data}}))
             setIsLoading(false);
             setCodeSuccess(true);
@@ -43,6 +46,11 @@ function EmailAuthentication(){
             console.log(err.message)
         })
 
+    }
+
+    
+    if (isAuthed){
+        return <Navigate to="/home"/>
     }
 
     const onPaste = (value) => {

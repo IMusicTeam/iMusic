@@ -26,7 +26,7 @@ const handleContactUs = () =>{
     }
   };
     return(
-        <div className="max-w-[1590px] bg-iWhite shadow-2xl ml-[41px] p-[42px] mt-[29px] rounded-xl">
+        <div className="max-w-[1590px] bg-iWhite shadow-2xl ml-[41px] p-[42px] mb-[20px] mt-[29px] rounded-xl">
         <button onClick={''}>
           <BiLeftArrowAlt size={38} className="mb-[33px] -ml-[9px]" />
         </button>

@@ -22,12 +22,15 @@ import signout from "./../../../Assets/images/signout.png";
 import dashboard from "./../../../Assets/images/dashboard.png";
 import profilesetting from "./../../../Assets/images/profilesetting.png";
 import help from "./../../../Assets/images/help.png"
+import { useDispatch } from "react-redux";
+import { logout, updateAuthVerification } from "../../../Redux/Redux";
 
 export const DashboardMenu = () => {
   const location = useLocation();
   const [show, setShow] = useState(false);
   const selectRef = useRef(null);
   const navigate = useNavigate();
+  const dispatch= useDispatch()
   
   const [isOpen, setIsOpen] = useState(false);
 
@@ -66,14 +69,14 @@ export const DashboardMenu = () => {
         <div>
           <div>
             {/* Home-button */}
-            <div className="mb-2" onClick={() => navigate("/")}>
+            <div className="mb-2" onClick={() => navigate("/home")}>
               <MenuItem
                 isActive={true}
                 icon={
                   home
                 }
                 label="Home"
-                url={"/"}
+                url={"/home"}
                 id={"landing-page"}
               />
             </div>
@@ -103,7 +106,7 @@ export const DashboardMenu = () => {
                     <div
                       className={`${styles.NavLinkButtons} ${
                         location.pathname.includes(
-                          "/my-profile/user-details"
+                          "/profile/dashboard"
                         ) && "bg-ibm8 text-ibm2 rounded-[10px]"
                       } text-ibgy1 hover:text-ibm2`}
                     >
@@ -226,6 +229,11 @@ export const DashboardMenu = () => {
           <div className="mt-10 pb-[138px]">
             <div className="mb-2">
               <MenuItem
+                onClick={()=>{
+                  localStorage.removeItem("id")
+                  dispatch(logout())
+                  setTimeout(()=>{navigate("/landingpage")},2000)           
+                        }}
                 icon={
                   signout
                 }

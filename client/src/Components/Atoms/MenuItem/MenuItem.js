@@ -18,7 +18,7 @@ export default function MenuItem({
   onClickOutside = false,
   ClickedOut = false,
   isDisable = false,
-  onClick = "",
+  onClick = ()=>{},
   id = "",
 }) {
   const location = useLocation();
@@ -50,10 +50,14 @@ export default function MenuItem({
   });
 
   useEffect(() => {
+    if (ClickedOut){
     // if (location.pathname.includes(url)) {
     setDropDown(false);
+    } else{
+      setDropDown(true);
+    }
     // }
-  }, [ClickedOut, location.pathname, url]);
+  }, [ClickedOut]);
 
   useEffect(() => {
     if (location.pathname.includes(url)) {
@@ -117,6 +121,7 @@ export default function MenuItem({
                 ? "menu-item-label-disable leading-10 text-ibgy1 font-normal"
                 : "menu-item-label leading-10 font-normal group-hover:text-ibm2"
             } ${activeTab || isDropDown ? " text-ibm2" : "text-ibgy1"}`}
+            onClick={onClick}
           >
             {label}
           </span>
