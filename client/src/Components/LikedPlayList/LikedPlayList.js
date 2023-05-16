@@ -25,22 +25,25 @@ import { APIConstants } from "../../Services/api-constants";
 import { useSelector } from "react-redux";
 import edit from "../../Assets/EditIcon.png";
 import images from "../../Assets/images/player.png";
+import verified from "../../Assets/Assets/CardImages/Verified.png";
 
 function LikedPlayList() {
+  const userId = useSelector((store) => store.ReduxSlice.data.userData._id);
+
   const [download, setDownload] = useState(false);
   const [likedData, setLikedData] = useState();
   const navigateTo = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const [loader, setLoader] = useState(false);
-  const [storeId, setStoreID]=useState('')
-  const {userData} = useSelector((store)=>store.ReduxSlice.data)
+  const [storeId, setStoreID] = useState("");
+  const { userData } = useSelector((store) => store.ReduxSlice.data);
   const [showCard, setShowCard] = useState(false);
 
   const handleMouseEnter = (id) => {
-    if(id?.bubbles){
+    if (id?.bubbles) {
       setShowDropdown(true);
-    }else{
-      setStoreID(id)
+    } else {
+      setStoreID(id);
     }
   };
 
@@ -52,134 +55,7 @@ function LikedPlayList() {
   function changeDownload() {
     setDownload((prev) => !prev);
   }
-  const datas = [
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-    {
-      image: { likedImage },
-      text1: "Taylor Swift",
-      text2: "Shake it off",
-      year: 1989,
-    },
-  ];
+
   const data = [
     { id: 1, src: Card1, playlist: "Mine", album: "Radio" },
     { id: 2, src: Card6, playlist: " Top Hits of 2000", album: "Radio" },
@@ -201,9 +77,10 @@ function LikedPlayList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/IMusic/get-all-favourites?userID=" + userData._id)
+      .get(
+        "http://localhost:3000/IMusic/get-all-favourites?userID=" + userData._id
+      )
       .then(async (res) => {
-        // debugger
         const musicWithDurations = await Promise.all(
           res.data.data[0].allSongs.map(async (music) => {
             const audio = new Audio(music.tune[0]);
@@ -223,27 +100,22 @@ function LikedPlayList() {
       });
   }, []);
 
-  // useEffect(()=>{
-  //   setTimeout(()=>{
-  //     setLoader(false)
-  //   },5000)
-  // },[])
-
   function formatDuration(duration) {
     const minutes = Math.round(duration / 60);
     const seconds = Math.round(duration % 60);
     return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
   }
+  const [payload, setPayload] = useState({
+    userId: "",
+    songId: "",
+    image: "",
+    name: "",
+    description: "",
+  });
   const AddToPlayList = (song) => {
-    const payload = {
-      userID: "Shahul123",
-      songId: song._id,
-    };
-    // axios.post(APIConstants.saveasplaylist, payload).then((res)=>{
-    //   console.log(res)
-    // }).catch((err)=>{
-    //   console.log(err.message)
-    // })
+    setStep(0)
+    const result = { ...payload, songId: song._id, userId: userId };
+    setPayload(result);
     setShowCard(!showCard);
   };
   const BackArrowFunction = () => {
@@ -256,7 +128,6 @@ function LikedPlayList() {
   const [description, setDescription] = useState("");
 
   const UploadPlayList = () => {
-    // setUploadList(!uploadList)
     setStep(1);
   };
   const fileUploadHandler = async (event) => {
@@ -275,7 +146,63 @@ function LikedPlayList() {
       }
     }
   };
+  const AddNewPlayList = () => {
+    const result = {
+      ...payload,
+      name: playListName,
+      description: description,
+      image: image,
+    };
+    axios
+      .post(APIConstants.saveasplaylist, result)
+      .then((res) => {
+        console.log(res);
+        setStep(2);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
 
+  const [listData, setListData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/IMusic/get-all-playlist?userId=" + userId)
+      .then((res) => {
+        const data = res.data.data[0].allPlaylist;
+        setListData(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
+  const UpdatePlayList = (item) => {
+    const { songId, userId } = payload;
+    const result = {
+      name: item.name,
+      userId: userId,
+      songId: songId,
+    };
+    axios
+      .put(APIConstants.updatePlaylist, result)
+      .then((res) => {
+        if(res.data.message){
+          alert("This song is already exist in the list")
+        }
+        const data = res.data.data[0].allPlaylist;
+        setListData(data);
+        setStep(2);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
+  const Back = () => {
+    setShowCard(false);
+  };
   return (
     <>
       {loader ? (
@@ -283,7 +210,7 @@ function LikedPlayList() {
           <img src={Loadingforimusic} alt="" />
         </div>
       ) : (
-        <div className="bg-iGray2">
+        <div className="bg-iGray2 pt-9">
           <div className="h-[389px] bg-iLightBlue pl-[142px] border-iGray4 border">
             <h3 className="text-iOrange font-semibold text-[28px] mb-[28px] mt-12">
               Liked Songs {duration}
@@ -339,7 +266,7 @@ function LikedPlayList() {
             </div>
           </div>
           <div className="pl-[142px] pt-[139px] pr-14">
-            <div className="h-[864px] overflow-y-auto musicList mb-5">
+            <div className="h-[400px] flex flex-col gap-4 overflow-y-scroll musicList mb-5">
               {likedData?.map((item, index) => {
                 return (
                   <div key={index}>
@@ -376,7 +303,7 @@ function LikedPlayList() {
                         <BsFillPlayFill className="w-12 h-12 pl-1 hover:duration-500 hover:delay-100 text-iBlue hover:bg-iBlue hover:scale-110 hover:text-iWhite hover:rounded-full" />
                       </button>
                       <div
-                        onMouseEnter={()=>handleMouseEnter(item._id)}
+                        onMouseEnter={() => handleMouseEnter(item._id)}
                         onMouseLeave={handleMouseLeave}
                         className="relative"
                       >
@@ -391,191 +318,173 @@ function LikedPlayList() {
                         )}
                       </div>
                       {showCard && (
-                        <div className="w-[610px] bg-iWhite rounded-[20px] shadow-2xl absolute top-[220px] left-[813px]">
-                          {step === 0 && (
-                            <>
-                              <button onClick={BackArrowFunction}>
-                                <BiLeftArrowAlt
-                                  size={38}
-                                  className="mt-[28px] ml-[32px]"
-                                />
-                              </button>
-                              <div className="pb-5">
-                                <div className="flex flex-col items-center justify-center gap-8">
-                                  <div className="text-iBlue text-[28px] font-medium -mt-[28px]">
-                                    Add To PlayList
-                                  </div>
-                                  <div
-                                    onClick={UploadPlayList}
-                                    className="border-dashed border-2 border-indigo-600 px-[50px] py-[10px] rounded-lg text-[20px] cursor-pointer"
-                                  >
-                                    <span className="text-iBlue mr-1 text-[30px]">
-                                      +
-                                    </span>{" "}
-                                    Create New playlist
-                                  </div>
-                                </div>
-
-                                <p className="text-[18px] text-iBlue mt-8 font-medium px-[51px]">
-                                Your Collections
-                                </p>
-                                <div className="flex flex-col gap-2 mt-[17px] px-[51px] h-[370px] overflow-y-scroll">
-                                  <div className="flex flex-row items-center justify-start gap-7">
-                                    <img
-                                      src={Card1}
-                                      alt=""
-                                      className="w-[86px] h-[86px] rounded-[4px]"
-                                    />
-                                    <p>Silence</p>
-                                  </div>
-                                  <div className="flex flex-row items-center justify-start gap-7">
-                                    <img
-                                      src={Card1}
-                                      alt=""
-                                      className="w-[86px] h-[86px] rounded-[4px]"
-                                    />
-                                    <p>Silence</p>
-                                  </div>
-                                  <div className="flex flex-row items-center justify-start gap-7">
-                                    <img
-                                      src={Card1}
-                                      alt=""
-                                      className="w-[86px] h-[86px] rounded-[4px]"
-                                    />
-                                    <p>Silence</p>
-                                  </div>
-                                  <div className="flex flex-row items-center justify-start gap-7">
-                                    <img
-                                      src={Card1}
-                                      alt=""
-                                      className="w-[86px] h-[86px] rounded-[4px]"
-                                    />
-                                    <p>Silence</p>
-                                  </div>
-                                  <div className="flex flex-row items-center justify-start gap-7">
-                                    <img
-                                      src={Card1}
-                                      alt=""
-                                      className="w-[86px] h-[86px] rounded-[4px]"
-                                    />
-                                    <p>Silence</p>
-                                  </div>
-                                  <div className="flex flex-row items-center justify-start gap-7">
-                                    <img
-                                      src={Card1}
-                                      alt=""
-                                      className="w-[86px] h-[86px] rounded-[4px]"
-                                    />
-                                    <p>Silence</p>
-                                  </div>
-                                  <div className="flex flex-row items-center justify-start gap-7">
-                                    <img
-                                      src={Card1}
-                                      alt=""
-                                      className="w-[86px] h-[86px] rounded-[4px]"
-                                    />
-                                    <p>Silence</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </>
-                          )}
-                          {step === 1 && (
-                            <div>
+                        <div className="processingCont">
+                            {step === 0 && (
                               <>
-                                <button onClick={()=>setStep(0)}>
+                          <div className="w-[610px]  bg-iWhite rounded-[20px] shadow-2xl absolute !top-[140px] left-[655px]">
+                                <button onClick={BackArrowFunction}>
                                   <BiLeftArrowAlt
                                     size={38}
                                     className="mt-[28px] ml-[32px]"
                                   />
                                 </button>
-                                <div className="flex flex-col gap-[38px] items-center justify-center">
-                                  <div className="text-iBlue text-[28px] font-medium -mt-[28px]">
-                                    Add To PlayList
-                                  </div>
-                                  <div className="w-[156px] h-[165px] border-iBlue relative border-2 rounded-2xl">
-                                    {!image ? (
-                                      <img
-                                        src={images}
-                                        alt=""
-                                        className="w-[153px] h-[162px] rounded-2xl"
-                                      />
-                                    ) : (
-                                      <img
-                                        src={image}
-                                        alt=""
-                                        className="w-[153px] h-[163px] rounded-2xl"
-                                      />
-                                    )}
-                                    <label htmlFor="upload-image-inp">
-                                      <div className=" upload-img-div glass_effect glass_effect_border">
-                                        <span className="p-1 pl-2  bg-iWhite absolute -bottom-[13px] -right-[17px]">
-                                          <img
-                                            src={edit}
-                                            className="w-[21px] h-[21px]"
-                                            alt=""
-                                          />
-                                        </span>
-                                        <input
-                                          type="file"
-                                          id="upload-image-inp"
-                                          onChange={fileUploadHandler}
-                                          // accept=".jpg, .jpeg, .png, .bmp, .gif, .mp4, .mp3, .mkv, .ogg, .wmv"
-                                          className="mt-2 mb-5 upload_text_inp"
-                                        />
-                                      </div>
-                                    </label>
-                                  </div>
-                                </div>
-                                <div className="flex flex-col gap-4 mx-[15px] mt-10 mb-[40px] pl-[51px]">
-                                  <div>
-                                    <label
-                                      for="first_name"
-                                      class="block mb-2 text-[20px] font-medium text-iBlue"
+                                <div className="pb-5">
+                                  <div className="flex flex-col items-center justify-center gap-8">
+                                    <div className="text-iBlue text-[28px] font-medium -mt-[28px]">
+                                      Add To PlayList
+                                    </div>
+                                    <div
+                                      onClick={UploadPlayList}
+                                      className="border-dashed border-2 border-indigo-600 px-[50px] py-[10px] rounded-lg text-[20px] cursor-pointer"
                                     >
-                                      Playlist Name
-                                    </label>
-                                    <input
-                                      value={playListName}
-                                      onChange={(e) =>
-                                        setPlayListName(e.target.value)
-                                      }
-                                      type="text"
-                                      id="first_name"
-                                      class="bg-gray-50 border w-[508px] border-gray-300 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                      placeholder="Playlist Name"
-                                    />
+                                      <span className="text-iBlue mr-1 text-[30px]">
+                                        +
+                                      </span>{" "}
+                                      Create New playlist
+                                    </div>
                                   </div>
 
-                                  <div>
-                                    <label
-                                      for="first_name"
-                                      class="block mb-2 text-[20px] font-medium text-iBlue"
-                                    >
-                                      Description
-                                    </label>
-                                    <textarea
-                                      value={description}
-                                      onChange={(e) =>
-                                        setDescription(e.target.value)
-                                      }
-                                      id="message"
-                                      rows="4"
-                                      class="block p-2.5 w-[508px] h-[188px] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                      placeholder="Description"
-                                    ></textarea>
+                                  <p className="text-[18px] text-iBlue mt-8 font-medium px-[51px]">
+                                    Your Collections
+                                  </p>
+                                  <div className="flex flex-col gap-2 mt-[17px] px-[51px] h-[370px] overflow-y-scroll">
+                                    {listData.map((item, i) => {
+                                      return (
+                                        <div
+                                          onClick={() => UpdatePlayList(item)}
+                                          className="flex flex-row items-center justify-start cursor-pointer gap-7"
+                                        >
+                                          <img
+                                            src={item.image}
+                                            alt=""
+                                            className="w-[86px] h-[86px] rounded-[4px]"
+                                          />
+                                          <p>{item.name}</p>
+                                        </div>
+                                      );
+                                    })}
                                   </div>
                                 </div>
-                                <button
-                                  onClick={""}
-                                  className="py-3 mt-5 w-[305px] hover:bg-iOrange mb-[20px] center bg-iBlue rounded-[30px] text-iWhite text-[20px] ml-[165px]"
-                                >
-                                  Save
-                                </button>
+                                </div>
                               </>
-                            </div>
-                          )}
-                        </div>
+                            )}
+
+                            {step === 1 && (
+                          <div className="w-[610px]  bg-iWhite rounded-[20px] shadow-2xl absolute !top-[140px] left-[655px]">
+                                 <>
+                                  <button onClick={() => setStep(0)}>
+                                    <BiLeftArrowAlt
+                                      size={38}
+                                      className="mt-[28px] ml-[32px]"
+                                    />
+                                  </button>
+                                  <div className="flex flex-col gap-[30px] items-center justify-center">
+                                    <div className="text-iBlue text-[28px] font-medium -mt-[28px]">
+                                      Add To PlayList
+                                    </div>
+                                    <div className="w-[156px] h-[165px] border-iBlue relative border-2 rounded-2xl">
+                                      {!image ? (
+                                        <img
+                                          src={images}
+                                          alt=""
+                                          className="w-[153px] h-[162px] rounded-2xl"
+                                        />
+                                      ) : (
+                                        <img
+                                          src={image}
+                                          alt=""
+                                          className="w-[153px] h-[163px] rounded-2xl"
+                                        />
+                                      )}
+                                      <label htmlFor="upload-image-inp">
+                                        <div className=" upload-img-div glass_effect glass_effect_border">
+                                          <span className="p-1 pl-2  bg-iWhite absolute -bottom-[13px] -right-[17px]">
+                                            <img
+                                              src={edit}
+                                              className="w-[21px] h-[21px]"
+                                              alt=""
+                                            />
+                                          </span>
+                                          <input
+                                            type="file"
+                                            id="upload-image-inp"
+                                            onChange={fileUploadHandler}
+                                            // accept=".jpg, .jpeg, .png, .bmp, .gif, .mp4, .mp3, .mkv, .ogg, .wmv"
+                                            className="mt-2 mb-5 upload_text_inp"
+                                          />
+                                        </div>
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div className="flex flex-col gap-4 mx-[15px] mt-7 mb-[30px] pl-[51px]">
+                                    <div>
+                                      <label
+                                        for="first_name"
+                                        class="block mb-2 text-[20px] font-medium text-iBlue"
+                                      >
+                                        Playlist Name
+                                      </label>
+                                      <input
+                                        value={playListName}
+                                        onChange={(e) =>
+                                          setPlayListName(e.target.value)
+                                        }
+                                        type="text"
+                                        id="first_name"
+                                        class="bg-gray-50 border w-[508px] border-gray-300 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="Playlist Name"
+                                      />
+                                    </div>
+
+                                    <div>
+                                      <label
+                                        for="first_name"
+                                        class="block mb-2 text-[20px] font-medium text-iBlue"
+                                      >
+                                        Description
+                                      </label>
+                                      <textarea
+                                        value={description}
+                                        onChange={(e) =>
+                                          setDescription(e.target.value)
+                                        }
+                                        id="message"
+                                        rows="4"
+                                        class="block p-2.5 w-[508px] h-[130px] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="Description"
+                                      ></textarea>
+                                    </div>
+                                  </div>
+                                  <button
+                                    onClick={AddNewPlayList}
+                                    className="py-3 w-[305px] hover:bg-iOrange mb-[20px] center bg-iBlue rounded-[30px] text-iWhite text-[20px] ml-[165px]"
+                                  >
+                                    Save
+                                  </button>
+                                </>
+                              </div>
+                            )}
+                            {step === 2 && (
+                              <div className="flex flex-row justify-center mt-56 mb-28 ">
+                                <div className="w-[610px] bg-iWhite rounded-[20px] shadow-2xl p-[38px] flex flex-col items-center">
+                                  <img
+                                    src={verified}
+                                    alt="success"
+                                    className="w-[88px] h-[88px] mb-[38px]"
+                                  />
+                                  <span className=" text-[28px] font-semibold text-center w-[452px]">
+                                    Your Song has been Added successfully
+                                  </span>
+                                  <button
+                                    onClick={Back}
+                                    className=" mt-8 py-3 px-10 border border-[#295D93] rounded-md hover:border-iWhite bg-iBlue hover:bg-iOrange text-iWhite"
+                                  >
+                                    Done
+                                  </button>
+                                </div>
+                              </div>
+                            )}
+                          </div>
                       )}
                     </div>
                   </div>

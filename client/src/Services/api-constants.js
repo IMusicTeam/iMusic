@@ -13,5 +13,7 @@ export const APIConstants = {
     getallfavourites: returnApis('get-all-favourites?userID='),
     allsongs: returnApis('all-songs'),
     saveasfavourites: returnApis('save-as-favourites'),
-    getallplaylist: returnApis('get-all-playlist?userID=')
+    removeFromFavourites:returnApis('remove-from-favourites'),
+    getallplaylist: returnApis('get-all-playlist?userId='),
+    updatePlaylist:returnApis('update-playlist')
 }
