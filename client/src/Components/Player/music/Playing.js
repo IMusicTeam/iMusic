@@ -14,7 +14,8 @@ import { useSelector } from "react-redux";
 import { APIConstants } from "../../../Services/api-constants";
 function Playing() {
   const location = useLocation();
-  const {isAuthed} = useSelector((store)=>store.ReduxSlice.data)
+  const userId = useSelector((store)=>store.ReduxSlice.data.userData._id)
+
   const data = location.state;
   const [isLiked, setIsLiked] = useState(false);
   const [loader, setLoader] = useState(true);
@@ -23,7 +24,7 @@ function Playing() {
 const HandelLikeSong =()=>{
   setIsLiked(!isLiked)
   const payload ={
-    userID:isAuthed,
+    userID:userId,
     songId:data._id
   }
     axios.post(APIConstants.saveasfavourites, payload).then((res)=>{
@@ -41,13 +42,25 @@ const HandelLikeSong =()=>{
 // },[])
 
 useEffect(()=>{
-  setMusic([data])
+  const payload ={
+    userId:userId,
+    _id:data._id
+  }
+  const queryParams = new URLSearchParams(payload).toString();
+  console.log(queryParams)
+
+  axios.get(`http://localhost:3000/IMusic/get-song?${queryParams}`).then((res)=>{
+    setMusic({show:res.data.favourited, data:[res.data.data]})
+      console.log(res.data)
+    }).catch((err)=>{
+      console.log(err.message)
+    }) 
   setLoader(false)
-},[data])
+},[])
   return (<>
     {loader ? <div className="flex justify-center items-center h-[705px]"><img src={Loadingforimusic}/></div> :
     <div>
-      {music?.map((item)=>{
+      {music?.data?.map((item)=>{
       return(
         <div className=" pt-24 pb-[54px] flex flex-row justify-center items-center bg-gradient-to-r from-orange-100 via-orange-300 to-orange-300">
       <div className="component m-0 flex flex-col justify-center items-center gap-[10px] drop-shadow-xl relative ">
@@ -77,7 +90,7 @@ useEffect(()=>{
               autoPlay={true}
             />
             </div>
-            <button onClick={HandelLikeSong} className="absolute top-[43px] left-[16px]">{isLiked ?  <FcLike size={30}/>: <FcLikePlaceholder  size={30}/>}</button>
+            <button onClick={HandelLikeSong} className="absolute top-[43px] left-[16px]">{music.show || isLiked?  <FcLike size={30}/>: <FcLikePlaceholder  size={30}/>}</button>
           </div>
         </div>
       </div>
