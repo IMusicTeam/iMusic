@@ -34,8 +34,8 @@ function EmailAuthentication(){
             setIsLoading(false);
             setCodeSuccess(true);
             setTimeout(() => {
-                navigate('/')
-            }, 2000);
+                navigate('/home')
+            }, 1000);
              
                 
         })
@@ -49,9 +49,9 @@ function EmailAuthentication(){
     }
 
     
-    if (isAuthed){
-        return <Navigate to="/home"/>
-    }
+    // if (isAuthed){
+    //     return <Navigate to="/home"/>
+    // }
 
     const onPaste = (value) => {
         setOtpVerification(value);
