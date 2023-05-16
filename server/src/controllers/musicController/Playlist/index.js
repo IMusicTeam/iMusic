@@ -59,7 +59,7 @@ class PlaylistController {
       ]);
       if (getAlPlaylistsByID) {
         res
-          .status(codes.found)
+          .status(codes.success)
           .json({ message: strings.sucesss, data: getAlPlaylistsByID ?? [0] });
       } else {
         res.status(codes.notFound).json({ message: strings.sucesss, data: [] });
@@ -84,7 +84,7 @@ class PlaylistController {
         ],
       });
       if (findSong?.length > 0) {
-        return res.status(codes.found).json({ message: strings.playlisted });
+        return res.status(codes.success).json({ message: strings.playlisted });
       } else {
         const findSongById = await Songs.findOne({ _id: songId });
         await Playlist.findOneAndUpdate(

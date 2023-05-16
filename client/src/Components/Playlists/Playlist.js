@@ -45,128 +45,20 @@ import rounded10 from "../../Assets/Assets/CardImages/Rounded10.png";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { APIConstants } from "../../Services/api-constants";
+import { useSelector } from "react-redux";
 function Playlist() {
   const [listData, setListData]=useState([])
   const[isLoading, setIsLoading]=useState(true)
-  const data = [
-    {id: 1, src: rounded1,artist:"Drake",rank:1,place:"Mexico"},
-    { id: 2, src: rounded2,artist:"Weekend",rank:2,place:"USA"},
-    { id: 3, src: rounded3,artist:"Ariana Grande",rank:3,place:"UK"},
-    { id: 4, src: rounded4,artist:"Taylor Swift",rank:4,place:"Russia"},
-    { id: 5, src: rounded5,artist:"XXXtention",rank:5,place:"England"},
-    { id: 6, src: rounded6,artist:"Drake",rank:6,place:"USA"},
-    { id: 7, src: rounded7,artist:"Ariana Grande",rank:7,place:"UK"},
-    { id: 8, src: rounded8 ,artist:"Weekend",rank:8,place:"Russia"},
-    { id: 9, src: rounded9,artist:"Taylor Swift",rank:9,place:"England"},
-    { id: 10, src: rounded10,artist:"XXXtention",rank:10,place:"Mexico"}
-  ];
-  const data1 = [
-    { id: 1, src: Card20,playlist:"Trending on Tiktok ",album:"Weekend"},
-    { id: 2, src: Card11,playlist:" Trending on Tiktok",album:"Weekend"},
-    { id: 3, src: Card2,playlist:"Trending Playlist ",album:"Weekend"},
-    { id: 4, src: Card13 ,playlist:"EveryThing from Taylor ",album:"Weekend"},
-    { id: 5, src: Card14,playlist:" Ariana Grande This Side",album:"Weekend"},
-    { id: 6, src: Card15,playlist:"Good Music for Bad Days",album:"Weekend"},
-    { id: 7, src: Card6,playlist:"STAR BOY",album:"Weekend"},
-    { id: 8, src: Card6,playlist:"Everything From Drake",album:"Weekend"},
-    { id: 9, src: Card8,playlist:"XXXtention",album:"Weekend"},
-    { id: 10, src: Card9,playlist:"Dig Out your Soul",album:"Weekend"}
-  ];
-  const data2 = [
-    { id: 1, src: Card11,playlist:"Good Music for Bad Days ",album:"Weekend"},
-    { id: 2, src: Card9,playlist:"Ariana Grande This Side ",album:"Weekend"},
-    { id: 3, src: Card13,playlist:"Everything From Drake",album:"Weekend"},
-    { id: 4, src: Card14,playlist:"Trending Playlist",album:"Weekend"},
-    { id: 5, src: Card15,playlist:"EveryThing from Taylor",album:"Weekend"},
-    { id: 6, src: Card16,playlist:"Everything From Drake",album:"Weekend"},
-    { id: 7, src: Card17,playlist:" STAR BOY",album:"Weekend"},
-    { id: 8, src: Card18 ,playlist:"XXXtention",album:"Weekend"},
-    { id: 9, src: Card19,playlist:"Freedom",album:"Weekend"},
-    { id: 10, src: Card20,playlist:"Good Music for Bad Days",album:"Weekend"}
-  ];
-  const data3 = [
-    { id: 1, src: Card30,playlist:"All Time Rap's",album:"Trending"},
-    { id: 2, src: Card2,playlist:"Trending Playlist",album:"Trending"},
-    { id: 3, src: Card3,playlist:"Trending on Tiktok",album:"Trending"},
-    { id: 4, src: Card4,playlist:"XXXtentio ",album:"Trending"},
-    { id: 5, src: Card10,playlist:"EveryThing from Taylor ",album:"Playlist"},
-    { id: 6, src: Card6,playlist:" Everything From Drake",album:"Playlist"},
-    { id: 7, src: Card5,playlist:"Ariana Grande This Side",album:"Playlist"},
-    { id: 8, src: Card7 ,playlist:"STAR BOY",album:"Weekend"},
-    { id: 9, src: Card8,playlist:" Good Music for Bad Days",album:"Playlist"},
-    { id: 10, src: Card9,playlist:"Trending",album:"Weekend"}
-  ];
-  const data4 = [
-    { id: 1, src: Card11,playlist:"STAR BOY",album:"Weekend"},
-    { id: 2, src: Card12,playlist:"Everything From Drake",album:"Albums"},
-    { id: 3, src: Card13,playlist:"Ariana Grande This Side",album:"Trending"},
-    { id: 4, src: Card14,playlist:"EveryThing from Taylor",album:"Playlist"},
-    { id: 5, src: Card15,playlist:"XXXtention",album:"Albums"},
-    { id: 6, src: Card16,playlist:"Trending Playlist",album:"Albums"},
-    { id: 7, src: Card17,playlist:"Trending on Tiktok",album:"Albums"},
-    { id: 8, src: Card18 ,playlist:"Trending Playlist",album:"Albums"},
-    { id: 9, src: Card19,playlist:"All Time Rap's",album:"Albums"},
-    { id: 10, src: Card20,playlist:"Good Music for Bad Days",album:"Albums"}
-  ];
-  const data5 = [
-    { id: 1, src: Card21,playlist:"Good Music for Bad Days",album:"Playlists"},
-    { id: 2, src: Card22,playlist:"STAR BOY",album:"Playlists"},
-    { id: 3, src: Card23,playlist:"XXXtention",album:"Playlists"},
-    { id: 4, src: Card24,playlist:"Freedom",album:"Playlists"},
-    { id: 5, src: Card25,playlist:"Sunset Days",album:"Playlists"},
-    { id: 6, src: Card26,playlist:"Dig Out your Soul",album:"Playlists"},
-    { id: 7, src: Card27,playlist:"Smile Vol.1",album:"Playlists"},
-    { id: 8, src: Card28,playlist:"Old School",album:"Playlists" },
-    { id: 9, src: Card29,playlist:"Top Hits of 2000",album:"Weekend"},
-    { id: 10, src: Card30,playlist:"Mine",album:"Weekend"}
-  ];
-  const data6 = [
-    { id: 1, src: Card30,playlist:"Good Music for Bad Days",album:"Weekend"},
-    { id: 2, src: Card2,playlist:"STAR BOY",album:"Weekend"},
-    { id: 3, src: Card3,playlist:"XXXtention",album:"Weekend"},
-    { id: 4, src: Card4,playlist:"Mine",album:"Weekend"},
-    { id: 5, src: Card5,playlist:"Top Hits of 2000",album:"Weekend"},
-    { id: 6, src: Card6,playlist:"Old School ",album:"Weekend"},
-    { id: 7, src: Card7,playlist:"Smile Vol.1",album:"Weekend"},
-    { id: 8, src: Card8,playlist:"Dig Out your Soul",album:"Weekend" },
-    { id: 9, src: Card11,playlist:"Sunset Days",album:"Weekend"},
-    { id: 10, src: Card12,playlist:"Freedom",album:"Weekend"}
-  ] 
-  const data7 = [
-    { id: 1, src: Card20,playlist:"Trending Playlist ",album:"Weekend"},
-    { id: 2, src: Card17,playlist:"Good Music for Bad Days",album:"Weekend"},
-    { id: 3, src: Card11,playlist:"Trending Playlist",album:"Weekend"},
-    { id: 4, src: Card7,playlist:" Trending on Tiktok",album:"Weekend"},
-    { id: 5, src: Card14,playlist:"XXXtention ",album:"Weekend"},
-    { id: 6, src: Card5,playlist:" EveryThing from Taylor",album:"Weekend"},
-    { id: 7, src: Card4,playlist:" Ariana Grande This Side",album:"Weekend"},
-    { id: 8, src: Card7 ,playlist:" EveryThing from Taylor",album:"Weekend"},
-    { id: 9, src: Card6,playlist:" Ariana Grande This Side",album:"Weekend"},
-    { id: 10, src: Card1,playlist:"Sunset Days",album:"Weekend"}
-  ];
-  const data8 = [
-    { id: 1, src: Card1 },
-    { id: 2, src: Card2 },
-    { id: 3, src: Card3 },
-    { id: 4, src: Card4 },
-    { id: 5, src: Card5 },
-    { id: 6, src: Card6 },
-    { id: 7, src: Card7 },
-    { id: 8, src: Card8 },
-    { id: 9, src: Card11 },
-    { id: 10, src: Card12 },
-  ];
+  const userId = useSelector((store)=>store.ReduxSlice.data.userData._id)
 
+ 
   useEffect(() => {
-    const userId = "Shahul123";
     axios
-      .get(APIConstants.getallplaylist + userId)
+      .get("http://localhost:3000/IMusic/get-all-playlist?userId=" + userId)
       .then((res) => {
-        setListData(res.data.data[0].allSongs)
-        console.log(res.data.data[0].allSongs);
-        setTimeout(()=>{
+        const data=res.data.data[0].allPlaylist
+        setListData(data)
           setIsLoading(false)
-        },[2000])
       })
       .catch((err) => {
         console.log(err.message);
@@ -184,10 +76,10 @@ function Playlist() {
     {isLoading ? <div className="flex justify-center items-center h-[690px]"><img src={Loadingforimusic}/></div> :
       <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px]">
       <div className="flex flex-row justify-between">
-            <h1 className="text-[30px] font-semibold pt-[79px]">
+            <h1 className="text-[30px] font-semibold">
               Newly Added
             </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[80px]">
+            <h5 className="underline font-semibold text-[16px] text-iBlack1">
              
             </h5>
           </div>
@@ -197,7 +89,7 @@ function Playlist() {
                 <div>
                   <ProfileCard
                     data={item}
-                    src={item.songThumbnail}
+                    src={item.image}
                     newRelease={true}
                   />
                 </div>
@@ -326,3 +218,113 @@ function Playlist() {
 }
 
 export default Playlist;
+
+
+const data = [
+  {id: 1, src: rounded1,artist:"Drake",rank:1,place:"Mexico"},
+  { id: 2, src: rounded2,artist:"Weekend",rank:2,place:"USA"},
+  { id: 3, src: rounded3,artist:"Ariana Grande",rank:3,place:"UK"},
+  { id: 4, src: rounded4,artist:"Taylor Swift",rank:4,place:"Russia"},
+  { id: 5, src: rounded5,artist:"XXXtention",rank:5,place:"England"},
+  { id: 6, src: rounded6,artist:"Drake",rank:6,place:"USA"},
+  { id: 7, src: rounded7,artist:"Ariana Grande",rank:7,place:"UK"},
+  { id: 8, src: rounded8 ,artist:"Weekend",rank:8,place:"Russia"},
+  { id: 9, src: rounded9,artist:"Taylor Swift",rank:9,place:"England"},
+  { id: 10, src: rounded10,artist:"XXXtention",rank:10,place:"Mexico"}
+];
+const data1 = [
+  { id: 1, src: Card20,playlist:"Trending on Tiktok ",album:"Weekend"},
+  { id: 2, src: Card11,playlist:" Trending on Tiktok",album:"Weekend"},
+  { id: 3, src: Card2,playlist:"Trending Playlist ",album:"Weekend"},
+  { id: 4, src: Card13 ,playlist:"EveryThing from Taylor ",album:"Weekend"},
+  { id: 5, src: Card14,playlist:" Ariana Grande This Side",album:"Weekend"},
+  { id: 6, src: Card15,playlist:"Good Music for Bad Days",album:"Weekend"},
+  { id: 7, src: Card6,playlist:"STAR BOY",album:"Weekend"},
+  { id: 8, src: Card6,playlist:"Everything From Drake",album:"Weekend"},
+  { id: 9, src: Card8,playlist:"XXXtention",album:"Weekend"},
+  { id: 10, src: Card9,playlist:"Dig Out your Soul",album:"Weekend"}
+];
+const data2 = [
+  { id: 1, src: Card11,playlist:"Good Music for Bad Days ",album:"Weekend"},
+  { id: 2, src: Card9,playlist:"Ariana Grande This Side ",album:"Weekend"},
+  { id: 3, src: Card13,playlist:"Everything From Drake",album:"Weekend"},
+  { id: 4, src: Card14,playlist:"Trending Playlist",album:"Weekend"},
+  { id: 5, src: Card15,playlist:"EveryThing from Taylor",album:"Weekend"},
+  { id: 6, src: Card16,playlist:"Everything From Drake",album:"Weekend"},
+  { id: 7, src: Card17,playlist:" STAR BOY",album:"Weekend"},
+  { id: 8, src: Card18 ,playlist:"XXXtention",album:"Weekend"},
+  { id: 9, src: Card19,playlist:"Freedom",album:"Weekend"},
+  { id: 10, src: Card20,playlist:"Good Music for Bad Days",album:"Weekend"}
+];
+const data3 = [
+  { id: 1, src: Card30,playlist:"All Time Rap's",album:"Trending"},
+  { id: 2, src: Card2,playlist:"Trending Playlist",album:"Trending"},
+  { id: 3, src: Card3,playlist:"Trending on Tiktok",album:"Trending"},
+  { id: 4, src: Card4,playlist:"XXXtentio ",album:"Trending"},
+  { id: 5, src: Card10,playlist:"EveryThing from Taylor ",album:"Playlist"},
+  { id: 6, src: Card6,playlist:" Everything From Drake",album:"Playlist"},
+  { id: 7, src: Card5,playlist:"Ariana Grande This Side",album:"Playlist"},
+  { id: 8, src: Card7 ,playlist:"STAR BOY",album:"Weekend"},
+  { id: 9, src: Card8,playlist:" Good Music for Bad Days",album:"Playlist"},
+  { id: 10, src: Card9,playlist:"Trending",album:"Weekend"}
+];
+const data4 = [
+  { id: 1, src: Card11,playlist:"STAR BOY",album:"Weekend"},
+  { id: 2, src: Card12,playlist:"Everything From Drake",album:"Albums"},
+  { id: 3, src: Card13,playlist:"Ariana Grande This Side",album:"Trending"},
+  { id: 4, src: Card14,playlist:"EveryThing from Taylor",album:"Playlist"},
+  { id: 5, src: Card15,playlist:"XXXtention",album:"Albums"},
+  { id: 6, src: Card16,playlist:"Trending Playlist",album:"Albums"},
+  { id: 7, src: Card17,playlist:"Trending on Tiktok",album:"Albums"},
+  { id: 8, src: Card18 ,playlist:"Trending Playlist",album:"Albums"},
+  { id: 9, src: Card19,playlist:"All Time Rap's",album:"Albums"},
+  { id: 10, src: Card20,playlist:"Good Music for Bad Days",album:"Albums"}
+];
+const data5 = [
+  { id: 1, src: Card21,playlist:"Good Music for Bad Days",album:"Playlists"},
+  { id: 2, src: Card22,playlist:"STAR BOY",album:"Playlists"},
+  { id: 3, src: Card23,playlist:"XXXtention",album:"Playlists"},
+  { id: 4, src: Card24,playlist:"Freedom",album:"Playlists"},
+  { id: 5, src: Card25,playlist:"Sunset Days",album:"Playlists"},
+  { id: 6, src: Card26,playlist:"Dig Out your Soul",album:"Playlists"},
+  { id: 7, src: Card27,playlist:"Smile Vol.1",album:"Playlists"},
+  { id: 8, src: Card28,playlist:"Old School",album:"Playlists" },
+  { id: 9, src: Card29,playlist:"Top Hits of 2000",album:"Weekend"},
+  { id: 10, src: Card30,playlist:"Mine",album:"Weekend"}
+];
+const data6 = [
+  { id: 1, src: Card30,playlist:"Good Music for Bad Days",album:"Weekend"},
+  { id: 2, src: Card2,playlist:"STAR BOY",album:"Weekend"},
+  { id: 3, src: Card3,playlist:"XXXtention",album:"Weekend"},
+  { id: 4, src: Card4,playlist:"Mine",album:"Weekend"},
+  { id: 5, src: Card5,playlist:"Top Hits of 2000",album:"Weekend"},
+  { id: 6, src: Card6,playlist:"Old School ",album:"Weekend"},
+  { id: 7, src: Card7,playlist:"Smile Vol.1",album:"Weekend"},
+  { id: 8, src: Card8,playlist:"Dig Out your Soul",album:"Weekend" },
+  { id: 9, src: Card11,playlist:"Sunset Days",album:"Weekend"},
+  { id: 10, src: Card12,playlist:"Freedom",album:"Weekend"}
+] 
+const data7 = [
+  { id: 1, src: Card20,playlist:"Trending Playlist ",album:"Weekend"},
+  { id: 2, src: Card17,playlist:"Good Music for Bad Days",album:"Weekend"},
+  { id: 3, src: Card11,playlist:"Trending Playlist",album:"Weekend"},
+  { id: 4, src: Card7,playlist:" Trending on Tiktok",album:"Weekend"},
+  { id: 5, src: Card14,playlist:"XXXtention ",album:"Weekend"},
+  { id: 6, src: Card5,playlist:" EveryThing from Taylor",album:"Weekend"},
+  { id: 7, src: Card4,playlist:" Ariana Grande This Side",album:"Weekend"},
+  { id: 8, src: Card7 ,playlist:" EveryThing from Taylor",album:"Weekend"},
+  { id: 9, src: Card6,playlist:" Ariana Grande This Side",album:"Weekend"},
+  { id: 10, src: Card1,playlist:"Sunset Days",album:"Weekend"}
+];
+const data8 = [
+  { id: 1, src: Card1 },
+  { id: 2, src: Card2 },
+  { id: 3, src: Card3 },
+  { id: 4, src: Card4 },
+  { id: 5, src: Card5 },
+  { id: 6, src: Card6 },
+  { id: 7, src: Card7 },
+  { id: 8, src: Card8 },
+  { id: 9, src: Card11 },
+  { id: 10, src: Card12 },
+];

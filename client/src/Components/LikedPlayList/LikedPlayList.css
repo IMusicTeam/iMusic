@@ -1,10 +1,10 @@
 .listed-rows {
   display: grid;
   grid-template-columns:  7% 33% 35% 8% 6% 3%;/* 6 columns with equal width */
-  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
   align-items: center;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: -7px;
+  /* padding-bottom: 7px; */
   height:72px
 }
 .musicList::-webkit-scrollbar{ display: none; }
@@ -37,3 +37,41 @@
 .dropdown li:hover {
   background-color: #DEEEFF;
 }
+.processingCont {
+
+   /* display: none; */
+  
+   position: fixed;
+  
+   /* Stay in place */
+  
+   z-index: 1;
+  
+   /* Sit on top */
+  
+   left: 0;
+  
+   top: 0;
+  
+   width: 100%;
+  
+   /* Full width */
+  
+   height: 100%;
+  
+   /* Full height */
+  
+   overflow: auto;
+  
+   /* Enable scroll if needed */
+  
+   background-color: rgb(0, 0, 0);
+  
+   /* Fallback color */
+  
+   background-color: rgba(0, 0, 0, 0.8);
+  
+  
+  
+  
+  }
