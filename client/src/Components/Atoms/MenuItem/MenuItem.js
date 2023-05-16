@@ -129,7 +129,7 @@ export default function MenuItem({
        
         {!isDropDown  && label=="Profile" ? (
           <img
-            className={`${styles.caret} -rotate-180 duration-300 ease-in ${
+            className={`${styles.caret} -rotate-270 duration-300 ease-in ${
               !isDropDown ? "visible" : "invisible"
             }`}
             src={small_arrow}
@@ -137,7 +137,7 @@ export default function MenuItem({
           />
         ) : ( label=="Profile"&& 
           <img
-            className={`${styles.caret} rotate-0 duration-300 ease-out ${
+            className={`${styles.caret} -rotate-180 duration-300 ease-out ${
                isDropDown ? "visible" : "invisible"
             }`}
             src={small_arrow}

@@ -9,18 +9,20 @@ import { APIConstants } from "../../Services/api-constants";
 import { useNavigate } from "react-router";
 import verified from "../../Assets/Assets/CardImages/Verified.png";
 import edit from "./../../Assets/EditIcon.png";
-import Web3 from 'web3'
+import Web3 from "web3";
 import { useSelector } from "react-redux";
 // require("dotenv").config();
 const httpUrlKey = "HTTP://127.0.0.1:7545";
 
-const web3 = new Web3(new Web3.providers.HttpProvider(httpUrlKey))
+const web3 = new Web3(new Web3.providers.HttpProvider(httpUrlKey));
 
 function UploadMusic() {
-  const {metaMaskDetails,adminDetails,userData} = useSelector((store)=>store.ReduxSlice.data)
-  const walletId = adminDetails?.adminWalletAddress ;
-   const privateKey= adminDetails?.adminPrivateKey;
-  const [image, setImage] = useState();
+  const { metaMaskDetails, adminDetails, userData } = useSelector(
+    (store) => store.ReduxSlice.data
+  );
+  const walletId = adminDetails?.adminWalletAddress;
+  const privateKey = adminDetails?.adminPrivateKey;
+  const [image, setImage] = useState(null);
   const [audio, setAudio] = useState();
   const [albumName, setAlbumName] = useState("");
   const [artistName, setArtistName] = useState("");
@@ -49,7 +51,6 @@ function UploadMusic() {
     }
   };
 
-
   // const AudioUpload = async (event) => {
   //   const file = event.target.files;
   //   if (file.length > 0) {
@@ -65,6 +66,8 @@ function UploadMusic() {
   //   }
   // };
 
+  
+
   const UploadAudio = async () => {
     const reqBody = {
       albumName: albumName,
@@ -75,24 +78,23 @@ function UploadMusic() {
       songDescription: songDes,
       tune: audio,
       songThumbnail: image,
-      userId:userData._id
+      userId: userData._id,
     };
     axios
       .post(APIConstants.formUpload, reqBody)
-      .then((res) => {   
+      .then((res) => {
         console.log(res);
         setStep(1);
       })
-      .catch((err) =>{
-        alert("Please fill all the fields")
-         console.log(err.message)
+      .catch((err) => {
+        alert("Please fill all the fields");
+        console.log(err.message);
       });
   };
   const navigateTo = useNavigate();
   const HandelBack = () => {
     navigateTo(-1);
   };
-
   const UploadAgain = () => {
     setStep(0);
     setImage("");
@@ -103,6 +105,53 @@ function UploadMusic() {
     setSelectedOption("");
     setSongName("");
     setSongDes("");
+  };
+  const [albumerr, setAlbumErr] = useState(false);
+  const [artisterr, setArtistErr] = useState(false);
+  const [priceerr, setPriceErr] = useState(false);
+  const [songerr, setSongErr] = useState(false);
+  const [descriptionerr, setDescriptionErr] = useState(false);
+ 
+
+  const HandelAlbumName = (e) => {
+    const { name, value } = e.target;
+    const trimmedValue = value.trim();
+
+    if (name === "albumName") {
+      const regex = /^[a-zA-Z]+$/;
+      const albumname = !regex.test(trimmedValue)
+        ? setAlbumErr(true)
+        : setAlbumErr(false);
+      setAlbumName(value);
+    } 
+
+    else if (name === "artistName") {
+      const regex = /^[a-zA-Z]+$/;
+      const artistname = !regex.test(trimmedValue)
+        ? setArtistErr(true)
+        : setArtistErr(false);
+      setArtistName(value);
+    }
+    else if(name === "price"){
+      const price = !/^\d+$/.test(trimmedValue)
+      ? setPriceErr(true)
+      : setPriceErr(false);
+      setPrice(value);
+    }
+    else if(name === 'songName'){
+      const regex = /^[a-zA-Z]+$/;
+      const songName = !regex.test(trimmedValue)
+      ? setSongErr(true)
+      : setSongErr(false);
+      setSongName(value)
+    }
+    else if(name === "description"){
+      const regex = /^[a-zA-Z]+$/;
+      const description = !regex.test(trimmedValue)
+      ? setDescriptionErr(true)
+      : setDescriptionErr(false)
+      setSongDes(value)
+    }
   };
   return (
     <>
@@ -136,8 +185,12 @@ function UploadMusic() {
                     <label htmlFor="upload-image-inp">
                       <div className=" upload-img-div glass_effect glass_effect_border">
                         <span className="p-1 pl-2  bg-iWhite absolute -bottom-[13px] -right-[17px]">
-                          <img src={edit} className="w-[21px] h-[21px]" alt=""/>
-                        </span>
+                          <img
+                            src={edit}
+                            className="w-[21px] h-[21px]"
+                            alt=""
+                          />
+                        </span>                       
                         <input
                           type="file"
                           id="upload-image-inp"
@@ -147,10 +200,11 @@ function UploadMusic() {
                         />
                       </div>
                     </label>
+                    
                   </div>
                 </div>
                 <div className="flex flex-col gap-4 mx-[15px] mt-10 mb-[40px] ">
-                  <div>
+                  <div className="h-[109px]">
                     <label
                       for="first_name"
                       class="block mb-2 text-[20px] font-medium text-iBlue"
@@ -158,16 +212,22 @@ function UploadMusic() {
                       Album Name
                     </label>
                     <input
+                      name="albumName"
                       value={albumName}
-                      onChange={(e) => setAlbumName(e.target.value)}
+                      onChange={(e) => HandelAlbumName(e)}
                       type="text"
                       id="first_name"
-                      class="bg-gray-50 border w-[288px] border-gray-300 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-gray-50 w-[288px] border border-iGray4 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                       placeholder="Album Name"
                     />
+                    {albumerr && (
+                      <span className="text-ibrd3 text-[15px] z-10">
+                        Field should only contain alphabets.
+                      </span>
+                    )}
                   </div>
 
-                  <div>
+                  <div className="h-[109px]">
                     <label
                       for="first_name"
                       class="block mb-2 text-[20px] font-medium text-iBlue"
@@ -175,16 +235,22 @@ function UploadMusic() {
                       Artist Name
                     </label>
                     <input
+                      name="artistName"
                       value={artistName}
-                      onChange={(e) => setArtistName(e.target.value)}
+                      onChange={(e) => HandelAlbumName(e)}
                       type="text"
                       id="first_name"
-                      class="bg-gray-50 border w-[288px] border-gray-300 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-gray-50 w-[288px] border border-iGray4 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                       placeholder="Artist Name"
                     />
+                    {artisterr && (
+                      <span className="text-ibrd3 text-[15px]">
+                        Field should only contain alphabets.
+                      </span>
+                    )}
                   </div>
 
-                  <div>
+                  <div className="h-[109px]">
                     <label
                       for="first_name"
                       class="block mb-2 text-[20px] font-medium text-iBlue"
@@ -192,13 +258,20 @@ function UploadMusic() {
                       Price
                     </label>
                     <input
+                      name ='price' 
                       value={price}
-                      onChange={(e) => setPrice(e.target.value)}
+                      onChange={(e) => HandelAlbumName(e)}
                       type="text"
                       id="first_name"
-                      class="bg-gray-50 border w-[288px] border-gray-300 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-gray-50 w-[288px] border border-iGray4 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                       placeholder="Price"
                     />
+                    {priceerr && (
+                      <span className="text-ibrd3 text-[15px]">
+                      Field should only contain numbers.
+                    </span>
+                    )}
+                    
                   </div>
                 </div>
               </div>
@@ -271,7 +344,7 @@ function UploadMusic() {
                     </div>
                   </div>
 
-                  <div>
+                  <div className="h-[109px]">
                     <label
                       for="first_name"
                       class="block mb-2 text-[20px] font-medium text-iBlue"
@@ -279,16 +352,21 @@ function UploadMusic() {
                       Song Name
                     </label>
                     <input
+                    name="songName"
                       value={songName}
-                      onChange={(e) => setSongName(e.target.value)}
+                      onChange={(e) => HandelAlbumName(e)}
                       type="text"
                       id="first_name"
-                      class="bg-gray-50 border w-[288px] border-gray-300 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="bg-gray-50 w-[288px] border border-iGray4 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                       placeholder="Song Name"
                     />
+                    {songerr && (<span className="text-ibrd3 text-[15px]">
+                    Field should only contain alphabets.
+                    </span>)}
+                    
                   </div>
 
-                  <div>
+                  <div className="h-[180px]">
                     <label
                       for="message"
                       class="block mb-2 text-[20px] font-medium text-iBlue"
@@ -296,13 +374,18 @@ function UploadMusic() {
                       Song Description
                     </label>
                     <textarea
+                      name="description"
                       value={songDes}
-                      onChange={(e) => setSongDes(e.target.value)}
+                      onChange={(e) => HandelAlbumName(e)}
                       id="message"
                       rows="4"
-                      class="block p-2.5 w-[480px] h-[118px] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      class="block p-2.5 w-[480px] h-[118px] text-sm text-gray-900 bg-gray-50 rounded-lg border border-iGray4 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                       placeholder="Write your thoughts here..."
                     ></textarea>
+                    {descriptionerr && (<span className="text-ibrd3 text-[15px]">
+                    Field should only contain alphabets.
+                    </span>)}
+                    
                   </div>
                 </div>
 

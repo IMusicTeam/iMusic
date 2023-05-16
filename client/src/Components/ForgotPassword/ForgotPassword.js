@@ -10,25 +10,41 @@ function ForgotPassword(){
     const dispatch = useDispatch()
     const isAuthed = useSelector((store)=> store.ReduxSlice.data.isAuthed)
 
-    const [emailverification, setEmailVerification] = useState(''); 
+    const [emailverification, setEmailVerification] = useState('');
+    const [emailError, setEmailError] = useState('');
+
+    const validEmailVerification = (e) =>{
+        const { name, value } = e.target;
+        const trimmedValue = value.trim();
+        if(name === "email"){
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const albumname = !emailRegex.test(trimmedValue)
+        ? setEmailError(true)
+        : setEmailError(false);
+        setEmailVerification(value);
+        }
+    }
+ 
 
     const handleSubmit = (event) => {
         event.preventDefault();
       };
 
       const EmailVerification = async() =>{
-        const reqBody = {
-            email: emailverification
+        if(!emailError){
+            const reqBody = {
+                email: emailverification
+            }
+            axios.post(APIConstants.emailVerification, reqBody)
+            .then((res)=>{
+                dispatch(updateUserData({data:{email:res.data.data}}))
+                navigate("/email-authentication")
+            })
+            .catch((err)=>{
+                alert('Please fill the field')
+                console.log(err.message)
+            })
         }
-        axios.post(APIConstants.emailVerification, reqBody)
-        .then((res)=>{
-            dispatch(updateUserData({data:{email:res.data.data}}))
-            navigate("/email-authentication")
-        })
-        .catch((err)=>{
-            alert('Please fill the field')
-            console.log(err.message)
-        })
       }
         if (isAuthed){
             return <Navigate to="/home"/>
@@ -48,12 +64,19 @@ return(
                 <p className="text-cgy4 text-[16px] font-medium text-center">account below. We will send you a verification code.</p>
 
                 <form onSubmit={handleSubmit}>
+                    <div className="h-[80px]">
                     <div className="mt-[28px]">
-                    <input type="text" placeholder="Email" className="border border-cgy1 rounded-[10px] w-[446px] h-[40px] py-3 px-3 focus:border-cgy1 placeholder-iGray1 text-sm outline-none" id="subjectInput" value={emailverification} onChange={(e) => setEmailVerification(e.target.value)} />
+                    <input type="text" name="email" placeholder="Email" className="border border-cgy1 rounded-[10px] w-[446px] h-[50px] py-3 px-3 focus:border-cgy1 placeholder-iGray1 text-sm outline-none" id="subjectInput" value={emailverification} onChange={(e) => validEmailVerification(e)} />
+                    {emailError && (
+                      <span className="text-ibrd3 text-[15px] z-10">
+                        Invalid email address.
+                      </span>
+                    )}
+                    </div>
                     </div>
 
                     <div className="flex justify-center mb-[40px]">
-                        <button type="submit" onClick={EmailVerification} className={`w-[300px] h-[40px] ${emailverification ? 'bg-iBlue' : 'bg-iLightBlue1'}  text-iWhite font-semibold py-1 px-4 rounded-[80px] mt-[121px]`}>Verify</button>
+                        <button type="submit" onClick={EmailVerification} className={`w-[300px] h-[40px] ${emailverification=="" || emailError ? 'bg-iLightBlue1': 'bg-iBlue'    }  text-iWhite font-semibold py-1 px-4 rounded-[80px] mt-[121px]`}>Verify</button>
                     </div>
 
       </form>

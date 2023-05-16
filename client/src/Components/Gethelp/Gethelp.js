@@ -98,11 +98,11 @@ const handleContactUs = () =>{
 
         <div className="mt-[212px] text-center">
         <span style={{display: 'inline-block'}}> <p>
-        Not yet answered your Query?
+        Not yet answered your Query? 
         </p></span>
         <span style={{display: 'inline-block'}}>
-        <p className="underline text-iBlue hover:text-iOrange" onClick={handleContactUs}>
-            Contact Us
+        <p className="underline text-iBlue hover:text-iOrange ml-2" onClick={handleContactUs}>
+             Contact Us
           </p>
         </span>
         </div>
