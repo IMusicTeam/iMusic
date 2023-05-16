@@ -55,6 +55,7 @@ import AlbumsCard10 from "../../Assets/Assets/CardImages/AlbumsCard10.png";
 import axios from 'axios'
 import { useNavigate } from 'react-router';
 import ListenedCard from '../ListenedCard/ListenedCard';
+import { APIConstants } from '../../Services/api-constants';
 
 function MusicCarousel() {
   const [musicList, setMusicList] = useState([]);
@@ -185,7 +186,7 @@ function MusicCarousel() {
 const navigateTO=useNavigate();
   useEffect(() => {
     axios
-      .get("http://localhost:3000/IMusic/all-songs")
+      .get(APIConstants.allsongs)
       .then((res) => {
         const data = res.data.data;
         setMusicList(data);

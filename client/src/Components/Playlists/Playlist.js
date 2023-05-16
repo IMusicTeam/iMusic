@@ -44,6 +44,7 @@ import rounded9 from "../../Assets/Assets/CardImages/Rounded9.png";
 import rounded10 from "../../Assets/Assets/CardImages/Rounded10.png";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { APIConstants } from "../../Services/api-constants";
 function Playlist() {
   const [listData, setListData]=useState([])
   const[isLoading, setIsLoading]=useState(true)
@@ -159,7 +160,7 @@ function Playlist() {
   useEffect(() => {
     const userId = "Shahul123";
     axios
-      .get("http://localhost:3000/IMusic/get-all-playlist?userID=" + userId)
+      .get(APIConstants.getallplaylist + userId)
       .then((res) => {
         setListData(res.data.data[0].allSongs)
         console.log(res.data.data[0].allSongs);

@@ -44,12 +44,12 @@ return(
                 <img src={logo}  className="w-[239px] h-[159px] mt-[40px]"/>
             </div>
             <h4 className="text-cgy4 text-[30px] font-medium text-center mt-[40px]">Verify Email?</h4>
-                <p className="text-cgy4 text-[16px] font-medium text-center mt-[40px]">Please enter the email address associated with your iLoT</p>
+                <p className="text-cgy4 text-[16px] font-medium text-center mt-[40px]">Please enter the email address associated with your iMusic</p>
                 <p className="text-cgy4 text-[16px] font-medium text-center">account below. We will send you a verification code.</p>
 
                 <form onSubmit={handleSubmit}>
                     <div className="mt-[28px]">
-                    <input type="text" placeholder="Email or Phone number" className="border border-cgy1 rounded-[10px] w-[446px] h-[40px] py-3 px-3 focus:border-cgy1 placeholder-iGray1 text-sm outline-none" id="subjectInput" value={emailverification} onChange={(e) => setEmailVerification(e.target.value)} />
+                    <input type="text" placeholder="Email" className="border border-cgy1 rounded-[10px] w-[446px] h-[40px] py-3 px-3 focus:border-cgy1 placeholder-iGray1 text-sm outline-none" id="subjectInput" value={emailverification} onChange={(e) => setEmailVerification(e.target.value)} />
                     </div>
 
                     <div className="flex justify-center mb-[40px]">
