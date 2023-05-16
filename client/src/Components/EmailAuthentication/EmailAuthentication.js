@@ -69,7 +69,7 @@ function EmailAuthentication(){
             </div>
                  <h4 className="text-cgy4 text-[30px] font-medium text-center mt-[40px]">Email Authentication</h4>
                 <p className="text-cgy4 text-[16px] font-medium text-center mt-[40px]">Please enter the 6-digit verification code sent to your</p>
-                <p className="text-cgy4 text-[16px] font-medium text-center">registered email address johnsmith@gmail.com</p>
+                <p className="text-cgy4 text-[16px] font-medium text-center">registered email address {email}</p>
 
             <div className="mt-[73px]">
             <VerificationInput

@@ -11,9 +11,10 @@ import "react-h5-audio-player/lib/styles.css";
 import {FcLikePlaceholder,FcLike} from 'react-icons/fc'
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { APIConstants } from "../../../Services/api-constants";
 function Playing() {
   const location = useLocation();
-  const userId = useSelector((store)=>store.ReduxSlice.data.userData._id)
+  const {isAuthed} = useSelector((store)=>store.ReduxSlice.data)
   const data = location.state;
   const [isLiked, setIsLiked] = useState(false);
   const [loader, setLoader] = useState(true);
@@ -22,10 +23,10 @@ function Playing() {
 const HandelLikeSong =()=>{
   setIsLiked(!isLiked)
   const payload ={
-    userID:userId,
+    userID:isAuthed,
     songId:data._id
   }
-    axios.post("http://localhost:3000/IMusic/save-as-favourites", payload).then((res)=>{
+    axios.post(APIConstants.saveasfavourites, payload).then((res)=>{
       console.log(res)
     }).catch((err)=>{
       console.log(err.message)

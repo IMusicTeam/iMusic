@@ -53,7 +53,7 @@ export const DashboardMenu = () => {
     <div className={`${styles.menu}`}>
       <div className="flex flex-col items-center mt-6">
         <div className="p-2">
-          <img src={logo} className="w-[200px] h-[90px]" />
+          <img src={logo} className="w-[150px]" />
         </div>
 
         <div className="p-2 flex flex-col gap-[15px] pb-5">

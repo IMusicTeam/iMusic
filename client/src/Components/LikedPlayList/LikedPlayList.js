@@ -5,6 +5,7 @@ import { AiOutlineDownload } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FiShuffle } from "react-icons/fi";
 import { MdDownloadDone } from "react-icons/md";
+import { BiLeftArrowAlt } from "react-icons/bi";
 import "../LikedPlayList/LikedPlayList.css";
 import Loadingforimusic from "./../../Assets/Loadingforimusic.gif";
 import ProfileCard from "../musicCarosal/ProfileCrad/ProfilesCard";
@@ -20,6 +21,10 @@ import Card9 from "../../Assets/Assets/CardImages/Card9.png";
 import Card10 from "../../Assets/Assets/CardImages/Card10.png";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { APIConstants } from "../../Services/api-constants";
+import { useSelector } from "react-redux";
+import edit from "../../Assets/EditIcon.png";
+import images from "../../Assets/images/player.png";
 
 function LikedPlayList() {
   const [download, setDownload] = useState(false);
@@ -27,19 +32,21 @@ function LikedPlayList() {
   const navigateTo = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const [loader, setLoader] = useState(false);
-  const [storeId, setStoreID]=useState('')
+  const [storeId, setStoreID] = useState("");
+  const { isAuthed } = useSelector((store) => store.ReduxSlice.data);
+  const [showCard, setShowCard] = useState(false);
 
   const handleMouseEnter = (id) => {
-    if(id.bubbles){
-      setShowDropdown(true);
-    }
-    setStoreID(id)
+    // if(){
+    //   setShowDropdown(true);
+    // }
+    // debugger
+    setStoreID(id);
   };
 
   const handleMouseLeave = () => {
     setShowDropdown(false);
-    setStoreID('')
-
+    setStoreID("");
   };
 
   function changeDownload() {
@@ -174,24 +181,30 @@ function LikedPlayList() {
     },
   ];
   const data = [
-    { id: 1, src: Card1,playlist:"Mine",album:"Radio"},
-    { id: 2, src: Card6,playlist:" Top Hits of 2000",album:"Radio"},
-    { id: 3, src: Card7 ,playlist:"Old School",album:"Radio"},
-    { id: 4, src: Card8,playlist:"Smile Vol.1",album:"Radio"},
-    { id: 5, src: Card9,playlist:"Good Music for Bad Days",album:"Radio"},
-    { id: 6, src: Card1,playlist:"Freedom",album:"Radio"},
-    { id: 7, src: Card2,playlist:"Everything From Drake",album:"Radio"},
-    { id: 8, src: Card3,playlist:"Sunset Days",album:"Weekend"},
-    { id: 9, src: Card4,playlist:"XXXtention",album:"Radio"},
-    { id: 10, src: Card5,playlist:" EveryThing from Taylor",album:"Weekend"},
+    { id: 1, src: Card1, playlist: "Mine", album: "Radio" },
+    { id: 2, src: Card6, playlist: " Top Hits of 2000", album: "Radio" },
+    { id: 3, src: Card7, playlist: "Old School", album: "Radio" },
+    { id: 4, src: Card8, playlist: "Smile Vol.1", album: "Radio" },
+    { id: 5, src: Card9, playlist: "Good Music for Bad Days", album: "Radio" },
+    { id: 6, src: Card1, playlist: "Freedom", album: "Radio" },
+    { id: 7, src: Card2, playlist: "Everything From Drake", album: "Radio" },
+    { id: 8, src: Card3, playlist: "Sunset Days", album: "Weekend" },
+    { id: 9, src: Card4, playlist: "XXXtention", album: "Radio" },
+    {
+      id: 10,
+      src: Card5,
+      playlist: " EveryThing from Taylor",
+      album: "Weekend",
+    },
   ];
   const [duration, setDuration] = useState(null);
 
   useEffect(() => {
     const userId = "Shahul123";
     axios
-      .get("http://localhost:3000/IMusic/get-all-favourites?userID=" + userId)
+      .get(APIConstants.getallfavourites + isAuthed)
       .then(async (res) => {
+        // debugger
         const musicWithDurations = await Promise.all(
           res.data.data[0].allSongs.map(async (music) => {
             const audio = new Audio(music.tune[0]);
@@ -222,23 +235,53 @@ function LikedPlayList() {
     const seconds = Math.round(duration % 60);
     return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
   }
-  const AddToPlayList =(song)=>{
-    const payload ={
-      userID:"Shahul123",
-      songId:song._id
+  const AddToPlayList = (song) => {
+    const payload = {
+      userID: "Shahul123",
+      songId: song._id,
+    };
+    // axios.post(APIConstants.saveasplaylist, payload).then((res)=>{
+    //   console.log(res)
+    // }).catch((err)=>{
+    //   console.log(err.message)
+    // })
+    setShowCard(!showCard);
+  };
+  const BackArrowFunction = () => {
+    setShowCard(false);
+  };
+  // const [uploadList, setUploadList] =useState(false)
+  const [step, setStep] = useState(0);
+  const [image, setImage] = useState();
+  const [playListName, setPlayListName] = useState("");
+  const [description, setDescription] = useState("");
+
+  const UploadPlayList = () => {
+    // setUploadList(!uploadList)
+    setStep(1);
+  };
+  const fileUploadHandler = async (event) => {
+    const file = event.target.files;
+    if (file.length > 0) {
+      let formData = new FormData();
+      formData.append("file", file[0]);
+      const response = await fetch(APIConstants.fileUpload, {
+        method: "POST",
+        body: formData,
+      });
+      const json = await response.json();
+      const validateJSON = json && json?.data ? json.data : "";
+      if (!image) {
+        setImage(validateJSON);
+      }
     }
-      axios.post("http://localhost:3000/IMusic/save-as-playlist", payload).then((res)=>{
-        console.log(res)
-      }).catch((err)=>{
-        console.log(err.message)
-      }) 
-  
-  }
+  };
+
   return (
     <>
       {loader ? (
         <div className="flex justify-center items-center h-[705px]">
-          <img src={Loadingforimusic} />
+          <img src={Loadingforimusic} alt="" />
         </div>
       ) : (
         <div className="bg-iGray2">
@@ -334,21 +377,207 @@ function LikedPlayList() {
                         <BsFillPlayFill className="w-12 h-12 pl-1 hover:duration-500 hover:delay-100 text-iBlue hover:bg-iBlue hover:scale-110 hover:text-iWhite hover:rounded-full" />
                       </button>
                       <div
-                        onMouseEnter={()=>handleMouseEnter(item.id)}
+                        onMouseEnter={() => handleMouseEnter(item._id)}
                         onMouseLeave={handleMouseLeave}
                         className="relative"
                       >
                         <BsThreeDotsVertical className="h-6 text-iOrange" />
-                        {index+1 === storeId && (
-                          <ul className="dropdown">
-                            <li>Add to Queue</li>
-                            <li>Add to Profile</li>
-                            <li onClick={()=>AddToPlayList(item)}>Add to Playlist</li>
-                            <li>Add to Library</li>
+                        {item._id === storeId && (
+                          <ul className="dropdown cursor-pointer">
+                            <li onClick={() => AddToPlayList(item)}>
+                              Add to Playlist
+                            </li>
                             <li>Report</li>
                           </ul>
                         )}
                       </div>
+                      {showCard && (
+                        <div className="w-[610px] bg-iWhite rounded-[20px] shadow-2xl absolute top-[220px] left-[813px]">
+                          {step === 0 && (
+                            <>
+                              <button onClick={BackArrowFunction}>
+                                <BiLeftArrowAlt
+                                  size={38}
+                                  className="mt-[28px] ml-[32px]"
+                                />
+                              </button>
+                              <div className="pb-5">
+                                <div className="flex flex-col justify-center items-center gap-8">
+                                  <div className="text-iBlue text-[28px] font-medium -mt-[28px]">
+                                    Add To PlayList
+                                  </div>
+                                  <div
+                                    onClick={UploadPlayList}
+                                    className="border-dashed border-2 border-indigo-600 px-[50px] py-[10px] rounded-lg text-[20px] cursor-pointer"
+                                  >
+                                    <span className="text-iBlue mr-1 text-[30px]">
+                                      +
+                                    </span>{" "}
+                                    Create New playlist
+                                  </div>
+                                </div>
+
+                                <p className="text-[18px] text-iBlue mt-8 font-medium px-[51px]">
+                                Your Collections
+                                </p>
+                                <div className="flex flex-col gap-2 mt-[17px] px-[51px] h-[370px] overflow-y-scroll">
+                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                    <img
+                                      src={Card1}
+                                      alt=""
+                                      className="w-[86px] h-[86px] rounded-[4px]"
+                                    />
+                                    <p>Silence</p>
+                                  </div>
+                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                    <img
+                                      src={Card1}
+                                      alt=""
+                                      className="w-[86px] h-[86px] rounded-[4px]"
+                                    />
+                                    <p>Silence</p>
+                                  </div>
+                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                    <img
+                                      src={Card1}
+                                      alt=""
+                                      className="w-[86px] h-[86px] rounded-[4px]"
+                                    />
+                                    <p>Silence</p>
+                                  </div>
+                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                    <img
+                                      src={Card1}
+                                      alt=""
+                                      className="w-[86px] h-[86px] rounded-[4px]"
+                                    />
+                                    <p>Silence</p>
+                                  </div>
+                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                    <img
+                                      src={Card1}
+                                      alt=""
+                                      className="w-[86px] h-[86px] rounded-[4px]"
+                                    />
+                                    <p>Silence</p>
+                                  </div>
+                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                    <img
+                                      src={Card1}
+                                      alt=""
+                                      className="w-[86px] h-[86px] rounded-[4px]"
+                                    />
+                                    <p>Silence</p>
+                                  </div>
+                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                    <img
+                                      src={Card1}
+                                      alt=""
+                                      className="w-[86px] h-[86px] rounded-[4px]"
+                                    />
+                                    <p>Silence</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </>
+                          )}
+                          {step === 1 && (
+                            <div>
+                              <>
+                                <button onClick={()=>setStep(0)}>
+                                  <BiLeftArrowAlt
+                                    size={38}
+                                    className="mt-[28px] ml-[32px]"
+                                  />
+                                </button>
+                                <div className="flex flex-col gap-[38px] items-center justify-center">
+                                  <div className="text-iBlue text-[28px] font-medium -mt-[28px]">
+                                    Add To PlayList
+                                  </div>
+                                  <div className="w-[156px] h-[165px] border-iBlue relative border-2 rounded-2xl">
+                                    {!image ? (
+                                      <img
+                                        src={images}
+                                        alt=""
+                                        className="w-[153px] h-[162px] rounded-2xl"
+                                      />
+                                    ) : (
+                                      <img
+                                        src={image}
+                                        alt=""
+                                        className="w-[153px] h-[163px] rounded-2xl"
+                                      />
+                                    )}
+                                    <label htmlFor="upload-image-inp">
+                                      <div className=" upload-img-div glass_effect glass_effect_border">
+                                        <span className="p-1 pl-2  bg-iWhite absolute -bottom-[13px] -right-[17px]">
+                                          <img
+                                            src={edit}
+                                            className="w-[21px] h-[21px]"
+                                            alt=""
+                                          />
+                                        </span>
+                                        <input
+                                          type="file"
+                                          id="upload-image-inp"
+                                          onChange={fileUploadHandler}
+                                          // accept=".jpg, .jpeg, .png, .bmp, .gif, .mp4, .mp3, .mkv, .ogg, .wmv"
+                                          className="mt-2 mb-5 upload_text_inp"
+                                        />
+                                      </div>
+                                    </label>
+                                  </div>
+                                </div>
+                                <div className="flex flex-col gap-4 mx-[15px] mt-10 mb-[40px] pl-[51px]">
+                                  <div>
+                                    <label
+                                      for="first_name"
+                                      class="block mb-2 text-[20px] font-medium text-iBlue"
+                                    >
+                                      Playlist Name
+                                    </label>
+                                    <input
+                                      value={playListName}
+                                      onChange={(e) =>
+                                        setPlayListName(e.target.value)
+                                      }
+                                      type="text"
+                                      id="first_name"
+                                      class="bg-gray-50 border w-[508px] border-gray-300 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                      placeholder="Playlist Name"
+                                    />
+                                  </div>
+
+                                  <div>
+                                    <label
+                                      for="first_name"
+                                      class="block mb-2 text-[20px] font-medium text-iBlue"
+                                    >
+                                      Description
+                                    </label>
+                                    <textarea
+                                      value={description}
+                                      onChange={(e) =>
+                                        setDescription(e.target.value)
+                                      }
+                                      id="message"
+                                      rows="4"
+                                      class="block p-2.5 w-[508px] h-[188px] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                      placeholder="Description"
+                                    ></textarea>
+                                  </div>
+                                </div>
+                                <button
+                                  onClick={""}
+                                  className="py-3 mt-5 w-[305px] hover:bg-iOrange mb-[20px] center bg-iBlue rounded-[30px] text-iWhite text-[20px] ml-[165px]"
+                                >
+                                  Save
+                                </button>
+                              </>
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
                 );
