@@ -28,7 +28,6 @@ class AuthController {
 
   //verify-email
   async VERIFY_email(req, res) {
-    console.log(req.body)
     try {
       const { otp, email } = req.body;
       if (!otp || !email) {
@@ -38,7 +37,6 @@ class AuthController {
         otp,
         email,
       });
-      console.log(verified)
       if (!verified) {
         return res
           .status(codes.badRequest)
@@ -48,8 +46,7 @@ class AuthController {
         { email: email },
         { $set: { emailVerified: true } },
         { returnOriginal: false, projection: { password: 0 },upsert: true }
-      );  
-      console.log(user,"user")
+      );
       const data = user.toObject();
       res.status(codes.success).json({ message: strings.emailVerified, data });
     } catch {

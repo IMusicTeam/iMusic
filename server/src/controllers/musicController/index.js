@@ -133,7 +133,7 @@ class MusicController {
 
   //get songByID
   async GET_song(req, res) {
-    const { _id, userId } = req.body;
+    const { _id, userId } = req.query;
     try {
       if (_id) {
         const newId = new mongoose.Types.ObjectId(_id);

@@ -25,8 +25,9 @@ router.get("/get-all-favourites?:userID", favController.GET_allFavourites);
 router.delete("/remove-from-favourites", favController.DeleteFromFavourites);
 //playlist
 router.post("/save-as-playlist", playlistController.POST_Playlist);
-router.get("/get-all-playlist", playlistController.GET_allPlaylist);
-router.delete("/remove-from-playlist", playlistController.DELETE_FromPlaylist);
+router.get("/get-all-playlist?:userId", playlistController.GET_playlistById);
+router.put("/update-playlist", playlistController.UPDATE_playlist);
+// router.delete("/remove-from-playlist", playlistController.DELETE_FromPlaylist);
 //authenticate
 router.post("/signup", authController.ON_SINGNUP);
 router.put("/verify-email", authController.VERIFY_email);

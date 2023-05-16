@@ -1,96 +1,104 @@
 const { codes, strings } = require("../../../Constants");
-const { serverDown } = require("../../../helpers/hooks");
+const { serverDown, noUserFound } = require("../../../helpers/hooks");
 const Songs = require("../../../models/music");
 const { default: mongoose, ObjectId } = require("mongoose");
-const SavePlayList = require("../../../models/liked");
+const Playlist = require("../../../models/playlist");
 
 class PlaylistController {
-      //save playlist
   async POST_Playlist(req, res) {
-    const { userID, songId } = req.body;
-    if ((userID, songId)) {
-      const findSong = await Songs.find({ _id: songId });
-      if (findSong && findSong.length > 0) {
-        const findUserHasCollection = await SavePlayList.find({
-          userID: userID,
-        });
-        if (
-          findUserHasCollection !== null &&
-          Object.keys(findUserHasCollection).length > 0
-        ) {
-          const validateSong_ = findUserHasCollection.map((each) =>
-            each.allSongs.findIndex((item) => item._id == songId)
-          )[0];
-          if (validateSong_ < 0) {
-            const data = await SavePlayList.findOneAndUpdate(
-              { userID: userID },
-              { $push: { allSongs: findSong[0] } },
-              { returnOriginal: false }
-            );
-          } else {
-            return res
-              .status(codes.moved)
-              .json({ message: strings.alreadyExists });
-          }
-        } else {
-          const data = new SavePlayList({
-            userID,
-            allSongs: findSong[0],
-          });
-          await data.save();
-        }
-        res.status(codes.created).json({ message: strings.liked });
-      } else {
-        res.status(codes.badRequest).json({ message: strings.idNotFound });
-      }
-    } else {
-      res.status(codes.badRequest).json({ message: strings.failure });
+    const { userId, songId, image, name, description } = req.body;
+    if (!userId || !songId) {
+      return noUserFound(res);
     }
-  }
-
-  async GET_allPlaylist(req, res) {
-    const { userID } = req.query;
-    const getAll = await SavePlayList.aggregate([
-      { $match: { userID: userID } },
-    ]);
     try {
-      if (getAll) {
-        return res
-          .status(codes.success)
-          .json({ message: strings.sucesss, data: getAll });
+      const findCollections = await Playlist.find({ userId: userId });
+      const findSongById = await Songs.find({ _id: songId });
+      const available = !findCollections.length > 0 && findCollections !== null;
+      const allPlaylist = [
+        {
+          image,
+          name,
+          description,
+          songs: findSongById,
+        },
+      ];
+      if (available) {
+        const save = new Playlist({
+          userId,
+          allPlaylist,
+        });
+        await save.save();
+        const json = save.toObject();
+        res
+          .status(codes.created)
+          .json({ message: strings.sucesss, data: json });
       } else {
-        res.status(codes.badRequest).json({ message: strings.idNotFound });
+        const data = await Playlist.findOneAndUpdate(
+          { userId: userId },
+          { $push: { allPlaylist: allPlaylist[0] } },
+          { returnOriginal: false }
+        );
+        res
+          .status(codes.created)
+          .json({ message: strings.sucesss, data: data });
       }
     } catch {
       serverDown(res);
     }
   }
 
-  async DELETE_FromPlaylist(req, res) {
-    const { userID, songId } = req.body;
-    if ((userID, songId)) {
-      try {
-        const newId = new mongoose.Types.ObjectId(songId);
-        const { modifiedCount } = await SavePlayList.updateOne(
-          { userID: userID },
-          { $pull: { allSongs: { _id: newId } } },
-          { upsert: false, multi: true }
-        );
-        if (modifiedCount === 1) {
-          res.status(codes.success).json({ message: strings.rmovedFromFav });
-        } else {
-          res
-            .status(codes.success)
-            .json({ message: strings.invalidCredentials });
-        }
-      } catch {
-        res.status(codes.badRequest).json({ message: strings.failure });
+  //get playlist by id
+  async GET_playlistById(req, res) {
+    const { userId } = req.query;
+    if (!userId) {
+      return noUserFound(res);
+    }
+    try {
+      const getAlPlaylistsByID = await Playlist.aggregate([
+        { $match: { userId: userId } },
+      ]);
+      if (getAlPlaylistsByID) {
+        res
+          .status(codes.found)
+          .json({ message: strings.sucesss, data: getAlPlaylistsByID ?? [0] });
+      } else {
+        res.status(codes.notFound).json({ message: strings.sucesss, data: [] });
       }
-    } else {
-      res.status(codes.badRequest).json({ message: strings.userNotFound });
+    } catch {
+      serverDown(res);
+    }
+  }
+
+  ////updateplaylist adding the song
+  async UPDATE_playlist(req, res) {
+    const { userId, songId, name } = req.body;
+    if (!userId || !songId) {
+      return noUserFound(res);
+    }
+    try {
+      const newId = new mongoose.Types.ObjectId(songId);
+      const findSong = await Playlist.find({
+        $and: [
+          { allPlaylist: { $elemMatch: { name: name } } },
+          { "allPlaylist.songs": { $elemMatch: { _id: newId } } },
+        ],
+      });
+      if (findSong?.length > 0) {
+        return res.status(codes.found).json({ message: strings.playlisted });
+      } else {
+        const findSongById = await Songs.findOne({ _id: songId });
+        await Playlist.findOneAndUpdate(
+          { userId: userId, "allPlaylist.name": name },
+          { $push: { "allPlaylist.$.songs": findSongById } }
+        );
+        res
+          .status(codes.success)
+          .json({ message: strings.AddedToYourWishlist });
+      }
+    } catch {
+      serverDown(res);
     }
   }
 }
 const playlistController = new PlaylistController();
 module.exports = playlistController;
-
