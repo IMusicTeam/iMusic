@@ -46,7 +46,11 @@ const strings = {
     otpSentSuccessfully: "OTP sent successfully",
     failedToSendOTP : "Failed to send OTP",
     //emaiul verified
-    verified: "Email Already Verified"
+    verified: "Email Already Verified",
+    //already added this song in playlist
+    playlisted: "Already added this song to your playlist",
+    // addedTo
+    AddedToYourWishlist: "Successfully, Added to your playlist"
   };
   
   const codes = {

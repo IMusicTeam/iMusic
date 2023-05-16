@@ -6,6 +6,11 @@ const { storeOtp } = require("./otp");
 function serverDown(res) {
     return  res.status(codes.serverError).json({ message: strings.serverError });
 }
+function noUserFound(res) {
+  return res
+      .status(codes.badRequest)
+      .json({ message: strings.userNotFound, data: {} });
+}
 async function sendOTP(email, res) {
     const stored = await storeOtp({ email });
     if (stored) {
@@ -18,5 +23,5 @@ async function sendOTP(email, res) {
         .json({ message: strings.failedToSendOTP , data: "" });
     }
 }
-module.exports = {serverDown, sendOTP};
+module.exports = {serverDown, sendOTP, noUserFound};
 

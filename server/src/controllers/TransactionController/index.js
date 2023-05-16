@@ -15,7 +15,6 @@ class TransactionController {
     const findUserHasCollection = await Transactions.find({
       userId: userId,
     });
-    console.log(findUserHasCollection, "findUserHasCollection");
     if (findUserHasCollection && findUserHasCollection.length > 0) {
       const data = await Transactions.findOneAndUpdate(
         { userId: userId },
@@ -65,7 +64,7 @@ class TransactionController {
       if (findAllTransactions) {
         res
           .status(codes.found)
-          .json({ message: strings.sucesss, data: findAllTransactions[0] });
+          .json({ message: strings.sucesss, data: findAllTransactions??[0] });
       } else {
         res.status(codes.notFound).json({ message: strings.sucesss, data: [] });
       }
@@ -74,5 +73,6 @@ class TransactionController {
     }
   }
 }
+
 const transactionController = new TransactionController();
 module.exports = transactionController;
