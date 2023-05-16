@@ -32,16 +32,16 @@ function LikedPlayList() {
   const navigateTo = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const [loader, setLoader] = useState(false);
-  const [storeId, setStoreID] = useState("");
-  const { isAuthed } = useSelector((store) => store.ReduxSlice.data);
+  const [storeId, setStoreID]=useState('')
+  const {userData} = useSelector((store)=>store.ReduxSlice.data)
   const [showCard, setShowCard] = useState(false);
 
   const handleMouseEnter = (id) => {
-    // if(){
-    //   setShowDropdown(true);
-    // }
-    // debugger
-    setStoreID(id);
+    if(id?.bubbles){
+      setShowDropdown(true);
+    }else{
+      setStoreID(id)
+    }
   };
 
   const handleMouseLeave = () => {
@@ -200,9 +200,8 @@ function LikedPlayList() {
   const [duration, setDuration] = useState(null);
 
   useEffect(() => {
-    const userId = "Shahul123";
     axios
-      .get(APIConstants.getallfavourites + isAuthed)
+      .get("http://localhost:3000/IMusic/get-all-favourites?userID=" + userData._id)
       .then(async (res) => {
         // debugger
         const musicWithDurations = await Promise.all(
@@ -377,13 +376,13 @@ function LikedPlayList() {
                         <BsFillPlayFill className="w-12 h-12 pl-1 hover:duration-500 hover:delay-100 text-iBlue hover:bg-iBlue hover:scale-110 hover:text-iWhite hover:rounded-full" />
                       </button>
                       <div
-                        onMouseEnter={() => handleMouseEnter(item._id)}
+                        onMouseEnter={()=>handleMouseEnter(item._id)}
                         onMouseLeave={handleMouseLeave}
                         className="relative"
                       >
                         <BsThreeDotsVertical className="h-6 text-iOrange" />
                         {item._id === storeId && (
-                          <ul className="dropdown cursor-pointer">
+                          <ul className="cursor-pointer dropdown">
                             <li onClick={() => AddToPlayList(item)}>
                               Add to Playlist
                             </li>
@@ -402,7 +401,7 @@ function LikedPlayList() {
                                 />
                               </button>
                               <div className="pb-5">
-                                <div className="flex flex-col justify-center items-center gap-8">
+                                <div className="flex flex-col items-center justify-center gap-8">
                                   <div className="text-iBlue text-[28px] font-medium -mt-[28px]">
                                     Add To PlayList
                                   </div>
@@ -421,7 +420,7 @@ function LikedPlayList() {
                                 Your Collections
                                 </p>
                                 <div className="flex flex-col gap-2 mt-[17px] px-[51px] h-[370px] overflow-y-scroll">
-                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                  <div className="flex flex-row items-center justify-start gap-7">
                                     <img
                                       src={Card1}
                                       alt=""
@@ -429,7 +428,7 @@ function LikedPlayList() {
                                     />
                                     <p>Silence</p>
                                   </div>
-                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                  <div className="flex flex-row items-center justify-start gap-7">
                                     <img
                                       src={Card1}
                                       alt=""
@@ -437,7 +436,7 @@ function LikedPlayList() {
                                     />
                                     <p>Silence</p>
                                   </div>
-                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                  <div className="flex flex-row items-center justify-start gap-7">
                                     <img
                                       src={Card1}
                                       alt=""
@@ -445,7 +444,7 @@ function LikedPlayList() {
                                     />
                                     <p>Silence</p>
                                   </div>
-                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                  <div className="flex flex-row items-center justify-start gap-7">
                                     <img
                                       src={Card1}
                                       alt=""
@@ -453,7 +452,7 @@ function LikedPlayList() {
                                     />
                                     <p>Silence</p>
                                   </div>
-                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                  <div className="flex flex-row items-center justify-start gap-7">
                                     <img
                                       src={Card1}
                                       alt=""
@@ -461,7 +460,7 @@ function LikedPlayList() {
                                     />
                                     <p>Silence</p>
                                   </div>
-                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                  <div className="flex flex-row items-center justify-start gap-7">
                                     <img
                                       src={Card1}
                                       alt=""
@@ -469,7 +468,7 @@ function LikedPlayList() {
                                     />
                                     <p>Silence</p>
                                   </div>
-                                  <div className="flex flex-row gap-7 justify-start items-center">
+                                  <div className="flex flex-row items-center justify-start gap-7">
                                     <img
                                       src={Card1}
                                       alt=""
