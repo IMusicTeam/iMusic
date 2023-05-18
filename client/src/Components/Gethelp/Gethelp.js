@@ -31,36 +31,36 @@ const handleContactUs = () =>{
           <BiLeftArrowAlt size={38} className="mb-[33px] -ml-[9px]" />
         </button>
 
-        <h1 className="font-semibold text-[32px] mt-1">Quick Links</h1>
+        <h1 className="font-medium text-[32px] mt-1">Quick Links</h1>
 
         <div className="flex flex-col justify-start flex-wrap text-ibm1 gap-5 text-[16px] mt-5">
           <div className="flex flex-row 3xl:gap-[135px] gap-28">
-            <p onClick={()=>HandelNavigation('/uploadMusic')} className="w-[128px] underline hover:text-iOrange">
+            <p onClick={()=>HandelNavigation('/uploadMusic')} className="w-[128px] underline hover:text-iOrange font-medium">
               Upload Music
             </p>
-            <p onClick={()=>HandelNavigation('/profile/settings')} className="w-[128px] underline hover:text-iOrange">
+            <p onClick={()=>HandelNavigation('/profile/settings')} className="w-[128px] underline hover:text-iOrange font-medium">
               Change my Email
             </p>
-            <p onClick={()=>HandelNavigation('/playlists')} className="w-[128px] underline hover:text-iOrange">Playlist</p>
-            <p onClick={()=>HandelNavigation('/exploreScreen')} className="w-[128px] underline hover:text-iOrange">Explore</p>
-            <p onClick={()=>HandelNavigation('/yourlibrary')} className="w-[128px] underline hover:text-iOrange">My Library</p>
+            <p onClick={()=>HandelNavigation('/playlists')} className="w-[128px] underline hover:text-iOrange font-medium">Playlist</p>
+            <p onClick={()=>HandelNavigation('/exploreScreen')} className="w-[128px] underline hover:text-iOrange font-medium">Explore</p>
+            <p onClick={()=>HandelNavigation('/yourlibrary')} className="w-[128px] underline hover:text-iOrange font-medium">My Library</p>
           </div>
           <div className="flex flex-row 3xl:gap-[135px] gap-28">
-            <p onClick={()=>HandelNavigation('/profile/settings')} className="w-[128px] underline hover:text-iOrange">
+            <p onClick={()=>HandelNavigation('/profile/settings')} className="w-[128px] underline hover:text-iOrange font-medium">
               Edit Profile
             </p>
-            <p onClick={()=>HandelNavigation('/albums')} className="w-[128px] underline hover:text-iOrange">Albums</p>
+            <p onClick={()=>HandelNavigation('/albums')} className="w-[128px] underline hover:text-iOrange font-medium">Albums</p>
             <p onClick={()=>HandelNavigation('/profile/walletdashboard')} className="w-[128px] underline hover:text-iOrange">
               Wallet Dashboard
             </p>
-            <p onClick={()=>HandelNavigation('/playlists')} className="w-[128px] underline hover:text-iOrange">Playlists</p>
-            <p onClick={()=>HandelNavigation('/likedMusic')} className="w-[128px] underline hover:text-iOrange">
+            <p onClick={()=>HandelNavigation('/playlists')} className="w-[128px] underline hover:text-iOrange font-medium">Playlists</p>
+            <p onClick={()=>HandelNavigation('/likedMusic')} className="w-[128px] underline hover:text-iOrange font-medium">
               Liked Songs
             </p>
           </div>
         </div>
 
-        <h1 className="font-semibold text-[32px] mt-[60px]">FAQs</h1>
+        <h1 className="font-medium text-[32px] mt-[60px]">FAQs</h1>
         {data.map((item, i) => {
           return (
             <div
@@ -96,7 +96,7 @@ const handleContactUs = () =>{
           );
         })}
 
-        <div className="mt-[212px] text-center">
+        <div className="mt-[212px] text-center font-medium">
         <span style={{display: 'inline-block'}}> <p>
         Not yet answered your Query? 
         </p></span>

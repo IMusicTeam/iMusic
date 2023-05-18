@@ -86,60 +86,61 @@ function WalletDashboard() {
           <div>
             <img src={sideprofileImage} className="w-[177px] pt-[75px]" />
           </div>
-          <div className="text-[28px] font-semibold text-cgy4">
+          <div className="text-[28px] font-medium text-cgy4">
             Jane William
           </div>
-          <div className="font-semibold text-[20px] -mt-[12px] text-igray1">
-            Account ID: p-1234
+          <div className="font-medium text-[20px] -mt-[12px] text-igray1">
+            Account ID: P-1234
           </div>
         </div>
 
         <div className="flex flex-col gap-[52px]">
           <div className="walletContent mt-[41px]">
-            <div className="text-cgy4 flex flex-row items-center gap-2 text-[18px] font-semibold"><div>Email </div><div><img src={EditIcon}/></div></div>
-            <div className="text-[16px] font-semibold text-iBlue mt-2">
+            <div className="text-cgy4 flex flex-row items-center gap-2 text-[18px] font-medium"><div>Email </div><div><img src={EditIcon}/></div></div>
+            <div className="text-[16px] font-medium text-iBlue mt-2">
               Janewilliam123@gmail.com
             </div>
           </div>
           <div>
-            <div className="text-cgy4 text-[18px] font-semibold flex flex-row items-center gap-2">
+            <div className="text-cgy4 text-[18px] font-medium flex flex-row items-center gap-2">
               <div>Phone Number</div> <div><img src={EditIcon}/></div>
             </div>
-            <div className="text-[16px] font-semibold text-iBlue mt-2">
+            <div className="text-[16px] font-medium text-iBlue mt-2">
               +1 94)0-763-2207
             </div>
           </div>
           <div>
-            <div className="text-cgy4 text-[18px] font-semibold flex flex-row items-center gap-2"><div>Address</div><div><img src={EditIcon}/></div></div>
-            <div className="text-[16px] font-semibold text-iBlue mt-2">
+            <div className="text-cgy4 text-[18px] font-medium flex flex-row items-center gap-2"><div>Address</div><div><img src={EditIcon}/></div></div>
+            <div className="text-[16px] font-medium text-iBlue mt-2">
               Street: 4480 Elk Creek Road.
             </div>
-            <div className="text-[16px] font-semibold text-iBlue">
+            <div className="text-[16px] font-medium text-iBlue">
               City: Norcross.
             </div>
-            <div className="text-[16px] font-semibold text-iBlue">
+            <div className="text-[16px] font-medium text-iBlue">
               State/province/area: Georgia.
             </div>
-            <div className="text-[16px] font-semibold text-iBlue">
+            <div className="text-[16px] font-medium text-iBlue">
               Zip code 30071
             </div>
           </div>
         </div>
 
         <div>
-        <div className="max-w-[305px] h-[248px] rounded-[15px] bg-iWhite border border-iBlue mt-[65px]">
+        <div className="max-w-[305px] h-[248px] rounded-[15px] bg-iWhite border-2 border-iBlue mt-[65px]">
 
           <div className="flex flex-col gap-[37px]">
-            <div className="text-igray1 text-[22px] font-semibold pt-[36px] pl-[19px] truncate w-[280px] h-[63px]">
+            <div className="text-igray1 text-[22px] font-medium pt-[36px] pl-[19px] truncate w-[280px] h-[63px]">
               Wallet ID: {wallet.account}
             </div>
-            <div className="mt-[37px] text-cgy4 text-[54px] font-semibold pl-[19px]">
-              {Number(wallet.balanceInEther).toFixed(2)} <span className="text-[25px]">ETH</span>
+            <div className="mt-[37px] text-cgy4 text-[54px] font-medium pl-[19px]">
+              {Number(wallet.balanceInEther).toFixed(2)}
+              <p className="text-[25px] -mt-[56px] ml-[120px]">ETH</p>
             </div>
           </div>
           
         </div>
-        <div className="text-iBlue text-[21px] font-semibold mt-[25px] pl-[40px] underline">Know More about Wallet</div>
+        <div className="text-iBlue text-[21px] mt-[25px] pl-[40px] underline">Know More about Wallet</div>
         </div>
 
         <div className="pt-[20px]">
@@ -152,7 +153,7 @@ function WalletDashboard() {
       >
       <div className="bg-iWhite rounded-[12px] max-w-[816px] h-[434px] mt-[16px] ml-[32px] gap-[16px]">
           <div
-            className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[16px] mr-[17px] bg-igray text-start p-1 rounded-[8px] text-iBlue`}
+            className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[16px] mr-[17px] bg-igray text-start p-1 rounded-[8px] text-iBlue font-medium`}
           >
             <p className="!pl-[8px]">Date</p>
             <p>Type</p>
@@ -165,7 +166,7 @@ function WalletDashboard() {
           {data.map((item) => {
             return (
               <div
-                className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[17px] mr-[19px]  text-start`}
+                className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[17px] mr-[19px]  text-start font-medium`}
               >
                 <p className="text-cgy4">{item.date}</p>
                 <p className="text-cgy4">{item.type}</p>

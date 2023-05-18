@@ -123,7 +123,7 @@ function VerificationInput(props) {
         <div className="flex items-center justify-center h-10 text-center">
           {props.isLoading ? (
             <span
-              className={`mt-1 text-center font-semibold  text-cgy5 ${style.code__is_checking}`}
+              className={`mt-1 text-center font-medium  text-cgy5 ${style.code__is_checking}`}
             >
               Verifying...
             </span>

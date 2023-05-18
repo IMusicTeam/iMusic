@@ -76,10 +76,10 @@ function Playlist() {
     {isLoading ? <div className="flex justify-center items-center h-[690px]"><img src={Loadingforimusic}/></div> :
       <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px]">
       <div className="flex flex-row justify-between">
-            <h1 className="text-[30px] font-semibold">
+            <h1 className="text-[30px] font-medium">
               Newly Added
             </h1>
-            <h5 className="underline font-semibold text-[16px] text-iBlack1">
+            <h5 className="underline font-medium text-[16px] text-iBlack1">
              
             </h5>
           </div>
@@ -98,8 +98,8 @@ function Playlist() {
           </div>
       <div>
         <div className="flex flex-row justify-between my-7">
-          <h1 className="text-[30px] font-semibold">Top charts</h1>
-          <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+          <h1 className="text-[30px] font-medium">Top charts</h1>
+          <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data1?.map((item) => {
@@ -113,8 +113,8 @@ function Playlist() {
       </div>
       <div>
         <div className="flex flex-row justify-between my-7">
-          <h1 className="text-[30px] font-semibold">Recommended for you</h1>
-          <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+          <h1 className="text-[30px] font-medium">Recommended for you</h1>
+          <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data2?.map((item) => {
@@ -128,10 +128,10 @@ function Playlist() {
       </div>
       <div>
         <div className="flex flex-row justify-between my-7">
-          <h1 className="text-[30px] font-semibold">
+          <h1 className="text-[30px] font-medium">
             Featured playlists Based on Mood
           </h1>
-          <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+          <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data3?.map((item) => {
@@ -145,8 +145,8 @@ function Playlist() {
       </div>
       <div>
         <div className="flex flex-row justify-between my-7">
-          <h1 className="text-[30px] font-semibold">Last Spotlight</h1>
-          <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+          <h1 className="text-[30px] font-medium">Last Spotlight</h1>
+          <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data4?.map((item) => {
@@ -160,8 +160,8 @@ function Playlist() {
       </div>
       <div>
         <div className="flex flex-row justify-between my-7">
-          <h1 className="text-[30px] font-semibold">Radio stations</h1>
-          <h5 className="underline font-semibold text-[16px] text-iBlack1 -mt-[0.5px]">
+          <h1 className="text-[30px] font-medium">Radio stations</h1>
+          <h5 className="underline font-medium text-[16px] text-iBlack1 -mt-[0.5px]">
             
           </h5>
         </div>
@@ -177,8 +177,8 @@ function Playlist() {
       </div>
       <div>
         <div className="flex flex-row justify-between my-7">
-          <h1 className="text-[30px] font-semibold">Your Playlists</h1>
-          <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+          <h1 className="text-[30px] font-medium">Your Playlists</h1>
+          <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data7?.map((item) => {
@@ -192,8 +192,8 @@ function Playlist() {
       </div>
       <div>
         <div className="flex flex-row justify-between my-7">
-          <h1 className="text-[30px] font-semibold">Top Playlists</h1>
-          <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+          <h1 className="text-[30px] font-medium">Top Playlists</h1>
+          <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data8?.map((item) => {
@@ -207,8 +207,8 @@ function Playlist() {
       </div>
       <div>
         <div className="flex flex-row justify-between my-7">
-          <h1 className="text-[30px] font-semibold"></h1>
-          <h5 onClick={()=>HandelSeeAll({path:'top-playlists',title:'Top Playlists'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
+          <h1 className="text-[30px] font-medium"></h1>
+          <h5 onClick={()=>HandelSeeAll({path:'top-playlists',title:'Top Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
         </div>
         
       </div>

@@ -19,13 +19,13 @@ function RoundedCard({ data,src}) {
           />
         </div>
         <div className="ml-[8px] text-center">
-          <h5 className="text-[18px] font-semibold text-iBlack1 mt-[4px] text-center">
+          <h5 className="text-[18px] font-medium text-iBlack1 mt-[4px] text-center">
             {data.artist}
           </h5>
-          <p className="text-[12px] font-semibold text-iBlack1  text-center">
+          <p className="text-[12px] font-medium text-iBlack1  text-center">
             Rank - #{data.rank}
           </p>
-          <p className="text-[14px] font-semibold text-iBlack1  text-center">
+          <p className="text-[14px] font-medium text-iBlack1  text-center">
             {data.place}
           </p>
         </div>

@@ -170,8 +170,8 @@ function MusicCarousel() {
     { id: 10, src: Card12,playlist:"Freedom",album:"Weekend"}
   ] 
   const albumsData =[
-    { id: 1, src: AlbumsCard4,text:"Listen to your Uploaded Music" },
-    { id: 2, src: AlbumsCard5,text:"Listen to your Purchased Music" },
+    { id: 1, src: AlbumsCard5,text:"Listen to your own Music" },
+    { id: 2, src: AlbumsCard4,text:"Listen to your owned Music" },
     { id: 3, src: AlbumsCard8},
     { id: 4, src: AlbumsCard9},
     { id: 5, src: AlbumsCard10 },
@@ -210,7 +210,7 @@ const navigateTO=useNavigate();
    return (
     <div className='pl-[34px] pb-[32px]'>
         <div className='flex flex-row justify-between'>
-        <h1 className='text-[30px] font-semibold'>New releases</h1>
+        <h1 className='text-[30px] font-medium'>New releases</h1>
         </div>
 
       <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -224,8 +224,8 @@ const navigateTO=useNavigate();
         </div>
 
         <div className='flex flex-row justify-between'>
-        <h1 className='text-[30px] font-semibold mt-[28px]'>Top charts</h1>
-        <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+        <h1 className='text-[30px] font-medium mt-[28px]'>Top charts</h1>
+        <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
 
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -241,8 +241,8 @@ const navigateTO=useNavigate();
         </div>
 
       <div className='flex flex-row justify-between'>
-         <h1 className='text-[30px] font-semibold mt-[28px]'>Recommended for you</h1>
-         <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+         <h1 className='text-[30px] font-medium mt-[28px]'>Recommended for you</h1>
+         <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
       </div>   
 
       <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -258,8 +258,8 @@ const navigateTO=useNavigate();
         </div>
 
       <div className='flex flex-row justify-between'>
-      <h1 className='text-[30px] font-semibold mt-[28px]'>Featured playlists Based on Mood</h1>
-      <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+      <h1 className='text-[30px] font-medium mt-[28px]'>Featured playlists Based on Mood</h1>
+      <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
     </div>
     <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
@@ -274,8 +274,8 @@ const navigateTO=useNavigate();
         </div>
 
       <div className='flex flex-row justify-between'>
-      <h1 className='text-[30px] font-semibold mt-[28px]'>Last Spotlight</h1>
-      <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+      <h1 className='text-[30px] font-medium mt-[28px]'>Last Spotlight</h1>
+      <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
     </div>
     <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
@@ -303,8 +303,8 @@ const navigateTO=useNavigate();
 
 
       <div className='flex flex-row justify-between'>
-      <h1 className='text-[30px] font-semibold mt-[28px]'>Radio stations</h1>
-      <button onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+      <h1 className='text-[30px] font-medium mt-[28px]'>Radio stations</h1>
+      <button onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
     </div>
 
     <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -321,8 +321,8 @@ const navigateTO=useNavigate();
 
 
       <div className='flex flex-row justify-between'>
-      <h1 className='text-[30px] font-semibold mt-[28px]'>Your Playlists</h1>
-      <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+      <h1 className='text-[30px] font-medium mt-[28px]'>Your Playlists</h1>
+      <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
     </div>
 
     <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -339,8 +339,8 @@ const navigateTO=useNavigate();
 
 
       <div className='flex flex-row justify-between'>
-      <h1 className='text-[30px] font-semibold mt-[28px]'>Top Albums</h1>
-      <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+      <h1 className='text-[30px] font-medium mt-[28px]'>Top Albums</h1>
+      <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
     </div>
 
     <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -357,7 +357,7 @@ const navigateTO=useNavigate();
 
      <div className='flex flex-row justify-between'>
      <h1></h1>
-      <h5 onClick={()=>HandelSeeAll({path:'top-playlists',title:'Top Playlists'})} className='underline font-semibold text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
+      <h5 onClick={()=>HandelSeeAll({path:'top-playlists',title:'Top Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
     </div>
       
     </div>

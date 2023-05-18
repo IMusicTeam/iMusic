@@ -83,22 +83,22 @@ function UpdatedLandingPage(){
                 </div>
             </div> 
 
-            <div  className="flex flex-row gap-[99px]">
+            <div  className="flex flex-row gap-[249px]">
                 <div className="mt-[74px]">
                         <img src={rythamic} className="max-w-[982px] h-[996px]"/>
                 </div>
     
                <div className="flex flex-col mt-[250px]">
-                <div className="text-[58px] text-iOrange">Rhythmic Advantages</div>
-               <div className="mt-[60px] grid grid-cols-3 gap-[110px]">
+                <div className="text-[58px] text-iOrange -ml-[65px]">Rhythmic Advantages</div>
+               <div className="mt-[60px] grid grid-cols-3 gap-x-[174px] gap-y-[145px]">
                     {
                     rhythmicdata?.map((item)=>{
                        return <div className="flex flex-col items-center text-center">
                         <div className="iconsBackground 3xl:w-[200px] w-[150px] h-[170px] flex justify-center items-center">
                             <img src={item.src} className="-ml-[15px]"/>
                             </div>
-                        <div><p className="text-[25px] font-semibold text-iBlue mt-3">{item.text1}</p></div>
-                         <div><p className="text-[25px] font-semibold text-iBlue">{item.text2}</p></div>
+                        <div><p className="text-[25px] font-medium text-iBlue mt-3">{item.text1}</p></div>
+                         <div><p className="text-[25px] font-medium text-iBlue">{item.text2}</p></div>
                         </div>
                         
                     })
@@ -111,15 +111,15 @@ function UpdatedLandingPage(){
                 <div className="flex flex-col">
                     <div className="text-[58px] text-iOrange font-medium mt-[69px] ml-[72px]">Creator's Advantages</div>
                 
-                <div className="mt-[74px] grid grid-cols-3 ml-[134px] gap-[110px]">
+                <div className="mt-[74px] grid grid-cols-3 ml-[171px] gap-[110px]">
                     {
                         advantagesdata.map((item)=>{
                             return <div className="flex flex-col items-center text-center">
                                <div className="iconsBackground 3xl:w-[200px] w-[150px] h-[170px] flex justify-center items-center">
                                 <img src={item.src} className="-ml-[15px]"/>
                                 </div>
-                                <div className=""><p className="text-[25px] -ml-[15px] font-semibold text-iBlue mt-3">{item.text1}</p></div>
-                                <div className=""><p className="text-[25px] -ml-[15px] font-semibold text-iBlue">{item.text2}</p></div> 
+                                <div className=""><p className="text-[25px] -ml-[15px] font-medium text-iBlue mt-3">{item.text1}</p></div>
+                                <div className=""><p className="text-[25px] -ml-[15px] font-medium text-iBlue">{item.text2}</p></div> 
                             </div>
                         })
                     }
@@ -130,19 +130,19 @@ function UpdatedLandingPage(){
             
             <div className="flex flex-col gap-[18px]">
                 <div className="text-[58px] text-iOrange font-medium pl-[72px] pt-[140px]">Join Our Community</div>
-                <div className="text-[32px] font-semibold text-iBlue w-[1441px] h-[98px] pl-[72px]">Join our inclusive, creative and collaborative music community on a mission to revolutionize the way we discover, listen to, and share music with music lovers from around the world!</div>
+                <div className="text-[32px] font-medium text-iBlue w-[1441px] h-[98px] pl-[72px]">Join our inclusive, creative and collaborative music community on a mission to revolutionize the way we discover, listen to, and share music with music lovers from around the world!</div>
             </div>
 
             <div className="flex flex-row justify-between gap-[34px] px-[76px] pt-[83px] mb-[150px]">
             <div className="relative items-center text-center transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-105 duration-400">
-                <div className="text-[50px] text-iWhite font-semibold w-[490px] h-[144px] absolute top-[102px] 3xl:left-[6px] right-[75px] ">Unlock Endless</div>
-                <div className="text-[50px] text-iWhite font-semibold w-[490px] h-[80px] absolute top-[175px] 3xl:left-[6px] right-[75px] leading-none">Music Possibilities</div>
+                <div className="text-[50px] text-iWhite font-medium w-[490px] h-[144px] absolute top-[102px] 3xl:left-[6px] right-[75px] ">Unlock Endless</div>
+                <div className="text-[50px] text-iWhite font-medium w-[490px] h-[80px] absolute top-[175px] 3xl:left-[6px] right-[75px] leading-none">Music Possibilities</div>
                     <img src={Unlockendless1} className="w-[862px] h-[562px]"/>
                     <div className="w-[204px] h-[66px] bg-iBlue text-iWhite text-[20px] rounded-[45px] flex justify-center items-center absolute bottom-[185px] 3xl:right-[310px] left-[145px] hover:bg-iOrange hover:cursor-pointer" onClick={exploreRouting}>Explore Now</div>
                 </div>
                 <div className="relative items-center text-center transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-105 duration-400">
-                <div className="text-[50px] text-iWhite font-semibold w-[490px] h-[144px] absolute top-[102px] 3xl:left-[6px] right-[75px] ">Join the Rhythm</div>
-                <div className="text-[50px] text-iWhite font-semibold w-[490px] h-[80px] absolute top-[175px] 3xl:left-[6px] right-[75px] leading-none">Revolution</div>
+                <div className="text-[50px] text-iWhite font-medium w-[490px] h-[144px] absolute top-[102px] 3xl:left-[6px] right-[75px] ">Join the Rhythm</div>
+                <div className="text-[50px] text-iWhite font-medium w-[490px] h-[80px] absolute top-[175px] 3xl:left-[6px] right-[75px] leading-none">Revolution</div>
                     <img src={Unlockendless2} className="w-[862px] h-[562px]"/>
                     <div className="w-[204px] h-[66px] bg-iBlue text-iWhite text-[20px] rounded-[45px] flex justify-center items-center absolute bottom-[185px] 3xl:right-[310px] left-[145px] hover:bg-iOrange hover:cursor-pointer" onClick={exploreRouting}>Explore Now</div>
                 </div>

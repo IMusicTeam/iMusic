@@ -9,9 +9,9 @@ function ListenedCard(data) {
       <img
         src={data.image}
         alt="card"
-        className='rounded-2xl '
+        className='rounded-2xl'
       />
-      <p className="text-[45px] w-[313px] absolute bottom-0 text-iWhite font-semibold  mb-10  ml-7 mr-0.5">
+      <p className="text-[45px] w-[261px] h-[220px] absolute bottom-14 text-iWhite font-medium left-[60px]">
         {data.text}
       </p>
     </div>

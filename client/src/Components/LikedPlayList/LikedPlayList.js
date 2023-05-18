@@ -30,7 +30,6 @@ import verified from "../../Assets/Assets/CardImages/Verified.png";
 function LikedPlayList() {
   const userId = useSelector((store) => store.ReduxSlice.data.userData._id);
 
-  const [download, setDownload] = useState(false);
   const [likedData, setLikedData] = useState();
   const navigateTo = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
@@ -51,10 +50,6 @@ function LikedPlayList() {
     setShowDropdown(false);
     setStoreID("");
   };
-
-  function changeDownload() {
-    setDownload((prev) => !prev);
-  }
 
   const data = [
     { id: 1, src: Card1, playlist: "Mine", album: "Radio" },
@@ -212,7 +207,7 @@ function LikedPlayList() {
       ) : (
         <div className="bg-iGray2 pt-9">
           <div className="h-[389px] bg-iLightBlue pl-[142px] border-iGray4 border">
-            <h3 className="text-iOrange font-semibold text-[28px] mb-[28px] mt-12">
+            <h3 className="text-iOrange font-medium text-[28px] mb-[28px] mt-12">
               Liked Songs {duration}
             </h3>
             <div className="flex">
@@ -222,21 +217,14 @@ function LikedPlayList() {
                 alt="liked"
               />
               <div className="ml-12">
-                <h1 className="text-iBlack text-[35px] font-semibold">
+                <h1 className="text-iBlack text-[35px] font-medium">
                   The Weekend
                 </h1>
-                <p className="text-base text-iBlack w-[248px] font-semibold ">
+                <p className="text-base text-iBlack w-[248px] font-medium ">
                   It's Created by you and tune into your hottest songs!!!
                 </p>
                 <div className="flex gap-5 mb-[40px] mt-12">
                   <BsFillShareFill className="text-iOrange h-6 w-[21px]" />
-                  <button type="button" onClick={changeDownload}>
-                    {!download ? (
-                      <AiOutlineDownload className="w-6 h-6 text-iOrange" />
-                    ) : (
-                      <MdDownloadDone className="w-6 h-6 text-iOrange" />
-                    )}
-                  </button>
                   <div
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -280,13 +268,13 @@ function LikedPlayList() {
                         <span className="text-lg text-iGray1">
                           {item.songName}
                         </span>
-                        <span className="text-xl font-semibold text-iBlack">
+                        <span className="text-xl font-medium text-iBlack">
                           {item.artistName}
                         </span>
                       </div>
                       <div className="flex flex-col">
                         <span className="text-lg text-iGray1">Album</span>
-                        <span className="text-xl font-semibold text-iBlack">
+                        <span className="text-xl font-medium text-iBlack">
                           {item.albumName}
                         </span>
                       </div>
@@ -472,7 +460,7 @@ function LikedPlayList() {
                                     alt="success"
                                     className="w-[88px] h-[88px] mb-[38px]"
                                   />
-                                  <span className=" text-[28px] font-semibold text-center w-[452px]">
+                                  <span className=" text-[28px] font-medium text-center w-[452px]">
                                     Your Song has been Added successfully
                                   </span>
                                   <button
@@ -493,7 +481,7 @@ function LikedPlayList() {
             </div>
           </div>
           <div className="pl-[142px]">
-            <h1 className="text-3xl font-semibold text-iBlack mb-7">
+            <h1 className="text-3xl font-medium text-iBlack mb-7">
               Suggested Videos
             </h1>
             <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">

@@ -62,14 +62,14 @@ function ProfileDashboard() {
               <img src={MetaImage} className='w-[79px] h-[79px]' />
             </div>
             {isText ? <div className='max-w-[383px] w-full h-[62px] rounded-[31px] border border-iBlue mt-[7px] text-center'>
-              <button onClick={connectWallet} className='text-[28px] text-ibgy1 font-semibold py-[10px]'> Connect to Wallet</button>
+              <button onClick={connectWallet} className='text-[28px] text-ibgy1 font-medium py-[10px]'> Connect to Wallet</button>
             </div> :
-              <p className='mt-[7px] text-[28px] font-semibold text-crd5'> Please install Metamask to connect to a wallet.</p>}
+              <p className='mt-[7px] text-[28px] font-medium text-crd5'> Please install Metamask to connect to a wallet.</p>}
 
           </div>
 
           <div className='mt-[115px] ml-[79px]'>
-            <div className='text-[28px] text-ibgy1 font-semibold'>You must Connect to Meta Mask wallet in order Rent or buy NFT</div>
+            <div className='text-[28px] text-ibgy1 font-medium'>You must Connect to Meta Mask wallet in order Rent or buy NFT</div>
           </div>
 
         </div>

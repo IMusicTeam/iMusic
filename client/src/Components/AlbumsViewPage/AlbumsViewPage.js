@@ -206,7 +206,7 @@ function AlbumsViewPage() {
       </button>
       <div className="h-[389px] bg-[#DEEEFF] pl-[142px] border-[#EEEEEE] border">
       
-        <h3 className="text-iOrange font-semibold text-[28px] mb-[28px] mt-12">
+        <h3 className="text-iOrange font-medium text-[28px] mb-[28px] mt-12">
           Albums
         </h3>
         <div className="flex">
@@ -216,10 +216,10 @@ function AlbumsViewPage() {
             alt="liked"
           />
           <div className="ml-12">
-            <h1 className="text-iBlack text-[35px] font-semibold">
+            <h1 className="text-iBlack text-[35px] font-medium">
             Music
             </h1>
-            <p className="text-base text-iBlack w-[248px] font-semibold ">
+            <p className="text-base text-iBlack w-[248px] font-medium ">
             It's Created by you and tune into your hottest songs!!!
             </p>
             <div className="flex gap-5 mb-[40px] mt-12">
@@ -273,13 +273,13 @@ function AlbumsViewPage() {
                   />
                   <div className="flex flex-col">
                     <span className="text-lg text-iGray1">{item.text1}</span>
-                    <span className="text-xl font-semibold text-iBlack">
+                    <span className="text-xl font-medium text-iBlack">
                       {item.text2}
                     </span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-lg text-iGray1">Album</span>
-                    <span className="text-xl font-semibold text-iBlack">
+                    <span className="text-xl font-medium text-iBlack">
                       {item.year}
                     </span>
                   </div>
@@ -302,7 +302,7 @@ function AlbumsViewPage() {
         </div>
       </div>
       <div className="pl-[142px]">
-        <h1 className="text-3xl font-semibold text-iBlack mb-7">
+        <h1 className="text-3xl font-medium text-iBlack mb-7">
           Suggested Videos
         </h1>
         <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
