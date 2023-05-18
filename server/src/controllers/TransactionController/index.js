@@ -16,7 +16,7 @@ class TransactionController {
       userId: userId,
     });
     if (findUserHasCollection && findUserHasCollection.length > 0) {
-      const data = await Transactions.updateOne(
+      const data = await Transactions.findOneAndUpdate(
         { userId: userId },
         { $push: { transactionDetails: req.body.transactionDetails } },
         { returnOriginal: false }
