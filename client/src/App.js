@@ -39,6 +39,8 @@ import AdminDetails from "./Components/AdminDetails/AdminDetails";
 import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
 import EmailAuthentication from "./Components/EmailAuthentication/EmailAuthentication";
 import PrivateRoute from "./ProtectedRoute";
+import ListSongs from "./Components/Playlists/ListSongs/ListSongs";
+import Music from "./Components/Music/Music";
 
 function App() {
   useEffect(()=>{
@@ -76,6 +78,10 @@ function App() {
    <Route path="/" element={<Navigate to="/home" replace />} />
    <Route path="/albumsView" element ={<AlbumsViewPage/>}/>
    <Route path="/dashboard" element={<Dashboard />} />
+   <Route path="/playlist-list" element={<ListSongs />} />
+   <Route path="/music-player" element={<Music />} />
+
+
    </Route>
    </Route>
    </Routes>

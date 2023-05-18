@@ -6,76 +6,35 @@ import image2 from "./../../Assets/Assets/CardImages/HomeCard1.png";
 import image3 from "./../../Assets/Assets/CardImages/HomeCard2.png";
 import EditIcon from "../../Assets/EditIcon.png";
 import { useSelector } from "react-redux";
+import axios from "axios";
+import { APIConstants } from "../../Services/api-constants";
 function WalletDashboard() {
   const wallet = useSelector(state => state.ReduxSlice.data.metaMaskDetails);
+  const { userData } = useSelector((store) => store.ReduxSlice.data);
   const isWalletConnected = Object.keys(wallet).length === 0
-  const data = [
-    {
-      date: "16/09/22 - 12:05:45",
-      type: "Willow",
-      subtype: "1869",
-      description: "Sent Funds to Bank",
-      amount: "$10.00",
-      status: "Completed",
-    },
-    {
-      date: "16/09/22 - 12:05:45",
-      type: "Willow",
-      subtype: "1869",
-      description: "Sent Funds to Bank",
-      amount: "$10.00",
-      status: "Completed",
-    },
-    {
-      date: "16/09/22 - 12:05:45",
-      type: "Willow",
-      subtype: "1869",
-      description: "Sent Funds to Bank",
-      amount: "$10.00",
-      status: "Completed",
-    },
-    {
-      date: "16/09/22 - 12:05:45",
-      type: "Willow",
-      subtype: "1869",
-      description: "Sent Funds to Bank",
-      amount: "$10.00",
-      status: "Completed",
-    },
-    {
-      date: "16/09/22 - 12:05:45",
-      type: "Willow",
-      subtype: "1869",
-      description: "Sent Funds to Bank",
-      amount: "$10.00",
-      status: "Completed",
-    },
-    {
-      date: "16/09/22 - 12:05:45",
-      type: "Willow",
-      subtype: "1869",
-      description: "Sent Funds to Bank",
-      amount: "$10.00",
-      status: "Completed",
-    },
-    {
-      date: "16/09/22 - 12:05:45",
-      type: "Willow",
-      subtype: "1869",
-      description: "Sent Funds to Bank",
-      amount: "$10.00",
-      status: "Completed",
-    },
-    {
-      date: "16/09/22 - 12:05:45",
-      type: "Willow",
-      subtype: "1869",
-      description: "Sent Funds to Bank",
-      amount: "$10.00",
-      status: "Completed",
-    },
-  ];
-
+ 
+const [transectionData, setTransactionData]=useState([])
+const [date, setDate]=useState('')
+  useEffect(()=>{      
+        axios
+        .get("http://localhost:3000/IMusic/get-transaction?userId=" + userData._id)
+        .then((res) => {
+          console.log(res);
+          const dateString=res.data.data[0].updatedAt
+          const options = { day: 'numeric', month: 'long', year: 'numeric' };
+          const date = new Date(dateString);
+          const formattedDate = date.toLocaleDateString(undefined, options);
+          setDate(formattedDate)
+          const data=res.data.data[0].transactionDetails
+          setTransactionData(data)
+          debugger
+          
+        })
+        .catch((err) => {
+          alert("Please fill all the fields");
+          console.log(err.message);
+        });
+  },[])
 
   return (
     <>
@@ -163,18 +122,18 @@ function WalletDashboard() {
             <p className="!pl-[13px]">Status</p>
           </div>
 
-          {data.map((item) => {
+          {transectionData.map((item) => {
             return (
               <div
                 className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[17px] mr-[19px]  text-start font-medium`}
               >
-                <p className="text-cgy4">{item.date}</p>
-                <p className="text-cgy4">{item.type}</p>
-                <p className="text-cgy4">{item.subtype}</p>
-                <p className="text-cgy4">{item.description}</p>
-                <p className="text-igray2">{item.amount}</p>
+                <p className="text-cgy4">{date}</p>
+                <p className="text-cgy4">{item?.type}</p>
+                <p className="pl-1 text-cgy4">{item?.subType}</p>
+                <p className="text-cgy4">{item?.description}</p>
+                <p className="pr-4 text-center text-igray2">{item?.amount}</p>
                 <button className="w-[100px] h-[30px] bg-igray3 text-igray2 rounded-[5px]">
-                  {item.status}
+                  {"completed"}
                 </button>
               </div>
             );

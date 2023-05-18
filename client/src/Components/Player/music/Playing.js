@@ -67,7 +67,7 @@ useEffect(()=>{
     <div>
       {music?.data?.map((item)=>{
       return(
-        <div className="pb-[30px] mt-10 flex flex-row justify-center items-center bg-gradient-to-r from-orange-100 via-orange-300 to-orange-300">
+        <div className="pb-[69px] mt-10 flex flex-row justify-center items-center bg-gradient-to-r from-orange-100 via-orange-300 to-orange-300">
       <div className="component m-0 flex flex-col justify-center items-center gap-[10px] drop-shadow-xl relative ">
         <div className="text-[28px] text-iWhite pt-5 pb-1 font-bold w-[500px] bg-[#295D93] rounded-t-[28px] pb-[192px] text-white flex items-center justify-center">
           Playing Now

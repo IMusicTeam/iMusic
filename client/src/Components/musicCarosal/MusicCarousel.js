@@ -343,7 +343,7 @@ const navigateTO=useNavigate();
       <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
     </div>
 
-    <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+    <div className='flex flex-row gap-[24px] p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             albumsData.map((item)=>{
               return(

@@ -78,8 +78,53 @@ function UploadMusic() {
   //     setAudio(validateJSON);
   //   }
   // };
+  const transfer= async ()=>{
+ 
+    const nonce = await web3.eth.getTransactionCount(walletId,"latest");
+ 
+    const value = web3.utils.toWei((Number(price)/2*0.10).toString(),"Ether");
+ 
+    const transaction ={
+      "to":metaMaskDetails?.account,
+      "value":value,
+      "gasLimit":6721975,
+      "gasPrice":20000000000,
+      "nonce":nonce
+ 
+    }
+    const signTxn = await web3.eth.accounts.signTransaction(transaction,privateKey);
+    web3.eth.sendSignedTransaction(signTxn.rawTransaction,function(error,hash){
+      if (error){
+        console.log("Something went wrong");
+      }else{
+        alert(hash)
+      }
+    })
+ 
+  }
+  const transectioncall=()=>{
+const playload={
 
-  
+  userId: userData._id,
+  transactionDetails:{
+  type:"UploadMusic",
+  subType:"--",
+  description:songDes,
+  amount:price,
+  status:1
+  }
+  }
+
+  axios
+  .post(APIConstants.saveTransaction, playload)
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    alert("Please fill all the fields");
+    console.log(err.message);
+  });
+  }
 
   const UploadAudio = async () => {
     const reqBody = {
@@ -97,6 +142,8 @@ function UploadMusic() {
       .post(APIConstants.formUpload, reqBody)
       .then((res) => {
         console.log(res);
+        transfer()
+        transectioncall()
         setStep(1);
       })
       .catch((err) => {
@@ -335,7 +382,7 @@ function UploadMusic() {
                         type="radio"
                         value="Yes"
                         name="default-radio"
-                        className="w-4 h-4 text-iOrange bg-iOrange border-iOrange  dark:focus:ring-iOrange dark:border-iOrange"
+                        className="w-4 h-4 text-iOrange bg-iOrange border-iOrange dark:focus:ring-iOrange dark:border-iOrange"
                       />
                       <label
                         for="default-radio-1"
@@ -353,7 +400,7 @@ function UploadMusic() {
                         type="radio"
                         value="No"
                         name="default-radio"
-                        className="w-4 h-4 text-iOrange bg-iOrange border-iOrange  dark:focus:ring-iOrange dark:border-iOrange"
+                        className="w-4 h-4 text-iOrange bg-iOrange border-iOrange dark:focus:ring-iOrange dark:border-iOrange"
                       />
                       <label
                         for="default-radio-1"

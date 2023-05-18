@@ -90,7 +90,7 @@ function Playlist() {
                   <ProfileCard
                     data={item}
                     src={item.image}
-                    newRelease={true}
+                    playList={true}
                   />
                 </div>
               );

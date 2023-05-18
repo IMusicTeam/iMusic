@@ -63,7 +63,7 @@ class TransactionController {
       ]);
       if (findAllTransactions) {
         res
-          .status(codes.found)
+          .status(codes.success)
           .json({ message: strings.sucesss, data: findAllTransactions??[0] });
       } else {
         res.status(codes.notFound).json({ message: strings.sucesss, data: [] });
