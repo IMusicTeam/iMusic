@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="11.242" height="6.621" viewBox="0 0 11.242 6.621">
-  <g id="small_arrow" data-name="small arrow" transform="translate(11.242) rotate(90)">
-    <path id="small_arrow-2" data-name="small arrow"
-      d="M1288.892,41.711a1,1,0,0,1-.707-1.707l3.914-3.914-3.914-3.914a1,1,0,0,1,1.414-1.414l4.621,4.621a1,1,0,0,1,0,1.414l-4.621,4.621A1,1,0,0,1,1288.892,41.711Z"
-      transform="translate(-1287.892 -30.469)" fill="#767676" />
-  </g>
-</svg>
