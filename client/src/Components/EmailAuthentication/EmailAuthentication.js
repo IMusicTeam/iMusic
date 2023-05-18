@@ -85,7 +85,7 @@ function EmailAuthentication(){
             </div>
 
             <div className="flex justify-center items-center">
-            <h6 className="flex justify-center items-center mt-[4px] text-iBlue hover:underline hover:cursor-pointer font-semibold" onClick={BacktoPreviousPage}>Go Back</h6>
+            <h6 className="flex justify-center items-center mt-[4px] text-iBlue hover:underline hover:cursor-pointer font-medium" onClick={BacktoPreviousPage}>Go Back</h6>
             </div>
             
       </div>

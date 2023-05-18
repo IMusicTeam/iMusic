@@ -111,7 +111,7 @@ function SeeAll() {
       <button onClick={HandelBack}>
         <BiLeftArrowAlt size={38} className="mt-[20px] ml-[17px]" />
       </button>
-      <h1 className="text-[30px] font-semibold mt-[40px] pl-4">{title}</h1>
+      <h1 className="text-[30px] font-medium mt-[40px] pl-4">{title}</h1>
       <div className="flex flex-row gap-[24px] p-3 mt-[18px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
         {data1.map((item) => {
           return (

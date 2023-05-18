@@ -141,10 +141,10 @@ const navigateTo=useNavigate();
         })}
       </div>
       <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-semibold mt-[28px]">
+        <h1 className="text-[30px] font-medium mt-[28px]">
           Recommended for you
         </h1>
-        <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
+        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
           See All
         </h5>
       </div>
@@ -159,10 +159,10 @@ const navigateTo=useNavigate();
       </div>
 
       <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-semibold mt-[28px]">
+        <h1 className="text-[30px] font-medium mt-[28px]">
           Featured playlists Based on Mood
         </h1>
-        <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
+        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
           See All
         </h5>
       </div>
@@ -178,8 +178,8 @@ const navigateTo=useNavigate();
       </div>
 
       <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-semibold mt-[28px]">Last Spotlight</h1>
-        <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
+        <h1 className="text-[30px] font-medium mt-[28px]">Last Spotlight</h1>
+        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
           See All
         </h5>
       </div>
@@ -195,8 +195,8 @@ const navigateTo=useNavigate();
       </div>
 
       <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-semibold mt-[28px]">Radio stations</h1>
-        <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
+        <h1 className="text-[30px] font-medium mt-[28px]">Radio stations</h1>
+        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
           See All
         </h5>
       </div>
@@ -212,8 +212,8 @@ const navigateTo=useNavigate();
       </div>
 
       <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-semibold mt-[28px]">Your Playlists</h1>
-        <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
+        <h1 className="text-[30px] font-medium mt-[28px]">Your Playlists</h1>
+        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
           See All
         </h5>
       </div>
@@ -229,8 +229,8 @@ const navigateTo=useNavigate();
       </div>
 
       <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-semibold mt-[28px]">Top Playlists</h1>
-        <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
+        <h1 className="text-[30px] font-medium mt-[28px]">Top Playlists</h1>
+        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
           See All
         </h5>
       </div>

@@ -34,7 +34,7 @@ function Albums() {
   const data3 = [
     { id: 1, src: AlbumsCard9,  },
     { id: 2, src: AlbumsCard10,  },
-    { id: 3, src: AlbumsCard4,  },
+    { id: 3, src: AlbumsCard6,  },
     { id: 4, src: AlbumsCard12,  },
   ];
   const data4 = [

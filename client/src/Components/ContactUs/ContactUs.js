@@ -46,27 +46,27 @@ function ContactUs(){
         <button className='pt-[38px]'>
           <BiLeftArrowAlt size={38}  onClick={handleBack}/>
         </button>
-            <div className='pt-[10px] text-center text-iBlue text-[28px] font-semibold'>Contact Us</div>
+            <div className='pt-[10px] text-center text-iBlue text-[28px] font-medium'>Contact Us</div>
             <form onSubmit={handleSubmit}>
         <div className="mb-[28px]">
-          <label htmlFor="subjectInput" className="block text-iBlue text-[20px] font-semibold mb-2">Subject</label>
+          <label htmlFor="subjectInput" className="block text-iBlue text-[20px] font-medium mb-2">Subject</label>
           <input type="text" name="subjectName" placeholder="Subject" className="border border-iBlue rounded-[10px] w-[540px] h-[56px] py-2 px-3 focus:outline-none" id="subjectInput" value={subject} onChange={(e) => setOnChangeSubject(e)} />
           {subjecterr && (
-                      <span className="text-ibrd3 text-[15px] z-10">
+                      <span className="text-ibrd3 text-[15px] z-10 font-medium">
                         Subject Name should only contain alphabets.
                       </span>
                     )}
         </div>
-        <div className="mb-4">
-          <label htmlFor="descriptionInput" className="block text-iBlue text-[20px] font-semibold mb-2">Description</label>
+        <div className="mb-4 h-[280px]">
+          <label htmlFor="descriptionInput" className="block text-iBlue text-[20px] font-medium mb-2">Description</label>
           <textarea placeholder="Description" name="description" className="border border-iBlue focus:border-iBlue rounded-[10px] w-[540px] h-[248px] py-2 px-3 focus:outline-none" id="descriptionInput" value={description} onChange={(e) => setOnChangeSubject(e)} />
           {descriptionerr && (
-                      <span className="text-ibrd3 text-[15px] z-10">
+                      <span className="text-ibrd3 text-[15px] z-10 font-medium">
                         Subject Name should only contain alphabets.
                       </span>
                     )}
         </div>
-        <button type="submit"  className="w-[280px] h-[54px] bg-iBlue border border-iBlue text-iWhite font-semibold py-2 px-4 rounded-[27px] ml-[135px] mt-[130px] hover:bg-iOrange hover:border-iOrange">Submit</button>
+        <button type="submit"  className="w-[280px] h-[54px] bg-iBlue border border-iBlue text-iWhite font-medium py-2 px-4 rounded-[27px] ml-[135px] mt-[130px] hover:bg-iOrange hover:border-iOrange">Submit</button>
       </form>
         </div>
         </div>

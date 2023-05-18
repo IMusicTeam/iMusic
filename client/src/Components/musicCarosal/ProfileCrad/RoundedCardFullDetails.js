@@ -108,11 +108,11 @@ function RoundedCardFullDetails({data}) {
   return (
     <div className="bg-iGray2 w-full pl-[35px] pb-[32px] pt-[66px]">
             <RoundedCard data={data} src={Card3} />;
-      <div className="mt-[39px] text-[28px] text-iOrange font-semibold">
+      <div className="mt-[39px] text-[28px] text-iOrange font-medium">
         {" "}
         Description{" "}
       </div>
-      <p className="mt-[16px] text-[20px] text-iBlack font-semibold">
+      <p className="mt-[16px] text-[20px] text-iBlack font-medium">
         Ariana Grande-Butera (/ˌɑːriˈɑːnə ˈɡrɑːndeɪ/ AR-ee-AH-nə GRAHN-day;[note
         1] born June 26, 1993) is an American singer, songwriter, and actress.
         She is noted for her four-octave vocal range and her signature use of
@@ -125,10 +125,10 @@ function RoundedCardFullDetails({data}) {
       </p>
 
       <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-semibold mt-[28px]">
+        <h1 className="text-[30px] font-medium mt-[28px]">
           Recommended for you
         </h1>
-        <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
+        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
           See All
         </h5>
       </div>
@@ -143,10 +143,10 @@ function RoundedCardFullDetails({data}) {
       </div>
 
       <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-semibold mt-[28px]">
+        <h1 className="text-[30px] font-medium mt-[28px]">
           Featured playlists Based on Mood
         </h1>
-        <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
+        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
           See All
         </h5>
       </div>
@@ -161,8 +161,8 @@ function RoundedCardFullDetails({data}) {
       </div>
 
       <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-semibold mt-[28px]">Last Spotlight</h1>
-        <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
+        <h1 className="text-[30px] font-medium mt-[28px]">Last Spotlight</h1>
+        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
           See All
         </h5>
       </div>
@@ -177,8 +177,8 @@ function RoundedCardFullDetails({data}) {
       </div>
 
       <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-semibold mt-[28px]">Radio stations</h1>
-        <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
+        <h1 className="text-[30px] font-medium mt-[28px]">Radio stations</h1>
+        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
           See All
         </h5>
       </div>
@@ -193,8 +193,8 @@ function RoundedCardFullDetails({data}) {
       </div>
 
       <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-semibold mt-[28px]">Your Playlists</h1>
-        <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
+        <h1 className="text-[30px] font-medium mt-[28px]">Your Playlists</h1>
+        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
           See All
         </h5>
       </div>
@@ -209,8 +209,8 @@ function RoundedCardFullDetails({data}) {
       </div>
 
       <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-semibold mt-[28px]">Top Playlists</h1>
-        <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
+        <h1 className="text-[30px] font-medium mt-[28px]">Top Playlists</h1>
+        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
           See All
         </h5>
       </div>
@@ -225,8 +225,8 @@ function RoundedCardFullDetails({data}) {
       </div>
 
       <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-semibold mt-[28px]">Top Playlists</h1>
-        <h5 className="underline font-semibold text-[16px] text-iBlack1 mt-[28px]">
+        <h1 className="text-[30px] font-medium mt-[28px]">Top Playlists</h1>
+        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
           See All
         </h5>
       </div>

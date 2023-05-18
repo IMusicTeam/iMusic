@@ -1,4 +1,5 @@
-import upload from "../../Assets/images/upload.svg";
+import upload from "../../Assets/images/upload.png";
+import upload1 from "../../Assets/images/upload1.png";
 import walletIcon from "../../Assets/images/wallet.svg";
 import notificationIcon from "../../Assets/images/notification.svg";
 import searchIcon from "../../Assets/images/search.svg";
@@ -22,6 +23,7 @@ export default function TopBar() {
   const [balance, setBalance] = useState(0);
   const dispatch = useDispatch();
   const [isText, setIsText] = useState(true)
+  const [uploadmusic, setUploadMusic] = useState(false);
   const navigatTo = useNavigate()
   useEffect(()=>{
     if(isWalletConnected){
@@ -85,14 +87,24 @@ export default function TopBar() {
     }
   };
 
+  const handleMouseEnter = () =>{
+    setUploadMusic(true)
+  }
+
+  const handleMouseLeave = () => {
+    setUploadMusic(false)
+  }
   return (
     <>
     <div className="topNav flex  items-center px-10 h-[92px] max-w-[1590px] w-full ml-[27px] rounded-[10px]">
     <div className="flex items-center  rounded-[100px] -py-2 justify-between h-[56px]  w-[1450px] bg-[#ffffff]">
       <Search onClick={HandelSearch}/>
-      <div className="flex items-center  gap-6 w-[500px] ml-[32.5px]">
+      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="flex items-center  gap-6 w-[500px] ml-[32.5px]">
         <button className=" w-[186px]" onClick={handleUpload}>
-          <img src={upload} alt="img" className="h-14" />
+          {
+            uploadmusic ? <img src={upload1} alt="img" className="h-14 hover:bg-iOrange rounded-lg" /> : <img src={upload} alt="img" className="h-14 hover:bg-iOrange rounded-lg" />
+          }
+           
         </button>
         <img src={notificationIcon} alt="img" className="h-8 w-[36px]" />
         <div className="flex items-center">
@@ -119,9 +131,9 @@ export default function TopBar() {
     <img
               src={verified}
               alt="success"
-              className="w-[20px] h-[20px]"
+              className="w-[45px] h-[45px]"
             />
-            <p>Admin wallet has not been updated <span onClick={()=>{navigateTo("/admin-details")}} className="cursor-pointer text-iBlue hover:underline">Update Wallet details</span></p>
+            <p className="text-[18px]">Admin wallet has not been updated <span onClick={()=>{navigateTo("/admin-details")}} className="cursor-pointer text-iBlue underline">Update Wallet details</span></p>
     </div>
     </div>}
     </>

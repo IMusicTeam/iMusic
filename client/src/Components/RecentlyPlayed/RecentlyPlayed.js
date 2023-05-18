@@ -9,6 +9,7 @@ import rounded2 from "../../Assets/Assets/CardImages/Rounded2.png";
 import rounded3 from "../../Assets/Assets/CardImages/Rounded3.png";
 import rounded4 from "../../Assets/Assets/CardImages/Rounded4.png";
 import rounded5 from "../../Assets/Assets/CardImages/Rounded5.png";
+import "./RecentlyPlayed.css"
 
 function RecentlyPlayed() {
   const data = [
@@ -33,12 +34,12 @@ function RecentlyPlayed() {
           <h1 className="text-[28px] font-bold">Recently Played</h1>
           <div className="flex flex-row gap-[22px]">
             <div>
-              <button class="bg-transparent hover:bg-iLightBlue text-iBlue font-semibold py-2 px-4 border border-iBlue hover:border- hover:text-iDarkBlue hover:border-transparent rounded">
+              <button class="bg-transparent hover:bg-iLightBlue text-iBlue font-medium py-2 px-4 border border-iBlue hover:border- hover:text-iDarkBlue hover:border-transparent rounded">
                 Play All
               </button>
             </div>
             <div>
-              <button class="flex flex-row items-center bg-transparent hover:bg-iLightBlue text-iBlue font-semibold py-2 px-4 border border-iBlue hover:border- hover:text-iDarkBlue hover:border-transparent rounded">
+              <button class="flex flex-row items-center bg-transparent hover:bg-iLightBlue text-iBlue font-medium py-2 px-4 border border-iBlue hover:border- hover:text-iDarkBlue hover:border-transparent rounded">
                 <div>Shuffle </div>
                 <div>
                   <FiShuffle />{" "}
@@ -77,13 +78,13 @@ function RecentlyPlayed() {
         })}
         </div>
         <div className="flex gap-[30px]">
-        <div className="relative transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
+        <div className="relative transition duration-300 ease-in-out delay-150 hover:translate-x-1 hover:scale-80">
             <img src={HomeCard1} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
-       <p className="text-[63px] leading-[70px] px-[14px] absolute bottom-[40px] text-iWhite shadow-[12px] drop-shadow-2xl font-bold">Listen to your Purchased Music</p>
+       <p className="text-[55px] leading-[70px] px-[65px] absolute top-[107px] text-iWhite shadow-[12px] drop-shadow-2xl  transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-shadow">Listen to your Purchased Music</p>
         </div>
-        <div className="relative transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110">
+        <div className="relative transition duration-300 ease-in-out delay-150 hover:translate-x-1 hover:scale-80">
             <img src={HomeCard2} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
-       <p className="text-[63px] px-[14px] leading-[70px] absolute bottom-[40px] text-iWhite shadow-[12px] drop-shadow-2xl font-bold">Listen to your Uploaded Music</p>
+       <p className="text-[55px] leading-[70px] px-[85px] absolute top-[107px] text-iWhite shadow-[12px] drop-shadow-2xl  transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-shadow">Listen to your Owned Music</p>
         </div>
         </div>
       </div>

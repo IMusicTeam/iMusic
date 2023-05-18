@@ -49,10 +49,10 @@ function ProfileCard({ data, src,newRelease }) {
           )}
         </div>
         <div className="absolute bg-iNavyBlue  w-[300px] h-[71px] rounded-b-2xl">
-          <div className="text-[15px] font-semibold text-iWhite mt-3 ml-[6px]">
+          <div className="text-[15px] font-medium text-iWhite mt-3 ml-[6px]">
             {data.playlist}
           </div>
-          <div className="text-[12px] font-semibold text-iGray3 ml-[6px]">
+          <div className="text-[12px] font-medium text-iGray3 ml-[6px]">
             {data.album}
           </div>
         </div>

@@ -11,6 +11,9 @@ import verified from "../../Assets/Assets/CardImages/Verified.png";
 import edit from "./../../Assets/EditIcon.png";
 import Web3 from "web3";
 import { useSelector } from "react-redux";
+import uploadaudio from "../../Assets/images/uploadaudio.png"
+import uploadaudio1 from "../../Assets/images/uploadaudio1.png"
+import successaudio from "../../Assets/images/successaudio.png"
 // require("dotenv").config();
 const httpUrlKey = "HTTP://127.0.0.1:7545";
 
@@ -27,12 +30,13 @@ function UploadMusic() {
   const [albumName, setAlbumName] = useState("");
   const [artistName, setArtistName] = useState("");
   const [price, setPrice] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState("No");
   const [songName, setSongName] = useState("");
   const [songDes, setSongDes] = useState("");
   const [step, setStep] = useState(0);
+  const [audioupload, setAudioUpload] = useState(false);
 
-  const fileUploadHandler = async (event) => {
+  const fileUploadHandler = async (event) => { 
     const file = event.target.files;
     if (file.length > 0) {
       let formData = new FormData();
@@ -46,10 +50,19 @@ function UploadMusic() {
       if (!image) {
         setImage(validateJSON);
       } else {
+        setSucces(true)
         setAudio(validateJSON);
       }
     }
   };
+
+  const handleMouseEnter = () =>{
+    setAudioUpload(true)
+  }
+
+  const handleMouseLeave = () => {
+    setAudioUpload(false)
+  }
 
   // const AudioUpload = async (event) => {
   //   const file = event.target.files;
@@ -111,11 +124,17 @@ function UploadMusic() {
   const [priceerr, setPriceErr] = useState(false);
   const [songerr, setSongErr] = useState(false);
   const [descriptionerr, setDescriptionErr] = useState(false);
+ const [sucess, setSucces]=useState(false)
+
+  const handleOptionChange = (event) =>{
+    setSelectedOption(event.target.value)
+  }
  
 
   const HandelAlbumName = (e) => {
     const { name, value } = e.target;
     const trimmedValue = value.trim();
+    // alert(JSON.stringify(trimmedValue))
 
     if (name === "albumName") {
       const regex = /^[a-zA-Z]+$/;
@@ -136,6 +155,7 @@ function UploadMusic() {
       const price = !/^\d+$/.test(trimmedValue)
       ? setPriceErr(true)
       : setPriceErr(false);
+      const value =Number(trimmedValue)
       setPrice(value);
     }
     else if(name === 'songName'){
@@ -207,7 +227,7 @@ function UploadMusic() {
                   <div className="h-[109px]">
                     <label
                       for="first_name"
-                      class="block mb-2 text-[20px] font-medium text-iBlue"
+                      className="block mb-2 text-[20px] font-medium text-iBlue"
                     >
                       Album Name
                     </label>
@@ -216,8 +236,9 @@ function UploadMusic() {
                       value={albumName}
                       onChange={(e) => HandelAlbumName(e)}
                       type="text"
+                      autoComplete="off"
                       id="first_name"
-                      class="bg-gray-50 w-[288px] border border-iGray4 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
+                      className="bg-gray-50 w-[288px] border border-iGray4 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                       placeholder="Album Name"
                     />
                     {albumerr && (
@@ -230,7 +251,7 @@ function UploadMusic() {
                   <div className="h-[109px]">
                     <label
                       for="first_name"
-                      class="block mb-2 text-[20px] font-medium text-iBlue"
+                      className="block mb-2 text-[20px] font-medium text-iBlue"
                     >
                       Artist Name
                     </label>
@@ -240,7 +261,7 @@ function UploadMusic() {
                       onChange={(e) => HandelAlbumName(e)}
                       type="text"
                       id="first_name"
-                      class="bg-gray-50 w-[288px] border border-iGray4 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
+                      className="bg-gray-50 w-[288px] border border-iGray4 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                       placeholder="Artist Name"
                     />
                     {artisterr && (
@@ -253,7 +274,7 @@ function UploadMusic() {
                   <div className="h-[109px]">
                     <label
                       for="first_name"
-                      class="block mb-2 text-[20px] font-medium text-iBlue"
+                      className="block mb-2 text-[20px] font-medium text-iBlue"
                     >
                       Price
                     </label>
@@ -263,7 +284,7 @@ function UploadMusic() {
                       onChange={(e) => HandelAlbumName(e)}
                       type="text"
                       id="first_name"
-                      class="bg-gray-50 w-[288px] border border-iGray4 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
+                      className="bg-gray-50 w-[288px] border border-iGray4 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                       placeholder="Price"
                     />
                     {priceerr && (
@@ -278,12 +299,11 @@ function UploadMusic() {
 
               <div className="w-[589px] border-iBlue border-2 rounded-3xl pl-[55px] pt-[26px]">
                 <label htmlFor="upload-image-inp">
-                  <div className=" upload-img-div glass_effect glass_effect_border">
-                    <span className="flex w-[212px] py-2.5 px-5 hover:bg-iOrange bg-iBlue text-iWhite text-[20px] rounded-lg">
-                      {" "}
-                      <BsUpload size={33} className="px-2 font-bold" />
-                      Upload Audio
-                    </span>
+                  <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="upload-img-div glass_effect glass_effect_border">
+                   <>
+                   {!sucess ?  audioupload ? <img src={uploadaudio1} /> : <img src={uploadaudio} /> : <img src={successaudio} />              }
+                   </>
+                    
                     <input
                       type="file"
                       id="upload-image-inp"
@@ -295,37 +315,37 @@ function UploadMusic() {
                 </label>
                 {/* <button
                 type="button"
-                class="flex flex-row items-center py-2.5 px-5 hover:bg-iOrange bg-iBlue text-iWhite text-[20px] rounded-lg"
+                className="flex flex-row items-center py-2.5 px-5 hover:bg-iOrange bg-iBlue text-iWhite text-[20px] rounded-lg"
               >
                 <BsUpload size={33} className="px-2 font-bold" />            
               </button> */}
 
                 <div className="flex flex-col gap-[26px]">
                   <div>
-                    <p className="font-semibold text-iBlue mt-[32px]">
+                    <p className="font-medium text-iBlue mt-[32px]">
                       Want to Upload Lyrics
                     </p>
                   </div>
                   <div>
-                    <div class="flex items-center mb-4">
+                    <div className="flex items-center mb-4">
                       <input
                         checked={selectedOption === "Yes"}
-                        onChange={(e) => setSelectedOption(e.target.value)}
+                        onChange={handleOptionChange}
                         id="default-radio-1"
                         type="radio"
                         value="Yes"
                         name="default-radio"
-                        class="w-4 h-4 text-iOrange bg-iOrange border-iOrange  dark:focus:ring-iOrange dark:border-iOrange"
+                        className="w-4 h-4 text-iOrange bg-iOrange border-iOrange  dark:focus:ring-iOrange dark:border-iOrange"
                       />
                       <label
                         for="default-radio-1"
-                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                       >
                         Yes
                       </label>
                     </div>
 
-                    <div class="flex items-center mb-4">
+                    <div className="flex items-center mb-4">
                       <input
                         checked={selectedOption === "No"}
                         onChange={(e) => setSelectedOption(e.target.value)}
@@ -333,11 +353,11 @@ function UploadMusic() {
                         type="radio"
                         value="No"
                         name="default-radio"
-                        class="w-4 h-4 text-iOrange bg-iOrange border-iOrange  dark:focus:ring-iOrange dark:border-iOrange"
+                        className="w-4 h-4 text-iOrange bg-iOrange border-iOrange  dark:focus:ring-iOrange dark:border-iOrange"
                       />
                       <label
                         for="default-radio-1"
-                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                       >
                         No
                       </label>
@@ -347,7 +367,7 @@ function UploadMusic() {
                   <div className="h-[109px]">
                     <label
                       for="first_name"
-                      class="block mb-2 text-[20px] font-medium text-iBlue"
+                      className="block mb-2 text-[20px] font-medium text-iBlue"
                     >
                       Song Name
                     </label>
@@ -357,7 +377,7 @@ function UploadMusic() {
                       onChange={(e) => HandelAlbumName(e)}
                       type="text"
                       id="first_name"
-                      class="bg-gray-50 w-[288px] border border-iGray4 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
+                      className="bg-gray-50 w-[288px] border border-iGray4 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                       placeholder="Song Name"
                     />
                     {songerr && (<span className="text-ibrd3 text-[15px]">
@@ -369,7 +389,7 @@ function UploadMusic() {
                   <div className="h-[180px]">
                     <label
                       for="message"
-                      class="block mb-2 text-[20px] font-medium text-iBlue"
+                      className="block mb-2 text-[20px] font-medium text-iBlue"
                     >
                       Song Description
                     </label>
@@ -379,7 +399,7 @@ function UploadMusic() {
                       onChange={(e) => HandelAlbumName(e)}
                       id="message"
                       rows="4"
-                      class="block p-2.5 w-[480px] h-[118px] text-sm text-gray-900 bg-gray-50 rounded-lg border border-iGray4 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
+                      className="block p-2.5 w-[480px] h-[118px] text-sm text-gray-900 bg-gray-50 rounded-lg border border-iGray4 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                       placeholder="Write your thoughts here..."
                     ></textarea>
                     {descriptionerr && (<span className="text-ibrd3 text-[15px]">
@@ -408,7 +428,7 @@ function UploadMusic() {
               alt="success"
               className="w-[88px] h-[88px] mb-[38px]"
             />
-            <span className=" text-[28px] font-semibold text-center w-[452px]">
+            <span className=" text-[28px] font-medium text-center w-[452px]">
               Your Song has been Uploaded successfully
             </span>
             <button

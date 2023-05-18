@@ -76,7 +76,7 @@ return(
                     </div>
 
                     <div className="flex justify-center mb-[40px]">
-                        <button type="submit" onClick={EmailVerification} className={`w-[300px] h-[40px] ${emailverification=="" || emailError ? 'bg-iLightBlue1': 'bg-iBlue'    }  text-iWhite font-semibold py-1 px-4 rounded-[80px] mt-[121px]`}>Verify</button>
+                        <button type="submit" onClick={EmailVerification} className={`w-[300px] h-[40px] ${emailverification=="" || emailError ? 'bg-iLightBlue1': 'bg-iBlue'    }  text-iWhite font-medium py-1 px-4 rounded-[80px] mt-[121px]`}>Verify</button>
                     </div>
 
       </form>
