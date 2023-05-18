@@ -3,11 +3,15 @@ import { BsFillPlayFill } from "react-icons/bs";
 import "./ProfileCard.css";
 import { useNavigate } from "react-router";
 
-function ProfileCard({ data, src,newRelease }) {
-//   var src=src
-//   if(newRelease){
-//  src=data.image
-//   }
+function ProfileCard({ data, src,newRelease,playList }) {
+  if(newRelease){
+    data.playlist=data.songName
+    data.album=data.albumName
+  }
+  if(playList){
+    data.playlist=data.name
+    data.album=data.description
+  }
   const navigateTo=useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [indexValue, setIndexValue] = useState("");
@@ -22,6 +26,11 @@ function ProfileCard({ data, src,newRelease }) {
   const PlayMusic =()=>{
     if(newRelease){
       navigateTo('/playing-music',{
+        state:data
+      })
+    }
+    if(playList){
+      navigateTo('/music-player',{
         state:data
       })
     }
