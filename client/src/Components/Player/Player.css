@@ -1,0 +1,12 @@
+.player{
+    display: grid;
+    grid-template-columns: 43.4% 15% 41%;
+}
+
+.timeline {
+    margin-top: 20px;
+    width: 225%;
+    margin-left: 32px;
+    background-color: #27ae60;
+  }
+  .player::-webkit-scrollbar{ display: none; }

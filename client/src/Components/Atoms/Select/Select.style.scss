@@ -1,0 +1,119 @@
+@import 'Styles/_mixins.scss';
+.custom-select {
+  &--is-disabled {
+    .custom-select__indicators {
+      display: none;
+    }
+  }
+  .custom-select {
+    &__control {
+      min-height: 40px;
+      transition: all 0.2s ease;
+      border-color: var(--gray-200);
+      border-radius: 4px;
+      &--is-focused {
+        border-color: #35bab6;
+        box-shadow: 0 0 0 1px #35bab6;
+      }
+      &--is-disabled {
+        // background-color: var(--cwhite);
+        border-color: var(--cgy12);
+        box-shadow: none;
+      }
+      &:hover {
+        border-color: var(--gray-200);
+      }
+    }
+    &__indicator-separator {
+      display: none;
+    }
+    &__placeholder {
+      color: #e8e8e8;
+      font-size: 14px;
+    }
+    &__input {
+      color: #555;
+      font-size: 14px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    &__menu {
+      margin-top: 2px;
+      margin-bottom: 1px;
+      color: #555;
+      // height:100px;
+      z-index: 10;
+    }
+    &__menu-list {
+      font-size: 14px;
+      height: 100px;
+      @include custom-scroll;
+    }
+    &__option {
+      transition: background-color 0.2s ease;
+      z-index: 10;
+      &--is-focused,
+      &--is-selected,
+      &:active {
+        background-color: #fef9e2;
+        color: #555;
+      }
+    }
+    &__indicator {
+      color: #adadad;
+    }
+    &__dropdown-indicator {
+      &:hover {
+        color: #555;
+      }
+    }
+    &__single-value {
+      color: #555;
+      font-size: 14px;
+      margin-top: 1px;
+      overflow: unset;
+    }
+    &__multi-value {
+      background-color: #35bab6;
+      height: 26px;
+      border-radius: 4px;
+      font-weight: bold;
+      &__label {
+        color: #fff;
+        font-size: 14px;
+        line-height: 20px;
+      }
+      &__remove {
+        color: #fff;
+        opacity: 0.5;
+        cursor: pointer;
+        &::after {
+          content: 'X';
+          margin-right: 4px;
+        }
+        svg {
+          display: none;
+        }
+        &:hover {
+          background-color: transparent;
+          color: #fff;
+          opacity: 1;
+        }
+      }
+    }
+    &__clear-indicator {
+      // display: none;
+    }
+  }
+  &--error {
+    .custom-select__control,
+    .custom-select__control:hover {
+      border-color: #d45858;
+    }
+  }
+  &--success {
+    .custom-select__control,
+    .custom-select__control:hover {
+      border-color: #00cc6e;
+    }
+  }
+}
