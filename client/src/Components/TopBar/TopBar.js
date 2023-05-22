@@ -99,8 +99,8 @@ export default function TopBar() {
     <div className="topNav flex  items-center px-10 h-[92px] max-w-[1590px] w-full ml-[27px] rounded-[10px]">
     <div className="flex items-center  rounded-[100px] -py-2 justify-between h-[56px]  w-[1450px] bg-[#ffffff]">
       <Search onClick={HandelSearch}/>
-      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="flex items-center  gap-6 w-[500px] ml-[32.5px]">
-        <button className=" w-[186px]" onClick={handleUpload}>
+      <div className="flex items-center  gap-6 w-[500px] ml-[32.5px]">
+        <button className=" w-[186px]" onClick={handleUpload} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           {
             uploadmusic ? <img src={upload1} alt="img" className="h-14 hover:bg-iOrange rounded-lg" /> : <img src={upload} alt="img" className="h-14 hover:bg-iOrange rounded-lg" />
           }

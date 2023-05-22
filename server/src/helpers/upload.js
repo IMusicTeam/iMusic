@@ -17,7 +17,8 @@ const blobOptions = {
       "image/jfif" ||
       "audio/basic" ||
       "audio/vnd.wav" ||
-      "audio/mpeg",
+      "audio/mpeg" ||
+      "application/pdf",
   },
 };
 const uploadImage = async (req, res, next) => {

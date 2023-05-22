@@ -20,14 +20,14 @@ function ContactUs(){
       const { name, value } = e.target;
       const trimmedValue = value.trim();
       if (name === "subjectName") {
-        const regex = /^[a-zA-Z]+$/;
+        const regex = /^[a-zA-Z\s]+$/;
         const subject = !regex.test(trimmedValue)
           ? setSubjectErr(true)
           : setSubjectErr(false);
           setSubject(value);
       }
       else if(name === 'description'){
-        const regex = /^[a-zA-Z]+$/;
+        const regex = /^[a-zA-Z\s]+$/;
         const subject = !regex.test(trimmedValue)
           ? setDescriptionErr(true)
           : setDescriptionErr(false);

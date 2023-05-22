@@ -38,7 +38,7 @@ const AdminDetails = () => {
                         for="first_name"
                         class="block mb-2 text-[20px] font-medium text-iBlue"
                     >
-                        Private Key
+                        Key
                     </label>
                     <input
                         value={adminPrivateKey}
@@ -46,7 +46,7 @@ const AdminDetails = () => {
                         type="text"
                         id="first_name"
                         class="bg-gray-50 border w-[288px] h-[40px] border-gray-300 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Private Key"
+                        placeholder="Key"
                     />
                 </div>
                 <button

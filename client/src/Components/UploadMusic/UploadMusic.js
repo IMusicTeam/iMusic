@@ -14,6 +14,9 @@ import { useSelector } from "react-redux";
 import uploadaudio from "../../Assets/images/uploadaudio.png"
 import uploadaudio1 from "../../Assets/images/uploadaudio1.png"
 import successaudio from "../../Assets/images/successaudio.png"
+import uploaddoc from "../../Assets/images/uploaddoc.png";
+import uploaddoc1 from "../../Assets/images/uploaddoc1.png";
+import uploaddoc2 from "../../Assets/images/uploaddoc2.png";
 // require("dotenv").config();
 const httpUrlKey = "HTTP://127.0.0.1:7545";
 
@@ -35,6 +38,10 @@ function UploadMusic() {
   const [songDes, setSongDes] = useState("");
   const [step, setStep] = useState(0);
   const [audioupload, setAudioUpload] = useState(false);
+  const [sucess, setSucces]=useState(false);
+  const [fileupload, setFileUpload] = useState(false);
+  const [uploadPdfFile, setUploadPdfFile] = useState(false);
+  const [doc, setDoc]=useState("")
 
   const fileUploadHandler = async (event) => { 
     const file = event.target.files;
@@ -47,14 +54,47 @@ function UploadMusic() {
       });
       const json = await response.json();
       const validateJSON = json && json?.data ? json.data : "";
-      if (!image) {
         setImage(validateJSON);
-      } else {
-        setSucces(true)
-        setAudio(validateJSON);
-      }
     }
   };
+
+  const songUploadHandler = async (event) =>{
+    const file = event.target.files;
+    if (file.length > 0) {
+      let formData = new FormData();
+      formData.append("file", file[0]);
+      const response = await fetch(APIConstants.fileUpload, {
+        method: "POST",
+        body: formData,
+      });
+      const json = await response.json();
+      const validateJSON = json && json?.data ? json.data : "";
+      
+        setSucces(true)
+        setAudio(validateJSON);
+      
+    }
+  }
+
+
+
+  const pdffileUploadHandler = async (event) =>{
+    const file = event.target.files;
+    if(file.length > 0){
+      let formData = new FormData();
+      formData.append("file", file[0]);
+      const response = await fetch(APIConstants.fileUpload,{
+        method: "POST",
+        body: formData,
+      });
+      const json = await response.json();
+      const validateJSON = json && json?.data ? json.data : "";
+       setUploadPdfFile(true)
+       setDoc(validateJSON)
+    }
+  }
+
+
 
   const handleMouseEnter = () =>{
     setAudioUpload(true)
@@ -62,7 +102,19 @@ function UploadMusic() {
 
   const handleMouseLeave = () => {
     setAudioUpload(false)
+    
   }
+
+  const pdfhandleMouseEnter = () =>{
+    setFileUpload(true)
+  }
+
+  const pdfhandleMouseLeave = () =>{
+    setFileUpload(false)
+  }
+
+ 
+
 
   // const AudioUpload = async (event) => {
   //   const file = event.target.files;
@@ -130,13 +182,14 @@ const playload={
     const reqBody = {
       albumName: albumName,
       artistName: artistName,
-      price: price,
+      price: Number(price),
       lyrics: selectedOption,
       songName: songName,
       songDescription: songDes,
       tune: audio,
       songThumbnail: image,
       userId: userData._id,
+      copyrightFile: doc
     };
     axios
       .post(APIConstants.formUpload, reqBody)
@@ -171,7 +224,6 @@ const playload={
   const [priceerr, setPriceErr] = useState(false);
   const [songerr, setSongErr] = useState(false);
   const [descriptionerr, setDescriptionErr] = useState(false);
- const [sucess, setSucces]=useState(false)
 
   const handleOptionChange = (event) =>{
     setSelectedOption(event.target.value)
@@ -184,7 +236,7 @@ const playload={
     // alert(JSON.stringify(trimmedValue))
 
     if (name === "albumName") {
-      const regex = /^[a-zA-Z]+$/;
+      const regex = /^[a-zA-Z\s]+$/;
       const albumname = !regex.test(trimmedValue)
         ? setAlbumErr(true)
         : setAlbumErr(false);
@@ -192,7 +244,7 @@ const playload={
     } 
 
     else if (name === "artistName") {
-      const regex = /^[a-zA-Z]+$/;
+      const regex = /^[a-zA-Z\s]+$/;
       const artistname = !regex.test(trimmedValue)
         ? setArtistErr(true)
         : setArtistErr(false);
@@ -202,18 +254,18 @@ const playload={
       const price = !/^\d+$/.test(trimmedValue)
       ? setPriceErr(true)
       : setPriceErr(false);
-      const value =Number(trimmedValue)
+      const value =trimmedValue
       setPrice(value);
     }
     else if(name === 'songName'){
-      const regex = /^[a-zA-Z]+$/;
+      const regex = /^[a-zA-Z\s]+$/;
       const songName = !regex.test(trimmedValue)
       ? setSongErr(true)
       : setSongErr(false);
       setSongName(value)
     }
     else if(name === "description"){
-      const regex = /^[a-zA-Z]+$/;
+      const regex = /^[a-zA-Z\s]+$/;
       const description = !regex.test(trimmedValue)
       ? setDescriptionErr(true)
       : setDescriptionErr(false)
@@ -226,13 +278,16 @@ const playload={
         <div className="flex flex-row justify-center my-[75px]">
           <div className="w-[1000px] bg-iWhite shadow-2xl rounded-2xl p-[38px]">
             <button onClick={HandelBack}>
-              <BiLeftArrowAlt size={38} className="mb-[33px]" />
+              <BiLeftArrowAlt size={34} className="mb-[33px] -ml-[20px]" />
             </button>
+            <div className="flex flex-row items-center justify-center -mt-[60px] mb-[40px]">
+             <h6 className="text-[28px] text-iBlue">Upload Music</h6>
+            </div>
             <div className="flex flex-row gap-4">
               <div className="w-[323px] ml-[13px] border-iBlue border-2 rounded-3xl">
                 <div className="flex flex-col items-center gap-[15px] ">
-                  <h1 className="text-[28px] text-iBlue font-bold pt-2.5">
-                    Upload Music
+                  <h1 className="text-[28px] text-iBlue pt-2.5">
+                  Upload Cover Photo
                   </h1>
 
                   <div className="w-[156px] h-[165px] border-iBlue relative border-2 rounded-2xl">
@@ -323,7 +378,7 @@ const playload={
                       for="first_name"
                       className="block mb-2 text-[20px] font-medium text-iBlue"
                     >
-                      Price
+                      Price (ETH)
                     </label>
                     <input
                       name ='price' 
@@ -345,17 +400,17 @@ const playload={
               </div>
 
               <div className="w-[589px] border-iBlue border-2 rounded-3xl pl-[55px] pt-[26px]">
-                <label htmlFor="upload-image-inp">
-                  <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="upload-img-div glass_effect glass_effect_border">
+                <label htmlFor="upload-audio-inp">
+                  <div className="upload-img-div glass_effect glass_effect_border">
                    <>
-                   {!sucess ?  audioupload ? <img src={uploadaudio1} /> : <img src={uploadaudio} /> : <img src={successaudio} />              }
+                   {!sucess ?  audioupload ? <img src={uploadaudio1}  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/> : <img src={uploadaudio} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/> : <img src={successaudio} />              }
                    </>
                     
                     <input
                       type="file"
-                      id="upload-image-inp"
-                      onChange={fileUploadHandler}
-                      accept=".jpg, .jpeg, .png, .bmp, .gif, .mp4, .mkv, .ogg, .wmv"
+                      id="upload-audio-inp"
+                      onChange={songUploadHandler}
+                      accept=".jpg, .jpeg, .png, .bmp, .gif, .mp3, .mkv, .ogg, .wmv"
                       className="mt-2 mb-5 upload_text_inp"
                     />
                   </div>
@@ -369,46 +424,28 @@ const playload={
 
                 <div className="flex flex-col gap-[26px]">
                   <div>
-                    <p className="font-medium text-iBlue mt-[32px]">
-                      Want to Upload Lyrics
+                    <p className="font-medium text-iBlue mt-[32px] text-[20px]">
+                    Copy Rights Attachement
                     </p>
+                    <label htmlFor="upload-file-inp">
+                    <div className="upload-img-div glass_effect glass_effect_border mt-4">
+                   <>
+                   {!uploadPdfFile ? fileupload ? <img src={uploaddoc1}  onMouseEnter={pdfhandleMouseEnter} onMouseLeave={pdfhandleMouseLeave}/> : <img src={uploaddoc} onMouseEnter={pdfhandleMouseEnter} onMouseLeave={pdfhandleMouseLeave}/> : <img src={uploaddoc2} /> }
+                   </>
+                    
+                    <input
+                      type="file"
+                      id="upload-file-inp"
+                      onChange={pdffileUploadHandler}
+                      accept=".pdf"
+                      className="mt-2 mb-5 upload_text_inp"
+                    />
                   </div>
-                  <div>
-                    <div className="flex items-center mb-4">
-                      <input
-                        checked={selectedOption === "Yes"}
-                        onChange={handleOptionChange}
-                        id="default-radio-1"
-                        type="radio"
-                        value="Yes"
-                        name="default-radio"
-                        className="w-4 h-4 text-iOrange bg-iOrange border-iOrange dark:focus:ring-iOrange dark:border-iOrange"
-                      />
-                      <label
-                        for="default-radio-1"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                      >
-                        Yes
-                      </label>
-                    </div>
+                  </label>
+                  </div>
 
-                    <div className="flex items-center mb-4">
-                      <input
-                        checked={selectedOption === "No"}
-                        onChange={(e) => setSelectedOption(e.target.value)}
-                        id="default-radio-1"
-                        type="radio"
-                        value="No"
-                        name="default-radio"
-                        className="w-4 h-4 text-iOrange bg-iOrange border-iOrange dark:focus:ring-iOrange dark:border-iOrange"
-                      />
-                      <label
-                        for="default-radio-1"
-                        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                      >
-                        No
-                      </label>
-                    </div>
+                  <div>
+
                   </div>
 
                   <div className="h-[109px]">
