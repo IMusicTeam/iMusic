@@ -9,6 +9,7 @@ const authController = require("../controllers/AuthController");
 const transactionController = require("../controllers/TransactionController");
 const favController = require("../controllers/musicController/Favourites");
 const playlistController = require("../controllers/musicController/Playlist");
+const playlist = require("../models/playlist");
 
 //add routes here
 router.post("/upload-song", musicController.POST_song);
@@ -27,6 +28,7 @@ router.delete("/remove-from-favourites", favController.DeleteFromFavourites);
 router.post("/save-as-playlist", playlistController.POST_Playlist);
 router.get("/get-all-playlist?:userId", playlistController.GET_playlistById);
 router.put("/update-playlist", playlistController.UPDATE_playlist);
+router.get('/get-playlist-by-id-name?:userId?:name', playlistController.GET_playlistByUserIDName)
 // router.delete("/remove-from-playlist", playlistController.DELETE_FromPlaylist);
 //authenticate
 router.post("/signup", authController.ON_SINGNUP);
