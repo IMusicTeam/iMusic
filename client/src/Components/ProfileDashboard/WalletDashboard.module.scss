@@ -2,7 +2,8 @@
 
 .walletdashboardTableContent{
     display: grid;
-    grid-template-columns: 48% 22% 22%;
+    grid-template-columns: 51% 22% 22%;
+    column-gap: 1%;
 }
 
 .walletdashboardTableHeadings{
