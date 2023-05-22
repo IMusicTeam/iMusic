@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import imusicLogo from "../../Assets/imusicLogo.png"
-import listingMusic from "../../Assets/listingMusic.PNG"
+import listingMusic from "../../Assets/listingMusic.png"
 import rythamic from "../../Assets/rythamic.png";
 import fanpower from "../../Assets/fanpowered.png";
 import fanengagement from "../../Assets/fanengagement.png"

@@ -32,7 +32,6 @@ import ProfileSettings from "./Components/ProfileSettings/ProfileSettings";
 import { useEffect } from "react";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import UpdatedLandingPage from "./Components/UpdatedLandingPage/UpdatedLandingPage";
-import RythamicBackground from "./Components/RythamicBackground/RythamicBackground";
 import SeeAll from "./Components/SeeAll/SeeAll";
 import AlbumsViewPage from "./Components/AlbumsViewPage/AlbumsViewPage";
 import AdminDetails from "./Components/AdminDetails/AdminDetails";
@@ -56,7 +55,6 @@ function App() {
    <Route path="/email-authentication" element={<EmailAuthentication />}/>
    <Route path="/" element={<PrivateRoute />}>
    <Route element={<Internal />}>
-   <Route path="/rythamic" element={<RythamicBackground />}/>
    <Route path="/home" element={<Home />} />
    <Route path="/likedMusic" element={<LikedPlayList />} />
    <Route path="/RoundedCradFullDetails/:id" element={<RoundedCardFullDetails />}/>

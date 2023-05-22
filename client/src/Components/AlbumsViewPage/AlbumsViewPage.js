@@ -225,13 +225,6 @@ function AlbumsViewPage() {
             <div className="flex gap-5 mb-[40px] mt-12">
               <AiOutlineHeart className="h-7 w-7 text-iOrange"/> 
               <BsFillShareFill className="text-iOrange h-6 w-[21px]" />
-              <button type="button" onClick={changeDownload}>
-                {!download ? (
-                  <AiOutlineDownload className="w-6 h-6 text-iOrange" />
-                ) : (
-                  <MdDownloadDone className="w-6 h-6 text-iOrange" />
-                )}
-              </button>
               <div
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}

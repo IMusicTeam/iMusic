@@ -35,6 +35,10 @@ const uploadSong = new mongoose.Schema(
       type: String,
       required: true,
     },
+    copyrightFile: {
+      type: String,
+      required: true
+    },
     updatedAt: { type: Date, default: Date.now },
   },
   { timestamps: true }
