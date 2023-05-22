@@ -39,7 +39,7 @@ function WalletDashboard() {
     <>
       <div className="flex flex-row gap-4">
         <div
-          className={`w-[910px] h-[434px] rounded-[12px] bg-iWhite mt-[55px] ml-[38px]`}
+          className={`w-[810px] h-[434px] rounded-[12px] bg-iWhite mt-[55px] ml-[38px]`}
         >
           <div className="flex flex-row gap-[42px]">
             <div className="flex flex-col gap-[18px]">
@@ -79,7 +79,7 @@ function WalletDashboard() {
           </div>
         </div>
 
-        <div className="w-[780px] h-[434px] rounded-[12px] bg-iWhite mt-[55px]">
+        <div className="w-[760px] h-[434px] rounded-[12px] bg-iWhite mt-[55px]">
           <div className="flex flex-row gap-[36px]">
 
             <div className="flex flex-col">
@@ -113,7 +113,7 @@ function WalletDashboard() {
       <div
         className={`${styles.walletdashboardTableContent} overflow-x-scroll`}
       >
-        <div className="bg-iWhite rounded-[12px] max-w-[816px] h-[434px] mt-[16px] ml-[32px] gap-[16px]">
+        <div className="bg-iWhite rounded-[12px] max-w-[816px] h-[434px] mt-[16px] ml-[32px]">
           <div
             className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[16px] mr-[17px] bg-igray text-start p-1 rounded-[8px] text-iBlue font-medium`}
           >
@@ -148,7 +148,7 @@ function WalletDashboard() {
             <img
               src={image3}
               alt="owned"
-              className="w-[387px] h-[430px] rounded-2xl"
+              className="w-[372px] h-[430px] rounded-2xl"
             />
             <p className="flex items-center flex-col gap-2 ml-[100px] text-[45px] absolute bottom-[70px] text-iWhite shadow-[12px] drop-shadow-2xl font-bold">
               <div>Listen to</div>
@@ -164,7 +164,7 @@ function WalletDashboard() {
             <img
               src={image2}
               alt="owned"
-              className="w-[387px] h-[430px] rounded-2xl"
+              className="w-[372px] h-[430px] rounded-2xl"
             />
             <div className="flex items-center flex-col gap-2 ml-[100px] text-[45px] absolute bottom-[70px] text-iWhite shadow-[12px] drop-shadow-2xl font-bold">
               <div>Listen to</div>

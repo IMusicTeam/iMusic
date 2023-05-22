@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
+import listeningMusic from "../../Assets/listeningMusic.png";
 import imusicLogo from "../../Assets/imusicLogo.png"
-import listingMusic from "../../Assets/listingMusic.png"
 import rythamic from "../../Assets/rythamic.png";
 import fanpower from "../../Assets/fanpowered.png";
 import fanengagement from "../../Assets/fanengagement.png"
@@ -79,7 +79,7 @@ function UpdatedLandingPage(){
             <div className="flex flex-row justify-between">
                 <div className="3xl:text-[80px] text-[80px]  text-iBlue font-medium mt-[75px] ml-[72px] 3xl:leading-20px">A Decentralized Music <br/> Experience Built on Web3 <br/> Technology.</div>
                 <div >
-                    <img src={listingMusic}  className="3xl:max-w-[2332px] h-[760px]"/>    
+                    <img src={listeningMusic}  className="3xl:max-w-[2332px] h-[760px]"/>    
                 </div>
             </div> 
 
