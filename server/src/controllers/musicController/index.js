@@ -43,7 +43,7 @@ class MusicController {
         artistName,
         price,
         tune,
-        lyrics,
+        x,
         songName,
         songDescription,
         favourited,

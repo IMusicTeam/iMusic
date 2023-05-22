@@ -11,14 +11,14 @@ class TransactionController {
     const requestedBody = req.body;
     const { userId } = requestedBody;
     const { type, subType, description, amount, status } =
-      requestedBody.transactionDetails;
+      requestedBody.transactionDetails[0];
     const findUserHasCollection = await Transactions.find({
       userId: userId,
     });
     if (findUserHasCollection && findUserHasCollection.length > 0) {
       const data = await Transactions.findOneAndUpdate(
         { userId: userId },
-        { $push: { transactionDetails: req.body.transactionDetails } },
+        { $push: { transactionDetails: req.body.transactionDetails[0] } },
         { returnOriginal: false }
       );
       res.status(codes.success).json({ message: strings.sucesss, data: data });
