@@ -31,6 +31,10 @@ import Card27 from '../../Assets/Assets/CardImages/Card27.png';
 import Card28 from '../../Assets/Assets/CardImages/Card28.png';
 import Card29 from '../../Assets/Assets/CardImages/Card29.png';
 import Card30 from '../../Assets/Assets/CardImages/Card30.png';
+import Card45 from "../../Assets/Assets/CardImages/Card45.png";
+import Card46 from "../../Assets/Assets/CardImages/Card46.png";
+import Card47 from "../../Assets/Assets/CardImages/Card47.png";
+import Card35 from "../../Assets/Assets/CardImages/Card35.png"
 import rounded1 from "../../Assets/Assets/CardImages/Rounded1.png";
 import rounded2 from "../../Assets/Assets/CardImages/Rounded2.png";
 import rounded3 from "../../Assets/Assets/CardImages/Rounded3.png";
@@ -75,10 +79,10 @@ function MusicCarousel() {
   ]
   const data1 = [
     { id: 1, src: Card11,playlist:"STAR BOY",album:"Weekend"},
-    { id: 2, src: Card12,playlist:"Everything From Drake",album:"Albums"},
-    { id: 3, src: Card13,playlist:"Ariana Grande This Side",album:"Trending"},
+    { id: 2, src: Card45,playlist:"Everything From Drake",album:"Albums"},
+    { id: 3, src: Card46,playlist:"Ariana Grande This Side",album:"Trending"},
     { id: 4, src: Card14,playlist:"EveryThing from Taylor",album:"Playlist"},
-    { id: 5, src: Card15,playlist:"XXXtention",album:"Albums"},
+    { id: 5, src: Card47,playlist:"XXXtention",album:"Albums"},
     { id: 6, src: Card16,playlist:"Trending Playlist",album:"Albums"},
     { id: 7, src: Card17,playlist:"Trending on Tiktok",album:"Albums"},
     { id: 8, src: Card18 ,playlist:"Trending Playlist",album:"Albums"},
@@ -86,8 +90,8 @@ function MusicCarousel() {
     { id: 10, src: Card20,playlist:"Good Music for Bad Days",album:"Albums"}
   ] 
   const data2 = [
-    { id: 1, src: Card21,playlist:"Good Music for Bad Days",album:"Playlists"},
-    { id: 2, src: Card22,playlist:"STAR BOY",album:"Playlists"},
+    { id: 1, src: Card1,playlist:"Good Music for Bad Days",album:"Playlists"},
+    { id: 2, src: Card35,playlist:"STAR BOY",album:"Playlists"},
     { id: 3, src: Card23,playlist:"XXXtention",album:"Playlists"},
     { id: 4, src: Card24,playlist:"Freedom",album:"Playlists"},
     { id: 5, src: Card25,playlist:"Sunset Days",album:"Playlists"},
@@ -222,6 +226,24 @@ const navigateTO=useNavigate();
           )
         })}
         </div>
+
+        <div className='flex flex-row justify-between'>
+        <h1 className='text-[30px] font-medium mt-[28px]'>New uploaded</h1>
+        <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+        </div>
+
+        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+          {
+            data7.map((item)=>{
+              return(
+                <div>
+                   <ProfileCard data={item} src={item.src} />
+                </div>
+              )
+            })
+          }
+        </div>
+       
 
         <div className='flex flex-row justify-between'>
         <h1 className='text-[30px] font-medium mt-[28px]'>Top charts</h1>

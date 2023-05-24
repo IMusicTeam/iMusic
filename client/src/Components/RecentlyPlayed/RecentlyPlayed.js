@@ -31,7 +31,7 @@ function RecentlyPlayed() {
       <div className="flex flex-col gap-[28px] 3xl:flex-row">
         <div className="w-full p-[23px] bg-iWhite rounded-2xl 3xl:max-w-[752px]">
         <div className="flex flex-row items-center justify-between pb-[28px]">
-          <h1 className="text-[28px] font-bold">Recently Played</h1>
+          <h1 className="text-[28px]">Recently Played</h1>
           <div className="flex flex-row gap-[22px]">
             <div>
               <button class="bg-transparent hover:bg-iLightBlue text-iBlue font-medium py-2 px-4 border border-iBlue hover:border- hover:text-iDarkBlue hover:border-transparent rounded">
@@ -63,7 +63,7 @@ function RecentlyPlayed() {
                   </div>
                   <div>
                     <p className="text-iGray1 text-[18px]">{item.smallTitle}</p>
-                    <p className="text-[20px] font-bold">{item.title}</p>
+                    <p className="text-[20px]">{item.title}</p>
                   </div>
                 </div>
                 <div className=" flex flex-row gap-[64px] items-center">
