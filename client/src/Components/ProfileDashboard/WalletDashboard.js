@@ -14,6 +14,7 @@ function WalletDashboard() {
 
   const [transectionData, setTransactionData] = useState([]);
   const [date, setDate] = useState("");
+  const [knowmore, setKnowMore] = useState(false);
   useEffect(() => {
     axios
       .get(
@@ -34,6 +35,14 @@ function WalletDashboard() {
         console.log(err.message);
       });
   }, []);
+
+  const handleMouseEnter = () =>{
+    setKnowMore(true)
+  }
+
+  const handleMouseLeave = () =>{
+    setKnowMore(false)
+  }
 
   return (
     <>
@@ -88,7 +97,7 @@ function WalletDashboard() {
                   <div className="text-igray1 text-[22px] font-medium pt-[36px] pl-[19px] truncate w-[280px] h-[63px]">
                     Wallet ID: {wallet.account}
                   </div>
-                  <div className="flex flex-row items-center gap-[4] mt-[37px] text-cgy4 text-[54px] pl-[81px]">
+                  <div className="flex flex-row items-center gap-[4] mt-[37px] text-cgy4 pl-[81px]">
                     <div className="text-[76px]"> {Number(wallet.balanceInEther).toFixed(2)}</div>
                     <div>
                       <p className="text-[25px] mt-1 ml-2">ETH</p>
@@ -102,9 +111,19 @@ function WalletDashboard() {
               <div className="mt-[121px]">  
                     <img src={MetaMask} className="w-[143px] h-[143px] ml-[40px]"/>
              </div>
-             <div className="text-iBlue text-[21px] underline mt-[22px]">Know More about Wallet</div>
+             <div className="text-iBlue text-[21px] underline mt-[22px]">
+              <p onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Know More about Wallet</p>
+              </div>
 
             </div>
+
+            {
+              knowmore && (
+                <div className="relative">
+                  <p className="w-[379px] p-10 leading-tight z-10 h-[320px] bg-iskyBlue text-[22px] rounded-[20px] top-[319px] text-iBlack absolute right-[18px]">Meta Wallet is a versatile digital wallet that consolidates various cryptocurrencies and tokens, providing users with a streamlined and secure platform for managing their digital assets.</p>
+                </div>
+              )
+            }
 
           </div>
         </div>
@@ -115,11 +134,11 @@ function WalletDashboard() {
       >
         <div className="bg-iWhite rounded-[12px] max-w-[816px] h-[434px] mt-[16px] ml-[32px]">
           <div
-            className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[16px] mr-[17px] bg-igray text-start p-1 rounded-[8px] text-iBlue font-medium`}
+            className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[16px] mr-[17px] bg-ibm11 text-start p-1 rounded-[10px] text-iBlue font-medium`}
           >
-            <p className="!pl-[8px]">Date</p>
-            <p>Type</p>
-            <p>Subtype</p>
+            <p className="!pl-[8px]">Date & Time</p>
+            <p>Song Name</p>
+            <p>Album</p>
             <p>Description</p>
             <p>Amount</p>
             <p className="!pl-[13px]">Status</p>
@@ -128,14 +147,14 @@ function WalletDashboard() {
           {transectionData.map((item) => {
             return (
               <div
-                className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[17px] mr-[19px]  text-start font-medium`}
+                className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[17px] mr-[19px]  text-start font-medium hover:bg-ibm8`}
               >
                 <p className="text-cgy4">{date}</p>
                 <p className="text-cgy4">{item?.type}</p>
                 <p className="pl-1 text-cgy4">{item?.subType}</p>
                 <p className="text-cgy4">{item?.description}</p>
-                <p className="pr-4 text-center text-igray2">{item?.amount}</p>
-                <button className="w-[100px] h-[30px] bg-igray3 text-igray2 rounded-[5px]">
+                <p className="pr-4 text-center text-ibgn1">{item?.amount}</p>
+                <button className="w-[100px] h-[30px] bg-ibgn4 text-ibgn1 rounded-[5px]">
                   {"completed"}
                 </button>
               </div>

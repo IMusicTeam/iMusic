@@ -1,0 +1,35 @@
+.options_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 125px;
+    overflow: auto;
+    padding: 16px;
+    scrollbar-width: none;
+    background: #fff;
+    margin-left: -15px;
+    margin-right: -16px;
+    margin-top: -16px;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 10;
+  
+    /* width */
+    &::-webkit-scrollbar {
+      width: 2px;
+      height: 2px;
+    }
+  
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #fff;
+      height: 5px;
+    }
+  
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #767676;
+      height: 5px;
+    }
+  }
