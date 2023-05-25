@@ -16,7 +16,8 @@ class MusicController {
       songDescription,
       favourited,
       userId,
-      copyrightFile
+      copyrightFile,
+      userWalletId
     } = req.body;
     try {
       if (!userId) {
@@ -33,7 +34,8 @@ class MusicController {
         !lyrics ||
         !songName ||
         !songDescription ||
-        !copyrightFile
+        !copyrightFile ||
+        !userWalletId
       ) {
         return res
           .status(codes.badRequest)
@@ -45,12 +47,14 @@ class MusicController {
         artistName,
         price,
         tune,
-        x,
+        lyrics,
         songName,
         songDescription,
         favourited,
         userId,
-        copyrightFile
+        copyrightFile,
+        userWalletId,
+        songApproved: false
       });
       await save.save();
       const data = save.toObject();
@@ -90,7 +94,9 @@ class MusicController {
       lyrics,
       songName,
       songDescription,
-      copyrightFile
+      copyrightFile,
+      userWalletId,
+      songApproved
     } = req.body;
     if (_id) {
       if (
@@ -102,6 +108,7 @@ class MusicController {
         !lyrics ||
         !songName ||
         !songDescription ||
+        !userWalletId ||
         !copyrightFile
       ) {
         return res
@@ -109,8 +116,9 @@ class MusicController {
           .json({ message: strings.fillAll, data: {} });
       }
       try {
+        const newId = new mongoose.Types.ObjectId(_id);
         const data = await Songs.findOneAndUpdate(
-          { _id: _id },
+          { _id: newId },
           {
             $set: {
               songThumbnail,
@@ -121,7 +129,9 @@ class MusicController {
               lyrics,
               songName,
               songDescription,
-              copyrightFile
+              copyrightFile,
+              userWalletId,
+              songApproved
             },
           },
           {
