@@ -4,47 +4,49 @@ import walletIcon from "../../Assets/images/wallet.svg";
 import notificationIcon from "../../Assets/images/notification.svg";
 import searchIcon from "../../Assets/images/search.svg";
 import verified from "../../Assets/Assets/CardImages/Verified.png";
+import ownedMusic from "../../Assets/ownedMusic.png";
 import { useEffect, useState } from "react";
 import Web3 from "web3";
 import MetaMask from "../../Assets/MetaMask.png";
 import { useNavigate } from "react-router";
-import { updateMetaMaskDetails } from './../../Redux/Redux';
-import './TopBar.css'
+import { updateMetaMaskDetails } from "./../../Redux/Redux";
+import "./TopBar.css";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function TopBar() {
-  const navigateTo = useNavigate()
-  const {adminDetails,metaMaskDetails} = useSelector((store) => store.ReduxSlice.data)
-  const isAdminAdded =  Object.keys(adminDetails).length === 0
-  const isWalletConnected = Object.keys(metaMaskDetails).length === 0
+  const navigateTo = useNavigate();
+  const { adminDetails, metaMaskDetails, userData } = useSelector(
+    (store) => store.ReduxSlice.data
+  );
+  const isAdminAdded = Object.keys(adminDetails).length === 0;
+  const isWalletConnected = Object.keys(metaMaskDetails).length === 0;
   const [isToggled, setIsToggled] = useState(false);
   const [connected, setConnected] = useState(false);
   const [account, setAccount] = useState("");
   const [balance, setBalance] = useState(0);
   const dispatch = useDispatch();
-  const [isText, setIsText] = useState(true)
+  const [isText, setIsText] = useState(true);
   const [uploadmusic, setUploadMusic] = useState(false);
-  const navigatTo = useNavigate()
-  useEffect(()=>{
-    if(isWalletConnected){
-      setIsToggled(true)
-    }else{
-      setIsToggled(false)
+  const navigatTo = useNavigate();
+  useEffect(() => {
+    if (isWalletConnected) {
+      setIsToggled(true);
+    } else {
+      setIsToggled(false);
     }
-  },[isWalletConnected])
+  }, [isWalletConnected]);
   const handleToggle = () => {
     if (isToggled) {
-      dispatch(updateMetaMaskDetails({ data: {} }))
+      dispatch(updateMetaMaskDetails({ data: {} }));
     }
-
   };
   const handleUpload = () => {
-    navigatTo('/uploadMusic')
+    navigatTo("/uploadMusic");
     //handle upload function
   };
   const HandelSearch = () => {
-    navigatTo('/search')
-  }
+    navigatTo("/search");
+  };
   // useEffect(() => {
   //   if (isToggled) {
   //     // localStorage.clear();
@@ -53,7 +55,7 @@ export default function TopBar() {
   const connectWallet = async () => {
     try {
       if (typeof window.ethereum === "undefined") {
-        setIsText(false)
+        setIsText(false);
         //   alert("Please install Metamask to connect to a wallet.");
         return;
       }
@@ -71,12 +73,12 @@ export default function TopBar() {
       const balanceInEther = web3.utils.fromWei(balance, "ether");
       setAccount(account);
       //Redux Dispatch action
-      if (isWalletConnected){
-      dispatch(updateMetaMaskDetails({ data: { account, balanceInEther } }));
-      }else{
+      if (isWalletConnected) {
+        dispatch(updateMetaMaskDetails({ data: { account, balanceInEther } }));
+      } else {
         dispatch(updateMetaMaskDetails({ data: {} }));
       }
-      setConnected(true)
+      setConnected(true);
       // navigateTo('/profile/walletdashboard')
       localStorage.setItem("account", account);
       setBalance(balanceInEther);
@@ -87,63 +89,95 @@ export default function TopBar() {
     }
   };
 
-  const handleMouseEnter = () =>{
-    setUploadMusic(true)
-  }
+  const handleMouseEnter = () => {
+    setUploadMusic(true);
+  };
 
   const handleMouseLeave = () => {
-    setUploadMusic(false)
-  }
+    setUploadMusic(false);
+  };
   return (
     <>
-    <div className="topNav flex  items-center px-10 h-[92px] max-w-[1590px] w-full ml-[27px] rounded-[10px]">
-    <div className="flex items-center  rounded-[100px] -py-2 justify-between h-[56px]  w-[1450px] bg-[#ffffff]">
-      <Search onClick={HandelSearch}/>
-      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="flex items-center  gap-6 w-[500px] ml-[32.5px]">
-        <button className=" w-[186px]" onClick={handleUpload}>
-          {
-            uploadmusic ? <img src={upload1} alt="img" className="h-14 hover:bg-iOrange rounded-lg" /> : <img src={upload} alt="img" className="h-14 hover:bg-iOrange rounded-lg" />
-          }
-           
-        </button>
-        <img src={notificationIcon} alt="img" className="h-8 w-[36px]" />
-        <div className="flex items-center">
-        <div className="flex items-center text-xl text-[#EA7525] leading-5">
-          <span>{isWalletConnected ?"Connect":"Connected"} To</span>
-          <img src={walletIcon} alt="img" className="w-6 h-6 ml-1" />
-        </div>
-        <button
-          className={`w-16 h-8 ml-3.5 rounded-full focus:outline-none border border-[#EA7525]`}
-          onClick={connectWallet}
-        >
+      <div className="topNav flex  items-center px-10 h-[92px] max-w-[1590px] w-full ml-[27px] rounded-[10px]">
+        <div className="flex items-center  rounded-[100px] -py-2 justify-between h-[56px]  w-[1450px] bg-[#ffffff]">
+          <Search onClick={HandelSearch} />
           <div
-            className={`w-8 h-[30px] rounded-full bg-[#295D93] shadow-md transform transition-transform ${
-              !isWalletConnected ? "translate-x-[32px]" : ""
-            }`}
-          ></div>
-        </button>
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="flex items-center  gap-6 w-[500px] ml-[32.5px]"
+          >
+            <button className=" w-[186px]" onClick={handleUpload}>
+              {uploadmusic ? (
+                <img
+                  src={upload1}
+                  alt="img"
+                  className="rounded-lg h-14 hover:bg-iOrange"
+                />
+              ) : (
+                <img
+                  src={upload}
+                  alt="img"
+                  className="rounded-lg h-14 hover:bg-iOrange"
+                />
+              )}
+            </button>
+            <img src={notificationIcon} alt="img" className="h-8 w-[36px]" />
+            <div className="flex items-center">
+              <div className="flex items-center text-xl text-[#EA7525] leading-5">
+                <span>{isWalletConnected ? "Connect" : "Connected"} To</span>
+                <img src={walletIcon} alt="img" className="w-6 h-6 ml-1" />
+              </div>
+              <button
+                className={`w-16 h-8 ml-3.5 rounded-full focus:outline-none border border-[#EA7525]`}
+                onClick={connectWallet}
+              >
+                <div
+                  className={`w-8 h-[30px] rounded-full bg-[#295D93] shadow-md transform transition-transform ${
+                    !isWalletConnected ? "translate-x-[32px]" : ""
+                  }`}
+                ></div>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    </div>
-  {isAdminAdded && <div className="bannerContainer">
-    <div className="banner">
-    <img
-              src={verified}
-              alt="success"
-              className="w-[45px] h-[45px]"
-            />
-            <p className="text-[18px]">Admin wallet has not been updated <span onClick={()=>{navigateTo("/admin-details")}} className="cursor-pointer text-iBlue underline">Update Wallet details</span></p>
-    </div>
-    </div>}
+      {isAdminAdded && (
+        <div className="bannerContainer">
+          {userData?.isAdmin && (        
+           <div className="banner">
+            <img src={verified} alt="success" className="w-[45px] h-[45px]" />
+            <p className="text-[18px]">
+              Songs need to be Approve{" "}
+              <span
+                onClick={() => {
+                  navigateTo("/playlist-list", {
+                    state: {
+                      status: true,
+                      title: "Listen to your Owned Music",
+                      image: ownedMusic,
+                    },
+                  });
+                }}
+                className="underline cursor-pointer text-iBlue"
+              >
+                Click Here
+              </span>
+            </p>
+          </div>)}
+
+
+        </div>
+      )}
     </>
   );
 }
 
 const Search = ({ onClick }) => {
-
   return (
-    <div onClick={onClick} className="flex items-center justify-between w-[419px] h-14 rounded-[32px] border border-[#295D93] px-4">
+    <div
+      onClick={onClick}
+      className="flex items-center justify-between w-[419px] h-14 rounded-[32px] border border-[#295D93] px-4"
+    >
       <input type="text" placeholder="Search" className="outline-none" />
       <img src={searchIcon} alt="img" className="h-7 w-7" />
     </div>
