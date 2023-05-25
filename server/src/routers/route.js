@@ -38,5 +38,7 @@ router.get(
   "/get-transaction?:userId",
   transactionController.getTransactionById
 );
+router.post('/approve-song?:songId', musicController.ApproveSong)
+router.get("/get-all-pending-songs", musicController.GET_allPendingSongs)
 
 module.exports = router;

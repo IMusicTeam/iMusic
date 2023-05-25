@@ -181,6 +181,42 @@ class MusicController {
       .json({ message: strings.sucesss, data: JSON.stringify(allCharts) });
   }
 
+
+  //approve song
+  async ApproveSong(req, res) {
+    const {songId} = req.query
+    try {
+       await Songs.findOneAndUpdate(
+        { _id: songId },
+        {
+          $set: {
+            songApproved : true
+          },
+        },
+        // {
+        //   returnOriginal: false,
+        // }
+      )
+      res
+      .status(codes.success)
+      .json({ message: strings.sucesss });
+    }catch {
+      serverDown(res);
+    }
+  }
+
+  //get all pending songs
+  async GET_allPendingSongs(req, res) {
+    // const {} = req.query
+    try {
+      const pendingSongs_toBeApproved = await Songs.find({"songApproved" : false})
+      res
+      .status(codes.success)
+      .json({ message: strings.sucesss, data:pendingSongs_toBeApproved });
+    }catch {
+      serverDown(res);
+    }
+  }
 }
 const musicController = new MusicController();
 module.exports = musicController;
