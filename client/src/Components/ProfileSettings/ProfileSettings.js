@@ -2,12 +2,14 @@ import React from "react";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import profile from "./../../Assets/profile.png"
 import EditIcon from "./../../Assets/EditIcon.png"
+import { useNavigate } from "react-router";
 
 function ProfileSettings(){
+  const navigate = useNavigate();
     return(
        <div className="flex items-center justify-center mb-[150px]">
          <div className="max-w-[580px] bg-iWhite shadow-2xl ml-[41px] p-[42px] mt-[29px] rounded-xl">
-        <button >
+        <button type="button" onClick={() => navigate("/home")}>
           <BiLeftArrowAlt size={38} className="-ml-[9px]" />
         </button>
         <h1 className="text-iBlue text-[28px] ml-[110px]">Profile Settings</h1>

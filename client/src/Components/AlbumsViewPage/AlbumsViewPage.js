@@ -201,7 +201,7 @@ function AlbumsViewPage() {
   return (
     <>
     <div className="bg-iGray2">
-    <button type="button" onClick={() => navigateTo(`/`)}>
+    <button type="button" onClick={() => navigateTo(-1)}>
         <IoMdArrowBack className="w-6 h-6 ml-[35px] " />
       </button>
       <div className="h-[389px] bg-[#DEEEFF] pl-[142px] border-[#EEEEEE] border">

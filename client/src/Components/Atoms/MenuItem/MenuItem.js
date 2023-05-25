@@ -127,7 +127,7 @@ export default function MenuItem({
           </span>
         </div>
        
-        {!isDropDown  && label=="Profile" ? (
+        {!isDropDown  && label==="Profile" ? (
           <img
             className={`${styles.caret} -rotate-270 duration-300 ease-in ${
               !isDropDown ? "visible" : "invisible"
@@ -135,7 +135,7 @@ export default function MenuItem({
             src={small_arrow}
             alt={`arrow-${id}`}
           />
-        ) : ( label=="Profile"&& 
+        ) : ( label==="Profile"&& 
           <img
             className={`${styles.caret} -rotate-180 duration-300 ease-out ${
                isDropDown ? "visible" : "invisible"
