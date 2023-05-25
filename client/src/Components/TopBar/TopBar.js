@@ -147,7 +147,7 @@ export default function TopBar() {
            <div className="banner">
             <img src={verified} alt="success" className="w-[45px] h-[45px]" />
             <p className="text-[18px]">
-              Songs need to be Approve{" "}
+              Songs need to be Approved {" "}
               <span
                 onClick={() => {
                   navigateTo("/playlist-list", {
