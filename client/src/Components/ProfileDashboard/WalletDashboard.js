@@ -4,119 +4,141 @@ import MetaMask from "./../../Assets/MetaMask.png";
 import styles from "./WalletDashboard.module.scss";
 import image2 from "./../../Assets/Assets/CardImages/HomeCard1.png";
 import image3 from "./../../Assets/Assets/CardImages/HomeCard2.png";
-import EditIcon from "../../Assets/EditIcon.png";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { APIConstants } from "../../Services/api-constants";
 function WalletDashboard() {
-  const wallet = useSelector(state => state.ReduxSlice.data.metaMaskDetails);
+  const wallet = useSelector((state) => state.ReduxSlice.data.metaMaskDetails);
   const { userData } = useSelector((store) => store.ReduxSlice.data);
-  const isWalletConnected = Object.keys(wallet).length === 0
- 
-const [transectionData, setTransactionData]=useState([])
-const [date, setDate]=useState('')
-  useEffect(()=>{      
-        axios
-        .get("http://localhost:3000/IMusic/get-transaction?userId=" + userData._id)
-        .then((res) => {
-          console.log(res);
-          const dateString=res.data.data[0].updatedAt
-          const options = { day: 'numeric', month: 'long', year: 'numeric' };
-          const date = new Date(dateString);
-          const formattedDate = date.toLocaleDateString(undefined, options);
-          setDate(formattedDate)
-          const data=res.data.data[0].transactionDetails
-          setTransactionData(data)
-          debugger
-          
-        })
-        .catch((err) => {
-          alert("Please fill all the fields");
-          console.log(err.message);
-        });
-  },[])
+  const isWalletConnected = Object.keys(wallet).length === 0;
+
+  const [transectionData, setTransactionData] = useState([]);
+  const [date, setDate] = useState("");
+  const [knowmore, setKnowMore] = useState(false);
+  useEffect(() => {
+    axios
+      .get(
+        "http://localhost:3000/IMusic/get-transaction?userId=" + userData._id
+      )
+      .then((res) => {
+        console.log(res);
+        const dateString = res.data.data[0].updatedAt;
+        const options = { day: "numeric", month: "long", year: "numeric" };
+        const date = new Date(dateString);
+        const formattedDate = date.toLocaleDateString(undefined, options);
+        setDate(formattedDate);
+        const data = res.data.data[0].transactionDetails;
+        setTransactionData(data);
+      })
+      .catch((err) => {
+         alert("Please fill all the fields");
+        console.log(err.message);
+      });
+  }, []);
+
+  const handleMouseEnter = () =>{
+    setKnowMore(true)
+  }
+
+  const handleMouseLeave = () =>{
+    setKnowMore(false)
+  }
 
   return (
     <>
-      <div
-        className={`${styles.walletdashboardContent}  max-w-[1592px] h-[434px] rounded-[12px] bg-iWhite mt-[55px] ml-[38px]`}
-      >
-        <div className="flex flex-col gap-[18px] pl-[25px]">
-          <div>
-            <img src={sideprofileImage} className="w-[177px] pt-[75px]" />
-          </div>
-          <div className="text-[28px] font-medium text-cgy4">
-            Jane William
-          </div>
-          <div className="font-medium text-[20px] -mt-[12px] text-igray1">
-            Account ID: P-1234
-          </div>
-        </div>
+      <div className="flex flex-row gap-4">
+        <div
+          className={`w-[810px] h-[434px] rounded-[12px] bg-iWhite mt-[55px] ml-[38px]`}
+        >
+          <div className="flex flex-row gap-[42px]">
+            <div className="flex flex-col gap-[18px]">
+                <div>
+                  <img
+                    src={sideprofileImage}
+                    className="w-[264px] h-[248px] pt-[38px] pl-[28px]"
+                  />
+                </div>
+                <div className="pl-[37px]">
+                  <div className="text-[35px] text-cgy4">Jane William</div>
+                  <div className="text-[25px] text-igray1">
+                    Account ID: P-1234
+                  </div>
+                </div>
+            </div>
+            <div className="flex flex-col mt-[63px]">
+                <div className="text-[18px] text-cgy4">Email</div>
+                <div className="text-[22px] text-iBlue">
+                  Janewilliam123@gmail.com
+                </div>
 
-        <div className="flex flex-col gap-[52px]">
-          <div className="walletContent mt-[41px]">
-            <div className="text-cgy4 flex flex-row items-center gap-2 text-[18px] font-medium"><div>Email </div><div><img src={EditIcon}/></div></div>
-            <div className="text-[16px] font-medium text-iBlue mt-2">
-              Janewilliam123@gmail.com
-            </div>
-          </div>
-          <div>
-            <div className="text-cgy4 text-[18px] font-medium flex flex-row items-center gap-2">
-              <div>Phone Number</div> <div><img src={EditIcon}/></div>
-            </div>
-            <div className="text-[16px] font-medium text-iBlue mt-2">
-              +1 94)0-763-2207
-            </div>
-          </div>
-          <div>
-            <div className="text-cgy4 text-[18px] font-medium flex flex-row items-center gap-2"><div>Address</div><div><img src={EditIcon}/></div></div>
-            <div className="text-[16px] font-medium text-iBlue mt-2">
-              Street: 4480 Elk Creek Road.
-            </div>
-            <div className="text-[16px] font-medium text-iBlue">
-              City: Norcross.
-            </div>
-            <div className="text-[16px] font-medium text-iBlue">
-              State/province/area: Georgia.
-            </div>
-            <div className="text-[16px] font-medium text-iBlue">
-              Zip code 30071
+              <div className="mt-[48px]">
+                <div className="text-[18px] text-cgy4">Phone Number</div>
+                <div className="text-[22px] text-iBlue">+1 94)0-763-2207</div>
+              </div>
+
+              <div className="mt-[48px]">
+                <div className="text-[18px] text-cgy4">Address</div>
+                <div className="text-[22px] text-iBlue">
+                  Street: 4480 Elk Creek Road. City: Norcross. <br />{" "}
+                  State/province/area: Georgia., <br />
+                  Zip code 30071
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div>
-        <div className="max-w-[305px] h-[248px] rounded-[15px] bg-iWhite border-2 border-iBlue mt-[65px]">
+        <div className="w-[760px] h-[434px] rounded-[12px] bg-iWhite mt-[55px]">
+          <div className="flex flex-row gap-[36px]">
 
-          <div className="flex flex-col gap-[37px]">
-            <div className="text-igray1 text-[22px] font-medium pt-[36px] pl-[19px] truncate w-[280px] h-[63px]">
-              Wallet ID: {wallet.account}
+            <div className="flex flex-col">
+              <div className="w-[434px] h-[353px] rounded-[15px] bg-iWhite border-2 border-iBlue mt-[45px] ml-[30px]">
+                <div className="flex flex-col gap-[55px]">
+                  <div className="text-igray1 text-[22px] font-medium pt-[36px] pl-[19px] truncate w-[280px] h-[63px]">
+                    Wallet ID: {wallet.account}
+                  </div>
+                  <div className="flex flex-row items-center gap-[4] mt-[37px] text-cgy4 pl-[81px]">
+                    <div className="text-[76px]"> {Number(wallet.balanceInEther).toFixed(2)}</div>
+                    <div>
+                      <p className="text-[25px] mt-1 ml-2">ETH</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="mt-[37px] text-cgy4 text-[54px] font-medium pl-[19px]">
-              {Number(wallet.balanceInEther).toFixed(2)}
-              <p className="text-[25px] -mt-[56px] ml-[120px]">ETH</p>
+
+            <div className="flex flex-col">
+              <div className="mt-[121px]">  
+                    <img src={MetaMask} className="w-[143px] h-[143px] ml-[40px]"/>
+             </div>
+             <div className="text-iBlue text-[21px] underline mt-[22px]">
+              <p onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Know More about Wallet</p>
+              </div>
+
             </div>
+
+            {
+              knowmore && (
+                <div className="relative">
+                  <p className="w-[379px] p-10 leading-tight z-10 h-[320px] bg-iskyBlue text-[22px] rounded-[20px] top-[319px] text-iBlack absolute right-[18px]">Meta Wallet is a versatile digital wallet that consolidates various cryptocurrencies and tokens, providing users with a streamlined and secure platform for managing their digital assets.</p>
+                </div>
+              )
+            }
+
           </div>
-          
-        </div>
-        <div className="text-iBlue text-[21px] mt-[25px] pl-[40px] underline">Know More about Wallet</div>
-        </div>
-
-        <div className="pt-[20px]">
-            <img src={MetaMask} className="w-[143px] h-[143px]"/>
         </div>
       </div>
 
       <div
         className={`${styles.walletdashboardTableContent} overflow-x-scroll`}
       >
-      <div className="bg-iWhite rounded-[12px] max-w-[816px] h-[434px] mt-[16px] ml-[32px] gap-[16px]">
+        <div className="bg-iWhite rounded-[12px] max-w-[816px] h-[434px] mt-[16px] ml-[32px]">
           <div
-            className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[16px] mr-[17px] bg-igray text-start p-1 rounded-[8px] text-iBlue font-medium`}
+            className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[16px] mr-[17px] bg-ibm11 text-start p-1 rounded-[10px] text-iBlue font-medium`}
           >
-            <p className="!pl-[8px]">Date</p>
-            <p>Type</p>
-            <p>Subtype</p>
+            <p className="!pl-[8px]">Date & Time</p>
+            <p>Song Name</p>
+            <p>Album</p>
             <p>Description</p>
             <p>Amount</p>
             <p className="!pl-[13px]">Status</p>
@@ -125,14 +147,14 @@ const [date, setDate]=useState('')
           {transectionData.map((item) => {
             return (
               <div
-                className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[17px] mr-[19px]  text-start font-medium`}
+                className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[17px] mr-[19px]  text-start font-medium hover:bg-ibm8`}
               >
                 <p className="text-cgy4">{date}</p>
                 <p className="text-cgy4">{item?.type}</p>
                 <p className="pl-1 text-cgy4">{item?.subType}</p>
                 <p className="text-cgy4">{item?.description}</p>
-                <p className="pr-4 text-center text-igray2">{item?.amount}</p>
-                <button className="w-[100px] h-[30px] bg-igray3 text-igray2 rounded-[5px]">
+                <p className="pr-4 text-center text-ibgn1">{item?.amount}</p>
+                <button className="w-[100px] h-[30px] bg-ibgn4 text-ibgn1 rounded-[5px]">
                   {"completed"}
                 </button>
               </div>
@@ -140,16 +162,18 @@ const [date, setDate]=useState('')
           })}
         </div>
 
-       
         <div className="mt-[16px]">
           <div className="relative">
             <img
               src={image3}
               alt="owned"
-              className="w-[387px] h-[444px] rounded-2xl"
+              className="w-[372px] h-[430px] rounded-2xl"
             />
-            <p className="text-[63px] px-[14px] absolute bottom-0 text-iWhite shadow-[12px] drop-shadow-2xl font-bold">
-              Listen to your owned Music
+            <p className="flex items-center flex-col gap-2 ml-[100px] text-[45px] absolute bottom-[70px] text-iWhite shadow-[12px] drop-shadow-2xl font-bold">
+              <div>Listen to</div>
+              <div>your</div>
+              <div>Owned</div>
+              <div>Music</div>
             </p>
           </div>
         </div>
@@ -159,16 +183,17 @@ const [date, setDate]=useState('')
             <img
               src={image2}
               alt="owned"
-              className="w-[387px] h-[444px] rounded-2xl"
+              className="w-[372px] h-[430px] rounded-2xl"
             />
-            <p className="text-[63px] px-[14px] absolute bottom-[40px] text-iWhite shadow-[12px] drop-shadow-2xl font-bold">
-              Listen to your own Music
-            </p>
+            <div className="flex items-center flex-col gap-2 ml-[100px] text-[45px] absolute bottom-[70px] text-iWhite shadow-[12px] drop-shadow-2xl font-bold">
+              <div>Listen to</div>
+              <div>your</div>
+              <div>Own</div>
+              <div>Music</div>
+            </div>
           </div>
         </div>
       </div>
-
-      
     </>
   );
 }

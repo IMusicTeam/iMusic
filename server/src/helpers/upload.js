@@ -17,11 +17,11 @@ const blobOptions = {
       "image/jfif" ||
       "audio/basic" ||
       "audio/vnd.wav" ||
-      "audio/mpeg",
+      "audio/mpeg" ||
+      "application/pdf",
   },
 };
 const uploadImage = async (req, res, next) => {
-  console.log(req)
   try {
     if (req.file) {
       const blobName = req.file.filename;
@@ -31,10 +31,10 @@ const uploadImage = async (req, res, next) => {
       // This method is used to get a reference to a specific container within a storage account.
       const blockBlobClient = containerClient.getBlockBlobClient(blobName);
       // This method is used to get a reference to a specific block blob within a container.
-      const uploadResponse = await blockBlobClient.uploadData(
-        imageBuffer,
-        blobOptions
-      );
+      // const uploadResponse = await blockBlobClient.uploadData(
+      //   imageBuffer,
+      //   blobOptions
+      // );
       const imageUrl = blockBlobClient.url;
       res.status(codes.created).json({ message: strings.saveSong, data: imageUrl})
     } else {

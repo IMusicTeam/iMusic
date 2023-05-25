@@ -5,8 +5,8 @@ function returnApis(url) {
 }
 
 export const APIConstants = {
-    fileUpload :  returnApis("upload-audio"),
-    formUpload:returnApis("upload-song"),
+    fileUpload:  returnApis("upload-audio"),
+    formUpload: returnApis("upload-song"),
     emailVerification: returnApis("signup"),
     otpVerification: returnApis("verify-email"),
     saveasplaylist: returnApis('save-as-playlist'),

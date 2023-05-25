@@ -16,6 +16,7 @@ class MusicController {
       songDescription,
       favourited,
       userId,
+      copyrightFile
     } = req.body;
     try {
       if (!userId) {
@@ -31,7 +32,8 @@ class MusicController {
         !tune ||
         !lyrics ||
         !songName ||
-        !songDescription
+        !songDescription ||
+        !copyrightFile
       ) {
         return res
           .status(codes.badRequest)
@@ -43,11 +45,12 @@ class MusicController {
         artistName,
         price,
         tune,
-        lyrics,
+        x,
         songName,
         songDescription,
         favourited,
         userId,
+        copyrightFile
       });
       await save.save();
       const data = save.toObject();
@@ -87,6 +90,7 @@ class MusicController {
       lyrics,
       songName,
       songDescription,
+      copyrightFile
     } = req.body;
     if (_id) {
       if (
@@ -97,7 +101,8 @@ class MusicController {
         !tune ||
         !lyrics ||
         !songName ||
-        !songDescription
+        !songDescription ||
+        !copyrightFile
       ) {
         return res
           .status(codes.badRequest)
@@ -116,6 +121,7 @@ class MusicController {
               lyrics,
               songName,
               songDescription,
+              copyrightFile
             },
           },
           {

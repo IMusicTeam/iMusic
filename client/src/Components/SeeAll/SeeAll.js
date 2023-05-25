@@ -109,10 +109,10 @@ function SeeAll() {
   return (
     <>
       <button onClick={HandelBack}>
-        <BiLeftArrowAlt size={38} className="mt-[20px] ml-[17px]" />
+        <BiLeftArrowAlt size={38} className="mt-[20px] ml-[35px]" />
       </button>
-      <h1 className="text-[30px] font-medium mt-[40px] pl-4">{title}</h1>
-      <div className="flex flex-row gap-[24px] p-3 mt-[18px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <h1 className="text-[30px] font-medium mt-[40px] pl-4 ml-[18px]">{title}</h1>
+      <div className="flex flex-row gap-[24px] p-3 mt-[18px] max-w-[1632px] overflow-x-scroll hidding-x-scroll ml-[18px]">
         {data1.map((item) => {
           return (
             <div>
@@ -122,7 +122,7 @@ function SeeAll() {
         })}
       </div>
 
-      <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll ml-[18px]">
         {data2.map((item) => {
           return (
             <div>
@@ -132,7 +132,7 @@ function SeeAll() {
         })}
       </div>
 
-      <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll ml-[18px]">
         {data3.map((item) => {
           return (
             <div>
@@ -142,7 +142,7 @@ function SeeAll() {
         })}
       </div>
 
-      <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll ml-[18px]">
         {data5.map((item) => {
           return (
             <div>
@@ -152,7 +152,7 @@ function SeeAll() {
         })}
       </div>
 
-      <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll ml-[18px] mb-[30px]">
         {data4.map((item) => {
           return (
             <div>

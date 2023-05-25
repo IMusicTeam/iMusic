@@ -99,6 +99,33 @@ class PlaylistController {
       serverDown(res);
     }
   }
+  //getPlaylistByIdName
+  async GET_playlistByUserIDName(req, res) {
+    const { userId, name } = req.query;
+    if (!userId || !name) {
+      return noUserFound(res);
+    }
+    try {
+      const findSong = await Playlist.findOne({
+        "allPlaylist.name": {
+          $in: [
+            name
+          ]
+        }
+      },
+      )
+      if (Object.keys(findSong).length > 0) {
+        return res.status(codes.success).json({ message: strings.sucesss, data: findSong.allPlaylist[0] });
+      } else {
+        res
+          .status(codes.badRequest)
+          .json({ message: strings.notFoundUser });
+      }
+    } catch {
+      serverDown(res);
+    }
+  }
 }
+
 const playlistController = new PlaylistController();
 module.exports = playlistController;

@@ -17,31 +17,35 @@ import AlbumsCard12 from "../../Assets/Assets/CardImages/AlbumsCard12.png";
 import AlbumsCard13 from "../../Assets/Assets/CardImages/AlbumsCard13.png";
 import AlbumsCard14 from "../../Assets/Assets/CardImages/AlbumsCard14.png";
 import AlbumsCard15 from "../../Assets/Assets/CardImages/AlbumsCard15.png";
+import AlbumsCard16 from "../../Assets/Assets/CardImages/AlbumsCard16.png";
+import AlbumsCard18 from "../../Assets/Assets/CardImages/AlbumsCard18.png";
+import AlbumsCard19 from "../../Assets/Assets/CardImages/AlbumsCard19.png";
+import Album4 from "../../Assets/Assets/CardImages/album4.png";
 
 function Albums() {
   const data1 = [
     { id: 1, src: AlbumsCard4, text: "Listen to your own music" },
     { id: 2, src: AlbumsCard5, text: "Listen to your owned music" },
-    { id: 3, src: AlbumsCard3},
-    { id: 4, src: AlbumsCard2},
+    { id: 3, src: AlbumsCard16},
+    { id: 4, src: Album4},
   ];
   const data2 = [
-    { id: 1, src: AlbumsCard1,  },
-    { id: 2, src: AlbumsCard6,  },
-    { id: 3, src: AlbumsCard7,  },
-    { id: 4, src: AlbumsCard8,  },
+    { id: 1, src: AlbumsCard14,},
+    { id: 2, src: AlbumsCard13,},
+    { id: 3, src: AlbumsCard12,},
+    { id: 4, src: AlbumsCard11,},
   ];
   const data3 = [
-    { id: 1, src: AlbumsCard9,  },
-    { id: 2, src: AlbumsCard10,  },
-    { id: 3, src: AlbumsCard6,  },
-    { id: 4, src: AlbumsCard12,  },
+    { id: 1, src: AlbumsCard9,},
+    { id: 2, src: AlbumsCard8,},
+    { id: 3, src: AlbumsCard7,},
+    { id: 4, src: AlbumsCard6,},
   ];
   const data4 = [
-    { id: 1, src: AlbumsCard13,  },
-    { id: 2, src: AlbumsCard14,  },
-    { id: 3, src: AlbumsCard15,  },
-    { id: 4, src: AlbumsCard1,  },
+    { id: 1, src: AlbumsCard18,},
+    { id: 2, src: AlbumsCard19,},
+    { id: 3, src: AlbumsCard1,},
+    { id: 4, src: AlbumsCard15,},
   ];
 
   const navigate = useNavigate();

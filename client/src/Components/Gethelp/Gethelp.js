@@ -9,6 +9,7 @@ function Gethelp(){
      { id: 3 , title:"How iMusic manages my wallet?", dec:"The smart contract component of blockchain technology can potentially solve this issue. Smart contracts can include which percentage of the revenue goes to each member of the band, the music label, the manager, etc., and pay artists immediately."}];
      const navigatTo=useNavigate();
      const [select, setSelect] = useState("");
+     const navigate = useNavigate();
 
 const HandelNavigation = (val) =>{
   navigatTo(val)
@@ -27,7 +28,7 @@ const handleContactUs = () =>{
   };
     return(
         <div className="max-w-[1590px] bg-iWhite shadow-2xl ml-[41px] p-[42px] mb-[20px] mt-[29px] rounded-xl">
-        <button onClick={''}>
+        <button type ="button" onClick={() => navigate(-1)}>
           <BiLeftArrowAlt size={38} className="mb-[33px] -ml-[9px]" />
         </button>
 
@@ -35,25 +36,25 @@ const handleContactUs = () =>{
 
         <div className="flex flex-col justify-start flex-wrap text-ibm1 gap-5 text-[16px] mt-5">
           <div className="flex flex-row 3xl:gap-[135px] gap-28">
-            <p onClick={()=>HandelNavigation('/uploadMusic')} className="w-[128px] underline hover:text-iOrange font-medium">
+            <p onClick={()=>HandelNavigation('/uploadMusic')} className="w-[128px] underline hover:text-iOrange font-medium hover:cursor-pointer">
               Upload Music
             </p>
-            <p onClick={()=>HandelNavigation('/profile/settings')} className="w-[128px] underline hover:text-iOrange font-medium">
+            <p onClick={()=>HandelNavigation('/profile/settings')} className="w-[128px] underline hover:text-iOrange font-medium  hover:cursor-pointer">
               Change my Email
             </p>
-            <p onClick={()=>HandelNavigation('/playlists')} className="w-[128px] underline hover:text-iOrange font-medium">Playlist</p>
-            <p onClick={()=>HandelNavigation('/exploreScreen')} className="w-[128px] underline hover:text-iOrange font-medium">Explore</p>
-            <p onClick={()=>HandelNavigation('/yourlibrary')} className="w-[128px] underline hover:text-iOrange font-medium">My Library</p>
+            <p onClick={()=>HandelNavigation('/playlists')} className="w-[128px] underline hover:text-iOrange font-medium  hover:cursor-pointer">Playlist</p>
+            <p onClick={()=>HandelNavigation('/exploreScreen')} className="w-[128px] underline hover:text-iOrange font-medium  hover:cursor-pointer">Explore</p>
+            <p onClick={()=>HandelNavigation('/yourlibrary')} className="w-[128px] underline hover:text-iOrange font-medium  hover:cursor-pointer">My Library</p>
           </div>
           <div className="flex flex-row 3xl:gap-[135px] gap-28">
-            <p onClick={()=>HandelNavigation('/profile/settings')} className="w-[128px] underline hover:text-iOrange font-medium">
+            <p onClick={()=>HandelNavigation('/profile/settings')} className="w-[128px] underline hover:text-iOrange font-medium  hover:cursor-pointer">
               Edit Profile
             </p>
-            <p onClick={()=>HandelNavigation('/albums')} className="w-[128px] underline hover:text-iOrange font-medium">Albums</p>
+            <p onClick={()=>HandelNavigation('/albums')} className="w-[128px] underline hover:text-iOrange font-medium  hover:cursor-pointer">Albums</p>
             <p onClick={()=>HandelNavigation('/profile/walletdashboard')} className="w-[128px] underline hover:text-iOrange">
               Wallet Dashboard
             </p>
-            <p onClick={()=>HandelNavigation('/playlists')} className="w-[128px] underline hover:text-iOrange font-medium">Playlists</p>
+            <p onClick={()=>HandelNavigation('/playlists')} className="w-[128px] underline hover:text-iOrange font-medium  hover:cursor-pointer">Playlists</p>
             <p onClick={()=>HandelNavigation('/likedMusic')} className="w-[128px] underline hover:text-iOrange font-medium">
               Liked Songs
             </p>
@@ -64,7 +65,7 @@ const handleContactUs = () =>{
         {data.map((item, i) => {
           return (
             <div
-              className={`mt-5 px-[28px] flex flex-col py-[23px] text-iWhite text-[20px] font-normal rounded-xl ${
+              className={`mt-5 px-[28px] flex flex-col py-[23px] text-iWhite text-[20px] font-normal rounded-xl  hover:cursor-pointer ${
                 select !== item.id ? "bg-iBlue" : "bg-iOrange"
               }`}
             >
@@ -84,7 +85,7 @@ const handleContactUs = () =>{
                 </div>
               </div>
               <p
-                className={`text-[18px] max-w-[1315px] w-full font-normal showContent ${
+                className={`text-[18px] max-w-[1315px] w-full font-normal showContent  hover:cursor-pointer ${
                   select !== item.id
                     ? "h-0 overflow-hidden"
                     : "h-[80px] overflow-auto"
@@ -101,7 +102,7 @@ const handleContactUs = () =>{
         Not yet answered your Query? 
         </p></span>
         <span style={{display: 'inline-block'}}>
-        <p className="underline text-iBlue hover:text-iOrange ml-2" onClick={handleContactUs}>
+        <p className="underline text-iBlue hover:text-iOrange ml-2  hover:cursor-pointer" onClick={handleContactUs}>
              Contact Us
           </p>
         </span>
