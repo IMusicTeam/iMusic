@@ -26,7 +26,7 @@ function Albums() {
   const data1 = [
     { id: 1, src: AlbumsCard4, text: "Listen to your own music" },
     { id: 2, src: AlbumsCard5, text: "Listen to your owned music" },
-    { id: 3, src: AlbumsCard16},
+    { id: 3, src: AlbumsCard1},
     { id: 4, src: Album4},
   ];
   const data2 = [

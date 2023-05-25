@@ -29,7 +29,7 @@ function RecentlyPlayed() {
   return (
     <div className="px-[34px] py-[42px] bg-iGray2">
       <div className="flex flex-col gap-[28px] 3xl:flex-row">
-        <div className="w-full p-[23px] bg-iWhite rounded-2xl 3xl:max-w-[752px]">
+        <div className="w-full p-[23px] bg-iWhite rounded-2xl 3xl:max-w-[752px] border border-iOrange">
         <div className="flex flex-row items-center justify-between pb-[28px]">
           <h1 className="text-[28px]">Recently Played</h1>
           <div className="flex flex-row gap-[22px]">
@@ -80,7 +80,7 @@ function RecentlyPlayed() {
         <div className="flex gap-[30px]">
         <div className="relative transition duration-300 ease-in-out delay-150 hover:translate-x-1 hover:scale-80">
             <img src={HomeCard1} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
-       <p className="text-[55px] leading-[70px] px-[65px] absolute top-[107px] text-iWhite shadow-[12px] drop-shadow-2xl  transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-shadow">Listen to your Purchased Music</p>
+       <p className="text-[55px] leading-[70px] px-[65px] absolute top-[107px] text-iWhite shadow-[12px] drop-shadow-2xl transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-shadow">Listen to your Purchased Music</p>
         </div>
         <div className="relative transition duration-300 ease-in-out delay-150 hover:translate-x-1 hover:scale-80">
             <img src={HomeCard2} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>

@@ -61,7 +61,7 @@ const handleContactUs = () =>{
           </div>
         </div>
 
-        <h1 className="font-medium text-[32px] mt-[60px]">FAQs</h1>
+        <h1 className="text-[32px] mt-[60px]">FAQs</h1>
         {data.map((item, i) => {
           return (
             <div
@@ -97,7 +97,7 @@ const handleContactUs = () =>{
           );
         })}
 
-        <div className="mt-[212px] text-center font-medium">
+        <div className="mt-[212px] text-center">
         <span style={{display: 'inline-block'}}> <p>
         Not yet answered your Query? 
         </p></span>

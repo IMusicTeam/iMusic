@@ -44,7 +44,7 @@ function ProfileSettings(){
 
        </div>
 
-       <button className="px-10 py-2 bg-iBlue mt-[80px] rounded-3xl text-iWhite ml-[155px]">save </button>
+       <button className="w-[187px] h-[54px] bg-iBlue mt-[80px] rounded-[27px] text-iWhite text-[20px] ml-[142px] hover:bg-iOrange">Save</button>
       </div>
        </div>
     )

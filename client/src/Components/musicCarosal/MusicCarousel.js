@@ -187,7 +187,7 @@ function MusicCarousel() {
   const albumsData =[
     { id: 1, src: AlbumsCard5,text:"Listen to your own Music" },
     { id: 2, src: AlbumsCard4,text:"Listen to your owned Music" },
-    { id: 3, src: AlbumsCard16},
+    { id: 3, src: AlbumsCard1},
     { id: 4, src: album4},
     { id: 5, src: AlbumsCard14 },
     { id: 6, src: AlbumsCard13 },
@@ -224,8 +224,9 @@ const navigateTO=useNavigate();
    return (
     <div className='pl-[34px] pb-[32px]'>
         <div className='flex flex-row justify-between'>
-        <h1 className='text-[30px] font-medium'>New releases</h1>
-        </div>
+      <h1 className='text-[30px]'>New releases</h1>
+      <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+    </div>
 
       <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {musicList.map((item)=>{
