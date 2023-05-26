@@ -21,7 +21,7 @@ import defaultImage from "../../Assets/images/imageDefault.png";
 import FormField from "../../Components/Atoms/FormField/FormField.js";
 import LoginButton from "../../Components/Atoms/LoginButton/LoginButton";
 import * as Yup from "yup";
-import { useFormik } from "formik";
+import { useFormik } from "formik"
 import { baseURL, uploadImage } from "../../helpers/hooks";
 import { ethers } from "ethers";
 import contractInstance from "../../web3";
@@ -153,7 +153,7 @@ function UploadMusic() {
       .then((res) => {
         console.log(res);
         // transfer()
-        handleTransfer()
+        // handleTransfer()
         transectioncall()
         setStep(1);
       })
