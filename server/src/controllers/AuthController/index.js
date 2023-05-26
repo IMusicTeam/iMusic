@@ -1,4 +1,4 @@
-const { codes, strings } = require("../../Constants");
+const { codes, strings } = require("../../constants");
 const { verifyOtp } = require("../../helpers/otp");
 const { serverDown, sendOTP } = require("../../helpers/hooks");
 const User = require("../../models/user");
