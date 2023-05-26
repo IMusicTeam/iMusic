@@ -214,8 +214,8 @@ const navigateTO=useNavigate();
       });
   }, []);
   
-  const HandelSeeAll=(value)=>{
-    const {path, title}=value
+  const HandelSeeAll = (value)=>{
+    const {path, title} = value
     navigateTO(`/see-all/${path}`,{
       state:title
     })
@@ -223,10 +223,9 @@ const navigateTO=useNavigate();
   
    return (
     <div className='pl-[34px] pb-[32px]'>
-        <div className='flex flex-row justify-between'>
-      <h1 className='text-[30px]'>New releases</h1>
-      <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
-    </div>
+         {musicList.length > 0 && (<div className='flex flex-row justify-between'>
+          <h1 className='text-[30px]'>New releases</h1>          
+      </div> )}
 
       <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {musicList.map((item)=>{
@@ -258,7 +257,7 @@ const navigateTO=useNavigate();
 
         <div className='flex flex-row justify-between'>
         <h1 className='text-[30px] font-medium mt-[28px]'>Top charts</h1>
-        <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+        <button onClick={()=>HandelSeeAll({path:'new-uploaded',title:'New uploaded'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
 
         <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -321,6 +320,11 @@ const navigateTO=useNavigate();
             })
           }
         </div>
+            
+        <div className="flex flex-row justify-between">
+          <h1 className="text-[30px] font-medium"></h1>
+          <h5 onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-medium text-[16px] text-iBlack1 cursor-pointer'>See All</h5>
+        </div>
 
         <div className='flex flex-row gap-[30px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
@@ -337,7 +341,6 @@ const navigateTO=useNavigate();
 
       <div className='flex flex-row justify-between'>
       <h1 className='text-[30px] font-medium mt-[28px]'>Radio stations</h1>
-      <button onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
     </div>
 
     <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
@@ -388,11 +391,12 @@ const navigateTO=useNavigate();
           }
         </div>
 
-     <div className='flex flex-row justify-between'>
-     <h1></h1>
-      <h5 onClick={()=>HandelSeeAll({path:'top-playlists',title:'Top Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
-    </div>
-      
+        <div>
+        <div className="flex flex-row justify-between">
+          <h1 className="text-[30px] font-medium"></h1>
+          <h5 onClick={()=>HandelSeeAll({path:'top-albums',title:'Top Albums'})} className='underline font-medium text-[16px] text-iBlack1 cursor-pointer'>See All</h5>
+        </div>
+        </div>
     </div>
 
     

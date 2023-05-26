@@ -30,7 +30,6 @@ function ListSongs() {
   const userId = useSelector((store) => store.ReduxSlice.data.userData._id);
   const list=useLocation()
   const details=list.state
-  debugger
   const [download, setDownload] = useState(false);
   const [likedData, setLikedData] = useState();
   const navigateTo = useNavigate();

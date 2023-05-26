@@ -66,6 +66,8 @@ import AlbumsCard13 from "../../Assets/Assets/CardImages/AlbumsCard13.png";
 import AlbumsCard3 from "../../Assets/Assets/CardImages/AlbumsCard3.png";
 import AlbumsCard10 from "../../Assets/Assets/CardImages/AlbumsCard10.png";
 import AlbumsCard6 from "../../Assets/Assets/CardImages/AlbumsCard6.png";
+import AlbumsCard1 from "../../Assets/Assets/CardImages/AlbumsCard1.png";
+
 import { useNavigate } from "react-router";
 import ListenedCard from "../ListenedCard/ListenedCard";
 
@@ -109,7 +111,7 @@ function Library() {
   const data8 = [
     { id: 1, src: AlbumsCard5,text:"Listen to your own Music" },
     { id: 2, src: AlbumsCard4,text:"Listen to your owned Music" },
-    { id: 3, src: AlbumsCard16},
+    { id: 3, src: AlbumsCard1},
     { id: 4, src: album4},
     { id: 5, src: AlbumsCard14 },
     { id: 6, src: AlbumsCard13 },
@@ -277,6 +279,14 @@ const navigateTO=useNavigate();
           })}
         </div>
       </div>
+
+      <div>
+        <div className="flex flex-row justify-between">
+          <h1 className="text-[30px] font-medium"></h1>
+          <h5 onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-medium text-[16px] text-iBlack1 cursor-pointer'>See All</h5>
+        </div>
+        </div>
+        
       <div>
         <div className="flex gap-6 max-w-[1632px] pl-[13px] overflow-x-scroll hidding-x-scroll">
           {rounded?.map((item) => {
@@ -336,13 +346,12 @@ const navigateTO=useNavigate();
             })
           }
         </div>
-      <div>
-        <div className="flex flex-row justify-between my-7">
+        
+        <div className="flex flex-row justify-between">
           <h1 className="text-[30px] font-medium"></h1>
-          <h5 onClick={()=>HandelSeeAll({path:'top-playlists',title:'Top Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
+          <h5 onClick={()=>HandelSeeAll({path:'top-albums',title:'Top Albums'})} className='underline font-medium text-[16px] text-iBlack1 cursor-pointer'>See All</h5>
         </div>
         
-      </div>
     </div>
   );
 }
