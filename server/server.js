@@ -4,7 +4,7 @@ var session = require("express-session");
 const cors = require("cors");
 const bodyParser = require('body-parser');
 const app = express();
-
+app.use("/uploads", express.static(__dirname + '/uploads'))
 app.use(
   session({
     secret: "secret",

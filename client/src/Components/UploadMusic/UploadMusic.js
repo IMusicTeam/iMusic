@@ -22,6 +22,7 @@ import FormField from "../../Components/Atoms/FormField/FormField.js";
 import LoginButton from "../../Components/Atoms/LoginButton/LoginButton";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import { baseURL, uploadImage } from "../../helpers/hooks";
 // require("dotenv").config();
 const httpUrlKey = "HTTP://127.0.0.1:7545";
 
@@ -46,57 +47,30 @@ function UploadMusic() {
   const [fileupload, setFileUpload] = useState(false);
   const [uploadPdfFile, setUploadPdfFile] = useState(false);
   const [doc, setDoc] = useState("");
-  // const [defaultButton, setDefaultButton] = useState(false);
   const [data, setData] = useState({});
 
-  const fileUploadHandler = async (event) => {
-    const file = event.target.files;
-    console.log(file)
-    if (file.length > 0) {
-      let formData = new FormData();
-      formData.append("file", file[0]);
-      const response = await fetch(APIConstants.fileUpload, {
-        method: "POST",
-        body: formData,
-      });
-      const json = await response.json();
-      const validateJSON = json && json?.data ? json.data : "";
-      setImage(validateJSON);
-    }
-  };
-
-  const songUploadHandler = async (event) => {
-    const file = event.target.files;
-    console.log(file)
-    if (file.length > 0) {
-      let formData = new FormData();
-      formData.append("file", file[0]);
-      const response = await fetch(APIConstants.fileUpload, {
-        method: "POST",
-        body: formData,
-      });
-      const json = await response.json();
-      const validateJSON = json && json?.data ? json.data : "";
-
-      setSucces(true);
-      setAudio(validateJSON);
-    }
-  };
-
-  const pdffileUploadHandler = async (event) => {
-    const file = event.target.files;
-    console.log(file)
-    if (file.length > 0) {
-      let formData = new FormData();
-      formData.append("file", file[0]);
-      const response = await fetch(APIConstants.fileUpload, {
-        method: "POST",
-        body: formData,
-      });
-      const json = await response.json();
-      const validateJSON = json && json?.data ? json.data : "";
-      setUploadPdfFile(true);
-      setDoc(validateJSON);
+  const fileUploadHandler = async (event, hook, properties) => {
+    const hasFiles = event.target.files
+    if (hasFiles.length > 0) {
+      Promise.all(
+        Object.values(hasFiles)?.map((file) => {
+          const formData = new FormData();
+          formData.append("file", file);
+          return uploadImage(formData);
+        })
+      )
+        .then((values) => {
+          const images = values.map(({ data }) => data.link);
+          hook(images[0]);
+          if(properties) {
+            properties(true)
+          }
+        })
+        .catch((ex) => {})
+        .finally(() => {
+          setTimeout(() => {
+          }, 2000);
+        });
     }
   };
 
@@ -183,7 +157,6 @@ function UploadMusic() {
       });
   };
 
-  
   const navigateTo = useNavigate();
   const HandelBack = () => {
     navigateTo(-1);
@@ -227,7 +200,7 @@ function UploadMusic() {
     },
     validationSchema: informationSchema,
     onSubmit: async (values) => {
-      console.log(values)
+      console.log(values);
       const reqBody = {
         albumName: values.albumName,
         artistName: values.artistName,
@@ -239,7 +212,7 @@ function UploadMusic() {
         userId: userData._id,
         copyrightFile: doc,
       };
-      console.log(reqBody)
+      console.log(reqBody);
       axios
         .post(APIConstants.formUpload, reqBody)
         .then((res) => {
@@ -284,7 +257,6 @@ function UploadMusic() {
                   <h1 className="text-[28px] text-iBlue pt-2.5">
                     Upload Cover Photo
                   </h1>
-
                   <div className="w-[156px] h-[165px] border-iBlue relative border-2 rounded-2xl flex flex-row items-center justify-center">
                     {!image ? (
                       <div>
@@ -296,7 +268,7 @@ function UploadMusic() {
                       </div>
                     ) : (
                       <img
-                        src={image}
+                        src={baseURL + image}
                         alt=""
                         className="w-[153px] h-[163px] rounded-2xl"
                       />
@@ -313,7 +285,7 @@ function UploadMusic() {
                         <input
                           type="file"
                           id="photo"
-                          onChange={fileUploadHandler}
+                          onChange={(e) => fileUploadHandler(e, setImage, undefined)}
                           // accept=".jpg, .jpeg, .png, .bmp, .gif, .mp4, .mp3, .mkv, .ogg, .wmv"
                           className="mt-2 mb-5 upload_text_inp"
                         />
@@ -422,7 +394,7 @@ function UploadMusic() {
                     <input
                       type="file"
                       id="audio"
-                      onChange={songUploadHandler}
+                      onChange={(e) => fileUploadHandler(e, setAudio, setSucces)}
                       accept=".jpg, .jpeg, .png, .bmp, .gif, .mp3, .mkv, .ogg, .wmv"
                       className="mt-2 mb-5 upload_text_inp"
                     />
@@ -465,7 +437,7 @@ function UploadMusic() {
                         <input
                           type="file"
                           id="doc"
-                          onChange={pdffileUploadHandler}
+                          onChange={(e) => fileUploadHandler(e, setDoc, setUploadPdfFile)}
                           accept=".pdf"
                           className="mt-2 mb-5 upload_text_inp"
                         />
@@ -520,14 +492,13 @@ function UploadMusic() {
                   <LoginButton
                     type="submit"
                     onClick={formik.handleSubmit}
-                    disable ={!(formik.dirty && formik.isValid)}
+                    disable={!(formik.dirty && formik.isValid)}
                     label="Submit"
                     className="py-3 mt-5 w-[305px] mb-[20px] center rounded-[30px] text-iWhite text-[20px]"
                   >
                     Submit
                   </LoginButton>
                 </div>
-
               </div>
             </div>
           </div>
