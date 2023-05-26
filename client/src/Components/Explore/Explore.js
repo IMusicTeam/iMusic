@@ -250,7 +250,6 @@ const navigateTO=useNavigate();
             <h1 className="text-[30px] font-medium mt-[28px]">
               Radio stations
             </h1>
-            <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
 
       <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -267,7 +266,7 @@ const navigateTO=useNavigate();
             <h1 className="text-[30px] font-medium mt-[28px]">
               Albums
             </h1>
-            <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+            <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
         
       <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -284,7 +283,7 @@ const navigateTO=useNavigate();
         <div className="pb-[32px]">
           <div className="flex flex-row justify-between pt-[28px]">
             <h1 className="text-[30px] font-medium">New releases</h1>
-            <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+            <button onClick={()=>HandelSeeAll({path:'albums',title:'Albums'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
 
           <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -365,7 +364,7 @@ const navigateTO=useNavigate();
             <h1 className="text-[30px] font-medium mt-[28px]">
               Your Playlists
             </h1>
-            <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+            <button onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
 
           <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
@@ -382,7 +381,7 @@ const navigateTO=useNavigate();
             <h1 className="text-[30px] font-medium mt-[28px]">
               
             </h1>
-            <h5 onClick={()=>HandelSeeAll({path:'top-playlists',title:'Top Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
+            <h5 onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px] cursor-pointer'>See All</h5>
           </div>
 
         </div>
