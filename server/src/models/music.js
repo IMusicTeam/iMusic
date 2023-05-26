@@ -41,6 +41,7 @@ const uploadSong = new mongoose.Schema(
     },
     songApproved: Boolean,
     userWalletId: {type: String, required: true},
+    adminWalletId: String,
     updatedAt: { type: Date, default: Date.now },
   },
   { timestamps: true }

@@ -54,7 +54,8 @@ class MusicController {
         userId,
         copyrightFile,
         userWalletId,
-        songApproved: false
+        songApproved: false,
+        adminWalletId: ""
       });
       await save.save();
       const data = save.toObject();
@@ -184,13 +185,14 @@ class MusicController {
 
   //approve song
   async ApproveSong(req, res) {
-    const {songId} = req.query
+    const {songId, adminWalletId} = req.query
     try {
        await Songs.findOneAndUpdate(
-        { _id: songId },
+        { _id: songId},
         {
           $set: {
-            songApproved : true
+            songApproved : true,
+            adminWalletId
           },
         },
         // {
