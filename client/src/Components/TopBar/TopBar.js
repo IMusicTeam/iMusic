@@ -52,7 +52,12 @@ export default function TopBar() {
   //     // localStorage.clear();
   //   }
   // }, [isToggled])
-  const connectWallet = async () => {
+
+  window.ethereum.on('accountsChanged', async () => {
+  connectWallet(true)
+    });
+
+  const connectWallet = async (value=false) => {
     try {
       if (typeof window.ethereum === "undefined") {
         setIsText(false);
@@ -73,7 +78,7 @@ export default function TopBar() {
       const balanceInEther = web3.utils.fromWei(balance, "ether");
       setAccount(account);
       //Redux Dispatch action
-      if (isWalletConnected) {
+      if (isWalletConnected || value) {
         dispatch(updateMetaMaskDetails({ data: { account, balanceInEther } }));
       } else {
         dispatch(updateMetaMaskDetails({ data: {} }));
@@ -129,7 +134,7 @@ export default function TopBar() {
               </div>
               <button
                 className={`w-16 h-8 ml-3.5 rounded-full focus:outline-none border border-[#EA7525]`}
-                onClick={connectWallet}
+                onClick={()=>connectWallet()}
               >
                 <div
                   className={`w-8 h-[30px] rounded-full bg-[#295D93] shadow-md transform transition-transform ${

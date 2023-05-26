@@ -245,6 +245,7 @@ export const DashboardMenu = () => {
                 icon={
                   signout
                 }
+                url={"/sign-out"}
                 label="Sign Out"
                 id={"Logout"}
                 url={"/signout"}

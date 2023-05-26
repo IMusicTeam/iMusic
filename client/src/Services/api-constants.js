@@ -17,5 +17,7 @@ export const APIConstants = {
     getallplaylist: returnApis('get-all-playlist?userId='),
     updatePlaylist:returnApis('update-playlist'),
     saveTransaction:returnApis('save-transaction'),
-    getTransaction:returnApis('/get-transaction?:userId=')
+    getTransaction:returnApis('get-transaction?:userId='),
+    getAllPendingSongs:returnApis('get-all-pending-songs'),
+    approveSong:returnApis('approve-song?songId=')
 }

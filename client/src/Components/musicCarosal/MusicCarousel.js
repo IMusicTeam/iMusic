@@ -203,7 +203,14 @@ const navigateTO=useNavigate();
       .get(APIConstants.allsongs)
       .then((res) => {
         const data = res.data.data;
-        setMusicList(data);
+        debugger
+        const resultArray=data.filter((item)=>item.songApproved === true)
+        // data.map((item)=>{
+        //   if(item.songApproved){
+        //     resultArray.push(item)
+        //   }
+        // })
+        setMusicList(resultArray);
         setTimeout(() => {
           setLoading(false);
         }, 1000);

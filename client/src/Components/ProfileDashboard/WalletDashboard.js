@@ -11,10 +11,24 @@ function WalletDashboard() {
   const wallet = useSelector((state) => state.ReduxSlice.data.metaMaskDetails);
   const { userData } = useSelector((store) => store.ReduxSlice.data);
   const isWalletConnected = Object.keys(wallet).length === 0;
-
   const [transectionData, setTransactionData] = useState([]);
   const [date, setDate] = useState("");
   const [knowmore, setKnowMore] = useState(false);
+  // useEffect(() => {
+  //   const handleChainChanged = (chainId) => {
+  //     // Chain changed logic here
+  //     console.log("Wallet chain changed:", chainId);
+  //   };
+ 
+  //   // Subscribe to chainChanged event
+  //   window.ethereum.on("chainChanged", handleChainChanged);
+ 
+  //   // Clean up the event listener
+  //   return () => {
+  //     window.ethereum.removeListener("chainChanged", handleChainChanged);
+  //   };
+  // }, []);
+
   useEffect(() => {
     axios
       .get(
@@ -31,6 +45,7 @@ function WalletDashboard() {
         setTransactionData(data);
       })
       .catch((err) => {
+        //  alert("Please fill all the fields");
         console.log(err.message);
       });
   }, []);

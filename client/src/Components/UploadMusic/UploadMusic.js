@@ -23,6 +23,9 @@ import LoginButton from "../../Components/Atoms/LoginButton/LoginButton";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { baseURL, uploadImage } from "../../helpers/hooks";
+import { ethers } from "ethers";
+import contractInstance from "../../web3";
+
 // require("dotenv").config();
 const httpUrlKey = "HTTP://127.0.0.1:7545";
 
@@ -149,12 +152,34 @@ function UploadMusic() {
       .post(APIConstants.saveTransaction, playload)
       .then((res) => {
         console.log(res);
+        // transfer()
+        handleTransfer()
+        transectioncall()
+        setStep(1);
       })
       .catch((err) => {
         console.log(err.message);
       });
   };
 
+  const handleTransfer = async () => {
+    const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      console.log(accounts);
+      try {
+        const value = ethers.utils.parseEther("4");
+        const res = await contractInstance.methods
+          .sendMoney("0x922EcebF8D5fcA0771B4524BE2d3fEb94c6B6236")
+          .send({
+            from: accounts[0],
+            value: value,
+          });
+        console.log(res);
+      } catch (err) {
+        alert(err);
+      }
+    }
   const navigateTo = useNavigate();
   const HandelBack = () => {
     navigateTo(-1);
@@ -187,6 +212,36 @@ function UploadMusic() {
       .matches(/^[a-zA-Z\s]+$/, "Field should only contain alphabets."),
   });
 
+  const handleSubmit =async (values) => {
+    console.log(values)
+    const reqBody = {
+      albumName: values.albumName,
+      artistName: values.artistName,
+      price: Number(values.price),
+      songName: values.songName,
+      songDescription: values.songDes,
+      tune: audio,
+      songThumbnail: image,
+      userId: userData._id,
+      copyrightFile: doc,
+      userWalletId:metaMaskDetails.account
+    };
+   
+    console.log(reqBody)
+    axios
+      .post(APIConstants.formUpload, reqBody)
+      .then((res) => {
+        console.log(res);
+        transfer();
+        transectioncall();
+        setStep(1);
+      })
+      .catch((err) => {
+        alert("Please fill all the fields");
+        console.log(err.message);
+      });
+  }
+
   const formik = useFormik({
     initialValues: {
       albumName: "",
@@ -196,32 +251,7 @@ function UploadMusic() {
       description: "",
     },
     validationSchema: informationSchema,
-    onSubmit: async (values) => {
-      console.log(values);
-      const reqBody = {
-        albumName: values.albumName,
-        artistName: values.artistName,
-        price: Number(values.price),
-        songName: values.songName,
-        songDescription: values.description,
-        tune: audio,
-        songThumbnail: image,
-        userId: userData._id,
-        copyrightFile: doc,
-      };
-      console.log(reqBody);
-      axios
-        .post(APIConstants.formUpload, reqBody)
-        .then((res) => {
-          console.log(res);
-          transfer();
-          transectioncall();
-          setStep(1);
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-    },
+    onSubmit: handleSubmit
   });
 
   useEffect(() => {
@@ -409,7 +439,7 @@ function UploadMusic() {
                       Copy Rights Attachement
                     </p>
                     <label htmlFor="doc">
-                      <div className="upload-img-div glass_effect glass_effect_border mt-4">
+                      <div className="mt-4 upload-img-div glass_effect glass_effect_border">
                         <>
                           {!uploadPdfFile ? (
                             fileupload ? (
@@ -486,9 +516,9 @@ function UploadMusic() {
 
                 <div className="flex flex-row items-center justify-center mt-[73px]">
                   <LoginButton
-                    type="submit"
-                    onClick={formik.handleSubmit}
-                    disable={!(formik.dirty && formik.isValid)}
+                    // type="submit"
+                    onClick={handleSubmit}
+                    disable ={!(formik.dirty && formik.isValid)}
                     label="Submit"
                     className="py-3 mt-5 w-[305px] mb-[20px] center rounded-[30px] text-iWhite text-[20px]"
                   >
