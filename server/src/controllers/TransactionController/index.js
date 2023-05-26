@@ -1,4 +1,4 @@
-const { codes, strings } = require("../../Constants");
+const { codes, strings } = require("../../constants");
 const Songs = require("../../models/music");
 const { default: mongoose } = require("mongoose");
 const { serverDown } = require("../../helpers/hooks");
