@@ -10,7 +10,7 @@ const transactionController = require("../controllers/TransactionController");
 const favController = require("../controllers/musicController/Favourites");
 const playlistController = require("../controllers/musicController/Playlist");
 const playlist = require("../models/playlist");
-const { uploader, uploadController } = require("../middleWare/localUploader");
+const { uploader, uploadController } = require("../../localUploader");
 
 //add routes here
 router.post("/upload-song", musicController.POST_song);
