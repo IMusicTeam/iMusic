@@ -18,6 +18,7 @@ import Card6 from "../../Assets/Assets/CardImages/Card6.png";
 import Card7 from "../../Assets/Assets/CardImages/Card7.png";
 import Card8 from "../../Assets/Assets/CardImages/Card8.png";
 import Card9 from "../../Assets/Assets/CardImages/Card9.png";
+import defaultImage from "../../Assets/images/imageDefault.png";
 import Card10 from "../../Assets/Assets/CardImages/Card10.png";
 import axios from "axios";
 import { useNavigate } from "react-router";
@@ -50,6 +51,14 @@ function LikedPlayList() {
     setShowDropdown(false);
     setStoreID("");
   };
+
+  const navigateTO=useNavigate();
+  const HandelSeeAll=(value)=>{
+    const {path, title}=value
+    navigateTO(`/see-all/${path}`,{
+      state:title
+    })
+  }
 
   const data = [
     { id: 1, src: Card1, playlist: "Mine", album: "Radio" },
@@ -322,12 +331,12 @@ function LikedPlayList() {
                                 </button>
                                 <div className="pb-5">
                                   <div className="flex flex-col items-center justify-center gap-8">
-                                    <div className="text-iBlue text-[28px] font-medium -mt-[28px]">
+                                    <div className="text-iBlue text-[28px] -mt-[28px]">
                                       Add To PlayList
                                     </div>
                                     <div
                                       onClick={UploadPlayList}
-                                      className="border-dashed border-2 border-indigo-600 px-[50px] py-[10px] rounded-lg text-[20px] cursor-pointer"
+                                      className="border-dashed border-4 border-cm2 px-[90px] py-[15px] rounded-lg text-[20px] cursor-pointer hover:bg-ibm8"
                                     >
                                       <span className="text-iBlue mr-1 text-[30px]">
                                         +
@@ -344,7 +353,7 @@ function LikedPlayList() {
                                       return (
                                         <div
                                           onClick={() => UpdatePlayList(item)}
-                                          className="flex flex-row items-center justify-start cursor-pointer gap-7"
+                                          className="flex flex-row items-center justify-start cursor-pointer gap-7 hover:bg-ibm8 rounded-[12px]"
                                         >
                                           <img
                                             src={item.image}
@@ -371,15 +380,15 @@ function LikedPlayList() {
                                     />
                                   </button>
                                   <div className="flex flex-col gap-[30px] items-center justify-center">
-                                    <div className="text-iBlue text-[28px] font-medium -mt-[28px]">
+                                    <div className="text-iBlue text-[28px] -mt-[28px]">
                                       Add To PlayList
                                     </div>
-                                    <div className="w-[156px] h-[165px] border-iBlue relative border-2 rounded-2xl">
+                                    <div className="w-[156px] h-[165px] border-iBlue relative border-2 rounded-2xl flex flex-row items-center justify-center">
                                       {!image ? (
                                         <img
-                                          src={images}
+                                          src={defaultImage}
                                           alt=""
-                                          className="w-[153px] h-[162px] rounded-2xl"
+                                          className="w-[43px] h-[43px]"
                                         />
                                       ) : (
                                         <img
@@ -412,7 +421,7 @@ function LikedPlayList() {
                                     <div>
                                       <label
                                         for="first_name"
-                                        class="block mb-2 text-[20px] font-medium text-iBlue"
+                                        class="block mb-2 text-[20px] text-iBlue"
                                       >
                                         Playlist Name
                                       </label>
@@ -423,7 +432,7 @@ function LikedPlayList() {
                                         }
                                         type="text"
                                         id="first_name"
-                                        class="bg-gray-50 border w-[508px] border-gray-300 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        class="bg-gray-50 border w-[508px] border-gray-300 text-gray-900 text-[18px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                                         placeholder="Playlist Name"
                                       />
                                     </div>
@@ -431,7 +440,7 @@ function LikedPlayList() {
                                     <div>
                                       <label
                                         for="first_name"
-                                        class="block mb-2 text-[20px] font-medium text-iBlue"
+                                        class="block mb-2 text-[20px] text-iBlue"
                                       >
                                         Description
                                       </label>
@@ -442,7 +451,7 @@ function LikedPlayList() {
                                         }
                                         id="message"
                                         rows="4"
-                                        class="block p-2.5 w-[508px] h-[130px] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        class="block p-2.5 w-[508px] h-[130px] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none"
                                         placeholder="Description"
                                       ></textarea>
                                     </div>
@@ -484,9 +493,9 @@ function LikedPlayList() {
               })}
             </div>
           </div>
-          <div className="pl-[142px]">
-            <h1 className="text-3xl font-medium text-iBlack mb-7">
-              Suggested Videos
+          <div className="pl-8">
+            <h1 className="text-3xl font-medium text-iBlack mb-7 pl-3">
+              Suggested For You
             </h1>
             <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
               {data.map((item) => {
@@ -497,6 +506,13 @@ function LikedPlayList() {
                 );
               })}
             </div>
+          </div>
+
+          <div className="flex flex-row justify-between mb-5">
+            <h1 className="text-[30px] font-medium mt-[28px]">
+              
+            </h1>
+            <h5 onClick={()=>HandelSeeAll({path:'suggested-for-you',title:'Suggested For You'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px] cursor-pointer'>See All</h5>
           </div>
         </div>
       )}

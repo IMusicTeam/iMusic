@@ -25,13 +25,15 @@ import Unlockendless1 from "../../Assets/Unlockendless1.png"
 import Unlockendless2 from "../../Assets/Unlockendless2.png"
 import Footer from "../Footer/Footer";
 import './UpdatedLandingPage.css'
-import { useNavigate ,Navigate} from "react-router-dom";
+import { useNavigate, Navigate} from "react-router-dom";
 import { useSelector } from "react-redux";
 function UpdatedLandingPage(){
     const isAuthed = useSelector((store)=> store.ReduxSlice.data.isAuthed)
     const navigate = useNavigate();
     const VerificationEmail = () =>{
-        navigate('/verify-email')
+        setTimeout(()=>{
+            navigate('/verify-email')
+        },600)
     }
     const rhythmicdata = [
         {id:1, src:fanpower, text1:"Fan-powered"},
