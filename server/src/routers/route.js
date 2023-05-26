@@ -10,6 +10,7 @@ const transactionController = require("../controllers/TransactionController");
 const favController = require("../controllers/musicController/Favourites");
 const playlistController = require("../controllers/musicController/Playlist");
 const playlist = require("../models/playlist");
+const { uploader, uploadController } = require("../middleWare/localUploader");
 
 //add routes here
 router.post("/upload-song", musicController.POST_song);
@@ -18,6 +19,7 @@ router.put("/update-song", musicController.UPDATE_song);
 router.get("/get-song", musicController.GET_song);
 //uploads
 router.post("/upload-audio", upload.single("file"), cors(), uploadImage);
+router.post("/upload", uploader.single("file"), uploadController)
 //al charts
 router.get("/all-charts", musicController.GET_allCharts);
 //favourites
@@ -38,7 +40,7 @@ router.get(
   "/get-transaction?:userId",
   transactionController.getTransactionById
 );
-router.post('/approve-song?:songId', musicController.ApproveSong)
+router.post('/approve-song?:songId?:adminWalletId', musicController.ApproveSong)
 router.get("/get-all-pending-songs", musicController.GET_allPendingSongs)
 
 module.exports = router;
