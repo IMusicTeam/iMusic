@@ -129,7 +129,6 @@ function UploadMusic() {
         if (error) {
           console.log("Something went wrong");
         } else {
-          alert(hash);
         }
       }
     );
@@ -152,7 +151,6 @@ function UploadMusic() {
         console.log(res);
       })
       .catch((err) => {
-        alert("Please fill all the fields");
         console.log(err.message);
       });
   };
@@ -222,7 +220,6 @@ function UploadMusic() {
           setStep(1);
         })
         .catch((err) => {
-          alert("Please fill all the fields");
           console.log(err.message);
         });
     },

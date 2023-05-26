@@ -239,6 +239,7 @@ export const DashboardMenu = () => {
                 }
                 label="Sign Out"
                 id={"Logout"}
+                url={"/signout"}
               />
             </div>
           </div>

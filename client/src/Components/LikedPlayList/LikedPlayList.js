@@ -184,7 +184,6 @@ function LikedPlayList() {
       .put(APIConstants.updatePlaylist, result)
       .then((res) => {
         if(res.data.message){
-          alert("This song is already exist in the list")
         }
         const data = res.data.data[0].allPlaylist;
         setListData(data);
@@ -208,7 +207,12 @@ function LikedPlayList() {
         <div className="bg-iGray2 pt-9">
           <div className="h-[389px] bg-iLightBlue pl-[142px] border-iGray4 border">
             <h3 className="text-iOrange font-medium text-[28px] mb-[28px] mt-12">
-              Liked Songs {duration}
+             <span>
+             <button type="button" onClick={() => navigateTo("/home")}>
+             <BiLeftArrowAlt size={38} className="-ml-[74px] -mt-[60px] text-iBlack" />
+              </button>
+              </span> 
+              <span>Liked Songs {duration}</span>
             </h3>
             <div className="flex">
               <img
@@ -217,10 +221,10 @@ function LikedPlayList() {
                 alt="liked"
               />
               <div className="ml-12">
-                <h1 className="text-iBlack text-[35px] font-medium">
+                <h1 className="text-iBlack text-[35px]">
                   The Weekend
                 </h1>
-                <p className="text-base text-iBlack w-[248px] font-medium ">
+                <p className="text-base text-iBlack w-[248px]">
                   It's Created by you and tune into your hottest songs!!!
                 </p>
                 <div className="flex gap-5 mb-[40px] mt-12">

@@ -41,7 +41,6 @@ function ForgotPassword(){
                 navigate("/email-authentication")
             })
             .catch((err)=>{
-                alert('Please fill the field')
                 console.log(err.message)
             })
         }

@@ -167,7 +167,6 @@ function ListSongs() {
       .put(APIConstants.updatePlaylist, result)
       .then((res) => {
         if(res.data.message){
-          alert("This song is already exist in the list")
         }
         const data = res.data.data[0].allPlaylist;
         setListData(data);
