@@ -29,7 +29,7 @@ function RecentlyPlayed() {
   return (
     <div className="px-[34px] py-[42px] bg-iGray2">
       <div className="flex flex-col gap-[28px] 3xl:flex-row">
-        <div className="w-full p-[23px] bg-iWhite rounded-2xl 3xl:max-w-[752px] border border-iOrange">
+        <div className="w-full p-[17px] bg-iWhite rounded-2xl 3xl:max-w-[752px] border border-solid border-iOrange border-width-02">
         <div className="flex flex-row items-center justify-between pb-[28px]">
           <h1 className="text-[28px]">Recently Played</h1>
           <div className="flex flex-row gap-[22px]">

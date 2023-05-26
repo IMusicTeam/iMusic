@@ -29,7 +29,7 @@ const FormField = ({
 
   return (
     <div
-      className={`relative h-14 px-3.5 border border-solid border-igy3 rounded-[10px] ${
+      className={`relative h-14 px-3.5 border border-solid border-iGray4 rounded-[10px] ${
         error && "border-ird1"
       } ${success && "border-igr1"} ${
         disabled && "!border-igy1 cursor-none bg-igy4"

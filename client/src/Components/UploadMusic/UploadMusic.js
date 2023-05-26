@@ -163,11 +163,10 @@ function UploadMusic() {
     setStep(0);
     setImage("");
     setAudio("");
-    setAlbumName("");
-    setArtistName("");
-    setPrice("");
-    setSongName("");
-    setSongDes("");
+    setDoc("")
+    formik.resetForm()
+    setSucces(false);
+    setUploadPdfFile(false)
   };
 
   const informationSchema = Yup.object().shape({
@@ -204,7 +203,7 @@ function UploadMusic() {
         artistName: values.artistName,
         price: Number(values.price),
         songName: values.songName,
-        songDescription: values.songDes,
+        songDescription: values.description,
         tune: audio,
         songThumbnail: image,
         userId: userData._id,

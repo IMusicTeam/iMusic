@@ -1,3 +1,6 @@
 .text-shadow{
     text-shadow: 0px 12px 6px rgba(0, 0, 0, 0.16);
 }
+.border-width-02{
+    border-width: 0.2px;
+}

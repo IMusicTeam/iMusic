@@ -49,6 +49,14 @@ export const DashboardMenu = () => {
     }
   });
 
+  const profileDropDown = () =>{
+    if(isOpen){
+      setIsOpen(true);
+    }else{
+      setIsOpen(false);
+    }
+  }
+
   return (
     <div className={`${styles.menu}`}>
       <div className="flex flex-col items-center mt-6">
@@ -81,7 +89,7 @@ export const DashboardMenu = () => {
               />
             </div>
             {/*Customer Dashboard*/}
-            <div className="mb-2" onClick={() => setIsOpen(true)}>
+            <div className="mb-2" onClick={profileDropDown}>
               <MenuItem
                 onClickOutside={true}
                 ClickedOut={isOpen}
