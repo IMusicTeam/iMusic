@@ -40,51 +40,53 @@ import EmailAuthentication from "./Components/EmailAuthentication/EmailAuthentic
 import PrivateRoute from "./ProtectedRoute";
 import ListSongs from "./Components/Playlists/ListSongs/ListSongs";
 import Music from "./Components/Music/Music";
+import { ethers } from "ethers";
+import contractInstance from "./web3";
 
 function App() {
-  useEffect(()=>{
+  useEffect(() => {
     window.scrollTo(0, 0);
 
   })
-  return (
-   <>
-   <Router>
-   <Routes>
-   <Route path="/landingpage" element={<UpdatedLandingPage />}/>
-   <Route path="/verify-email" element={<ForgotPassword />}/>
-   <Route path="/email-authentication" element={<EmailAuthentication />}/>
-   <Route path="/" element={<PrivateRoute />}>
-   <Route element={<Internal />}>
-   <Route path="/home" element={<Home />} />
-   <Route path="/likedMusic" element={<LikedPlayList />} />
-   <Route path="/RoundedCradFullDetails/:id" element={<RoundedCardFullDetails />}/>
-   <Route path="/audioPlayer" element ={<AudioPlayer /> } />
-   <Route path="/search" element={<Search />} />
-   <Route path="/uploadMusic" element={<UploadMusic /> }/>
-   <Route path="/exploreScreen" element={<Explore />}/>
-   <Route path="/playlists" element={<Playlist />}/>
-   <Route path="/yourlibrary" element={<Library />} />
-   <Route path="/albums" element={<Albums />} />
-   <Route path="/playing-music" element={<Playing />} />
-   <Route path="/profile/dashboard" element={<ProfileDashboard />}/>
-   <Route path="/profile/walletdashboard" element={<WalletDashboard/>}/>
-   <Route path="/profile/settings" element={<ProfileSettings/>}/>
-   <Route path="/profile/get-help" element={<Gethelp/>}/>
-   <Route path="/profiles/getHelp/contactUs" element={<ContactUs/>}/>
-   <Route path="/see-all/:path" element ={<SeeAll />} />
-   <Route path="/admin-details" element={<AdminDetails/>}/>
-   <Route path="/" element={<Navigate to="/home" replace />} />
-   <Route path="/albumsView" element ={<AlbumsViewPage/>}/>
-   <Route path="/dashboard" element={<Dashboard />} />
-   <Route path="/playlist-list" element={<ListSongs />} />
-   <Route path="/music-player" element={<Music />} />
-
-
-   </Route>
-   </Route>
-   </Routes>
-   </Router>
-   </>
- );
-}
-export default App;
+ 
+    return (
+      <>
+        <Router>
+          <Routes>
+            <Route path="/landingpage" element={<UpdatedLandingPage />} />
+            <Route path="/verify-email" element={<ForgotPassword />} />
+            <Route path="/email-authentication" element={<EmailAuthentication />} />
+            <Route path="/" element={<PrivateRoute />}>
+              <Route element={<Internal />}>
+                {/* <Route path="/rythamic" element={<RythamicBackground />} /> */}
+                <Route path="/home" element={<Home />} />
+                <Route path="/likedMusic" element={<LikedPlayList />} />
+                <Route path="/RoundedCradFullDetails/:id" element={<RoundedCardFullDetails />} />
+                <Route path="/audioPlayer" element={<AudioPlayer />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/uploadMusic" element={<UploadMusic />} />
+                <Route path="/exploreScreen" element={<Explore />} />
+                <Route path="/playlists" element={<Playlist />} />
+                <Route path="/yourlibrary" element={<Library />} />
+                <Route path="/albums" element={<Albums />} />
+                <Route path="/playing-music" element={<Playing />} />
+                <Route path="/profile/dashboard" element={<ProfileDashboard />} />
+                <Route path="/profile/walletdashboard" element={<WalletDashboard />} />
+                <Route path="/profile/settings" element={<ProfileSettings />} />
+                <Route path="/profile/get-help" element={<Gethelp />} />
+                <Route path="/profiles/getHelp/contactUs" element={<ContactUs />} />
+                <Route path="/see-all/:path" element={<SeeAll />} />
+                <Route path="/admin-details" element={<AdminDetails />} />
+                <Route path="/" element={<Navigate to="/home" replace />} />
+                <Route path="/albumsView" element={<AlbumsViewPage />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/playlist-list" element={<ListSongs />} />
+                <Route path="/music-player" element={<Music />} />
+              </Route>
+            </Route>
+          </Routes>
+        </Router>
+      </>
+    );
+  }
+  export default App;

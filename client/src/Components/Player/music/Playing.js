@@ -64,7 +64,7 @@ useEffect(()=>{
 },[])
   return (<>
     {loader ? <div className="flex justify-center items-center h-[705px]"><img src={Loadingforimusic}/></div> :
-    <div>
+    <div className="h-[639px]">
       {music?.data?.map((item)=>{
       return(
         <div className="pb-[69px] mt-10 flex flex-row justify-center items-center bg-gradient-to-r from-orange-100 via-orange-300 to-orange-300">
