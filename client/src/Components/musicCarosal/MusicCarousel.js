@@ -203,7 +203,6 @@ const navigateTO=useNavigate();
       .get(APIConstants.allsongs)
       .then((res) => {
         const data = res.data.data;
-        debugger
         const resultArray=data.filter((item)=>item.songApproved === true)
         // data.map((item)=>{
         //   if(item.songApproved){
