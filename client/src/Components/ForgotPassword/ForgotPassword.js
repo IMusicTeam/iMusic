@@ -58,7 +58,7 @@ return(
             <div className="flex justify-center">
                 <img src={logo}  className="w-[239px] h-[159px] mt-[40px]"/>
             </div>
-            <h4 className="text-cgy4 text-[30px] font-medium text-center mt-[40px]">Enter Email?</h4>
+            <h4 className="text-cgy4 text-[30px] font-medium text-center mt-[40px]">Enter Email</h4>
                 <p className="text-cgy4 text-[16px] font-medium text-center mt-[40px]">Please enter the email address associated with your iMusic</p>
                 <p className="text-cgy4 text-[16px] font-medium text-center">account below. We will send you a verification code.</p>
 
@@ -68,7 +68,7 @@ return(
                     <input type="text" name="email" placeholder="Enter Email" className="border border-cgy1 rounded-[10px] w-[446px] h-[50px] py-3 px-3 focus:border-cgy1 placeholder-iGray1 text-sm outline-none" id="subjectInput" value={emailverification} onChange={(e) => validEmailVerification(e)} />
                     {emailError && (
                       <span className="text-ibrd3 text-[15px] z-10">
-                        Invalid email address.
+                        Invalid email address
                       </span>
                     )}
                     </div>

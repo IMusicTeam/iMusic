@@ -27,6 +27,8 @@ import ProfileCard from "../../musicCarosal/ProfileCrad/ProfilesCard";
 import { APIConstants } from "../../../Services/api-constants";
 import contractInstance from "../../../web3";
 import { ethers } from "ethers";
+import { baseURL, uploadImage } from "../../../helpers/hooks";
+
 
 function ListSongs() {
   const userId = useSelector((store) => store.ReduxSlice.data.userData._id);
@@ -152,7 +154,6 @@ function ListSongs() {
     axios
       .get(APIConstants.getAllPendingSongs)
       .then((res) => {
-        // debugger
         const data = res.data.data;
         setLikedData(data);
       })
@@ -277,7 +278,7 @@ function ListSongs() {
                   <div key={index}>
                     <div className="w-full listed-rows">
                       <img
-                        src={item.songThumbnail}
+                        src={baseURL +item.songThumbnail}
                         alt=""
                         className="w-16 h-16 rounded-full"
                       />

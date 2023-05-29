@@ -71,6 +71,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router';
 import ListenedCard from '../ListenedCard/ListenedCard';
 import { APIConstants } from '../../Services/api-constants';
+import { baseURL, uploadImage } from "../../helpers/hooks";
 
 function MusicCarousel() {
   const [musicList, setMusicList] = useState([]);
@@ -237,7 +238,7 @@ const navigateTO=useNavigate();
         {musicList.map((item)=>{
           return(
             <div>
-              <ProfileCard data={item} src={item.songThumbnail} newRelease={true}/>
+              <ProfileCard data={item} src={baseURL + item.songThumbnail} newRelease={true}/>
             </div>
           )
         })}
