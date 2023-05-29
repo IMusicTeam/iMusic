@@ -139,13 +139,13 @@ function UploadMusic() {
   const transectioncall = (description, price) => {
     const playload = {
       userId: userData._id,
-      transactionDetails: {
+      transactionDetails: [{
         type: "UploadMusic",
         subType: "--",
         description: description,
-        amount: price,
+        amount: Number(price),
         status: 1,
-      },
+      }]
     };
 
     axios
@@ -154,7 +154,7 @@ function UploadMusic() {
         console.log(res);
         // transfer()
         // handleTransfer()
-        transectioncall()
+        // transectioncall()
         setStep(1);
       })
       .catch((err) => {
@@ -533,7 +533,7 @@ function UploadMusic() {
         </div>
       )}
       {step === 1 && (
-        <div className="flex flex-row justify-center mt-56 mb-28">
+        <div className="flex flex-row justify-center my-[173px]">
           <div className="w-[610px] bg-iWhite shadow-2xl rounded-2xl p-[38px] flex flex-col items-center">
             <img
               src={verified}

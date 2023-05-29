@@ -44,6 +44,7 @@ import rounded9 from "../../Assets/Assets/CardImages/Rounded9.png";
 import rounded10 from "../../Assets/Assets/CardImages/Rounded10.png";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { baseURL } from "../../helpers/hooks";
 import { APIConstants } from "../../Services/api-constants";
 import { useSelector } from "react-redux";
 function Playlist() {
@@ -89,7 +90,7 @@ function Playlist() {
                 <div>
                   <ProfileCard
                     data={item}
-                    src={item.image}
+                    src={baseURL + item.image}
                     playList={true}
                   />
                 </div>

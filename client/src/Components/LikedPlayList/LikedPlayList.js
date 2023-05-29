@@ -27,6 +27,7 @@ import { useSelector } from "react-redux";
 import edit from "../../Assets/EditIcon.png";
 import images from "../../Assets/images/player.png";
 import verified from "../../Assets/Assets/CardImages/Verified.png";
+import { baseURL, uploadImage } from "../../helpers/hooks";
 
 function LikedPlayList() {
   const userId = useSelector((store) => store.ReduxSlice.data.userData._id);
@@ -87,7 +88,7 @@ function LikedPlayList() {
       .then(async (res) => {
         const musicWithDurations = await Promise.all(
           res.data.data[0].allSongs.map(async (music) => {
-            const audio = new Audio(music.tune[0]);
+            const audio = new Audio(baseURL + music.tune[0]);
             const duration = await new Promise((resolve) => {
               audio.addEventListener("loadedmetadata", () => {
                 resolve(audio.duration);
@@ -134,22 +135,47 @@ function LikedPlayList() {
   const UploadPlayList = () => {
     setStep(1);
   };
-  const fileUploadHandler = async (event) => {
-    const file = event.target.files;
-    if (file.length > 0) {
-      let formData = new FormData();
-      formData.append("file", file[0]);
-      const response = await fetch(APIConstants.fileUpload, {
-        method: "POST",
-        body: formData,
-      });
-      const json = await response.json();
-      const validateJSON = json && json?.data ? json.data : "";
-      if (!image) {
-        setImage(validateJSON);
-      }
+
+  const fileUploadHandler = async (event, hook, properties) => {
+    const hasFiles = event.target.files
+    if (hasFiles.length > 0) {
+      Promise.all(
+        Object.values(hasFiles)?.map((file) => {
+          const formData = new FormData();
+          formData.append("file", file);
+          return uploadImage(formData);
+        })
+      )
+        .then((values) => {
+          const images = values.map(({ data }) => data.link);
+           setImage(images[0]);
+          if(properties) {
+            properties(true)
+          }
+        })
+        .catch((ex) => {})
+        .finally(() => {
+          setTimeout(() => {
+          }, 2000);
+        });
     }
   };
+  // const fileUploadHandler = async (event) => {
+  //   const file = event.target.files;
+  //   if (file.length > 0) {
+  //     let formData = new FormData();
+  //     formData.append("file", file[0]);
+  //     const response = await fetch(APIConstants.fileUpload, {
+  //       method: "POST",
+  //       body: formData,
+  //     });
+  //     const json = await response.json();
+  //     const validateJSON = json && json?.data ? json.data : "";
+  //     if (!image) {
+  //       setImage(validateJSON);
+  //     }
+  //   }
+  // };
   const AddNewPlayList = () => {
     const result = {
       ...payload,
@@ -273,7 +299,7 @@ function LikedPlayList() {
                   <div key={index}>
                     <div className="w-full listed-rows">
                       <img
-                        src={item.songThumbnail}
+                        src={baseURL + item.songThumbnail}
                         alt=""
                         className="w-16 h-16 rounded-full"
                       />
@@ -356,7 +382,7 @@ function LikedPlayList() {
                                           className="flex flex-row items-center justify-start cursor-pointer gap-7 hover:bg-ibm8 rounded-[12px]"
                                         >
                                           <img
-                                            src={item.image}
+                                            src={baseURL + item.image}
                                             alt=""
                                             className="w-[86px] h-[86px] rounded-[4px]"
                                           />
@@ -392,7 +418,7 @@ function LikedPlayList() {
                                         />
                                       ) : (
                                         <img
-                                          src={image}
+                                          src={baseURL + image}
                                           alt=""
                                           className="w-[153px] h-[163px] rounded-2xl"
                                         />
@@ -494,7 +520,7 @@ function LikedPlayList() {
             </div>
           </div>
           <div className="pl-8">
-            <h1 className="text-3xl font-medium text-iBlack mb-7 pl-3">
+            <h1 className="pl-3 text-3xl font-medium text-iBlack mb-7">
               Suggested For You
             </h1>
             <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
