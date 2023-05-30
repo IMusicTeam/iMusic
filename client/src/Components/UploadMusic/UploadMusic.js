@@ -5,7 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { BsUpload } from "react-icons/bs";
 import "./UploadMusic.css";
 import images from "./../../Assets/images/player.png";
-import { APIConstants } from "../../Services/api-constants";
+import { APIConstants, assetURL } from "../../Services/api-constants";
 import { useNavigate } from "react-router";
 import verified from "../../Assets/Assets/CardImages/Verified.png";
 import edit from "./../../Assets/EditIcon.png";
@@ -22,7 +22,7 @@ import FormField from "../../Components/Atoms/FormField/FormField.js";
 import LoginButton from "../../Components/Atoms/LoginButton/LoginButton";
 import * as Yup from "yup";
 import { useFormik } from "formik"
-import { baseURL, uploadImage } from "../../helpers/hooks";
+import {  uploadImage } from "../../helpers/hooks";
 import { ethers } from "ethers";
 import contractInstance from "../../web3";
 
@@ -296,7 +296,7 @@ function UploadMusic() {
                       </div>
                     ) : (
                       <img
-                        src={baseURL + image}
+                        src={assetURL + image}
                         alt=""
                         className="w-[153px] h-[163px] rounded-2xl"
                       />
