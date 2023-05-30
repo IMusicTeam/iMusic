@@ -69,6 +69,7 @@ import AlbumsCard21 from "../../Assets/Assets/CardImages/AlbumsCard21.png";
 
 import { useNavigate } from "react-router";
 import ListenedCard from "../ListenedCard/ListenedCard";
+import { BiLeftArrowAlt } from "react-icons/bi";
 
 function Library() {
   const data6 = [
@@ -198,6 +199,12 @@ const navigateTO=useNavigate();
     })
   }
   return (
+  <>
+    <div>
+    <button type="button" onClick={() => navigateTO("/home")}>
+        <BiLeftArrowAlt size={38} className="ml-[30px] text-iBlack" />
+    </button>
+    </div>
     <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px] pr-7">
       <div>
         <div className="flex flex-row justify-between my-7">
@@ -352,6 +359,7 @@ const navigateTO=useNavigate();
         </div>
         
     </div>
+    </>
   );
 }
 
