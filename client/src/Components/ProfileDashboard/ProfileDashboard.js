@@ -74,7 +74,7 @@ function ProfileDashboard() {
 
         </div>
 
-        <div className='flex flex-row gap-[16px] ml-[34px]'>
+        <div className='flex flex-row gap-[16px] ml-[34px] mb-[30px]'>
           <div className='max-w-[816px] w-full h-[434px] bg-igray rounded-[12px] border border-iOrange mt-[22px]'>
             <div className='text-ibgy1 text-[28px] text-center mt-[183px]'>No Transactions To Display</div>
           </div>
