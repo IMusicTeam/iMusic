@@ -102,7 +102,13 @@ function UpdatedLandingPage(){
             </div>
 
             <div className="flex flex-row justify-between">
-                <div className="text-[80px] 3xl:text-[60px] 13mac:text-[45px] text-iBlue font-medium mt-[75px] ml-[72px] 3xl:leading-20px 2xl:text-[47px] 1.5xl:text-[47px] 1xl:text-[50px] 5xl:text-[40px] xl:text-[50px]">A Decentralized Music <br/> Experience Built on Web3 <br/> Technology.</div>
+                <div className="4xl:text-[70px] 3xl:text-[55px] 13mac:text-[56px] text-iBlack font-medium mt-[75px] ml-[72px] 3xl:leading-20px 2xl:text-[52px] 1.5xl:text-[51px] 1xl:text-[54px] 5xl:text-[40px] xl:text-[54px]">Next-Gen Music Experience with iMusic-NFT
+                <div className="text-iOrange">
+                    <span>Fans,</span>
+                    <span> Artists,</span>
+                    <span> Tokens</span>
+                </div>
+                </div>
                 <div>
                     <img src={listeningMusic}  className="3xl:max-w-[2332px] h-[760px] 13mac:max-w-[2000px] 13mac:h-[695px] 2xl:max-w-[1800px] 2xl:h-[650px] 1.5xl:max-w-[1740px] 1.5xl:h-[610px] 1xl:max-w-[1700px] 1xl:h-[580px] 5xl:max-w-[1640px] 5xl:h-[550px] xl:max-w-[1600px] xl:h-[530px]"/>    
                 </div>
