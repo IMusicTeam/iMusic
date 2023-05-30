@@ -27,6 +27,8 @@ import Footer from "../Footer/Footer";
 import './UpdatedLandingPage.css'
 import { useNavigate, Navigate} from "react-router-dom";
 import { useSelector } from "react-redux";
+import { ethers } from "ethers";
+import contractInstance from "../../web3";
 function UpdatedLandingPage(){
     const isAuthed = useSelector((store)=> store.ReduxSlice.data.isAuthed)
     const navigate = useNavigate();
@@ -67,8 +69,29 @@ function UpdatedLandingPage(){
         return <Navigate to="/home"/>
     }
 
+    const handleTransfer = async (walletId) => {
+        const accounts = await window.ethereum.request({
+            method: "eth_requestAccounts",
+          });
+          console.log(accounts);
+          try {
+            const value = ethers.utils.parseEther("2");
+            const res = await contractInstance.methods
+              .sendMoney(walletId)
+              .send({
+                from: accounts[0],
+                value: value,
+              });
+            console.log(res);
+          } catch (err) {
+            alert(err);
+          }
+        }
+    
+
     return (
         <div className="w-full h-full bg-iLightBlue">
+            {/* <button onClick={()=> handleTransfer("0x7A2AE70F5524c712db746F9A1a81dFf5D92Aa99E")} >Transfer</button> */}
             <div className="flex flex-row justify-between">
             <div className="imusicLogo">
                 <img src={imusicLogo}  className="max-w-[185px] h-[196px] pt-[24px] pl-[36px]"/>
