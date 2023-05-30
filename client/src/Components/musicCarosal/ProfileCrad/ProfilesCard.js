@@ -36,7 +36,7 @@ function ProfileCard({ data, src, newRelease, playList }) {
     });
   console.log(accounts);
     try {
-      const value = ethers.utils.parseEther("10");
+      const value = ethers.utils.parseEther("6");
       const res = await contractInstance.methods
         .sendToUploader(data.userWalletId, data.adminWalletId)
         .send({
