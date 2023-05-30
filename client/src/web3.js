@@ -1,5 +1,5 @@
 import Web3 from "web3";
-import songs from '../src/Components/contracts/Songs.json' // Update the path to your contract JSON file
+import songs from '../src/truffle/build/contracts/Songs.json' // Update the path to your contract JSON file
 // window.ethereum.enable();
 const web3 = new Web3(window.ethereum);
 const accounts = new web3.eth.getAccounts();

@@ -102,7 +102,7 @@ function UpdatedLandingPage(){
             </div>
 
             <div className="flex flex-row justify-between">
-                <div className="4xl:text-[70px] 3xl:text-[55px] 13mac:text-[56px] text-iBlack font-medium mt-[75px] ml-[72px] 3xl:leading-20px 2xl:text-[52px] 1.5xl:text-[51px] 1xl:text-[54px] 5xl:text-[40px] xl:text-[54px]">Next-Gen Music Experience with iMusic-NFT
+                <div className="4xl:text-[70px] 3xl:text-[55px] 13mac:text-[56px] text-iBlue font-medium mt-[75px] ml-[72px] 3xl:leading-20px 2xl:text-[52px] 1.5xl:text-[51px] 1xl:text-[54px] 5xl:text-[40px] xl:text-[54px]">Next-Gen Music Experience with iMusic-NFT
                 <div className="text-iOrange">
                     <span>Fans,</span>
                     <span> Artists,</span>
