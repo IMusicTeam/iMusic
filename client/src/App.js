@@ -78,7 +78,7 @@ function App() {
     }
   });
 
-  return !window?.ethereum ? (
+  return window?.ethereum ? (
     <>
       <Router>
         <Routes>
