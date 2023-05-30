@@ -1,6 +1,6 @@
 // functions
 
-const { codes, strings } = require("../Constants");
+const { codes, strings } = require("../constants");
 const { storeOtp } = require("./otp");
 
 function serverDown(res) {

@@ -28,10 +28,16 @@ function EmailAuthentication(){
         }
         axios.put(APIConstants.otpVerification,reqBody)
         .then((res)=>{
+            var jsonString = JSON.stringify(reqBody);
             localStorage.setItem("id",res.data.data._id)
-            dispatch(updateAuthVerification({data:{id:res.data.data._id}}))
+            localStorage.setItem("emailAuth",jsonString)
+            if(reqBody.email === "admin@ideyalabs.com"){
+                 dispatch(updateUserData({data:{...res.data.data,isAdmin:true}}))
+            }else{
             dispatch(updateUserData({data:{...res.data.data}}))
-            setIsLoading(false);
+            }
+            dispatch(updateAuthVerification({data:{id:res.data.data._id}}))
+                setIsLoading(false);
             setCodeSuccess(true);
             setTimeout(() => {
                 navigate('/home')
@@ -84,7 +90,7 @@ function EmailAuthentication(){
             />
             </div>
 
-            <div className="flex justify-center items-center">
+            <div className="flex items-center justify-center">
             <h6 className="flex justify-center items-center mt-[4px] text-iBlue hover:underline hover:cursor-pointer font-medium" onClick={BacktoPreviousPage}>Go Back</h6>
             </div>
             

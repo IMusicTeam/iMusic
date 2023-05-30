@@ -136,16 +136,16 @@ function UploadMusic() {
       }
     );
   };
-  const transectioncall = () => {
+  const transectioncall = (description, price) => {
     const playload = {
       userId: userData._id,
-      transactionDetails: {
+      transactionDetails: [{
         type: "UploadMusic",
         subType: "--",
-        description: songDes,
-        amount: price,
+        description: description,
+        amount: Number(price),
         status: 1,
-      },
+      }]
     };
 
     axios
@@ -154,7 +154,7 @@ function UploadMusic() {
         console.log(res);
         // transfer()
         // handleTransfer()
-        transectioncall()
+        // transectioncall()
         setStep(1);
       })
       .catch((err) => {
@@ -212,19 +212,21 @@ function UploadMusic() {
       .matches(/^[a-zA-Z\s]+$/, "Field should only contain alphabets."),
   });
 
-  const handleSubmit =async (values) => {
+  const handleSubmit =async () => {
+    const values=formik.values
     console.log(values)
     const reqBody = {
       albumName: values.albumName,
       artistName: values.artistName,
       price: Number(values.price),
       songName: values.songName,
-      songDescription: values.songDes,
-      tune: audio,
+      songDescription: values.description,
+      tune: [audio],
       songThumbnail: image,
       userId: userData._id,
       copyrightFile: doc,
-      userWalletId:metaMaskDetails.account
+      userWalletId:metaMaskDetails.account,
+      lyrics:"No"
     };
    
     console.log(reqBody)
@@ -233,7 +235,7 @@ function UploadMusic() {
       .then((res) => {
         console.log(res);
         transfer();
-        transectioncall();
+        transectioncall(values.description, values.price);
         setStep(1);
       })
       .catch((err) => {
@@ -531,7 +533,7 @@ function UploadMusic() {
         </div>
       )}
       {step === 1 && (
-        <div className="flex flex-row justify-center mt-56 mb-28">
+        <div className="flex flex-row justify-center my-[173px]">
           <div className="w-[610px] bg-iWhite shadow-2xl rounded-2xl p-[38px] flex flex-col items-center">
             <img
               src={verified}

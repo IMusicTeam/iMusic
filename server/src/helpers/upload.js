@@ -1,6 +1,6 @@
 const fs = require("fs");
 const { BlobServiceClient } = require("@azure/storage-blob");
-const { codes, strings } = require("../Constants");
+const { codes, strings } = require("../constants");
 const { serverDown } = require("./hooks");
 
 const connectionString = process.env.AzureKey

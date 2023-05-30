@@ -71,6 +71,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router';
 import ListenedCard from '../ListenedCard/ListenedCard';
 import { APIConstants } from '../../Services/api-constants';
+import { baseURL, uploadImage } from "../../helpers/hooks";
 
 function MusicCarousel() {
   const [musicList, setMusicList] = useState([]);
@@ -203,7 +204,6 @@ const navigateTO=useNavigate();
       .get(APIConstants.allsongs)
       .then((res) => {
         const data = res.data.data;
-        debugger
         const resultArray=data.filter((item)=>item.songApproved === true)
         // data.map((item)=>{
         //   if(item.songApproved){
@@ -229,16 +229,16 @@ const navigateTO=useNavigate();
   }
   
    return (
-    <div className='pl-[34px] pb-[32px]'>
+    <div className='pl-[34px] pb-[32px] pr-7'>
          {musicList.length > 0 && (<div className='flex flex-row justify-between'>
           <h1 className='text-[30px]'>New releases</h1>          
       </div> )}
 
-      <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {musicList.map((item)=>{
           return(
             <div>
-              <ProfileCard data={item} src={item.songThumbnail} newRelease={true}/>
+              <ProfileCard data={item} src={baseURL + item.songThumbnail} newRelease={true}/>
             </div>
           )
         })}
@@ -249,7 +249,7 @@ const navigateTO=useNavigate();
         <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
 
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data7.map((item)=>{
               return(
@@ -267,7 +267,7 @@ const navigateTO=useNavigate();
         <button onClick={()=>HandelSeeAll({path:'new-uploaded',title:'New uploaded'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
 
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data1.map((item)=>{
               return(
@@ -284,7 +284,7 @@ const navigateTO=useNavigate();
          <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
       </div>   
 
-      <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data2.map((item)=>{
               return(
@@ -300,7 +300,7 @@ const navigateTO=useNavigate();
       <h1 className='text-[30px] font-medium mt-[28px]'>Featured playlists Based on Mood</h1>
       <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
     </div>
-    <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+    <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data3.map((item)=>{
               return(
@@ -316,7 +316,7 @@ const navigateTO=useNavigate();
       <h1 className='text-[30px] font-medium mt-[28px]'>Last Spotlight</h1>
       <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
     </div>
-    <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+    <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data4.map((item)=>{
               return(
@@ -333,7 +333,7 @@ const navigateTO=useNavigate();
           <h5 onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-medium text-[16px] text-iBlack1 cursor-pointer'>See All</h5>
         </div>
 
-        <div className='flex flex-row gap-[30px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className="flex flex-row gap-[29px]  1xl:gap-[42px] 2xl:gap-[20px] 13mac:gap-[25px] 4xl:gap-[23px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
           {
             data.map((item)=>{
               return (
@@ -350,7 +350,7 @@ const navigateTO=useNavigate();
       <h1 className='text-[30px] font-medium mt-[28px]'>Radio stations</h1>
     </div>
 
-    <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+    <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data5.map((item)=>{
               return(
@@ -368,7 +368,7 @@ const navigateTO=useNavigate();
       <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
     </div>
 
-    <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+    <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data6.map((item)=>{
               return(

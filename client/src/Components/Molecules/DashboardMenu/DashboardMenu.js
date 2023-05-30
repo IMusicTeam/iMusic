@@ -238,7 +238,7 @@ export const DashboardMenu = () => {
             <div className="mb-2">
               <MenuItem
                 onClick={()=>{
-                  localStorage.removeItem("id")
+                  localStorage.clear()
                   dispatch(logout())
                   setTimeout(()=>{navigate("/landingpage")},2000)           
                         }}
