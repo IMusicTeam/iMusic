@@ -55,126 +55,147 @@ function AlbumsViewPage() {
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'1.20'
     },
     {
       image: rounded2,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'2.20'
     },
     {
       image: rounded3,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'3.20'
     },
     {
       image: rounded4,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'4.20'
     },
     {
       image: rounded5,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'5.20'
     },
     {
       image: rounded6,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'6.20'
     },
     {
       image: rounded7,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'7.20'
     },
     {
       image: rounded8,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'8.20'
     },
     {
       image: rounded9,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'9.20'
     },
     {
       image: rounded10,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'10.20'
     },
     {
       image: rounded1,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'11.20'
     },
     {
       image: rounded2,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'12.20'
     },
     {
       image: rounded3,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'1.30'
     },
     {
       image: rounded4,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'1.50'
     },
     {
       image: rounded5,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'2.30'
     },
     {
       image: rounded6,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'2.50'
     },
     {
       image: rounded7,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'3.40'
     },
     {
       image: rounded8,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'4.30'
     },
     {
       image: rounded9,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'5.10'
     },
     {
       image: rounded10,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'6.10'
     },
     {
       image: likedImage,
       text1: "Taylor Swift",
       text2: "Shake it off",
       year: 1989,
+      time:'9.40'
     },
   ];
   const data = [
@@ -197,6 +218,13 @@ function AlbumsViewPage() {
     const minutes = Math.round(duration / 60);
     const seconds = Math.round(duration % 60);
     return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+  }
+  const navigateTO=useNavigate();
+  const HandelSeeAll=(value)=>{
+    const {path, title}=value
+    navigateTO(`/see-all/${path}`,{
+      state:title
+    })
   }
   return (
     <>
@@ -258,7 +286,7 @@ function AlbumsViewPage() {
           {datas?.map((item, index) => {
             return (
               <div key={index}>
-                <div className="w-full listed-rows">
+                <div className="w-full listed-rows h-[90px]">
                   <img
                     src={item.image}
                     alt=""
@@ -277,7 +305,7 @@ function AlbumsViewPage() {
                     </span>
                   </div>
                   <div className="text-xl text-iOrange">
-                    3.40 Min
+                    {item.time} Min
                   </div>
                   <button
                     onClick={() =>
@@ -294,20 +322,29 @@ function AlbumsViewPage() {
           })}
         </div>
       </div>
-      <div className="pl-[142px]">
-        <h1 className="text-3xl font-medium text-iBlack mb-7">
-          Suggested Videos
-        </h1>
-        <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
-          {data.map((item) => {
-            return (
-              <div>
-                <ProfileCard data={item} src={item.src} />
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      <div className="pr-8">
+          <div className="pl-8">
+            <h1 className="pl-3 text-3xl font-medium text-iBlack mb-7">
+              Suggested For You
+            </h1>
+            <div className="flex flex-row xl:gap-[41px] 1xl:gap-[74px] 2xl:gap-[24px] 3xl:gap-[34px] 4xl:gap-[26px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+              {data.map((item) => {
+                return (
+                  <div>
+                    <ProfileCard data={item} src={item.src} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="flex flex-row justify-between mb-5">
+            <h1 className="text-[30px] font-medium mt-[28px]">
+              
+            </h1>
+            <h5 onClick={()=>HandelSeeAll({path:'suggested-for-you',title:'Suggested For You'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px] cursor-pointer'>See All</h5>
+          </div>
+          </div>
     </div>
     </>
   );

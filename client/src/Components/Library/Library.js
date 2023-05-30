@@ -59,15 +59,17 @@ import rounded9 from "../../Assets/Assets/CardImages/Rounded9.png";
 import rounded10 from "../../Assets/Assets/CardImages/Rounded10.png";
 import AlbumsCard5 from "../../Assets/Assets/CardImages/AlbumsCard5.png";
 import AlbumsCard4 from "../../Assets/Assets/CardImages/AlbumsCard4.png";
-import AlbumsCard16 from "../../Assets/Assets/CardImages/AlbumsCard16.png";
-import album4 from "../../Assets/Assets/CardImages/album4.png";
+import AlbumsCard8 from "../../Assets/Assets/CardImages/AlbumsCard8.png";
+import AlbumsCard18 from "../../Assets/Assets/CardImages/AlbumsCard18.png";
 import AlbumsCard14 from "../../Assets/Assets/CardImages/AlbumsCard14.png";
 import AlbumsCard13 from "../../Assets/Assets/CardImages/AlbumsCard13.png";
-import AlbumsCard3 from "../../Assets/Assets/CardImages/AlbumsCard3.png";
-import AlbumsCard10 from "../../Assets/Assets/CardImages/AlbumsCard10.png";
-import AlbumsCard6 from "../../Assets/Assets/CardImages/AlbumsCard6.png";
+import AlbumsCard19 from "../../Assets/Assets/CardImages/AlbumsCard19.png";
+import AlbumsCard20 from "../../Assets/Assets/CardImages/AlbumsCard20.png";
+import AlbumsCard21 from "../../Assets/Assets/CardImages/AlbumsCard21.png";
+
 import { useNavigate } from "react-router";
 import ListenedCard from "../ListenedCard/ListenedCard";
+import { BiLeftArrowAlt } from "react-icons/bi";
 
 function Library() {
   const data6 = [
@@ -109,13 +111,13 @@ function Library() {
   const data8 = [
     { id: 1, src: AlbumsCard5,text:"Listen to your own Music" },
     { id: 2, src: AlbumsCard4,text:"Listen to your owned Music" },
-    { id: 3, src: AlbumsCard16},
-    { id: 4, src: album4},
+    { id: 3, src: AlbumsCard8},
+    { id: 4, src: AlbumsCard18},
     { id: 5, src: AlbumsCard14 },
     { id: 6, src: AlbumsCard13 },
-    { id: 7, src: AlbumsCard3},
-    { id: 8, src: AlbumsCard10},
-    { id: 9, src: AlbumsCard6},
+    { id: 7, src: AlbumsCard19},
+    { id: 8, src: AlbumsCard20},
+    { id: 9, src: AlbumsCard21},
   ] 
   const data1= [
     { id: 1, src: Card11,playlist:"Trending Playlist",album:"Album"},
@@ -197,7 +199,13 @@ const navigateTO=useNavigate();
     })
   }
   return (
-    <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px]">
+  <>
+    <div>
+    <button type="button" onClick={() => navigateTO("/home")}>
+        <BiLeftArrowAlt size={38} className="ml-[30px] text-iBlack" />
+    </button>
+    </div>
+    <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px] pr-7">
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-medium">New releases</h1>
@@ -205,7 +213,7 @@ const navigateTO=useNavigate();
             
           </h5>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data?.map((item) => {
             return (
               <div>
@@ -220,7 +228,7 @@ const navigateTO=useNavigate();
           <h1 className="text-[30px] font-medium">Top charts</h1>
           <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data1?.map((item) => {
             return (
               <div>
@@ -235,7 +243,7 @@ const navigateTO=useNavigate();
           <h1 className="text-[30px] font-medium">Recommended for you</h1>
           <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data2?.map((item) => {
             return (
               <div>
@@ -252,7 +260,7 @@ const navigateTO=useNavigate();
           </h1>
           <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data3?.map((item) => {
             return (
               <div>
@@ -267,7 +275,7 @@ const navigateTO=useNavigate();
           <h1 className="text-[30px] font-medium">Last Spotlight</h1>
           <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data4?.map((item) => {
             return (
               <div>
@@ -277,8 +285,16 @@ const navigateTO=useNavigate();
           })}
         </div>
       </div>
+
       <div>
-        <div className="flex gap-6 max-w-[1632px] pl-[13px] overflow-x-scroll hidding-x-scroll">
+        <div className="flex flex-row justify-between">
+          <h1 className="text-[30px] font-medium"></h1>
+          <h5 onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-medium text-[16px] text-iBlack1 cursor-pointer'>See All</h5>
+        </div>
+        </div>
+        
+      <div>
+      <div className="flex flex-row gap-[29px]  1xl:gap-[42px] 2xl:gap-[20px] 13mac:gap-[25px] 4xl:gap-[23px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
           {rounded?.map((item) => {
             return (
               <div>
@@ -295,7 +311,7 @@ const navigateTO=useNavigate();
             
           </h5>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data6?.map((item) => {
             return (
               <div>
@@ -310,7 +326,7 @@ const navigateTO=useNavigate();
           <h1 className="text-[30px] font-medium">Your Playlists</h1>
           <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data7?.map((item) => {
             return (
               <div>
@@ -325,7 +341,7 @@ const navigateTO=useNavigate();
       <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
     </div>
 
-    <div className='flex flex-row gap-[24px] p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+    <div className='flex flex-row xl:gap-[25px] 13mac:gap-[14px] 4xl:gap-[50px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data8?.map((item)=>{
               return(
@@ -336,14 +352,14 @@ const navigateTO=useNavigate();
             })
           }
         </div>
-      <div>
-        <div className="flex flex-row justify-between my-7">
+        
+        <div className="flex flex-row justify-between">
           <h1 className="text-[30px] font-medium"></h1>
-          <h5 onClick={()=>HandelSeeAll({path:'top-playlists',title:'Top Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</h5>
+          <h5 onClick={()=>HandelSeeAll({path:'top-albums',title:'Top Albums'})} className='underline font-medium text-[16px] text-iBlack1 cursor-pointer'>See All</h5>
         </div>
         
-      </div>
     </div>
+    </>
   );
 }
 

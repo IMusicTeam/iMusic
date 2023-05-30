@@ -42,6 +42,7 @@ import PrivateRoute from "./ProtectedRoute";
 import ListSongs from "./Components/Playlists/ListSongs/ListSongs";
 import Music from "./Components/Music/Music";
 import { ethers } from "ethers";
+// import contractInstance from "./web3";
 import axios from "axios";
 import { APIConstants } from "./Services/api-constants";
 import { updateAuthVerification, updateUserData } from "./Redux/Redux";

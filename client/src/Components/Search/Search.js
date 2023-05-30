@@ -119,7 +119,7 @@ const navigateTo=useNavigate();
   }
 
   return (
-    <div className="pt-[24px] pl-[36px] pb-[136px]">
+    <div className="pt-[24px] pl-[36px] pb-[136px] pr-7">
       <button onClick={HandelBack}>
       <BiLeftArrowAlt size={38} className="mb-[33px] -ml-[9px]" />
       </button>
@@ -148,7 +148,7 @@ const navigateTo=useNavigate();
           See All
         </h5>
       </div>
-      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {data.map((item) => {
           return (
             <div>
@@ -167,7 +167,7 @@ const navigateTo=useNavigate();
         </h5>
       </div>
 
-      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {data1.map((item) => {
           return (
             <div>
@@ -184,7 +184,7 @@ const navigateTo=useNavigate();
         </h5>
       </div>
 
-      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {data2.map((item) => {
           return (
             <div>
@@ -201,7 +201,7 @@ const navigateTo=useNavigate();
         </h5>
       </div>
 
-      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {data3.map((item) => {
           return (
             <div>
@@ -218,7 +218,7 @@ const navigateTo=useNavigate();
         </h5>
       </div>
 
-      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {data4.map((item) => {
           return (
             <div>
@@ -235,7 +235,7 @@ const navigateTo=useNavigate();
         </h5>
       </div>
 
-      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {data5.map((item) => {
           return (
             <div>

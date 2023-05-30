@@ -9,6 +9,8 @@ import rounded2 from "../../Assets/Assets/CardImages/Rounded2.png";
 import rounded3 from "../../Assets/Assets/CardImages/Rounded3.png";
 import rounded4 from "../../Assets/Assets/CardImages/Rounded4.png";
 import rounded5 from "../../Assets/Assets/CardImages/Rounded5.png";
+import AlbumsCard1 from "../../Assets/Assets/CardImages/AlbumsCard6.png";
+
 import "./RecentlyPlayed.css"
 
 function RecentlyPlayed() {
@@ -28,8 +30,8 @@ function RecentlyPlayed() {
   
   return (
     <div className="px-[34px] py-[42px] bg-iGray2">
-      <div className="flex flex-col gap-[28px] 3xl:flex-row">
-        <div className="w-full p-[23px] bg-iWhite rounded-2xl 3xl:max-w-[752px]">
+      <div className="flex flex-col gap-[28px] 3.5xl:flex-row">
+        <div className="w-full p-[17px] bg-iWhite rounded-2xl 3.5xl:max-w-[752px] border border-solid border-iOrange border-width-02">
         <div className="flex flex-row items-center justify-between pb-[28px]">
           <h1 className="text-[28px]">Recently Played</h1>
           <div className="flex flex-row gap-[22px]">
@@ -77,14 +79,17 @@ function RecentlyPlayed() {
           );
         })}
         </div>
-        <div className="flex gap-[30px]">
+        <div className="flex gap-[30px] 3xl:gap-[70px] 3.5xl:gap-[30px]">
         <div className="relative transition duration-300 ease-in-out delay-150 hover:translate-x-1 hover:scale-80">
             <img src={HomeCard1} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
-       <p className="text-[55px] leading-[70px] px-[65px] absolute top-[107px] text-iWhite shadow-[12px] drop-shadow-2xl  transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-shadow">Listen to your Purchased Music</p>
+       <p className="text-[55px] leading-[70px] px-[65px] absolute top-[107px] text-iWhite shadow-[12px] drop-shadow-2xl transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-shadow">Listen to your Purchased Music</p>
         </div>
         <div className="relative transition duration-300 ease-in-out delay-150 hover:translate-x-1 hover:scale-80">
             <img src={HomeCard2} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
        <p className="text-[55px] leading-[70px] px-[85px] absolute top-[107px] text-iWhite shadow-[12px] drop-shadow-2xl  transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-shadow">Listen to your Owned Music</p>
+        </div>
+        <div className="relative transition duration-300 ease-in-out delay-150 hover:translate-x-1 hover:scale-80 hidden 1xl:block 3.5xl:hidden">
+            <img src={AlbumsCard1} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
         </div>
         </div>
       </div>

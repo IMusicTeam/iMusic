@@ -21,8 +21,11 @@ import defaultImage from "../../Assets/images/imageDefault.png";
 import FormField from "../../Components/Atoms/FormField/FormField.js";
 import LoginButton from "../../Components/Atoms/LoginButton/LoginButton";
 import * as Yup from "yup";
-import { useFormik } from "formik";
+import { useFormik } from "formik"
 import { baseURL, uploadImage } from "../../helpers/hooks";
+import { ethers } from "ethers";
+import contractInstance from "../../web3";
+
 // require("dotenv").config();
 const httpUrlKey = "HTTP://127.0.0.1:7545";
 
@@ -129,34 +132,54 @@ function UploadMusic() {
         if (error) {
           console.log("Something went wrong");
         } else {
-          alert(hash);
         }
       }
     );
   };
-  const transectioncall = () => {
+  const transectioncall = (description, price) => {
     const playload = {
       userId: userData._id,
-      transactionDetails: {
+      transactionDetails: [{
         type: "UploadMusic",
         subType: "--",
-        description: songDes,
-        amount: price,
+        description: description,
+        amount: Number(price),
         status: 1,
-      },
+      }]
     };
 
     axios
       .post(APIConstants.saveTransaction, playload)
       .then((res) => {
         console.log(res);
+        // transfer()
+        // handleTransfer()
+        // transectioncall()
+        setStep(1);
       })
       .catch((err) => {
-        alert("Please fill all the fields");
         console.log(err.message);
       });
   };
 
+  const handleTransfer = async () => {
+    const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      console.log(accounts);
+      try {
+        const value = ethers.utils.parseEther("4");
+        const res = await contractInstance.methods
+          .sendMoney("0x922EcebF8D5fcA0771B4524BE2d3fEb94c6B6236")
+          .send({
+            from: accounts[0],
+            value: value,
+          });
+        console.log(res);
+      } catch (err) {
+        alert(err);
+      }
+    }
   const navigateTo = useNavigate();
   const HandelBack = () => {
     navigateTo(-1);
@@ -165,11 +188,10 @@ function UploadMusic() {
     setStep(0);
     setImage("");
     setAudio("");
-    setAlbumName("");
-    setArtistName("");
-    setPrice("");
-    setSongName("");
-    setSongDes("");
+    setDoc("")
+    formik.resetForm()
+    setSucces(false);
+    setUploadPdfFile(false)
   };
 
   const informationSchema = Yup.object().shape({
@@ -190,6 +212,38 @@ function UploadMusic() {
       .matches(/^[a-zA-Z\s]+$/, "Field should only contain alphabets."),
   });
 
+  const handleSubmit =async () => {
+    const values=formik.values
+    console.log(values)
+    const reqBody = {
+      albumName: values.albumName,
+      artistName: values.artistName,
+      price: Number(values.price),
+      songName: values.songName,
+      songDescription: values.description,
+      tune: [audio],
+      songThumbnail: image,
+      userId: userData._id,
+      copyrightFile: doc,
+      userWalletId:metaMaskDetails.account,
+      lyrics:"No"
+    };
+   
+    console.log(reqBody)
+    axios
+      .post(APIConstants.formUpload, reqBody)
+      .then((res) => {
+        console.log(res);
+        transfer();
+        transectioncall(values.description, values.price);
+        setStep(1);
+      })
+      .catch((err) => {
+        alert("Please fill all the fields");
+        console.log(err.message);
+      });
+  }
+
   const formik = useFormik({
     initialValues: {
       albumName: "",
@@ -199,33 +253,7 @@ function UploadMusic() {
       description: "",
     },
     validationSchema: informationSchema,
-    onSubmit: async (values) => {
-      console.log(values);
-      const reqBody = {
-        albumName: values.albumName,
-        artistName: values.artistName,
-        price: Number(values.price),
-        songName: values.songName,
-        songDescription: values.songDes,
-        tune: audio,
-        songThumbnail: image,
-        userId: userData._id,
-        copyrightFile: doc,
-      };
-      console.log(reqBody);
-      axios
-        .post(APIConstants.formUpload, reqBody)
-        .then((res) => {
-          console.log(res);
-          transfer();
-          transectioncall();
-          setStep(1);
-        })
-        .catch((err) => {
-          alert("Please fill all the fields");
-          console.log(err.message);
-        });
-    },
+    onSubmit: handleSubmit
   });
 
   useEffect(() => {
@@ -413,7 +441,7 @@ function UploadMusic() {
                       Copy Rights Attachement
                     </p>
                     <label htmlFor="doc">
-                      <div className="upload-img-div glass_effect glass_effect_border mt-4">
+                      <div className="mt-4 upload-img-div glass_effect glass_effect_border">
                         <>
                           {!uploadPdfFile ? (
                             fileupload ? (
@@ -490,9 +518,9 @@ function UploadMusic() {
 
                 <div className="flex flex-row items-center justify-center mt-[73px]">
                   <LoginButton
-                    type="submit"
-                    onClick={formik.handleSubmit}
-                    disable={!(formik.dirty && formik.isValid)}
+                    // type="submit"
+                    onClick={handleSubmit}
+                    disable ={!(formik.dirty && formik.isValid)}
                     label="Submit"
                     className="py-3 mt-5 w-[305px] mb-[20px] center rounded-[30px] text-iWhite text-[20px]"
                   >
@@ -505,7 +533,7 @@ function UploadMusic() {
         </div>
       )}
       {step === 1 && (
-        <div className="flex flex-row justify-center mt-56 mb-28">
+        <div className="flex flex-row justify-center my-[173px]">
           <div className="w-[610px] bg-iWhite shadow-2xl rounded-2xl p-[38px] flex flex-col items-center">
             <img
               src={verified}

@@ -11,10 +11,24 @@ function WalletDashboard() {
   const wallet = useSelector((state) => state.ReduxSlice.data.metaMaskDetails);
   const { userData } = useSelector((store) => store.ReduxSlice.data);
   const isWalletConnected = Object.keys(wallet).length === 0;
-
   const [transectionData, setTransactionData] = useState([]);
   const [date, setDate] = useState("");
   const [knowmore, setKnowMore] = useState(false);
+  // useEffect(() => {
+  //   const handleChainChanged = (chainId) => {
+  //     // Chain changed logic here
+  //     console.log("Wallet chain changed:", chainId);
+  //   };
+ 
+  //   // Subscribe to chainChanged event
+  //   window.ethereum.on("chainChanged", handleChainChanged);
+ 
+  //   // Clean up the event listener
+  //   return () => {
+  //     window.ethereum.removeListener("chainChanged", handleChainChanged);
+  //   };
+  // }, []);
+
   useEffect(() => {
     axios
       .get(
@@ -31,7 +45,7 @@ function WalletDashboard() {
         setTransactionData(data);
       })
       .catch((err) => {
-         alert("Please fill all the fields");
+        //  alert("Please fill all the fields");
         console.log(err.message);
       });
   }, []);
@@ -144,22 +158,34 @@ function WalletDashboard() {
             <p className="!pl-[13px]">Status</p>
           </div>
 
-          {transectionData.map((item) => {
-            return (
-              <div
-                className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[17px] mr-[19px]  text-start font-medium hover:bg-ibm8`}
-              >
-                <p className="text-cgy4">{date}</p>
-                <p className="text-cgy4">{item?.type}</p>
-                <p className="pl-1 text-cgy4">{item?.subType}</p>
-                <p className="text-cgy4">{item?.description}</p>
-                <p className="pr-4 text-center text-ibgn1">{item?.amount}</p>
-                <button className="w-[100px] h-[30px] bg-ibgn4 text-ibgn1 rounded-[5px]">
-                  {"completed"}
-                </button>
-              </div>
-            );
-          })}
+            <div>
+              {transectionData.length === 0 ? 
+              (
+                <div className="flex items-center justify-center h-[385px]">
+                  <p className="text-[20px] text-ibrd3">No Results Found.</p>
+                </div>
+                
+              ) : (
+                transectionData.map((item) => {
+                  return (
+                    <div
+                      className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[17px] mr-[19px]  text-start font-medium hover:bg-ibm8`}
+                    >
+                      <p className="text-cgy4">{date}</p>
+                      <p className="text-cgy4">{item?.type}</p>
+                      <p className="pl-1 text-cgy4">{item?.subType}</p>
+                      <p className="text-cgy4">{item?.description}</p>
+                      <p className="pr-4 text-center text-ibgn1">{item?.amount}</p>
+                      <button className="w-[100px] h-[30px] bg-ibgn4 text-ibgn1 rounded-[5px]">
+                        {"completed"}
+                      </button>
+                    </div>
+                  );
+                })
+              )
+            }
+            </div>
+          
         </div>
 
         <div className="mt-[16px]">

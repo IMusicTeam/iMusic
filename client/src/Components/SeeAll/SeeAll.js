@@ -32,6 +32,8 @@ import Card30 from "./../../Assets/Assets/CardImages/Card30.png";
 import ProfileCard from "../musicCarosal/ProfileCrad/ProfilesCard";
 import { useLocation, useNavigate } from "react-router";
 import { BiLeftArrowAlt } from "react-icons/bi";
+import { APIConstants } from '../../Services/api-constants';
+import axios from 'axios'
 
 function SeeAll() {
   const data1 = [
@@ -96,10 +98,28 @@ function SeeAll() {
     { id: 10, src: Card30,playlist:"Mine",album:"Weekend"}
   ] 
   const [title, setTitle] = useState("");
+  const [newData, setNewData]=useState([])
   const data = useLocation();
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     window.scrollTo(0, 0);
     setTitle(data.state);
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(APIConstants.allsongs)
+      .then((res) => {
+        const data = res.data.data;
+        setNewData(data)
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
   }, []);
 
   const navigateTo = useNavigate();
@@ -112,6 +132,21 @@ function SeeAll() {
         <BiLeftArrowAlt size={38} className="mt-[20px] ml-[35px]" />
       </button>
       <h1 className="text-[30px] font-medium mt-[40px] pl-4 ml-[18px]">{title}</h1>
+     
+{title === "New releases" ? (
+    <>
+    <div className="flex flex-row gap-[24px] p-3 mt-[18px] h-[530px] overflow-y-scroll max-w-[1632px] overflow-x-scroll hidding-x-scroll ml-[18px]">
+        {newData.map((item) => {
+          return (
+            <div>
+              <ProfileCard data={item} src={item.songThumbnail} />
+            </div>
+          );
+        })}
+      </div>
+    </>)
+  :
+    (<div>
       <div className="flex flex-row gap-[24px] p-3 mt-[18px] max-w-[1632px] overflow-x-scroll hidding-x-scroll ml-[18px]">
         {data1.map((item) => {
           return (
@@ -161,6 +196,8 @@ function SeeAll() {
           );
         })}
       </div>
+      </div>
+      )}
     </>
   );
 }

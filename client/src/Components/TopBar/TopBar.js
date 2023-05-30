@@ -28,6 +28,7 @@ export default function TopBar() {
   const [isText, setIsText] = useState(true);
   const [uploadmusic, setUploadMusic] = useState(false);
   const navigatTo = useNavigate();
+  
   useEffect(() => {
     if (isWalletConnected) {
       setIsToggled(true);
@@ -52,7 +53,12 @@ export default function TopBar() {
   //     // localStorage.clear();
   //   }
   // }, [isToggled])
-  const connectWallet = async () => {
+
+  window.ethereum.on('accountsChanged', async () => {
+  connectWallet(true)
+    });
+
+  const connectWallet = async (value=false) => {
     try {
       if (typeof window.ethereum === "undefined") {
         setIsText(false);
@@ -73,14 +79,18 @@ export default function TopBar() {
       const balanceInEther = web3.utils.fromWei(balance, "ether");
       setAccount(account);
       //Redux Dispatch action
-      if (isWalletConnected) {
+      if (isWalletConnected || value) {
         dispatch(updateMetaMaskDetails({ data: { account, balanceInEther } }));
+        localStorage.setItem("data",   JSON.stringify({ account, balanceInEther }) );
       } else {
         dispatch(updateMetaMaskDetails({ data: {} }));
+        localStorage.removeItem("data")
+
       }
       setConnected(true);
       // navigateTo('/profile/walletdashboard')
       localStorage.setItem("account", account);
+
       setBalance(balanceInEther);
       localStorage.setItem("balanceInEther", balanceInEther);
     } catch (error) {
@@ -96,6 +106,16 @@ export default function TopBar() {
   const handleMouseLeave = () => {
     setUploadMusic(false);
   };
+  useEffect(()=>{
+    const data=localStorage.getItem("data")
+    const check=JSON.parse(data)
+    if(check){
+      dispatch(updateMetaMaskDetails({ data:check }))
+     setIsToggled(true);
+    } else {
+     setIsToggled(false);
+    }
+  },[])
   return (
     <>
     <div className="topNav flex  items-center px-10 h-[92px] max-w-[1590px] w-full ml-[27px] rounded-[10px]">
@@ -124,12 +144,12 @@ export default function TopBar() {
             <img src={notificationIcon} alt="img" className="h-8 w-[36px]" />
             <div className="flex items-center">
               <div className="flex items-center text-xl text-[#EA7525] leading-5">
-                <span>{isWalletConnected ? "Connect" : "Connected"} To</span>
+                <span>{isWalletConnected || isToggled ? "Connect" : "Connected"} To</span>
                 <img src={walletIcon} alt="img" className="w-6 h-6 ml-1" />
               </div>
               <button
                 className={`w-16 h-8 ml-3.5 rounded-full focus:outline-none border border-[#EA7525]`}
-                onClick={connectWallet}
+                onClick={()=>connectWallet()}
               >
                 <div
                   className={`w-8 h-[30px] rounded-full bg-[#295D93] shadow-md transform transition-transform ${

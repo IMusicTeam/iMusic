@@ -12,6 +12,8 @@ import {FcLikePlaceholder,FcLike} from 'react-icons/fc'
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { APIConstants } from "../../../Services/api-constants";
+import { baseURL, uploadImage } from "../../../helpers/hooks";
+
 function Playing() {
   const location = useLocation();
   const userId = useSelector((store)=>store.ReduxSlice.data.userData._id)
@@ -64,7 +66,7 @@ useEffect(()=>{
 },[])
   return (<>
     {loader ? <div className="flex justify-center items-center h-[705px]"><img src={Loadingforimusic}/></div> :
-    <div>
+    <div className="h-[639px]">
       {music?.data?.map((item)=>{
       return(
         <div className="pb-[69px] mt-10 flex flex-row justify-center items-center bg-gradient-to-r from-orange-100 via-orange-300 to-orange-300">
@@ -75,7 +77,7 @@ useEffect(()=>{
         <div className="absolute z-1 top-[126px]">
           <img
             className="musicCover w-[280px] h-[190px]"
-            src={item.songThumbnail}
+            src={baseURL + item.songThumbnail}
             alt="image"
           />
         </div>
@@ -90,7 +92,7 @@ useEffect(()=>{
           <div className="relative">
             <div>
             <ReactAudioPlayer
-              src={item.tune[0]}
+              src={baseURL + item.tune[0]}
               className="custom-audio-player" // Add your own class name here
               autoPlay={true}
             />
