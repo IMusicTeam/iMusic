@@ -107,6 +107,11 @@ function Explore() {
     { id: 3, src: Radio3, playlist:"Discography", album:"Radio"},
     { id: 4, src: Radio4, playlist:"Disco", album:"Radio"},
     { id: 5, src: Radio5, playlist:"Remix Radio ", album:"Radio"},
+    { id: 6, src: Card5,playlist:" EveryThing from Taylor",album:"Weekend"},
+    { id: 7, src: Card4,playlist:" Ariana Grande This Side",album:"Weekend"},
+    { id: 8, src: Card7 ,playlist:" EveryThing from Taylor",album:"Weekend"},
+    { id: 9, src: Card6,playlist:" Ariana Grande This Side",album:"Weekend"},
+    { id: 10, src: Card1,playlist:"Sunset Days",album:"Weekend"}
   ]
 
   const albums = [
@@ -231,12 +236,12 @@ const navigateTO=useNavigate();
   }
   return (
     <>
-      <div className="bg-iGray2 w-full pl-[34px] pt-[42px]">
+      <div className="bg-iGray2 w-full pl-[34px] pt-[42px] pr-7">
         <div className="text-[30px] text-iBlack1 font-medium">
           Top Artists this Month
         </div>
 
-        <div className="flex flex-row gap-[24px] pl-[35px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+        <div className="flex flex-row gap-[29px]  1xl:gap-[42px] 2xl:gap-[20px] 13mac:gap-[25px] 4xl:gap-[23px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
           {rounded.map((item) => {
             return (
               <div>
@@ -252,7 +257,7 @@ const navigateTO=useNavigate();
             </h1>
           </div>
 
-      <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+          <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
             {radio.map((item) => {
               return (
                 <div>
@@ -269,7 +274,7 @@ const navigateTO=useNavigate();
             <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
         
-      <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+          <div className='flex flex-row xl:gap-[25px] 13mac:gap-[14px] 4xl:gap-[50px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
             {albums.map((item) => {
               return (
                 <div>
@@ -286,7 +291,7 @@ const navigateTO=useNavigate();
             <button onClick={()=>HandelSeeAll({path:'albums',title:'Albums'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
 
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+          <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
             {data1.map((item) => {
               return (
                 <div>
@@ -301,7 +306,7 @@ const navigateTO=useNavigate();
             <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
 
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+          <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
             {data3.map((item) => {
               return (
                 <div>
@@ -318,7 +323,7 @@ const navigateTO=useNavigate();
             <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
 
-          <div className="flex flex-row p-3 gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+          <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
             {data2.map((item) => {
               return (
                 <div>
@@ -334,7 +339,7 @@ const navigateTO=useNavigate();
             </h1>
             <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+          <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
             {data5.map((item) => {
               return (
                 <div>
@@ -350,7 +355,7 @@ const navigateTO=useNavigate();
             </h1>
             <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+          <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
             {data6.map((item) => {
               return (
                 <div>
@@ -367,7 +372,7 @@ const navigateTO=useNavigate();
             <button onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </div>
 
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+          <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
             {data8.map((item) => {
               return (
                 <div>

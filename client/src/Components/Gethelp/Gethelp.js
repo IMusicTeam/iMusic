@@ -35,7 +35,7 @@ const handleContactUs = () =>{
         <h1 className="font-medium text-[32px] mt-1">Quick Links</h1>
 
         <div className="flex flex-col justify-start flex-wrap text-ibm1 gap-5 text-[16px] mt-5">
-          <div className="flex flex-row 3xl:gap-[135px] gap-28">
+          <div className="flex flex-row 3xl:gap-[135px] gap-20">
             <p onClick={()=>HandelNavigation('/uploadMusic')} className="w-[128px] underline hover:text-iOrange font-medium hover:cursor-pointer">
               Upload Music
             </p>
@@ -46,7 +46,7 @@ const handleContactUs = () =>{
             <p onClick={()=>HandelNavigation('/exploreScreen')} className="w-[128px] underline hover:text-iOrange font-medium  hover:cursor-pointer">Explore</p>
             <p onClick={()=>HandelNavigation('/yourlibrary')} className="w-[128px] underline hover:text-iOrange font-medium  hover:cursor-pointer">My Library</p>
           </div>
-          <div className="flex flex-row 3xl:gap-[135px] gap-28">
+          <div className="flex flex-row 3xl:gap-[135px] gap-20">
             <p onClick={()=>HandelNavigation('/profile/settings')} className="w-[128px] underline hover:text-iOrange font-medium  hover:cursor-pointer">
               Edit Profile
             </p>
@@ -102,7 +102,7 @@ const handleContactUs = () =>{
         Not yet answered your Query? 
         </p></span>
         <span style={{display: 'inline-block'}}>
-        <p className="underline text-iBlue hover:text-iOrange ml-2  hover:cursor-pointer" onClick={handleContactUs}>
+        <p className="ml-2 underline text-iBlue hover:text-iOrange hover:cursor-pointer" onClick={handleContactUs}>
              Contact Us
           </p>
         </span>
