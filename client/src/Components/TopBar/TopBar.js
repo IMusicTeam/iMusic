@@ -12,6 +12,7 @@ import { useNavigate } from "react-router";
 import { updateMetaMaskDetails } from "./../../Redux/Redux";
 import "./TopBar.css";
 import { useDispatch, useSelector } from "react-redux";
+import navBanner from './../../Assets/navBar.png'
 
 export default function TopBar() {
   const navigateTo = useNavigate();
@@ -116,9 +117,16 @@ export default function TopBar() {
      setIsToggled(false);
     }
   },[])
+  const topNav={
+    background: 'url("./../../Assets/navBar.png")',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
+  }
   return (
     <>
-    <div className="topNav flex  items-center px-10 h-[92px] max-w-[1590px] w-full ml-[27px] rounded-[10px]">
+    <div className="relative mx-5 4xl:ml-8">
+<img src={navBanner} alt="" className="h-[93px] 4xl:h-auto"/>
+    <div style={topNav} className="flex absolute top-0  items-center px-7 4xl:px-10 h-[92px] max-w-[1590px] w-full 4xl:ml-[27px] rounded-[10px]">
     <div className="flex items-center  rounded-[100px] -py-2 justify-between h-[56px]  w-[1450px] bg-[#ffffff]">
       <Search onClick={HandelSearch}/>
           <div
@@ -160,6 +168,7 @@ export default function TopBar() {
             </div>
           </div>
         </div>
+      </div>
       </div>
       {isAdminAdded && (
         <div className="bannerContainer">
