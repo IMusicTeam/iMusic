@@ -60,7 +60,7 @@ function WalletDashboard() {
 
   return (
     <>
-      <div className="flex flex-row gap-4">
+      <div className="flex gap-4 4xl:flex-row xl:flex-col xl:justify-center xl:items-center">
         <div
           className={`w-[810px] h-[434px] rounded-[12px] bg-iWhite mt-[55px] ml-[38px]`}
         >
@@ -102,7 +102,7 @@ function WalletDashboard() {
           </div>
         </div>
 
-        <div className="w-[760px] h-[434px] rounded-[12px] bg-iWhite mt-[55px]">
+        <div className="w-[809px] ml-[39px] 4xl:ml-0 4xl:w-[760px] h-[434px] rounded-[12px] bg-iWhite mt-[45px] 4xl:mt-[55px]">
           <div className="flex flex-row gap-[36px]">
 
             <div className="flex flex-col">
@@ -144,9 +144,10 @@ function WalletDashboard() {
       </div>
 
       <div
-        className={`${styles.walletdashboardTableContent} overflow-x-scroll`}
+        // className={`${styles.walletdashboardTableContent} overflow-x-scroll `}
+        className="flex flex-col items-center mb-5 gap-9 4xl:flex-row 4xl:gap-2"
       >
-        <div className="bg-iWhite rounded-[12px] max-w-[816px] h-[434px] mt-[16px] ml-[32px]">
+        <div className="bg-iWhite rounded-[12px] ml-[40px] max-w-[816px] h-[434px] mt-[45px] 4xl:mt-[16px] 4xl:ml-[60px] w-full">
           <div
             className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[16px] mr-[17px] bg-ibm11 text-start p-1 rounded-[10px] text-iBlue font-medium`}
           >
@@ -187,7 +188,7 @@ function WalletDashboard() {
             </div>
           
         </div>
-
+      <div className="flex gap-2 4xl:ml-0 ml-[31px]">
         <div className="mt-[16px]">
           <div className="relative">
             <img
@@ -203,8 +204,7 @@ function WalletDashboard() {
             </p>
           </div>
         </div>
-
-        <div className="mt-[16px]">
+        <div className="mt-[16px] ml-[56px] 4xl:ml-0">
           <div className="relative">
             <img
               src={image2}
@@ -219,6 +219,8 @@ function WalletDashboard() {
             </div>
           </div>
         </div>
+        </div>
+        
       </div>
     </>
   );

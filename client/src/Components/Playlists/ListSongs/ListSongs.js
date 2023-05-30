@@ -151,6 +151,9 @@ function ListSongs() {
   const [listData, setListData] = useState([]);
 
   useEffect(() => {
+    getPendingSongs()
+  }, []);
+  const getPendingSongs =()=>{
     axios
       .get(APIConstants.getAllPendingSongs)
       .then((res) => {
@@ -160,7 +163,7 @@ function ListSongs() {
       .catch((err) => {
         console.log(err.message);
       });
-  }, []);
+  }
 
   const handleTransfer = async (walletId) => {
     const accounts = await window.ethereum.request({
@@ -210,6 +213,7 @@ function ListSongs() {
       .post(`${APIConstants.approveSong}${item._id}&adminWalletId=${metaMaskDetails.account}`)
       .then((res) => {
         handleTransfer(item.userWalletId)
+        getPendingSongs()
         console.log(res)
       })
       .catch((err) => {

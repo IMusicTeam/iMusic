@@ -75,7 +75,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router';
 import ListenedCard from '../ListenedCard/ListenedCard';
 import { APIConstants } from '../../Services/api-constants';
-import { baseURL, uploadImage } from "../../helpers/hooks";
+import { baseURL } from "../../helpers/hooks";
 
 function MusicCarousel() {
   const [musicList, setMusicList] = useState([]);
