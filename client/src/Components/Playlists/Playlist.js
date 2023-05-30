@@ -163,7 +163,7 @@ function Playlist() {
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-medium">Radio stations</h1>
           <h5 className="underline font-medium text-[16px] text-iBlack1 -mt-[0.5px]">
-            
+          <button onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </h5>
         </div>
         <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 13mac:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
