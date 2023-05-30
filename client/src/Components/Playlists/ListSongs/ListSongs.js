@@ -24,10 +24,9 @@ import edit from "../../../Assets/EditIcon.png";
 import images from "../../../Assets/images/player.png";
 import verified from "../../../Assets/Assets/CardImages/Verified.png";
 import ProfileCard from "../../musicCarosal/ProfileCrad/ProfilesCard";
-import { APIConstants } from "../../../Services/api-constants";
+import { APIConstants, assetURL } from "../../../Services/api-constants";
 import contractInstance from "../../../web3";
 import { ethers } from "ethers";
-import { baseURL, uploadImage } from "../../../helpers/hooks";
 
 
 function ListSongs() {
@@ -282,7 +281,7 @@ function ListSongs() {
                   <div key={index}>
                     <div className="w-full listed-rows">
                       <img
-                        src={baseURL +item.songThumbnail}
+                        src={assetURL +item.songThumbnail}
                         alt=""
                         className="w-16 h-16 rounded-full"
                       />

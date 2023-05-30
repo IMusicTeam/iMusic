@@ -22,12 +22,12 @@ import defaultImage from "../../Assets/images/imageDefault.png";
 import Card10 from "../../Assets/Assets/CardImages/Card10.png";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import { APIConstants } from "../../Services/api-constants";
+import { APIConstants, assetURL, baseURL } from "../../Services/api-constants";
 import { useSelector } from "react-redux";
 import edit from "../../Assets/EditIcon.png";
 import images from "../../Assets/images/player.png";
 import verified from "../../Assets/Assets/CardImages/Verified.png";
-import { baseURL, uploadImage } from "../../helpers/hooks";
+import {  uploadImage } from "../../helpers/hooks";
 
 function LikedPlayList() {
   const userId = useSelector((store) => store.ReduxSlice.data.userData._id);
@@ -83,12 +83,12 @@ function LikedPlayList() {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:9946/IMusic/get-all-favourites?userID=" + userData._id
+        baseURL + "get-all-favourites?userID=" + userData._id
       )
       .then(async (res) => {
         const musicWithDurations = await Promise.all(
           res.data.data[0].allSongs.map(async (music) => {
-            const audio = new Audio(baseURL + music.tune[0]);
+            const audio = new Audio(assetURL + music.tune[0]);
             const duration = await new Promise((resolve) => {
               audio.addEventListener("loadedmetadata", () => {
                 resolve(audio.duration);
@@ -198,7 +198,7 @@ function LikedPlayList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:9946/IMusic/get-all-playlist?userId=" + userId)
+      .get(baseURL + "get-all-playlist?userId=" + userId)
       .then((res) => {
         const data = res.data.data[0].allPlaylist;
         setListData(data);
@@ -299,7 +299,7 @@ function LikedPlayList() {
                   <div key={index}>
                     <div className="w-full listed-rows">
                       <img
-                        src={baseURL + item.songThumbnail}
+                        src={assetURL + item.songThumbnail}
                         alt=""
                         className="w-16 h-16 rounded-full"
                       />
@@ -382,7 +382,7 @@ function LikedPlayList() {
                                           className="flex flex-row items-center justify-start cursor-pointer gap-7 hover:bg-ibm8 rounded-[12px]"
                                         >
                                           <img
-                                            src={baseURL + item.image}
+                                            src={assetURL + item.image}
                                             alt=""
                                             className="w-[86px] h-[86px] rounded-[4px]"
                                           />
@@ -418,7 +418,7 @@ function LikedPlayList() {
                                         />
                                       ) : (
                                         <img
-                                          src={baseURL + image}
+                                          src={assetURL + image}
                                           alt=""
                                           className="w-[153px] h-[163px] rounded-2xl"
                                         />
