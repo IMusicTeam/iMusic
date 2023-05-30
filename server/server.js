@@ -25,7 +25,7 @@ const mainRoute = require('./src/routers/route');
 app.use("/IMusic", mainRoute);
   
 // start server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 9946;
 app.listen(port, () => {
     console.log(`IMusic, App is connected to http://localhost:${port}`);
 });

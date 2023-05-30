@@ -32,7 +32,7 @@ function WalletDashboard() {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:3000/IMusic/get-transaction?userId=" + userData._id
+        "http://localhost:9946/IMusic/get-transaction?userId=" + userData._id
       )
       .then((res) => {
         console.log(res);
