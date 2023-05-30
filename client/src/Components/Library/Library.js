@@ -199,7 +199,7 @@ const navigateTO=useNavigate();
     })
   }
   return (
-    <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px]">
+    <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px] pr-7">
       <div>
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-medium">New releases</h1>
@@ -207,7 +207,7 @@ const navigateTO=useNavigate();
             
           </h5>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data?.map((item) => {
             return (
               <div>
@@ -222,7 +222,7 @@ const navigateTO=useNavigate();
           <h1 className="text-[30px] font-medium">Top charts</h1>
           <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data1?.map((item) => {
             return (
               <div>
@@ -237,7 +237,7 @@ const navigateTO=useNavigate();
           <h1 className="text-[30px] font-medium">Recommended for you</h1>
           <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data2?.map((item) => {
             return (
               <div>
@@ -254,7 +254,7 @@ const navigateTO=useNavigate();
           </h1>
           <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data3?.map((item) => {
             return (
               <div>
@@ -269,7 +269,7 @@ const navigateTO=useNavigate();
           <h1 className="text-[30px] font-medium">Last Spotlight</h1>
           <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data4?.map((item) => {
             return (
               <div>
@@ -288,7 +288,7 @@ const navigateTO=useNavigate();
         </div>
         
       <div>
-        <div className="flex gap-6 max-w-[1632px] pl-[13px] overflow-x-scroll hidding-x-scroll">
+      <div className="flex flex-row gap-[29px]  1xl:gap-[42px] 2xl:gap-[20px] 13mac:gap-[25px] 4xl:gap-[23px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
           {rounded?.map((item) => {
             return (
               <div>
@@ -305,7 +305,7 @@ const navigateTO=useNavigate();
             
           </h5>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data6?.map((item) => {
             return (
               <div>
@@ -320,7 +320,7 @@ const navigateTO=useNavigate();
           <h1 className="text-[30px] font-medium">Your Playlists</h1>
           <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[36px] 1xl:gap-[67px] 2xl:gap-[29px] 4xl:gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data7?.map((item) => {
             return (
               <div>
@@ -335,7 +335,7 @@ const navigateTO=useNavigate();
       <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
     </div>
 
-    <div className='flex flex-row gap-[24px] p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+    <div className='flex flex-row xl:gap-[25px] 13mac:gap-[14px] 4xl:gap-[50px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {
             data8?.map((item)=>{
               return(

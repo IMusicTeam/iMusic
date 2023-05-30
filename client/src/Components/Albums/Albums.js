@@ -54,8 +54,8 @@ function Albums() {
       <button type="button" onClick={() => navigate(`/`)}>
         <IoMdArrowBack className="w-6 h-6 ml-[35px] " />
       </button>
-      <div className="pl-[90px] mb-[42px]">
-        <div className="flex gap-7">
+      <div className="pl-[90px] mb-[42px] 13mac:pl-[40px] 3xl:pl-[90px]">
+      <div className='flex flex-row gap-[28px] 13mac:gap-[24px] 3xl:gap-[28px] p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data1?.map((item) => {
             return (
               <div>
@@ -65,8 +65,8 @@ function Albums() {
           })}
         </div>
       </div>
-      <div className="pl-[90px] mb-[42px]">
-        <div className="flex gap-7">
+      <div className="pl-[90px] mb-[42px] 13mac:pl-[40px] 3xl:pl-[90px]">
+      <div className='flex flex-row gap-[28px] 13mac:gap-[24px] 3xl:gap-[28px] p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data2?.map((item) => {
             return (
               <div>
@@ -76,8 +76,8 @@ function Albums() {
           })}
         </div>
       </div>
-      <div className="pl-[90px] mb-[42px]">
-        <div className="flex gap-7">
+      <div className="pl-[90px] mb-[42px] 13mac:pl-[40px] 3xl:pl-[90px]">
+      <div className='flex flex-row gap-[28px] 13mac:gap-[24px] 3xl:gap-[28px] p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data3?.map((item) => {
             return (
               <div>
@@ -87,8 +87,8 @@ function Albums() {
           })}
         </div>
       </div>
-      <div className="pl-[90px] mb-[42px]">
-        <div className="flex gap-7">
+      <div className="pl-[90px] mb-[42px] 13mac:pl-[40px] 3xl:pl-[90px]">
+      <div className='flex flex-row gap-[28px] 13mac:gap-[24px] 3xl:gap-[28px] p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data4?.map((item) => {
             return (
               <div>

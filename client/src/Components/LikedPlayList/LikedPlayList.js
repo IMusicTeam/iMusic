@@ -519,11 +519,12 @@ function LikedPlayList() {
               })}
             </div>
           </div>
+          <div className="pr-8">
           <div className="pl-8">
             <h1 className="pl-3 text-3xl font-medium text-iBlack mb-7">
               Suggested For You
             </h1>
-            <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+            <div className="flex flex-row xl:gap-[41px] 1xl:gap-[74px] 2xl:gap-[24px] 3xl:gap-[34px] 4xl:gap-[26px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
               {data.map((item) => {
                 return (
                   <div>
@@ -539,6 +540,7 @@ function LikedPlayList() {
               
             </h1>
             <h5 onClick={()=>HandelSeeAll({path:'suggested-for-you',title:'Suggested For You'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px] cursor-pointer'>See All</h5>
+          </div>
           </div>
         </div>
       )}

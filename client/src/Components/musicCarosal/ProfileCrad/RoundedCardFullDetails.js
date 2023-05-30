@@ -131,7 +131,7 @@ function RoundedCardFullDetails() {
     { id: 10, src: Card9,playlist:"Trending",album:"Weekend"}
   ];
   return (
-    <div className="bg-iGray2 w-full pl-[35px] pb-[32px] pt-[66px]">
+    <div className="bg-iGray2 w-full pl-[35px] pb-[32px] pt-[66px] pr-7">
       <button type="button" onClick={() => navigate(-1)}>
         <IoMdArrowBack className="w-6 h-6 ml-[35px] " />
       </button>

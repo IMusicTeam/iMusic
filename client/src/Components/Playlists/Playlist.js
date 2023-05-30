@@ -75,7 +75,7 @@ function Playlist() {
   return (
     <>
     {isLoading ? <div className="flex justify-center items-center h-[690px]"><img src={Loadingforimusic}/></div> :
-      <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px]">
+      <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px] pr-7">
       <div className="flex flex-row justify-between">
             <h1 className="text-[30px] font-medium">
               Newly Added
@@ -84,7 +84,7 @@ function Playlist() {
              
             </h5>
           </div>
-          <div className="flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+          <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 13mac:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
             {listData.map((item) => {
               return (
                 <div>
@@ -102,7 +102,7 @@ function Playlist() {
           <h1 className="text-[30px] font-medium">Top charts</h1>
           <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 13mac:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data1?.map((item) => {
             return (
               <div>
@@ -117,7 +117,7 @@ function Playlist() {
           <h1 className="text-[30px] font-medium">Recommended for you</h1>
           <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 13mac:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data2?.map((item) => {
             return (
               <div>
@@ -134,7 +134,7 @@ function Playlist() {
           </h1>
           <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 13mac:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data3?.map((item) => {
             return (
               <div>
@@ -149,7 +149,7 @@ function Playlist() {
           <h1 className="text-[30px] font-medium">Last Spotlight</h1>
           <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 13mac:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data4?.map((item) => {
             return (
               <div>
@@ -166,7 +166,7 @@ function Playlist() {
             
           </h5>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 13mac:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data6?.map((item) => {
             return (
               <div>
@@ -181,7 +181,7 @@ function Playlist() {
           <h1 className="text-[30px] font-medium">Your Playlists</h1>
           <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 13mac:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
           {data7?.map((item) => {
             return (
               <div>
@@ -196,8 +196,8 @@ function Playlist() {
           <h1 className="text-[30px] font-medium">Top Playlists</h1>
           <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
         </div>
-        <div className='flex flex-row gap-[24px] p-3 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
-          {data8?.map((item) => {
+        <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 13mac:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+          {data5?.map((item) => {
             return (
               <div>
               <ProfileCard data={item} src={item.src}/>
