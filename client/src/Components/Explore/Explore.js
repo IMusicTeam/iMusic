@@ -75,7 +75,7 @@ import album7 from "../../Assets/Assets/CardImages/AlbumsCard12.png";
 import album8 from "../../Assets/Assets/CardImages/AlbumsCard11.png";
 
 import { useNavigate } from 'react-router';
-
+import { BiLeftArrowAlt } from "react-icons/bi";
 
 
 function Explore() {
@@ -236,6 +236,11 @@ const navigateTO=useNavigate();
   }
   return (
     <>
+    <div>
+    <button type="button" onClick={() => navigateTO("/home")}>
+        <BiLeftArrowAlt size={38} className="ml-[30px] text-iBlack" />
+    </button>
+    </div>
       <div className="bg-iGray2 w-full pl-[34px] pt-[42px] pr-7">
         <div className="text-[30px] text-iBlack1 font-medium">
           Top Artists this Month

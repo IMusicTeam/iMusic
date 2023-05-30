@@ -47,6 +47,7 @@ import { useNavigate } from "react-router";
 import { baseURL } from "../../helpers/hooks";
 import { APIConstants } from "../../Services/api-constants";
 import { useSelector } from "react-redux";
+import { BiLeftArrowAlt } from "react-icons/bi";
 function Playlist() {
   const [listData, setListData]=useState([])
   const[isLoading, setIsLoading]=useState(true)
@@ -74,6 +75,11 @@ function Playlist() {
   }
   return (
     <>
+     <div>
+    <button type="button" onClick={() => navigateTO("/home")}>
+        <BiLeftArrowAlt size={38} className="ml-[30px] text-iBlack" />
+    </button>
+    </div>
     {isLoading ? <div className="flex justify-center items-center h-[690px]"><img src={Loadingforimusic}/></div> :
       <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px] pr-7">
       <div className="flex flex-row justify-between">
@@ -163,7 +169,7 @@ function Playlist() {
         <div className="flex flex-row justify-between my-7">
           <h1 className="text-[30px] font-medium">Radio stations</h1>
           <h5 className="underline font-medium text-[16px] text-iBlack1 -mt-[0.5px]">
-            
+          <button onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
           </h5>
         </div>
         <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 13mac:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>

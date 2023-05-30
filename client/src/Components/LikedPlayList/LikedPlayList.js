@@ -524,7 +524,7 @@ function LikedPlayList() {
             <h1 className="pl-3 text-3xl font-medium text-iBlack mb-7">
               Suggested For You
             </h1>
-            <div className="flex flex-row xl:gap-[41px] 1xl:gap-[74px] 2xl:gap-[24px] 3xl:gap-[34px] 4xl:gap-[26px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+            <div className="flex flex-row xl:gap-[41px] p-3 1xl:gap-[74px] 2xl:gap-[24px] 3xl:gap-[34px] 4xl:gap-[26px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
               {data.map((item) => {
                 return (
                   <div>
