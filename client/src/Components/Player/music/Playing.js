@@ -56,7 +56,7 @@ useEffect(()=>{
     _id:data._id
   }
   const queryParams = new URLSearchParams(payload).toString();
-  axios.get(`http://localhost:3000/IMusic/get-song?${queryParams}`).then((res)=>{
+  axios.get(`http://localhost:9946/IMusic/get-song?${queryParams}`).then((res)=>{
     setMusic({show:res.data.favourited, data:[res.data.data]})
       console.log(res.data)
     }).catch((err)=>{

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const fs = require("fs");
 const multer = require("multer");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 9946;
 
 const uploader = multer({
   storage: multer.memoryStorage(),

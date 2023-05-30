@@ -56,7 +56,7 @@ function Playlist() {
  
   useEffect(() => {
     axios
-      .get("http://localhost:3000/IMusic/get-all-playlist?userId=" + userId)
+      .get("http://localhost:9946/IMusic/get-all-playlist?userId=" + userId)
       .then((res) => {
         const data=res.data.data[0].allPlaylist
         setListData(data)
