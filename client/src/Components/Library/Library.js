@@ -59,17 +59,17 @@ import rounded9 from "../../Assets/Assets/CardImages/Rounded9.png";
 import rounded10 from "../../Assets/Assets/CardImages/Rounded10.png";
 import AlbumsCard5 from "../../Assets/Assets/CardImages/AlbumsCard5.png";
 import AlbumsCard4 from "../../Assets/Assets/CardImages/AlbumsCard4.png";
-import AlbumsCard16 from "../../Assets/Assets/CardImages/AlbumsCard16.png";
-import album4 from "../../Assets/Assets/CardImages/album4.png";
+import AlbumsCard8 from "../../Assets/Assets/CardImages/AlbumsCard8.png";
+import AlbumsCard18 from "../../Assets/Assets/CardImages/AlbumsCard18.png";
 import AlbumsCard14 from "../../Assets/Assets/CardImages/AlbumsCard14.png";
 import AlbumsCard13 from "../../Assets/Assets/CardImages/AlbumsCard13.png";
-import AlbumsCard3 from "../../Assets/Assets/CardImages/AlbumsCard3.png";
-import AlbumsCard10 from "../../Assets/Assets/CardImages/AlbumsCard10.png";
-import AlbumsCard6 from "../../Assets/Assets/CardImages/AlbumsCard6.png";
-import AlbumsCard1 from "../../Assets/Assets/CardImages/AlbumsCard1.png";
+import AlbumsCard19 from "../../Assets/Assets/CardImages/AlbumsCard19.png";
+import AlbumsCard20 from "../../Assets/Assets/CardImages/AlbumsCard20.png";
+import AlbumsCard21 from "../../Assets/Assets/CardImages/AlbumsCard21.png";
 
 import { useNavigate } from "react-router";
 import ListenedCard from "../ListenedCard/ListenedCard";
+import { BiLeftArrowAlt } from "react-icons/bi";
 
 function Library() {
   const data6 = [
@@ -111,13 +111,13 @@ function Library() {
   const data8 = [
     { id: 1, src: AlbumsCard5,text:"Listen to your own Music" },
     { id: 2, src: AlbumsCard4,text:"Listen to your owned Music" },
-    { id: 3, src: AlbumsCard1},
-    { id: 4, src: album4},
+    { id: 3, src: AlbumsCard8},
+    { id: 4, src: AlbumsCard18},
     { id: 5, src: AlbumsCard14 },
     { id: 6, src: AlbumsCard13 },
-    { id: 7, src: AlbumsCard3},
-    { id: 8, src: AlbumsCard10},
-    { id: 9, src: AlbumsCard6},
+    { id: 7, src: AlbumsCard19},
+    { id: 8, src: AlbumsCard20},
+    { id: 9, src: AlbumsCard21},
   ] 
   const data1= [
     { id: 1, src: Card11,playlist:"Trending Playlist",album:"Album"},
@@ -199,6 +199,12 @@ const navigateTO=useNavigate();
     })
   }
   return (
+  <>
+    <div>
+    <button type="button" onClick={() => navigateTO("/home")}>
+        <BiLeftArrowAlt size={38} className="ml-[30px] text-iBlack" />
+    </button>
+    </div>
     <div className="bg-iGray2 pt-[52px] pl-9 pb-[114px] pr-7">
       <div>
         <div className="flex flex-row justify-between my-7">
@@ -353,6 +359,7 @@ const navigateTO=useNavigate();
         </div>
         
     </div>
+    </>
   );
 }
 

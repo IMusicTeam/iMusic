@@ -130,6 +130,15 @@ function RoundedCardFullDetails() {
     { id: 9, src: Card8,playlist:" Good Music for Bad Days",album:"Playlist"},
     { id: 10, src: Card9,playlist:"Trending",album:"Weekend"}
   ];
+
+  const navigateTO=useNavigate();
+  const HandelSeeAll=(value)=>{
+    const {path, title}=value
+    navigateTO(`/see-all/${path}`,{
+      state:title
+    })
+  }
+
   return (
     <div className="bg-iGray2 w-full pl-[35px] pb-[32px] pt-[66px] pr-7">
       <button type="button" onClick={() => navigate(-1)}>
@@ -169,11 +178,8 @@ function RoundedCardFullDetails() {
         <h1 className="text-[30px] font-medium mt-[28px]">
           Recommended for you
         </h1>
-        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
-          See All
-        </h5>
       </div>
-      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className="flex flex-row gap-[24px] mt-[28px] p-3 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
         {dataa?.map((item) => {
           return (
             <div>
@@ -186,11 +192,9 @@ function RoundedCardFullDetails() {
         <h1 className="text-[30px] font-medium mt-[28px]">
           Featured playlists Based on Mood
         </h1>
-        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
-          See All
-        </h5>
+        <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
       </div>
-      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className="flex flex-row gap-[24px] mt-[28px] p-3 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
         {data1?.map((item) => {
           return (
             <div>
@@ -201,11 +205,9 @@ function RoundedCardFullDetails() {
       </div>
       <div className="flex flex-row justify-between">
         <h1 className="text-[30px] font-medium mt-[28px]">Last Spotlight</h1>
-        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
-          See All
-        </h5>
+        <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
       </div>
-      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] p-3 overflow-x-scroll hidding-x-scroll">
         {data2?.map((item) => {
           return (
             <div>
@@ -216,11 +218,9 @@ function RoundedCardFullDetails() {
       </div>
       <div className="flex flex-row justify-between">
         <h1 className="text-[30px] font-medium mt-[28px]">Radio stations</h1>
-        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
-          See All
-        </h5>
+        <button onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
       </div>
-      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className="flex flex-row gap-[24px] mt-[28px] p-3 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
         {data4?.map((item) => {
           return (
             <div>
@@ -231,11 +231,9 @@ function RoundedCardFullDetails() {
       </div>
       <div className="flex flex-row justify-between">
         <h1 className="text-[30px] font-medium mt-[28px]">Your Playlists</h1>
-        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
-          See All
-        </h5>
+        <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
       </div>
-      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className="flex flex-row gap-[24px] mt-[28px] p-3 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
         {data5?.map((item) => {
           return (
             <div>
@@ -246,11 +244,9 @@ function RoundedCardFullDetails() {
       </div>
       <div className="flex flex-row justify-between">
         <h1 className="text-[30px] font-medium mt-[28px]">Top Playlists</h1>
-        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
-          See All
-        </h5>
+        <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
       </div>
-      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+      <div className="flex flex-row gap-[24px] mt-[28px] p-3 max-w-[1632px] overflow-x-scroll hidding-x-scroll">
         {data3?.map((item) => {
           return (
             <div>
@@ -259,20 +255,12 @@ function RoundedCardFullDetails() {
           );
         })}
       </div>
-      <div className="flex flex-row justify-between">
-        <h1 className="text-[30px] font-medium mt-[28px]">Top Playlists</h1>
-        <h5 className="underline font-medium text-[16px] text-iBlack1 mt-[28px]">
-          See All
-        </h5>
-      </div>
-      <div className="flex flex-row gap-[24px] mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
-        {data1?.map((item) => {
-          return (
-            <div>
-              <ProfileCard data={item} src={item.src} />
-            </div>
-          );
-        })}
+      <div>
+        <div className="flex flex-row justify-between my-7">
+          <h1 className="text-[30px] font-medium"></h1>
+          <h5 onClick={()=>HandelSeeAll({path:'top-playlists',title:'Top Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px] cursor-pointer'>See All</h5>
+        </div>
+        
       </div>
     </div>
   );
