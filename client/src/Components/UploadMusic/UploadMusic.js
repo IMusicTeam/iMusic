@@ -212,6 +212,51 @@ function UploadMusic() {
       .matches(/^[a-zA-Z\s]+$/, "Field should only contain alphabets."),
   });
 
+  const autoFill=[
+    {albumName: "Perfect",
+    artistName: "Jhon",
+    price: 2,
+    songName: "Perfect",
+    songDescription: "Nice Song",
+    lyrics:"No"},
+    
+    {albumName: "Calm Down",
+    artistName: "Rema",
+    price: 2,
+    songName: "Calm Down",
+    songDescription: "Love Song",
+    lyrics:"No"},
+    
+    {albumName: "Bones",
+    artistName: "Dragon",
+    price: 1,
+    songName: "Bones",
+    songDescription: "Nice Song",
+    lyrics:"No"},
+  
+  
+    {albumName: "The Drum",
+    artistName: "Alan Walker",
+    price: 3,
+    songName: "The Drum",
+    songDescription: "Love Song",
+    lyrics:"No"},
+  
+    {albumName: "Cupid",
+    artistName: "fify",
+    price: 2,
+    songName: "Cupid",
+    songDescription: "Love Song",
+    lyrics:"No"},
+  
+    {albumName: "Dreamer",
+    artistName: "Alan Walker",
+    price: 1,
+    songName: "Dreamer",
+    songDescription: "Folk Song",
+    lyrics:"No"}]
+
+
   const handleSubmit =async () => {
     const values=formik.values
     console.log(values)
@@ -257,16 +302,17 @@ function UploadMusic() {
   });
 
   useEffect(() => {
-    setData({
-      information: {
-        albumName: formik.values.albumName,
-        artistName: formik.values.artistName,
-        price: formik.values.price,
-        songName: formik.values.songName,
-        description: formik.values.description,
-      },
-    });
-  }, [formik.values]);
+    const index =Math.floor(Math.random() * autoFill.length)
+    const values=autoFill[index]
+    formik.setValues({
+      albumName: values.albumName,
+      artistName: values.artistName,
+      price: values.price,
+      songName: values.songName,
+      description: values.songDescription,
+    })
+    
+  }, []);
 
   return (
     <>
