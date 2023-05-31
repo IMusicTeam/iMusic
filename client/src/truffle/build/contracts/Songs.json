@@ -12,8 +12,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -87,8 +86,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -304,8 +302,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -318,8 +315,7 @@
       "name": "sendMoney",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function",
-      "payable": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -337,8 +333,7 @@
       "name": "sendToUploader",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function",
-      "payable": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_songThumbnail\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_albumName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_userId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_artistName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_price\",\"type\":\"uint256\"},{\"internalType\":\"string[]\",\"name\":\"_tune\",\"type\":\"string[]\"},{\"internalType\":\"string\",\"name\":\"_songId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_songName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_songDescription\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_userWalletId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_adminWalletId\",\"type\":\"string\"}],\"name\":\"createSong\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"songThumbnail\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"albumName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"userId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"artistName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string[]\",\"name\":\"tune\",\"type\":\"string[]\"},{\"internalType\":\"string\",\"name\":\"songId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"songName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"userWalletId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"songDescription\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"adminWalletId\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"createdAt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\"}],\"internalType\":\"struct Songs.Form\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllSongs\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"songThumbnail\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"albumName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"userId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"artistName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string[]\",\"name\":\"tune\",\"type\":\"string[]\"},{\"internalType\":\"string\",\"name\":\"songId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"songName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"userWalletId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"songDescription\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"adminWalletId\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"createdAt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\"}],\"internalType\":\"struct Songs.Form[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_sendTo\",\"type\":\"address\"}],\"name\":\"sendMoney\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"_uploader\",\"type\":\"address\"},{\"internalType\":\"address payable\",\"name\":\"_admin\",\"type\":\"address\"}],\"name\":\"sendToUploader\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSongsCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"uploadSong\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"songThumbnail\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"albumName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"userId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"artistName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"songId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"songName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"userWalletId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"songDescription\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"adminWalletId\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"createdAt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Songs.sol\":\"Songs\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Songs.sol\":{\"keccak256\":\"0xc3b4741c5c1f13095d21616ff1d9dd2788f227c3486b9fb4e02bc20884399226\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://d7be00c6fd0c70e11c55e46359f7469ff3456c632554f73822a01efd3f361714\",\"dweb:/ipfs/QmVRpiUdKkDhexY3eENZ2VyC1vaeJhdSv2UuGj7xXi5e6o\"]}},\"version\":1}",
@@ -19739,17 +19734,9 @@
     "name": "solc",
     "version": "0.8.9+commit.e5eed63a.Emscripten.clang"
   },
-  "networks": {
-    "5777": {
-      "events": {},
-      "links": {},
-      "address": "0xfAe44baE02ec8265202D55352B26e406cdE9474A",
-      "transactionHash": "0x5e79d3c4eacedc4493e66579c3c632956d16afdf26800e2453eddbeff4da7481"
-    }
-  },
+  "networks": {},
   "schemaVersion": "3.4.14",
-  "updatedAt": "2023-05-31T15:55:30.205Z",
-  "networkType": "ethereum",
+  "updatedAt": "2023-05-31T18:29:46.478Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

@@ -1,6 +1,7 @@
 // 192.168.1.5
-export const baseURL = "http://localhost:9946/IMusic/"
-export const assetURL = "http://localhost:9946";
+export const host = window.location.hostname
+export const baseURL = `http://${host}:9946/IMusic/`
+export const assetURL =  `http://${host}:9946`
 
 function returnApis(url) {
     return baseURL + url
