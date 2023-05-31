@@ -1,7 +1,5 @@
-// 192.168.1.5
-export const base = "192.168.1.6"
-export const baseURL = `http://${base}:9946/IMusic/`
-export const assetURL =  `http://${base}:9946`
+export const baseURL = `http://192.168.1.6:9946/IMusic/`
+export const assetURL =  `http://192.168.1.6:9946`
 
 function returnApis(url) {
     return baseURL + url
