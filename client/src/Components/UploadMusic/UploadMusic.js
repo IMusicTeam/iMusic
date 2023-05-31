@@ -234,7 +234,7 @@ function UploadMusic() {
       .post(APIConstants.formUpload, reqBody)
       .then((res) => {
         console.log(res);
-        transfer();
+        // transfer();
         transectioncall(values.description, values.price);
         setStep(1);
       })

@@ -74,340 +74,357 @@ import AlbumsCard18 from "../../Assets/Assets/CardImages/AlbumsCard18.png";
 import axios from 'axios'
 import { useNavigate } from 'react-router';
 import ListenedCard from '../ListenedCard/ListenedCard';
-import { APIConstants, assetURL} from '../../Services/api-constants';
+import { APIConstants, assetURL } from '../../Services/api-constants';
+import contractInstance from '../../web3';
 
 function MusicCarousel() {
   const [musicList, setMusicList] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const data = [
-    {id: 1, src: rounded1,artist:"Drake",rank:1,place:"Mexico"},
-    { id: 2, src: rounded2,artist:"Weekend",rank:2,place:"USA"},
-    { id: 3, src: rounded3,artist:"Ariana Grande",rank:3,place:"UK"},
-    { id: 4, src: rounded4,artist:"Taylor Swift",rank:4,place:"Russia"},
-    { id: 5, src: rounded5,artist:"XXXtention",rank:5,place:"England"},
-    { id: 6, src: rounded6,artist:"Drake",rank:6,place:"USA"},
-    { id: 7, src: rounded7,artist:"Ariana Grande",rank:7,place:"UK"},
-    { id: 8, src: rounded8 ,artist:"Weekend",rank:8,place:"Russia"},
-    { id: 9, src: rounded9,artist:"Taylor Swift",rank:9,place:"England"},
-    { id: 10, src: rounded10,artist:"XXXtention",rank:10,place:"Mexico"}
+    { id: 1, src: rounded1, artist: "Drake", rank: 1, place: "Mexico" },
+    { id: 2, src: rounded2, artist: "Weekend", rank: 2, place: "USA" },
+    { id: 3, src: rounded3, artist: "Ariana Grande", rank: 3, place: "UK" },
+    { id: 4, src: rounded4, artist: "Taylor Swift", rank: 4, place: "Russia" },
+    { id: 5, src: rounded5, artist: "XXXtention", rank: 5, place: "England" },
+    { id: 6, src: rounded6, artist: "Drake", rank: 6, place: "USA" },
+    { id: 7, src: rounded7, artist: "Ariana Grande", rank: 7, place: "UK" },
+    { id: 8, src: rounded8, artist: "Weekend", rank: 8, place: "Russia" },
+    { id: 9, src: rounded9, artist: "Taylor Swift", rank: 9, place: "England" },
+    { id: 10, src: rounded10, artist: "XXXtention", rank: 10, place: "Mexico" }
   ]
   const data1 = [
-    { id: 1, src: Card11,playlist:"Trending Playlist",album:"Album"},
-    { id: 2, src: Card45,playlist:"Trending on Tiktok",album:"Playlists"},
-    { id: 3, src: Card46,playlist:"Trending Playlist",album:"Playlists"},
-    { id: 4, src: Card14,playlist:"All Time Rap's",album:"Playlists"},
-    { id: 5, src: Card47,playlist:"Good Music for Bad Days",album:"Playlist"},
-    { id: 6, src: Card16,playlist:"Nineties Playlists",album:"Playlist"},
-    { id: 7, src: Card17,playlist:"Trending on Tiktok",album:"Albums"},
-    { id: 8, src: Card18 ,playlist:"Trending Playlist",album:"Albums"},
-    { id: 9, src: Card19,playlist:"All Time Rap's",album:"Albums"},
-    { id: 10, src: Card20,playlist:"Good Music for Bad Days",album:"Albums"}
-  ] 
+    { id: 1, src: Card11, playlist: "Trending Playlist", album: "Album" },
+    { id: 2, src: Card45, playlist: "Trending on Tiktok", album: "Playlists" },
+    { id: 3, src: Card46, playlist: "Trending Playlist", album: "Playlists" },
+    { id: 4, src: Card14, playlist: "All Time Rap's", album: "Playlists" },
+    { id: 5, src: Card47, playlist: "Good Music for Bad Days", album: "Playlist" },
+    { id: 6, src: Card16, playlist: "Nineties Playlists", album: "Playlist" },
+    { id: 7, src: Card17, playlist: "Trending on Tiktok", album: "Albums" },
+    { id: 8, src: Card18, playlist: "Trending Playlist", album: "Albums" },
+    { id: 9, src: Card19, playlist: "All Time Rap's", album: "Albums" },
+    { id: 10, src: Card20, playlist: "Good Music for Bad Days", album: "Albums" }
+  ]
   const data2 = [
-    { id: 1, src: Card1,playlist:"Mine",album:"Playlist"},
-    { id: 2, src: Card35,playlist:"Top Hits of 2000",album:"Playlists"},
-    { id: 3, src: Card34,playlist:"Trending Playlist",album:"Playlist"},
-    { id: 4, src: Card33,playlist:"Old School",album:"Playlist"},
-    { id: 5, src: Card32,playlist:"Smile VoL1",album:"Playlist"},
-    { id: 6, src: Card31,playlist:"Switch",album:"Playlist"},
-    { id: 7, src: Card27,playlist:"Smile Vol.1",album:"Playlists"},
-    { id: 8, src: Card28,playlist:"Old School",album:"Playlists" },
-    { id: 9, src: Card29,playlist:"Top Hits of 2000",album:"Weekend"},
-    { id: 10, src: Card30,playlist:"Mine",album:"Weekend"}
-  ] 
+    { id: 1, src: Card1, playlist: "Mine", album: "Playlist" },
+    { id: 2, src: Card35, playlist: "Top Hits of 2000", album: "Playlists" },
+    { id: 3, src: Card34, playlist: "Trending Playlist", album: "Playlist" },
+    { id: 4, src: Card33, playlist: "Old School", album: "Playlist" },
+    { id: 5, src: Card32, playlist: "Smile VoL1", album: "Playlist" },
+    { id: 6, src: Card31, playlist: "Switch", album: "Playlist" },
+    { id: 7, src: Card27, playlist: "Smile Vol.1", album: "Playlists" },
+    { id: 8, src: Card28, playlist: "Old School", album: "Playlists" },
+    { id: 9, src: Card29, playlist: "Top Hits of 2000", album: "Weekend" },
+    { id: 10, src: Card30, playlist: "Mine", album: "Weekend" }
+  ]
   const data3 = [
-    { id: 1, src: Card30,playlist:"Dig Out Your Soul",album:"Playlist"},
-    { id: 2, src: Card29,playlist:"Sunset Days",album:"Playlist"},
-    { id: 3, src: Card28,playlist:"Freedom",album:"Playlist"},
-    { id: 4, src: Card27,playlist:"Loud(ish)",album:"Playlist"},
-    { id: 5, src: Card22,playlist:"Dance Groove",album:"Playlist"},
-    { id: 6, src: Card23,playlist:"All Mix",album:"Playlist"},
-    { id: 7, src: Card5,playlist:"Ariana Grande This Side",album:"Playlist"},
-    { id: 8, src: Card7 ,playlist:"STAR BOY",album:"Weekend"},
-    { id: 9, src: Card8,playlist:" Good Music for Bad Days",album:"Playlist"},
-    { id: 10, src: Card9,playlist:"Trending",album:"Weekend"}
-  ] 
-  const data4= [
-    { id: 1, src: Card24,playlist:"Space Out",album:"Playlist"},
-    { id: 2, src: Card25,playlist:"Vibe",album:"Playlist"},
-    { id: 3, src: Card26,playlist:"In My Zone",album:"Playlist"},
-    { id: 4, src: Card44,playlist:"Utopia",album:"Playlist"},
-    { id: 5, src: Card43,playlist:"Sad Bitch",album:"Playlist"},
-    { id: 6, src: Card21,playlist:"Trending Playlist",album:"Album"},
-    { id: 7, src: Card17,playlist:" STAR BOY",album:"Weekend"},
-    { id: 8, src: Card18 ,playlist:"XXXtention",album:"Weekend"},
-    { id: 9, src: Card19,playlist:"Freedom",album:"Weekend"},
-    { id: 10, src: Card20,playlist:"Good Music for Bad Days",album:"Weekend"}
-  ] 
+    { id: 1, src: Card30, playlist: "Dig Out Your Soul", album: "Playlist" },
+    { id: 2, src: Card29, playlist: "Sunset Days", album: "Playlist" },
+    { id: 3, src: Card28, playlist: "Freedom", album: "Playlist" },
+    { id: 4, src: Card27, playlist: "Loud(ish)", album: "Playlist" },
+    { id: 5, src: Card22, playlist: "Dance Groove", album: "Playlist" },
+    { id: 6, src: Card23, playlist: "All Mix", album: "Playlist" },
+    { id: 7, src: Card5, playlist: "Ariana Grande This Side", album: "Playlist" },
+    { id: 8, src: Card7, playlist: "STAR BOY", album: "Weekend" },
+    { id: 9, src: Card8, playlist: " Good Music for Bad Days", album: "Playlist" },
+    { id: 10, src: Card9, playlist: "Trending", album: "Weekend" }
+  ]
+  const data4 = [
+    { id: 1, src: Card24, playlist: "Space Out", album: "Playlist" },
+    { id: 2, src: Card25, playlist: "Vibe", album: "Playlist" },
+    { id: 3, src: Card26, playlist: "In My Zone", album: "Playlist" },
+    { id: 4, src: Card44, playlist: "Utopia", album: "Playlist" },
+    { id: 5, src: Card43, playlist: "Sad Bitch", album: "Playlist" },
+    { id: 6, src: Card21, playlist: "Trending Playlist", album: "Album" },
+    { id: 7, src: Card17, playlist: " STAR BOY", album: "Weekend" },
+    { id: 8, src: Card18, playlist: "XXXtention", album: "Weekend" },
+    { id: 9, src: Card19, playlist: "Freedom", album: "Weekend" },
+    { id: 10, src: Card20, playlist: "Good Music for Bad Days", album: "Weekend" }
+  ]
   const data5 = [
-    { id: 1, src: Card20,playlist:"Remix Radio",album:"Radio"},
-    { id: 2, src: Card19,playlist:"Jay - Jay Johanason",album:"Radio"},
-    { id: 3, src: Card18,playlist:"Discography",album:"Radio"},
-    { id: 4, src: Card16,playlist:"Disco",album:"Radio"},
-    { id: 5, src: Card15,playlist:"Remix Radio",album:"Radio"},
-    { id: 6, src: Card5,playlist:" EveryThing from Taylor",album:"Weekend"},
-    { id: 7, src: Card4,playlist:" Ariana Grande This Side",album:"Weekend"},
-    { id: 8, src: Card7 ,playlist:" EveryThing from Taylor",album:"Weekend"},
-    { id: 9, src: Card6,playlist:" Ariana Grande This Side",album:"Weekend"},
-    { id: 10, src: Card1,playlist:"Sunset Days",album:"Weekend"}
-  ] 
+    { id: 1, src: Card20, playlist: "Remix Radio", album: "Radio" },
+    { id: 2, src: Card19, playlist: "Jay - Jay Johanason", album: "Radio" },
+    { id: 3, src: Card18, playlist: "Discography", album: "Radio" },
+    { id: 4, src: Card16, playlist: "Disco", album: "Radio" },
+    { id: 5, src: Card15, playlist: "Remix Radio", album: "Radio" },
+    { id: 6, src: Card5, playlist: " EveryThing from Taylor", album: "Weekend" },
+    { id: 7, src: Card4, playlist: " Ariana Grande This Side", album: "Weekend" },
+    { id: 8, src: Card7, playlist: " EveryThing from Taylor", album: "Weekend" },
+    { id: 9, src: Card6, playlist: " Ariana Grande This Side", album: "Weekend" },
+    { id: 10, src: Card1, playlist: "Sunset Days", album: "Weekend" }
+  ]
   const data6 = [
-    { id: 1, src: Card14,playlist:"Silence",album:"Own Playlist"},
-    { id: 2, src: Card13,playlist:"Journey Playlist",album:"Own Playlist"},
-    { id: 3, src: Card48,playlist:"Love",album:"Own Playlist"},
-    { id: 4, src: Card10,playlist:"Never lies",album:"Own Playlist"},
-    { id: 5, src: Card49,playlist:"Indie Covers",album:"Own Playlist"},
-    { id: 6, src: Card8,playlist:"Workout Session",album:"Own Playlist"},
-    { id: 7, src: Card2,playlist:"Everything From Drake",album:"Radio"},
-    { id: 8, src: Card3,playlist:"Sunset Days",album:"Weekend"},
-    { id: 9, src: Card4,playlist:"XXXtention",album:"Radio"},
-    { id: 10, src: Card5,playlist:" EveryThing from Taylor",album:"Weekend"},
-  ] 
+    { id: 1, src: Card14, playlist: "Silence", album: "Own Playlist" },
+    { id: 2, src: Card13, playlist: "Journey Playlist", album: "Own Playlist" },
+    { id: 3, src: Card48, playlist: "Love", album: "Own Playlist" },
+    { id: 4, src: Card10, playlist: "Never lies", album: "Own Playlist" },
+    { id: 5, src: Card49, playlist: "Indie Covers", album: "Own Playlist" },
+    { id: 6, src: Card8, playlist: "Workout Session", album: "Own Playlist" },
+    { id: 7, src: Card2, playlist: "Everything From Drake", album: "Radio" },
+    { id: 8, src: Card3, playlist: "Sunset Days", album: "Weekend" },
+    { id: 9, src: Card4, playlist: "XXXtention", album: "Radio" },
+    { id: 10, src: Card5, playlist: " EveryThing from Taylor", album: "Weekend" },
+  ]
   const data7 = [
-    { id: 1, src: Card20,playlist:"Trending on Tiktok ",album:"Weekend"},
-    { id: 2, src: Card11,playlist:" Trending on Tiktok",album:"Weekend"},
-    { id: 3, src: Card12,playlist:"Trending Playlist ",album:"Weekend"},
-    { id: 4, src: Card13 ,playlist:"EveryThing from Taylor ",album:"Weekend"},
-    { id: 5, src: Card14,playlist:" Ariana Grande This Side",album:"Weekend"},
-    { id: 6, src: Card15,playlist:"Good Music for Bad Days",album:"Weekend"},
-    { id: 7, src: Card6,playlist:"STAR BOY",album:"Weekend"},
-    { id: 8, src: Card6,playlist:"Everything From Drake",album:"Weekend"},
-    { id: 9, src: Card8,playlist:"XXXtention",album:"Weekend"},
-    { id: 10, src: Card9,playlist:"Dig Out your Soul",album:"Weekend"}
-  ] 
+    { id: 1, src: Card20, playlist: "Trending on Tiktok ", album: "Weekend" },
+    { id: 2, src: Card11, playlist: " Trending on Tiktok", album: "Weekend" },
+    { id: 3, src: Card12, playlist: "Trending Playlist ", album: "Weekend" },
+    { id: 4, src: Card13, playlist: "EveryThing from Taylor ", album: "Weekend" },
+    { id: 5, src: Card14, playlist: " Ariana Grande This Side", album: "Weekend" },
+    { id: 6, src: Card15, playlist: "Good Music for Bad Days", album: "Weekend" },
+    { id: 7, src: Card6, playlist: "STAR BOY", album: "Weekend" },
+    { id: 8, src: Card6, playlist: "Everything From Drake", album: "Weekend" },
+    { id: 9, src: Card8, playlist: "XXXtention", album: "Weekend" },
+    { id: 10, src: Card9, playlist: "Dig Out your Soul", album: "Weekend" }
+  ]
   const data8 = [
-    { id: 1, src: Card12,playlist:"Good Music for Bad Days",album:"Weekend"},
-    { id: 2, src: Card2,playlist:"STAR BOY",album:"Weekend"},
-    { id: 3, src: Card3,playlist:"XXXtention",album:"Weekend"},
-    { id: 4, src: Card4,playlist:"Mine",album:"Weekend"},
-    { id: 5, src: Card5,playlist:"Top Hits of 2000",album:"Weekend"},
-    { id: 6, src: Card6,playlist:"Old School ",album:"Weekend"},
-    { id: 7, src: Card7,playlist:"Smile Vol.1",album:"Weekend"},
-    { id: 8, src: Card8,playlist:"Dig Out your Soul",album:"Weekend" },
-    { id: 9, src: Card11,playlist:"Sunset Days",album:"Weekend"},
-    { id: 10, src: Card12,playlist:"Freedom",album:"Weekend"}
-  ] 
+    { id: 1, src: Card12, playlist: "Good Music for Bad Days", album: "Weekend" },
+    { id: 2, src: Card2, playlist: "STAR BOY", album: "Weekend" },
+    { id: 3, src: Card3, playlist: "XXXtention", album: "Weekend" },
+    { id: 4, src: Card4, playlist: "Mine", album: "Weekend" },
+    { id: 5, src: Card5, playlist: "Top Hits of 2000", album: "Weekend" },
+    { id: 6, src: Card6, playlist: "Old School ", album: "Weekend" },
+    { id: 7, src: Card7, playlist: "Smile Vol.1", album: "Weekend" },
+    { id: 8, src: Card8, playlist: "Dig Out your Soul", album: "Weekend" },
+    { id: 9, src: Card11, playlist: "Sunset Days", album: "Weekend" },
+    { id: 10, src: Card12, playlist: "Freedom", album: "Weekend" }
+  ]
   const albumsData = [
-    { id: 1, src: AlbumsCard5,text:"Listen to your own Music" },
-    { id: 2, src: AlbumsCard4,text:"Listen to your owned Music" },
-    { id: 3, src: AlbumsCard8},
-    { id: 4, src: AlbumsCard18},
+    { id: 1, src: AlbumsCard5, text: "Listen to your own Music" },
+    { id: 2, src: AlbumsCard4, text: "Listen to your owned Music" },
+    { id: 3, src: AlbumsCard8 },
+    { id: 4, src: AlbumsCard18 },
     { id: 5, src: AlbumsCard14 },
     { id: 6, src: AlbumsCard13 },
-    { id: 7, src: AlbumsCard19},
-    { id: 8, src: AlbumsCard20},
-    { id: 9, src: AlbumsCard21},
-  ] 
-const navigateTO=useNavigate();
+    { id: 7, src: AlbumsCard19 },
+    { id: 8, src: AlbumsCard20 },
+    { id: 9, src: AlbumsCard21 },
+  ]
+  const navigateTO = useNavigate();
+
+
   useEffect(() => {
-    axios
-      .get(APIConstants.allsongs)
-      .then((res) => {
-        const data = res.data.data;
-        const resultArray=data.filter((item)=>item.songApproved === true)
-        // data.map((item)=>{
-        //   if(item.songApproved){
-        //     resultArray.push(item)
-        //   }
-        // })
-        setMusicList(resultArray);
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
-  }, []);
-  
-  const HandelSeeAll = (value)=>{
-    const {path, title} = value
-    navigateTO(`/see-all/${path}`,{
-      state:title
+    getApprovedSongs()
+  }, [])
+
+
+  const getApprovedSongs = async () => {
+    let tempArray = []
+    try {
+      const getContractSongs = await contractInstance.methods.getAllSongs().call()
+      if (getContractSongs !== null && getContractSongs && getContractSongs.length > 0) {
+        getContractSongs.filter(Boolean).map(({userWalletId,songId, adminWalletId,albumName, artistName, createdAt, depositAddress, favourited, lyrics, price, songDescription, songName, songThumbnail, tune, updatedAt, userId }, i) => {
+          if (albumName || artistName|| adminWalletId|| songId || userWalletId || createdAt || depositAddress || favourited || price || songDescription || songName || songThumbnail || tune || updatedAt || userId) {
+            tempArray.push({
+              albumName: albumName,
+              artistName: artistName,
+              createdAt: createdAt,
+              userWalletId:userWalletId,
+              adminWalletId:adminWalletId,
+              price: price,
+              songDescription: songDescription,
+              songName: songName,
+              songThumbnail: songThumbnail,
+              tune: tune,
+              updatedAt: updatedAt,
+              userId: userId,
+              _id:songId
+            })
+          }
+        })
+      }
+      setMusicList(tempArray)
+    } catch {
+      console.log("Contracts: Failed to get all new releases")
+    }
+  }
+
+  const HandelSeeAll = (value) => {
+    const { path, title } = value
+    navigateTO(`/see-all/${path}`, {
+      state: title
     })
   }
-  
-   return (
+
+  return (
     <div className='pl-[34px] pb-[32px] pr-7'>
-         {musicList.length > 0 && (<div className='flex flex-row justify-between'>
-          <h1 className='text-[30px]'>New releases</h1>          
-      </div> )}
+      {musicList.length > 0 && (<div className='flex flex-row justify-between'>
+        <h1 className='text-[30px]'>New releases</h1>
+      </div>)}
 
       <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
-        {musicList.map((item)=>{
-          return(
+        {musicList.map((item) => {
+          return (
             <div>
-              <ProfileCard data={item} src={assetURL + item.songThumbnail} newRelease={true}/>
+              <ProfileCard data={item} src={assetURL + item.songThumbnail} newRelease={true} />
             </div>
           )
         })}
-        </div>
-
-        <div className='flex flex-row justify-between'>
-        <h1 className='text-[30px] font-medium mt-[28px]'>New uploaded</h1>
-        <button onClick={()=>HandelSeeAll({path:'new-release',title:'New releases'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
-        </div>
-
-        <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
-          {
-            data7.map((item)=>{
-              return(
-                <div>
-                   <ProfileCard data={item} src={item.src} />
-                </div>
-              )
-            })
-          }
-        </div>
-       
-
-        <div className='flex flex-row justify-between'>
-        <h1 className='text-[30px] font-medium mt-[28px]'>Top charts</h1>
-        <button onClick={()=>HandelSeeAll({path:'new-uploaded',title:'New uploaded'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
-        </div>
-
-        <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
-          {
-            data1.map((item)=>{
-              return(
-                <div>
-                   <ProfileCard data={item} src={item.src} />
-                </div>
-              )
-            })
-          }
-        </div>
+      </div>
 
       <div className='flex flex-row justify-between'>
-         <h1 className='text-[30px] font-medium mt-[28px]'>Recommended for you</h1>
-         <button onClick={()=>HandelSeeAll({path:'top-chart',title:'Top charts'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
-      </div>   
+        <h1 className='text-[30px] font-medium mt-[28px]'>New uploaded</h1>
+        <button onClick={() => HandelSeeAll({ path: 'new-release', title: 'New releases' })} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+      </div>
 
       <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
-          {
-            data2.map((item)=>{
-              return(
-                <div>
-                   <ProfileCard data={item} src={item.src}/>
-                </div>
-              )
-            })
-          }
-        </div>
+        {
+          data7.map((item) => {
+            return (
+              <div>
+                <ProfileCard data={item} src={item.src} />
+              </div>
+            )
+          })
+        }
+      </div>
+
 
       <div className='flex flex-row justify-between'>
-      <h1 className='text-[30px] font-medium mt-[28px]'>Featured playlists Based on Mood</h1>
-      <button onClick={()=>HandelSeeAll({path:'recommended-for-you',title:'Recommended for you'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
-    </div>
-    <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
-          {
-            data3.map((item)=>{
-              return(
-                <div>
-                   <ProfileCard data={item} src={item.src}/>
-                </div>
-              )
-            })
-          }
-        </div>
+        <h1 className='text-[30px] font-medium mt-[28px]'>Top charts</h1>
+        <button onClick={() => HandelSeeAll({ path: 'new-uploaded', title: 'New uploaded' })} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+      </div>
+
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        {
+          data1.map((item) => {
+            return (
+              <div>
+                <ProfileCard data={item} src={item.src} />
+              </div>
+            )
+          })
+        }
+      </div>
 
       <div className='flex flex-row justify-between'>
-      <h1 className='text-[30px] font-medium mt-[28px]'>Last Spotlight</h1>
-      <button onClick={()=>HandelSeeAll({path:'featured-playlists',title:'Featured playlists Based on Mood'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
-    </div>
-    <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
-          {
-            data4.map((item)=>{
-              return(
-                <div>
-                   <ProfileCard data={item} src={item.src}/>
-                </div>
-              )
-            })
-          }
-        </div>
-            
+        <h1 className='text-[30px] font-medium mt-[28px]'>Recommended for you</h1>
+        <button onClick={() => HandelSeeAll({ path: 'top-chart', title: 'Top charts' })} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+      </div>
+
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        {
+          data2.map((item) => {
+            return (
+              <div>
+                <ProfileCard data={item} src={item.src} />
+              </div>
+            )
+          })
+        }
+      </div>
+
+      <div className='flex flex-row justify-between'>
+        <h1 className='text-[30px] font-medium mt-[28px]'>Featured playlists Based on Mood</h1>
+        <button onClick={() => HandelSeeAll({ path: 'recommended-for-you', title: 'Recommended for you' })} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+      </div>
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        {
+          data3.map((item) => {
+            return (
+              <div>
+                <ProfileCard data={item} src={item.src} />
+              </div>
+            )
+          })
+        }
+      </div>
+
+      <div className='flex flex-row justify-between'>
+        <h1 className='text-[30px] font-medium mt-[28px]'>Last Spotlight</h1>
+        <button onClick={() => HandelSeeAll({ path: 'featured-playlists', title: 'Featured playlists Based on Mood' })} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+      </div>
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        {
+          data4.map((item) => {
+            return (
+              <div>
+                <ProfileCard data={item} src={item.src} />
+              </div>
+            )
+          })
+        }
+      </div>
+
+      <div className="flex flex-row justify-between">
+        <h1 className="text-[30px] font-medium"></h1>
+        <h5 onClick={() => HandelSeeAll({ path: 'last-spotlight', title: 'Last Spotlight' })} className='underline font-medium text-[16px] text-iBlack1 cursor-pointer'>See All</h5>
+      </div>
+
+      <div className="flex flex-row gap-[29px]  1xl:gap-[42px] 2xl:gap-[20px] 13mac:gap-[25px] 4xl:gap-[23px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
+        {
+          data.map((item) => {
+            return (
+              <div>
+                <RoundedCard data={item} src={item.src} artist={item.artist} rank={item.rank} place={item.place} />
+              </div>
+            )
+          })
+        }
+      </div>
+
+
+      <div className='flex flex-row justify-between'>
+        <h1 className='text-[30px] font-medium mt-[28px]'>Radio stations</h1>
+      </div>
+
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        {
+          data5.map((item) => {
+            return (
+              <div>
+                <ProfileCard data={item} src={item.src} />
+              </div>
+            )
+          })
+        }
+      </div>
+
+
+      <div className='flex flex-row justify-between'>
+        <h1 className='text-[30px] font-medium mt-[28px]'>Your Playlists</h1>
+        <button onClick={() => HandelSeeAll({ path: 'radio-stations', title: 'Radio stations' })} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+      </div>
+
+      <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        {
+          data6.map((item) => {
+            return (
+              <div>
+                <ProfileCard data={item} src={item.src} />
+              </div>
+            )
+          })
+        }
+      </div>
+
+
+      <div className='flex flex-row justify-between'>
+        <h1 className='text-[30px] font-medium mt-[28px]'>Top Albums</h1>
+        <button onClick={() => HandelSeeAll({ path: 'your-playlists', title: 'Your Playlists' })} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+      </div>
+
+      <div className='flex flex-row gap-[24px] p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
+        {
+          albumsData.map((item) => {
+            return (
+              <div className='w-[360px] h-[360px]'>
+                <ListenedCard image={item.src} text={item.text} />
+              </div>
+            )
+          })
+        }
+      </div>
+
+      <div>
         <div className="flex flex-row justify-between">
           <h1 className="text-[30px] font-medium"></h1>
-          <h5 onClick={()=>HandelSeeAll({path:'last-spotlight',title:'Last Spotlight'})} className='underline font-medium text-[16px] text-iBlack1 cursor-pointer'>See All</h5>
+          <h5 onClick={() => HandelSeeAll({ path: 'top-albums', title: 'Top Albums' })} className='underline font-medium text-[16px] text-iBlack1 cursor-pointer'>See All</h5>
         </div>
-
-        <div className="flex flex-row gap-[29px]  1xl:gap-[42px] 2xl:gap-[20px] 13mac:gap-[25px] 4xl:gap-[23px] max-w-[1632px] overflow-x-scroll hidding-x-scroll">
-          {
-            data.map((item)=>{
-              return (
-                <div>
-                <RoundedCard data={item} src={item.src} artist={item.artist} rank={item.rank} place={item.place}/>
-                </div>
-              )
-            })
-          }
-        </div>
-
-
-      <div className='flex flex-row justify-between'>
-      <h1 className='text-[30px] font-medium mt-[28px]'>Radio stations</h1>
+      </div>
     </div>
 
-    <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
-          {
-            data5.map((item)=>{
-              return(
-                <div>
-                   <ProfileCard data={item} src={item.src}/>
-                </div>
-              )
-            })
-          }
-        </div>
 
-
-      <div className='flex flex-row justify-between'>
-      <h1 className='text-[30px] font-medium mt-[28px]'>Your Playlists</h1>
-      <button onClick={()=>HandelSeeAll({path:'radio-stations',title:'Radio stations'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
-    </div>
-
-    <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
-          {
-            data6.map((item)=>{
-              return(
-                <div>
-                   <ProfileCard data={item} src={item.src}/>
-                </div>
-              )
-            })
-          }
-        </div>
-
-
-      <div className='flex flex-row justify-between'>
-      <h1 className='text-[30px] font-medium mt-[28px]'>Top Albums</h1>
-      <button onClick={()=>HandelSeeAll({path:'your-playlists',title:'Your Playlists'})} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
-    </div>
-
-    <div className='flex flex-row gap-[24px] p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
-          {
-            albumsData.map((item)=>{
-              return(
-                <div className='w-[360px] h-[360px]'>
-                <ListenedCard image={item.src} text={item.text}/>
-                </div>
-              )
-            })
-          }
-        </div>
-
-        <div>
-        <div className="flex flex-row justify-between">
-          <h1 className="text-[30px] font-medium"></h1>
-          <h5 onClick={()=>HandelSeeAll({path:'top-albums',title:'Top Albums'})} className='underline font-medium text-[16px] text-iBlack1 cursor-pointer'>See All</h5>
-        </div>
-        </div>
-    </div>
-
-    
   )
 }
 
