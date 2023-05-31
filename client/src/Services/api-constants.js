@@ -1,7 +1,8 @@
 // 192.168.1.5
 export const host = window.location.hostname
-export const baseURL = `http://${host}:9946/IMusic/`
-export const assetURL =  `http://${host}:9946`
+export const base = "192.168.1.6"
+export const baseURL = `http://${base}:9946/IMusic/`
+export const assetURL =  `http://${base}:9946`
 
 function returnApis(url) {
     return baseURL + url
