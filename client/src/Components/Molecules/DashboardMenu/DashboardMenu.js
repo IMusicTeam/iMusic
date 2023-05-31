@@ -74,7 +74,7 @@ export const DashboardMenu = () => {
           </div>
         </div>
 
-        <div className="overflow-y-scroll h-[550px]">
+        <div className="overflow-y-scroll" style={{height:"100%", maxHeight: window.innerHeight - 400}}>
           <div>
           <div>
             {/* Home-button */}
@@ -235,7 +235,7 @@ export const DashboardMenu = () => {
             </div>
           </div>
           {/* SignOut-button */}
-          <div className="mt-10 ">
+          <div className="mt-10">
             <div className="mb-2">
               <MenuItem
                 onClick={()=>{

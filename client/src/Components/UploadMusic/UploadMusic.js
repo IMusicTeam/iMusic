@@ -214,15 +214,20 @@ function UploadMusic() {
 
   const autoFill=[
     {albumName: "Perfect",
-    artistName: "Jhon",
+    artistName: "John",
     price: 2,
+    songThumbnail: "/uploads/6477b52cc6e50357277ee7fa-1.jfif",
+    tune:["/uploads/6477bac6c6e50357277ee809-1.mp3"],
+    copyrightFile: "/uploads/6477b5f8c6e50357277ee7fc-GreenBox-Terms of Service Agreement.pdf",
     songName: "Perfect",
     songDescription: "Nice Song",
     lyrics:"No"},
-    
     {albumName: "Calm Down",
     artistName: "Rema",
     price: 2,
+    songThumbnail: "/uploads/6477ba50c6e50357277ee806-2.jfif",
+    tune:["/uploads/6477b5aec6e50357277ee7fb-1.mp3"],
+    copyrightFile: "/uploads/6477b5f8c6e50357277ee7fc-GreenBox-Terms of Service Agreement.pdf",
     songName: "Calm Down",
     songDescription: "Love Song",
     lyrics:"No"},
@@ -230,6 +235,9 @@ function UploadMusic() {
     {albumName: "Bones",
     artistName: "Dragon",
     price: 1,
+    songThumbnail:  "/uploads/6477ba7dc6e50357277ee807-3.jfif",
+    tune:[ "/uploads/6477b5aec6e50357277ee7fb-1.mp3"],
+    copyrightFile: "/uploads/6477b5f8c6e50357277ee7fc-GreenBox-Terms of Service Agreement.pdf",
     songName: "Bones",
     songDescription: "Nice Song",
     lyrics:"No"},
@@ -238,6 +246,9 @@ function UploadMusic() {
     {albumName: "The Drum",
     artistName: "Alan Walker",
     price: 3,
+    songThumbnail: "/uploads/6477ba50c6e50357277ee806-2.jfif",
+    tune:["/uploads/6477bac6c6e50357277ee809-1.mp3"],
+    copyrightFile: "/uploads/6477b5f8c6e50357277ee7fc-GreenBox-Terms of Service Agreement.pdf",
     songName: "The Drum",
     songDescription: "Love Song",
     lyrics:"No"},
@@ -245,6 +256,9 @@ function UploadMusic() {
     {albumName: "Cupid",
     artistName: "fify",
     price: 2,
+    songThumbnail:"/uploads/6477b52cc6e50357277ee7fa-1.jfif",
+    tune:["/uploads/6477b5aec6e50357277ee7fb-1.mp3"],
+    copyrightFile: "/uploads/6477b5f8c6e50357277ee7fc-GreenBox-Terms of Service Agreement.pdf",
     songName: "Cupid",
     songDescription: "Love Song",
     lyrics:"No"},
@@ -252,6 +266,9 @@ function UploadMusic() {
     {albumName: "Dreamer",
     artistName: "Alan Walker",
     price: 1,
+    songThumbnail: "/uploads/6477ba7dc6e50357277ee807-3.jfif",
+    tune:["/uploads/6477ba98c6e50357277ee808-2.mp3"],
+    copyrightFile: "/uploads/6477b5f8c6e50357277ee7fc-GreenBox-Terms of Service Agreement.pdf",
     songName: "Dreamer",
     songDescription: "Folk Song",
     lyrics:"No"}]
@@ -279,7 +296,6 @@ function UploadMusic() {
       .post(APIConstants.formUpload, reqBody)
       .then((res) => {
         console.log(res);
-        // transfer();
         transectioncall(values.description, values.price);
         setStep(1);
       })
@@ -304,9 +320,17 @@ function UploadMusic() {
   useEffect(() => {
     const index =Math.floor(Math.random() * autoFill.length)
     const values=autoFill[index]
+    setImage(values.songThumbnail)
+    setSucces(true);
+    setUploadPdfFile(true);
+    setAudio(values.tune[0])
+    setDoc(values.copyrightFile)
     formik.setValues({
       albumName: values.albumName,
       artistName: values.artistName,
+      songThumbnail:values.songThumbnail,
+      tune: values.tune,
+      copyrightFile:values.copyrightFile,
       price: values.price,
       songName: values.songName,
       description: values.songDescription,
