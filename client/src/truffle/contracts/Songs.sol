@@ -9,11 +9,11 @@ contract Songs {
         string artistName;
         uint256 price;
         string[] tune;
-        string lyrics;
+        string songId;
         string songName;
-        bool favourited;
+        string userWalletId;
         string songDescription;
-        address depositAddress;
+        string adminWalletId;
         uint256 createdAt;
         uint256 updatedAt;
     }
@@ -31,10 +31,11 @@ contract Songs {
         string memory _artistName,
         uint256 _price,
         string[] memory _tune,
-        string memory _lyrics,
+        string memory _songId,
         string memory _songName,
         string memory _songDescription,
-        address _depositAddress
+        string memory _userWalletId,
+        string memory _adminWalletId
     ) public returns(Form memory) {
         //to get timestamp of the date
         uint256 timenow = block.timestamp;
@@ -43,17 +44,17 @@ contract Songs {
         uint256 index = totalSongsCount++;
         Form storage song = uploadSong[index];
         //songdetails
-        song.favourited = false;
         song.songThumbnail = _songThumbnail;
         song.albumName = _albumName;
         song.userId = _userId;
         song.artistName = _artistName;
         song.price = _price;
         song.tune = _tune;
-        song.lyrics = _lyrics;
+        song.songId = _songId;
         song.songName = _songName;
         song.songDescription = _songDescription;
-        song.depositAddress = _depositAddress;
+        song.userWalletId = _userWalletId;
+        song.adminWalletId = _adminWalletId;
         song.createdAt = timenow;
         song.updatedAt = timenow;
  

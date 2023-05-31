@@ -9,6 +9,8 @@ import { useSelector } from "react-redux";
 function ProfileCard({ data, src, newRelease, playList }) {
   const {metaMaskDetails} = useSelector((store) => store.ReduxSlice.data);
   if (newRelease) {
+    // alert(JSON.stringify(data))
+    console.log(data)
     data.playlist = data.songName
     data.album = data.albumName
   }

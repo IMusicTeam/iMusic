@@ -164,24 +164,60 @@ function ListSongs() {
       });
   }
 
-  const handleTransfer = async (walletId) => {
+  const handleTransfer = async (item) => {
     const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
       console.log(accounts);
+
       try {
         const value = ethers.utils.parseEther("2");
         const res = await contractInstance.methods
-          .sendMoney(walletId)
+          .sendMoney(item.userWalletId)
           .send({
             from: accounts[0],
             value: value,
           });
+          uploadData(item)
         console.log(res);
       } catch (err) {
-        alert(err);
+       alert("Contract: Transaction failed")
       }
     }
+
+const uploadData = async (item) =>{
+
+  const accounts = await window.ethereum.request({
+    method: "eth_requestAccounts",
+  });
+  console.log(accounts);
+  const test = {songId: item._id}
+  console.log({...item,adminWalletId:metaMaskDetails.account})
+  try { 
+    
+    const uploadedDataRes = await contractInstance.methods.createSong(
+    item.songThumbnail,
+    item.albumName,
+    item.userId,
+    item.artistName,
+    item.price,
+    [item.tune[0]],
+    test.songId,
+    item.songName,
+    item.songDescription,
+    item.userWalletId,
+    metaMaskDetails.account
+   ).send({
+    from: accounts[0]
+  })
+  ApproveSong(item)
+  
+ console.log(uploadedDataRes)
+  } catch (error) {
+    alert("Contract: Failed to upload song")
+    
+  }
+}
 
   const UpdatePlayList = (item) => {
     const { songId, userId } = payload;
@@ -211,7 +247,6 @@ function ListSongs() {
     axios
       .post(`${APIConstants.approveSong}${item._id}&adminWalletId=${metaMaskDetails.account}`)
       .then((res) => {
-        handleTransfer(item.userWalletId)
         getPendingSongs()
         console.log(res)
       })
@@ -315,8 +350,8 @@ function ListSongs() {
                       </button>
                       </div>
 
-                     {item.userWalletId !== metaMaskDetails?.account &&<div>
-                      <button onClick={() => ApproveSong(item)} className="py-2.5 bg-iBlue text-iWhite px-4 rounded-[17px] tracking-wide hover:bg-iOrange">APPROVE</button>
+                     {item.userWalletId !== metaMaskDetails?.account && <div>
+                      <button onClick={() => handleTransfer(item)} className="py-2.5 bg-iBlue text-iWhite px-4 rounded-[17px] tracking-wide hover:bg-iOrange">APPROVE</button>
                       </div>}
                     
                     </div>
