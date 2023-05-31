@@ -32,7 +32,7 @@ const handleContactUs = () =>{
           <BiLeftArrowAlt size={38} className="mb-[33px] -ml-[9px]" />
         </button>
 
-        <h1 className="font-medium text-[32px] mt-1">Quick Links</h1>
+        <h1 className="text-[32px] mt-1">Quick Links</h1>
 
         <div className="flex flex-col justify-start flex-wrap text-ibm1 gap-5 text-[16px] mt-5">
           <div className="flex flex-row 3xl:gap-[135px] gap-20">
