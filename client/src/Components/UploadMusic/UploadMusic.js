@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import { FaEdit } from "react-icons/fa";
@@ -51,6 +51,7 @@ function UploadMusic() {
   const [fileupload, setFileUpload] = useState(false);
   const [uploadPdfFile, setUploadPdfFile] = useState(false);
   const [doc, setDoc] = useState("");
+  const userInfo = useSelector((store) => store.ReduxSlice.data.userData);
   const [data, setData] = useState({});
 
   const fileUploadHandler = async (event, hook, properties) => {
@@ -315,10 +316,14 @@ function UploadMusic() {
     copyrightFile: "/uploads/64789784864292bcc9bec91e-1674044600880_Document%20Dec (1).pdf",
     songName: "Anyone",
     songDescription: "Rock music",
-    lyrics:"No"}
-
-  ]
-
+    lyrics:"No"}]
+    const getFirstNameLastName = useCallback(() => {
+      const returnmail = val => {
+        return val.split("@")[0]
+      }
+      const {email} = userInfo
+      return email ? returnmail(email) : ""
+    },[userInfo])
 
   const handleSubmit =async () => {
     const values=formik.values
@@ -393,9 +398,9 @@ function UploadMusic() {
         <div className="flex flex-row justify-center my-[75px]">
           <div className="w-[1000px] bg-iWhite shadow-2xl rounded-2xl p-[38px]">
             <button onClick={HandelBack}>
-              <BiLeftArrowAlt size={34} className="mb-[33px] -ml-[20px]" />
+              <BiLeftArrowAlt size={34} className=" mb-1 ml-[6px]" />
             </button>
-            <div className="flex flex-row items-center justify-center -mt-[60px] mb-[40px]">
+            <div className="flex flex-row items-center justify-center -mt-[50px] mb-[40px]">
               <h6 className="text-[28px] text-iBlue">Upload Music</h6>
             </div>
             <div className="flex flex-row gap-4">
@@ -443,7 +448,7 @@ function UploadMusic() {
 
                 <div className="flex flex-row justify-center items-center mt-[24px]">
                   <div className="flex flex-col">
-                    <p className="text-[28px] text-cgy4">Jane William</p>
+                    <p className="text-[28px] text-cgy4">{getFirstNameLastName()[0]}</p>
                     <p className="text-[20px] text-igray1 mt-[6px]">
                       Account ID: P1234
                     </p>
