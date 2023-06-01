@@ -12,8 +12,10 @@ import rounded5 from "../../Assets/Assets/CardImages/Rounded5.png";
 import AlbumsCard1 from "../../Assets/Assets/CardImages/AlbumsCard6.png";
 
 import "./RecentlyPlayed.css"
+import { Navigate, useNavigate } from "react-router";
 
 function RecentlyPlayed() {
+  const navigateTo=useNavigate()
   const [scheduledTimes, setScheduledTimes] = useState([])
   const data = [
     { id: 1, src: rounded1,smallTitle : "Taylor Swift",
@@ -105,7 +107,7 @@ function RecentlyPlayed() {
             <img src={HomeCard1} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
        <p className="4xl:text-[55px] leading-[70px] px-[65px] absolute top-[107px] text-iWhite shadow-[12px] drop-shadow-2xl transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-shadow 2xl:text-[45px] 1.5xl:text-[40px] 1xl:text-[38px] 5xl:text-[50px] xl:text-[50px]">Listen to your Purchased Music</p>
         </div>
-        <div className="relative transition duration-300 ease-in-out delay-150 hover:translate-x-1 hover:scale-80">
+        <div onClick={()=>navigateTo('/listen-owned-music')} className="relative transition duration-300 ease-in-out delay-150 hover:translate-x-1 hover:scale-80">
             <img src={HomeCard2} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
        <p className="4xl:text-[55px] leading-[70px] px-[85px] absolute top-[107px] text-iWhite shadow-[12px] drop-shadow-2xl  transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-shadow 2xl:text-[45px] 1.5xl:text-[40px] 1xl:text-[38px] 5xl:text-[50px] xl:text-[50px]">Listen to your Owned Music</p>
         </div>

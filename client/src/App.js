@@ -48,6 +48,7 @@ import { APIConstants } from "./Services/api-constants";
 import { updateAuthVerification, updateUserData } from "./Redux/Redux";
 import { useDispatch } from "react-redux";
 import NoMetaMask from "./ReusableComponents/NoMetaMask";
+import OwnedSongs from "./Components/Playlists/ListSongs/OwnedSongs";
 
 function App() {
   const dispatch = useDispatch();
@@ -123,6 +124,8 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/playlist-list" element={<ListSongs />} />
               <Route path="/music-player" element={<Music />} />
+              <Route path="/listen-owned-music" element={<OwnedSongs />} />
+
             </Route>
           </Route>
         </Routes>
