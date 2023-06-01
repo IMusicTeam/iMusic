@@ -44,8 +44,7 @@ import rounded9 from "../../Assets/Assets/CardImages/Rounded9.png";
 import rounded10 from "../../Assets/Assets/CardImages/Rounded10.png";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import { baseURL } from "../../helpers/hooks";
-import { APIConstants } from "../../Services/api-constants";
+import { assetURL, baseURL } from "../../Services/api-constants";
 import { useSelector } from "react-redux";
 import { BiLeftArrowAlt } from "react-icons/bi";
 function Playlist() {
@@ -56,7 +55,7 @@ function Playlist() {
  
   useEffect(() => {
     axios
-      .get("http://localhost:9946/IMusic/get-all-playlist?userId=" + userId)
+      .get(baseURL + "get-all-playlist?userId=" + userId)
       .then((res) => {
         const data=res.data.data[0].allPlaylist
         setListData(data)
@@ -96,7 +95,7 @@ function Playlist() {
                 <div>
                   <ProfileCard
                     data={item}
-                    src={baseURL + item.image}
+                    src={assetURL + item.image}
                     playList={true}
                   />
                 </div>

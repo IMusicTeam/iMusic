@@ -82,7 +82,8 @@ export const DashboardMenu = () => {
           </div>
         </div>
 
-        <div>
+        <div className="overflow-y-scroll" style={{height:"100%", maxHeight: window.innerHeight - 400}}>
+          <div>
           <div>
             {/* Home-button */}
             <div className="mb-2" onClick={() => navigate("/home")}>
@@ -242,7 +243,7 @@ export const DashboardMenu = () => {
             </div>
           </div>
           {/* SignOut-button */}
-          <div className="mt-10 pb-[138px]">
+          <div className="mt-10">
             <div className="mb-2">
               <MenuItem
                 onClick={()=>{
@@ -259,6 +260,7 @@ export const DashboardMenu = () => {
                 url={"/signout"}
               />
             </div>
+          </div>
           </div>
         </div>
       </div>

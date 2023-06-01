@@ -102,7 +102,7 @@ function UpdatedLandingPage(){
             </div>
 
             <div className="flex flex-row justify-between">
-                <div className="4xl:text-[70px] 3xl:text-[55px] 13mac:text-[56px] text-iBlack font-medium mt-[75px] ml-[72px] 3xl:leading-20px 2xl:text-[52px] 1.5xl:text-[51px] 1xl:text-[54px] 5xl:text-[40px] xl:text-[54px]">Next-Gen Music Experience with iMusic-NFT
+                <div className="4xl:text-[70px] 3xl:text-[55px] 13mac:text-[56px] text-iBlue font-medium mt-[75px] ml-[72px] 3xl:leading-20px 2xl:text-[52px] 1.5xl:text-[51px] 1xl:text-[54px] 5xl:text-[40px] xl:text-[54px]">Next-Gen Music Experience with iMusic-NFT
                 <div className="text-iOrange">
                     <span>Fans,</span>
                     <span> Artists,</span>
@@ -114,7 +114,7 @@ function UpdatedLandingPage(){
                 </div>
             </div> 
 
-            <div  className="flex flex-row 4xl:gap-[249px] 3xl:gap-[120px] 13mac:gap-[80px] 2xl:gap-[90px] 1.5xl:gap-[90px] 1xl:gap-[70px] 5xl:gap-[60px] xl:gap-[70px]">
+            <div  className="flex flex-row justify-between mr-5 4xl:gap-[249px] 3xl:gap-[120px] 13mac:gap-[80px] 2xl:gap-[90px] 1.5xl:gap-[90px] 1xl:gap-[70px] 5xl:gap-[60px] xl:gap-[70px]">
                 <div className="mt-[74px]">
                         <img src={rythamic} className="max-w-[982px] h-[996px] 13mac:max-w-[920px] 13mac: h-[950px] 1xl: max-w-[870px] 1xl:h-[860px] 5xl:max-w-[800px] 5xl:h-[800px] xl:max-w-[740px] xl:h-[740px]"/>
                 </div>
@@ -138,7 +138,7 @@ function UpdatedLandingPage(){
                </div>
             </div>
 
-            <div className="flex flex-row 4xl:gap-[249px] 3xl:gap-[140px] 13mac:gap-[100px] 2xl:gap-[80px] 1.5xl:gap-[90px] 1xl:gap-[80px] 5xl:gap-[75px] xl:gap-[40px]">
+            <div className="flex flex-row justify-between 4xl:gap-[249px] 3xl:gap-[140px] 13mac:gap-[100px] 2xl:gap-[80px] 1.5xl:gap-[90px] 1xl:gap-[80px] 5xl:gap-[75px] xl:gap-[40px]">
                 <div className="flex flex-col">
                     <div className="text-[58px] text-iBlack font-medium mt-[69px] ml-[72px] 1xl:text-[50px] 5xl:text-[45px] xl:text-[40px]">Creator's Advantages</div>
                 

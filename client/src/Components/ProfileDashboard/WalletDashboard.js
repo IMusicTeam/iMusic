@@ -7,7 +7,7 @@ import image3 from "./../../Assets/Assets/CardImages/HomeCard2.png";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
-function WalletDashboard({email}) {
+function WalletDashboard() {
   const wallet = useSelector((state) => state.ReduxSlice.data.metaMaskDetails);
   const { userData } = useSelector((store) => store.ReduxSlice.data);
   const isWalletConnected = Object.keys(wallet).length === 0;
@@ -32,7 +32,7 @@ function WalletDashboard({email}) {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:9946/IMusic/get-transaction?userId=" + userData._id
+        baseURL + "get-transaction?userId=" + userData._id
       )
       .then((res) => {
         console.log(res);

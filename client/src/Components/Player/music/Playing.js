@@ -11,8 +11,7 @@ import "react-h5-audio-player/lib/styles.css";
 import {FcLikePlaceholder,FcLike} from 'react-icons/fc'
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { APIConstants } from "../../../Services/api-constants";
-import { baseURL, uploadImage } from "../../../helpers/hooks";
+import { APIConstants, assetURL, baseURL } from "../../../Services/api-constants";
 
 function Playing() {
   const location = useLocation();
@@ -56,7 +55,7 @@ useEffect(()=>{
     _id:data._id
   }
   const queryParams = new URLSearchParams(payload).toString();
-  axios.get(`http://localhost:9946/IMusic/get-song?${queryParams}`).then((res)=>{
+  axios.get(`${baseURL}get-song?${queryParams}`).then((res)=>{
     setMusic({show:res.data.favourited, data:[res.data.data]})
       console.log(res.data)
     }).catch((err)=>{
@@ -77,7 +76,7 @@ useEffect(()=>{
         <div className="absolute z-1 top-[126px]">
           <img
             className="musicCover w-[280px] h-[190px]"
-            src={baseURL + item.songThumbnail}
+            src={assetURL + item.songThumbnail}
             alt="image"
           />
         </div>
@@ -92,7 +91,7 @@ useEffect(()=>{
           <div className="relative">
             <div>
             <ReactAudioPlayer
-              src={baseURL + item.tune[0]}
+              src={assetURL + item.tune[0]}
               className="custom-audio-player" // Add your own class name here
               autoPlay={true}
             />

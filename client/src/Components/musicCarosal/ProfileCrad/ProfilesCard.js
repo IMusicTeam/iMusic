@@ -9,6 +9,8 @@ import { useSelector } from "react-redux";
 function ProfileCard({ data, src, newRelease, playList }) {
   const {metaMaskDetails} = useSelector((store) => store.ReduxSlice.data);
   if (newRelease) {
+    // alert(JSON.stringify(data))
+    console.log(data)
     data.playlist = data.songName
     data.album = data.albumName
   }
@@ -36,7 +38,7 @@ function ProfileCard({ data, src, newRelease, playList }) {
     });
   console.log(accounts);
     try {
-      const value = ethers.utils.parseEther("10");
+      const value = ethers.utils.parseEther("6");
       const res = await contractInstance.methods
         .sendToUploader(data.userWalletId, data.adminWalletId)
         .send({

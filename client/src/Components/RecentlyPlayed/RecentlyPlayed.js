@@ -82,11 +82,11 @@ function RecentlyPlayed() {
         <div className="flex gap-[30px] 3xl:gap-[70px] 3.5xl:gap-[30px]">
         <div className="relative transition duration-300 ease-in-out delay-150 hover:translate-x-1 hover:scale-80">
             <img src={HomeCard1} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
-       <p className="text-[55px] leading-[70px] px-[65px] absolute top-[107px] text-iWhite shadow-[12px] drop-shadow-2xl transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-shadow">Listen to your Purchased Music</p>
+       <p className="4xl:text-[55px] leading-[70px] px-[65px] absolute top-[107px] text-iWhite shadow-[12px] drop-shadow-2xl transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-shadow 2xl:text-[45px] 1.5xl:text-[40px] 1xl:text-[38px] 5xl:text-[50px] xl:text-[50px]">Listen to your Purchased Music</p>
         </div>
         <div className="relative transition duration-300 ease-in-out delay-150 hover:translate-x-1 hover:scale-80">
             <img src={HomeCard2} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>
-       <p className="text-[55px] leading-[70px] px-[85px] absolute top-[107px] text-iWhite shadow-[12px] drop-shadow-2xl  transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-shadow">Listen to your Owned Music</p>
+       <p className="4xl:text-[55px] leading-[70px] px-[85px] absolute top-[107px] text-iWhite shadow-[12px] drop-shadow-2xl  transition duration-300 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-shadow 2xl:text-[45px] 1.5xl:text-[40px] 1xl:text-[38px] 5xl:text-[50px] xl:text-[50px]">Listen to your Owned Music</p>
         </div>
         <div className="relative transition duration-300 ease-in-out delay-150 hover:translate-x-1 hover:scale-80 hidden 1xl:block 3.5xl:hidden">
             <img src={AlbumsCard1} alt="owned" className="w-[387px] h-[492px] rounded-2xl"/>

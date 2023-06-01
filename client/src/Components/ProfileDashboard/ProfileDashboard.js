@@ -64,7 +64,7 @@ function ProfileDashboard() {
   return (
 
     <>
-      {isWalletConnected ? <div>
+      {isWalletConnected ? <div className='mr-[33px]'>
         <div className='max-w-[1592px] h-[434px] rounded-[12px] mt-[74px] ml-[34px] bg-cwhite border border-iOrange'>
           <div className='flex flex-row items-center gap-[22px] pt-[85px] pl-[114px]'>
             <div>
@@ -85,13 +85,13 @@ function ProfileDashboard() {
 
         <div className='flex flex-row gap-[16px] ml-[34px] mb-[30px]'>
           <div className='max-w-[816px] w-full h-[434px] bg-igray rounded-[12px] border border-iOrange mt-[22px]'>
-            <div className='text-ibgy1 text-[28px] text-center mt-[183px]'>No Transactions To Display</div>
+            <div className='text-ibgy1 text-[28px] text-center mt-[183px] 2xl:text-[25px] 2xl:mt-[195px] 1.5xl:text-[24px] 1.5xl:mt-[197px] 1xl:mt-[168px] 5xl:mt-[166px] 4xl:mt-[195px] 3xl:mt-[195px] 13mac:mt-[195px] xl:mt-[172px]'>No Transactions To Display</div>
           </div>
           <div className='max-w-[372px] w-full h-[434px] bg-igray rounded-[12px] border border-iBlue mt-[22px]'>
-            <div className='text-ibgy1 text-[28px] ml-[71px] mt-[167px] max-w-[230px] w-full h-[74px]'>No information to <span className='ml-[71px]'>Display</span></div>
+            <div className='text-ibgy1 text-[28px] ml-[71px] mt-[167px] max-w-[230px] w-full h-[74px] 2xl:text-[26px] 2xl:ml-[63px] 2xl:mt-[173px] 1.5xl:text-[24px] 1.5xl:ml-[63px] 1.5xl:mt-[180px] 5xl:ml-[43px] 4xl:ml-[78px] 4xl:mt-[172px] 3xl:ml-[75px] 3xl:mt-[175px] 13mac:ml-[66px] xl:ml-[45px] xl:mt-[169px]'>No information to <span className='ml-[71px]'>Display</span></div>
           </div>
           <div className='max-w-[372px] w-full h-[434px] bg-igray rounded-[12px] border border-iBlue mt-[22px]'>
-            <div className='text-ibgy1 text-[28px] ml-[71px] mt-[167px] max-w-[230px] w-full h-[74px]'>No information to <span className='ml-[71px]'>Display</span></div>
+            <div className='text-ibgy1 text-[28px] ml-[71px] mt-[167px] max-w-[230px] w-full h-[74px] 2xl:text-[26px] 2xl:ml-[63px] 2xl:mt-[173px] 1.5xl:text-[24px] 1.5xl:ml-[63px] 1.5xl:mt-[180px] 5xl:ml-[43px] 4xl:ml-[78px] 4xl:mt-[172px] 3xl:ml-[75px] 3xl:mt-[175px] 13mac:ml-[66px] xl:ml-[45px] xl:mt-[169px]'>No information to <span className='ml-[71px]'>Display</span></div>
           </div>
         </div>
 

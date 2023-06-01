@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import navBanner from './../../Assets/navBar.png'
 
 export default function TopBar() {
+  const show=window.location.pathname
   const navigateTo = useNavigate();
   const { adminDetails, metaMaskDetails, userData } = useSelector(
     (store) => store.ReduxSlice.data
@@ -170,7 +171,7 @@ export default function TopBar() {
         </div>
       </div>
       </div>
-      {isAdminAdded && (
+      {isAdminAdded && show !== '/playlist-list' && (
         <div className="bannerContainer">
           {userData?.isAdmin && (        
            <div className="banner">

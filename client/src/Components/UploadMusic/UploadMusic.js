@@ -5,7 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { BsUpload } from "react-icons/bs";
 import "./UploadMusic.css";
 import images from "./../../Assets/images/player.png";
-import { APIConstants } from "../../Services/api-constants";
+import { APIConstants, assetURL } from "../../Services/api-constants";
 import { useNavigate } from "react-router";
 import verified from "../../Assets/Assets/CardImages/Verified.png";
 import edit from "./../../Assets/EditIcon.png";
@@ -22,7 +22,7 @@ import FormField from "../../Components/Atoms/FormField/FormField.js";
 import LoginButton from "../../Components/Atoms/LoginButton/LoginButton";
 import * as Yup from "yup";
 import { useFormik } from "formik"
-import { baseURL, uploadImage } from "../../helpers/hooks";
+import {  uploadImage } from "../../helpers/hooks";
 import { ethers } from "ethers";
 import contractInstance from "../../web3";
 
@@ -212,6 +212,68 @@ function UploadMusic() {
       .matches(/^[a-zA-Z\s]+$/, "Field should only contain alphabets."),
   });
 
+  const autoFill=[
+    {albumName: "Perfect",
+    artistName: "John",
+    price: 2,
+    songThumbnail:"/uploads/6477cb2ed3ffe034bba97a53-3416_4.jpg",
+    tune:["/uploads/6477bac6c6e50357277ee809-1.mp3"],
+    copyrightFile: "/uploads/6477b5f8c6e50357277ee7fc-GreenBox-Terms of Service Agreement.pdf",
+    songName: "Perfect",
+    songDescription: "Nice Song",
+    lyrics:"No"},
+    {albumName: "Calm Down",
+    artistName: "Rema",
+    price: 2,
+    songThumbnail:"/uploads/6477cb2ed3ffe034bba97a53-3416_4.jpg",
+    tune:["/uploads/6477b5aec6e50357277ee7fb-1.mp3"],
+    copyrightFile: "/uploads/6477b5f8c6e50357277ee7fc-GreenBox-Terms of Service Agreement.pdf",
+    songName: "Calm Down",
+    songDescription: "Love Song",
+    lyrics:"No"},
+    
+    {albumName: "Bones",
+    artistName: "Dragon",
+    price: 1,
+    songThumbnail:"/uploads/6477cb50d3ffe034bba97a54-14401_4.jpg",
+    tune:[ "/uploads/6477b5aec6e50357277ee7fb-1.mp3"],
+    copyrightFile: "/uploads/6477b5f8c6e50357277ee7fc-GreenBox-Terms of Service Agreement.pdf",
+    songName: "Bones",
+    songDescription: "Nice Song",
+    lyrics:"No"},
+  
+  
+    {albumName: "The Drum",
+    artistName: "Alan Walker",
+    price: 3,
+    songThumbnail:"/uploads/6477cb50d3ffe034bba97a54-14401_4.jpg",
+    tune:["/uploads/6477bac6c6e50357277ee809-1.mp3"],
+    copyrightFile: "/uploads/6477b5f8c6e50357277ee7fc-GreenBox-Terms of Service Agreement.pdf",
+    songName: "The Drum",
+    songDescription: "Love Song",
+    lyrics:"No"},
+  
+    {albumName: "Cupid",
+    artistName: "fify",
+    price: 2,
+    songThumbnail:"/uploads/6477cb50d3ffe034bba97a54-14401_4.jpg",
+    tune:["/uploads/6477b5aec6e50357277ee7fb-1.mp3"],
+    copyrightFile: "/uploads/6477b5f8c6e50357277ee7fc-GreenBox-Terms of Service Agreement.pdf",
+    songName: "Cupid",
+    songDescription: "Love Song",
+    lyrics:"No"},
+  
+    {albumName: "Dreamer",
+    artistName: "Alan Walker",
+    price: 1,
+    songThumbnail:"/uploads/6477cb50d3ffe034bba97a54-14401_4.jpg",
+    tune:["/uploads/6477ba98c6e50357277ee808-2.mp3"],
+    copyrightFile: "/uploads/6477b5f8c6e50357277ee7fc-GreenBox-Terms of Service Agreement.pdf",
+    songName: "Dreamer",
+    songDescription: "Folk Song",
+    lyrics:"No"}]
+
+
   const handleSubmit =async () => {
     const values=formik.values
     console.log(values)
@@ -234,7 +296,6 @@ function UploadMusic() {
       .post(APIConstants.formUpload, reqBody)
       .then((res) => {
         console.log(res);
-        transfer();
         transectioncall(values.description, values.price);
         setStep(1);
       })
@@ -257,16 +318,25 @@ function UploadMusic() {
   });
 
   useEffect(() => {
-    setData({
-      information: {
-        albumName: formik.values.albumName,
-        artistName: formik.values.artistName,
-        price: formik.values.price,
-        songName: formik.values.songName,
-        description: formik.values.description,
-      },
-    });
-  }, [formik.values]);
+    const index =Math.floor(Math.random() * autoFill.length)
+    const values=autoFill[index]
+    setImage(values.songThumbnail)
+    setSucces(true);
+    setUploadPdfFile(true);
+    setAudio(values.tune[0])
+    setDoc(values.copyrightFile)
+    formik.setValues({
+      albumName: values.albumName,
+      artistName: values.artistName,
+      songThumbnail:values.songThumbnail,
+      tune: values.tune,
+      copyrightFile:values.copyrightFile,
+      price: values.price,
+      songName: values.songName,
+      description: values.songDescription,
+    })
+    
+  }, []);
 
   return (
     <>
@@ -296,7 +366,7 @@ function UploadMusic() {
                       </div>
                     ) : (
                       <img
-                        src={baseURL + image}
+                        src={assetURL + image}
                         alt=""
                         className="w-[153px] h-[163px] rounded-2xl"
                       />
