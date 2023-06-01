@@ -19,7 +19,7 @@ import Card8 from "../../../Assets/Assets/CardImages/Card8.png";
 import Card9 from "../../../Assets/Assets/CardImages/Card9.png";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import edit from "../../../Assets/EditIcon.png";
 import images from "../../../Assets/images/player.png";
 import verified from "../../../Assets/Assets/CardImages/Verified.png";
@@ -27,13 +27,14 @@ import ProfileCard from "../../musicCarosal/ProfileCrad/ProfilesCard";
 import { APIConstants, assetURL } from "../../../Services/api-constants";
 import contractInstance from "../../../web3";
 import { ethers } from "ethers";
+import { checkApproveSongs } from "../../../Redux/Redux";
 
 
 function ListSongs() {
   const userId = useSelector((store) => store.ReduxSlice.data.userData._id);
   const isAdmin = useSelector((store) => store.ReduxSlice.data.userData.isAdmin);
   const {metaMaskDetails} = useSelector((store) => store.ReduxSlice.data);
-
+const dispatch=useDispatch()
   const list = useLocation()
   const details = list.state
   const [download, setDownload] = useState(false);
@@ -157,6 +158,13 @@ function ListSongs() {
       .get(APIConstants.getAllPendingSongs)
       .then((res) => {
         const data = res.data.data;
+        if(data.length > 0){
+          dispatch(checkApproveSongs({data : true}))
+        }
+        else{
+          dispatch(checkApproveSongs({data: false}))
+          navigateTo('/home')
+        }
         setLikedData(data);
       })
       .catch((err) => {
@@ -261,20 +269,20 @@ const uploadData = async (item) =>{
           <img src={Loader} alt="" />
         </div>
       ) : (
-        <div className="bg-iGray2 pt-9">
-          <div className="h-[389px] bg-iLightBlue pl-[142px] border-iGray4 border">
-            <h3 className="text-iOrange font-semibold text-[28px] mb-[28px] mt-12">
+        <div className="bg-iGray2">
+          <div className="h-[389px] bg-iLightBlue pl-[142px] -mt-[30px]">
+            <h3 className="text-iOrange font-semibold text-[28px] mb-[28px]">
               {details.name}
             </h3>
             <div className="flex">
               <img
                 src={details.image}
-                className="h-[360px] w-[316px] border-iOrange rounded-2xl border-2"
+                className="h-[360px] w-[316px] border-iOrange rounded-2xl border-2 mt-4"
                 alt="liked"
               />
-              <div className="ml-12">
+              {/* <div className="ml-12">
                 <h1 className="text-iBlack text-[35px] font-semibold">
-                  The Weekend
+                  
                 </h1>
                 <p className="text-base text-iBlack w-[248px] font-semibold ">
                   {details.description}
@@ -306,7 +314,7 @@ const uploadData = async (item) =>{
                     Shuffle <FiShuffle />
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="pl-[142px] pt-[139px] pr-14">

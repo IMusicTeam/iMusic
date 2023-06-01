@@ -126,8 +126,9 @@ const navigateTo=useNavigate();
       <div className="flex flex-row items-center pr-[272px] pl-[197px] pb-[87px]">
         <input
           type="text"
+          autoFocus={true}
           className="w-full p-2 border-b-4 outline-none bg-iGray2 searchSong border-iOrange focus:border-iOrange"
-          placeholder="Search Song"
+          placeholder="Search for a Song"
         />
         <FiSearch size={49} className="-ml-[50px] pb-2 text-iBlue text-bold" />
       </div>

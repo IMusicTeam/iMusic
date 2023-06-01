@@ -65,12 +65,12 @@ const handleContactUs = () =>{
         {data.map((item, i) => {
           return (
             <div
-              className={`mt-5 px-[28px] flex flex-col py-[23px] text-iWhite text-[20px] font-normal rounded-xl  hover:cursor-pointer ${
+              className={`mt-2 px-[28px] flex flex-col py-[23px] text-iWhite font-normal rounded-xl  hover:cursor-pointer ${
                 select !== item.id ? "bg-iBlue" : "bg-iOrange"
               }`}
             >
               <div className="flex flex-row justify-between max-w-[1520px] w-full">
-                <p>{item.title}</p>
+                <p className="text-[20px]">{item.title}</p>
                 <div>
                   <button onClick={() => HandelShow(item)}>
                     <img
@@ -85,7 +85,7 @@ const handleContactUs = () =>{
                 </div>
               </div>
               <p
-                className={`text-[18px] max-w-[1315px] w-full font-normal showContent  hover:cursor-pointer ${
+                className={`text-[16x] max-w-[1315px] w-full showContent  hover:cursor-pointer ${
                   select !== item.id
                     ? "h-0 overflow-hidden"
                     : "h-[80px] overflow-auto"

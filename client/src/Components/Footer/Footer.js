@@ -7,7 +7,7 @@ function Footer() {
       <div className="flex gap-[50px] text-iBlue text-base">
         <img src={iMusic} alt="imusic" className="h-[50px] mt-4" />
         <div className="flex flex-col gap-[20px]">
-        <div className="flex flex-row justify-between gap-[60px] text-[20px] text-iBlue mt-6 2xl:text-[18px] 1.5xl:text-[17px] 1xl:text-[16px] 5xl:text-[15px] xl:text-[14px]">
+        <div className="flex flex-row justify-between font-semibold gap-[60px] text-[20px] text-iBlue mt-6 2xl:text-[18px] 1.5xl:text-[17px] 1xl:text-[16px] 5xl:text-[15px] xl:text-[14px]">
         <span>FAQ</span>
         <span>Terms & Conditions</span>
         <span>Privacy Policy</span>

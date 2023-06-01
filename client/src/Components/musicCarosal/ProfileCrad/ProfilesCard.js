@@ -31,6 +31,9 @@ function ProfileCard({ data, src, newRelease, playList }) {
   };
   const handleTransfer = async () => {
     if (data.userWalletId== metaMaskDetails.account || data.adminWalletId=== metaMaskDetails.account){
+      navigateTo('/playing-music', {
+        state: data
+      })
       return
     }
     const accounts = await window.ethereum.request({
@@ -46,17 +49,16 @@ function ProfileCard({ data, src, newRelease, playList }) {
           value: value,
         });
       console.log(res);
+      navigateTo('/playing-music', {
+        state: data
+      })
     } catch (err) {
       alert(err);
     }
   }
   const PlayMusic = () => {
     if (newRelease) {
-      handleTransfer()
-      navigateTo('/playing-music', {
-        state: data
-      })
-     
+      handleTransfer()     
       }
       if (playList) {
         navigateTo('/music-player', {

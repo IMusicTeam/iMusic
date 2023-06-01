@@ -239,15 +239,15 @@ function LikedPlayList() {
           <img src={Loadingforimusic} alt="" />
         </div>
       ) : (
-        <div className="bg-iGray2 pt-9">
-          <div className="h-[389px] bg-iLightBlue pl-[142px] border-iGray4 border">
-            <h3 className="text-iOrange font-medium text-[28px] mb-[28px] mt-12">
+        <div className="bg-iGray2">
+          <div className="h-[389px] bg-iLightBlue pl-[142px]">
+            <h3 className="text-iOrange font-medium text-[28px] mb-[28px]">
              <span>
-             <button type="button" onClick={() => navigateTo("/home")}>
-             <BiLeftArrowAlt size={38} className="-ml-[74px] -mt-[60px] text-iBlack" />
+             <button className="mt-3 -ml-20" type="button" onClick={() => navigateTo("/home")}>
+             <BiLeftArrowAlt size={38} className=" text-iBlack" />
               </button>
               </span> 
-              <span>Liked Songs {duration}</span>
+              <span className="mt-6 ml-6">Liked Songs {duration}</span>
             </h3>
             <div className="flex">
               <img

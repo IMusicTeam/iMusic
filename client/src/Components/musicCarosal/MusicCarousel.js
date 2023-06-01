@@ -95,6 +95,8 @@ import { useNavigate } from 'react-router';
 import ListenedCard from '../ListenedCard/ListenedCard';
 import { APIConstants, assetURL } from '../../Services/api-constants';
 import contractInstance from '../../web3';
+import { useDispatch } from 'react-redux';
+import { checkApproveSongs, checkBanner } from '../../Redux/Redux';
 
 function MusicCarousel() {
   const [musicList, setMusicList] = useState([]);
@@ -214,8 +216,10 @@ function MusicCarousel() {
     getApprovedSongs()
   }, [])
 
+  const dispatch = useDispatch();
 
   const getApprovedSongs = async () => {
+    dispatch(checkBanner());
     let tempArray = []
     try {
       const getContractSongs = await contractInstance.methods.getAllSongs().call()
@@ -270,7 +274,7 @@ function MusicCarousel() {
       </div>
 
       <div className='flex flex-row justify-between'>
-        <h1 className='text-[30px] font-medium mt-[28px]'>New uploaded</h1>
+        <h1 className='text-[30px] font-medium '>New uploaded</h1>
         <button onClick={() => HandelSeeAll({ path: 'new-release', title: 'New releases' })} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
       </div>
 
