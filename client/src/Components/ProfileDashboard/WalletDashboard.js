@@ -60,7 +60,7 @@ function WalletDashboard() {
 
   return (
     <>
-      <div className="flex gap-4 4xl:flex-row xl:flex-col xl:justify-center xl:items-center">
+      <div className="flex gap-4 4xl:flex-row xl:flex-col xl:justify-center xl:items-center mr-[51px]">
         <div
           className={`w-[810px] h-[434px] rounded-[12px] bg-iWhite mt-[55px] ml-[38px]`}
         >
@@ -125,7 +125,7 @@ function WalletDashboard() {
               <div className="mt-[121px]">  
                     <img src={MetaMask} className="w-[143px] h-[143px] ml-[40px]"/>
              </div>
-             <div className="text-iBlue text-[21px] underline mt-[22px]">
+             <div className="text-iBlue text-[21px] underline mt-[22px] w-[227px]">
               <p onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Know More about Wallet</p>
               </div>
 
@@ -134,7 +134,7 @@ function WalletDashboard() {
             {
               knowmore && (
                 <div className="relative">
-                  <p className="w-[379px] p-10 leading-tight z-10 h-[320px] bg-iskyBlue text-[22px] rounded-[20px] top-[319px] text-iBlack absolute right-[18px]">Meta Wallet is a versatile digital wallet that consolidates various cryptocurrencies and tokens, providing users with a streamlined and secure platform for managing their digital assets.</p>
+                  <p className="w-[379px] p-10 leading-tight z-10 h-[320px] bg-iskyBlue text-[22px] rounded-[20px] top-[319px] text-iBlack absolute right-[28px]">Meta Wallet is a versatile digital wallet that consolidates various cryptocurrencies and tokens, providing users with a streamlined and secure platform for managing their digital assets.</p>
                 </div>
               )
             }
@@ -147,7 +147,7 @@ function WalletDashboard() {
         // className={`${styles.walletdashboardTableContent} overflow-x-scroll `}
         className="flex flex-col items-center mb-5 gap-9 4xl:flex-row 4xl:gap-2"
       >
-        <div className="bg-iWhite rounded-[12px] ml-[40px] max-w-[816px] h-[434px] mt-[45px] 4xl:mt-[16px] 4xl:ml-[60px] w-full">
+        <div className="bg-iWhite rounded-[12px] max-w-[816px] h-[434px] mt-[45px] 4xl:mt-[16px] 4xl:ml-[40px] w-full">
           <div
             className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[16px] mr-[17px] bg-ibm11 text-start p-1 rounded-[10px] text-iBlue font-medium`}
           >
@@ -170,7 +170,7 @@ function WalletDashboard() {
                 transectionData.map((item) => {
                   return (
                     <div
-                      className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[17px] mr-[19px]  text-start font-medium hover:bg-ibm8`}
+                      className={`${styles.walletdashboardTableHeadings} mt-[16px] ml-[17px] mr-[19px] p-2.5 rounded-[10px] text-start font-medium hover:bg-ibm8`}
                     >
                       <p className="text-cgy4">{date}</p>
                       <p className="text-cgy4">{item?.type}</p>
@@ -188,7 +188,7 @@ function WalletDashboard() {
             </div>
           
         </div>
-      <div className="flex gap-2 4xl:ml-0 ml-[31px]">
+      <div className="flex gap-2 4xl:ml-0 ">
         <div className="mt-[16px]">
           <div className="relative">
             <img

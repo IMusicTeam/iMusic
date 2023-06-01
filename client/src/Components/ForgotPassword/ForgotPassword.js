@@ -65,7 +65,7 @@ return(
                 <form onSubmit={handleSubmit}>
                     <div className="h-[80px]">
                     <div className="mt-[28px]">
-                    <input type="text" name="email" placeholder="Enter Email" className="border border-cgy1 rounded-[10px] w-[446px] h-[50px] py-3 px-3 focus:border-cgy1 placeholder-iGray1 text-sm outline-none" id="subjectInput" value={emailverification} onChange={(e) => validEmailVerification(e)} />
+                    <input type="text" name="email" autoFocus={true} placeholder="Enter Email" className="border border-cgy1 rounded-[10px] w-[446px] h-[50px] py-3 px-3 focus:border-cgy1 placeholder-iGray1 text-sm outline-none" id="subjectInput" value={emailverification} onChange={(e) => validEmailVerification(e)} />
                     {emailError && (
                       <span className="text-ibrd3 text-[15px] z-10">
                         Invalid email address
@@ -75,7 +75,7 @@ return(
                     </div>
 
                     <div className="flex justify-center mb-[40px]">
-                        <button type="submit" onClick={EmailVerification} className={`w-[300px] h-[40px] ${emailverification=="" || emailError ? 'bg-iLightBlue1': 'bg-iBlue'    }  text-iWhite font-medium py-1 px-4 rounded-[80px] mt-[121px]`}>Verify</button>
+                        <button type="submit" onClick={EmailVerification} className={`w-[300px] h-[40px] ${emailverification=="" || emailError ? 'bg-iLightBlue1': 'bg-iBlue hover:bg-iOrange'    }  text-iWhite font-medium py-1 px-4 rounded-[80px] mt-[121px]`}>Verify</button>
                     </div>
 
       </form>

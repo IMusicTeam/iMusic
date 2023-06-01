@@ -66,10 +66,10 @@ export const DashboardMenu = () => {
 
         <div className="p-2 flex flex-col gap-[15px] pb-5">
           <div><img src={sideprofileImage}  /></div>
-          <div className="text-[18px] font-medium">
+          <div className="text-[24px] font-medium">
             Jane William
           </div>
-          <div className="font-medium text-[14px]">
+          <div className="font-medium text-[15px]">
             Account ID: P-1234
           </div>
         </div>
@@ -254,7 +254,7 @@ export const DashboardMenu = () => {
             </div>
           </div>
           </div>
-        </div>
+      </div>
       </div>
     </div>
   );

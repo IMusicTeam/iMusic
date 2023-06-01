@@ -4,7 +4,7 @@ import walletIcon from "../../Assets/images/wallet.svg";
 import notificationIcon from "../../Assets/images/notification.svg";
 import searchIcon from "../../Assets/images/search.svg";
 import verified from "../../Assets/Assets/CardImages/Verified.png";
-import ownedMusic from "../../Assets/ownedMusic.png";
+import ownedMusic from "../../Assets/approve.png";
 import { useEffect, useState } from "react";
 import Web3 from "web3";
 import MetaMask from "../../Assets/MetaMask.png";
@@ -17,9 +17,10 @@ import navBanner from './../../Assets/navBar.png'
 export default function TopBar() {
   const show=window.location.pathname
   const navigateTo = useNavigate();
-  const { adminDetails, metaMaskDetails, userData } = useSelector(
+  const { adminDetails, metaMaskDetails, userData , showBanner} = useSelector(
     (store) => store.ReduxSlice.data
   );
+  // alert(showBanner)
   const isAdminAdded = Object.keys(adminDetails).length === 0;
   const isWalletConnected = Object.keys(metaMaskDetails).length === 0;
   const [isToggled, setIsToggled] = useState(false);
@@ -171,7 +172,7 @@ export default function TopBar() {
         </div>
       </div>
       </div>
-      {isAdminAdded && show !== '/playlist-list' && (
+      {isAdminAdded && show !== '/playlist-list' && showBanner && (
         <div className="bannerContainer">
           {userData?.isAdmin && (        
            <div className="banner">
@@ -206,10 +207,10 @@ const Search = ({ onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="flex items-center justify-between w-[419px] h-14 rounded-[32px] border border-[#295D93] px-4"
+      className="flex items-center justify-between w-[419px] h-14 rounded-[32px] border border-[#295D93] px-4 hover:cursor-pointer group"
     >
-      <input type="text" placeholder="Search" className="outline-none" />
-      <img src={searchIcon} alt="img" className="h-7 w-7" />
+      <input type="text" placeholder="Search" className="outline-none group-hover:cursor-pointer" />
+      <img src={searchIcon} alt="img" className="h-7 w-7 group-hover:cursor-pointer" />
     </div>
   );
 };

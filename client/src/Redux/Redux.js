@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { APIConstants } from "../Services/api-constants";
 
 const initialState = {
   data: {
@@ -6,6 +8,7 @@ const initialState = {
     userData: {},
     metaMaskDetails: {},
     isAuthed: localStorage.getItem("id") || null,
+    showBanner:false
   },
 };
 
@@ -31,7 +34,11 @@ const ReduxSlice = createSlice({
         userData: {},
         metaMaskDetails: {},
         isAuthed: null,
+        showBanner:false
       };
+    },
+    checkApproveSongs: (state, { payload }) => {
+      state.data.showBanner = payload.data
     },
   },
 });
@@ -42,5 +49,25 @@ export const {
   updateAdminDetails,
   updateAuthVerification,
   logout,
+  checkApproveSongs,
 } = ReduxSlice.actions;
 export default ReduxSlice.reducer;
+
+
+export const checkBanner =()=>(dispatch)=>{
+  axios
+  .get(APIConstants.getAllPendingSongs)
+  .then((res) => {
+    const data = res.data.data;
+    if(data.length > 0){
+      dispatch(checkApproveSongs({data : true}))
+    }
+    else{
+      dispatch(checkApproveSongs({data: false}))
+    }
+    // setLikedData(data);
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+}

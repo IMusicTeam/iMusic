@@ -185,13 +185,14 @@ function UploadMusic() {
     navigateTo(-1);
   };
   const UploadAgain = () => {
+    autoFillData()
     setStep(0);
-    setImage("");
-    setAudio("");
-    setDoc("")
-    formik.resetForm()
-    setSucces(false);
-    setUploadPdfFile(false)
+    // setImage("");
+    // setAudio("");
+    // setDoc("")
+    // formik.resetForm()
+    // setSucces(false);
+    // setUploadPdfFile(false)
   };
 
   const informationSchema = Yup.object().shape({
@@ -317,7 +318,7 @@ function UploadMusic() {
     onSubmit: handleSubmit
   });
 
-  useEffect(() => {
+  const autoFillData =()=>{
     const index =Math.floor(Math.random() * autoFill.length)
     const values=autoFill[index]
     setImage(values.songThumbnail)
@@ -335,6 +336,9 @@ function UploadMusic() {
       songName: values.songName,
       description: values.songDescription,
     })
+  }
+  useEffect(() => {
+    autoFillData()
     
   }, []);
 
@@ -569,7 +573,7 @@ function UploadMusic() {
                       for="description"
                       className="block mb-2 text-[20px] font-medium text-iBlue"
                     >
-                      Description
+                      Description (optional)
                     </label>
                     <FormField
                       name="description"
