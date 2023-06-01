@@ -50,9 +50,12 @@ function ProfileCard({ data, src, newRelease, playList }) {
           value: value,
         });
       console.log(res);
-      navigateTo('/playing-music', {
-        state: data
-      })
+     
+        navigateTo('/playing-music', {
+          state: data
+        })
+      
+     
     } catch (err) {
       alert(err);
     }
@@ -60,7 +63,7 @@ function ProfileCard({ data, src, newRelease, playList }) {
   const PlayMusic = () => {
     if (newRelease) {
       handleTransfer()     
-      }else {
+      } else {
  
         const mainData ={albumName: "Play Date",
         artistName: data.album,
@@ -92,6 +95,7 @@ function ProfileCard({ data, src, newRelease, playList }) {
         <div className="w-[300px] h-[270px] rounded-[20px] relative transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-400">
           <div className="w-[300px]">
             <img
+            style={{objectFit:"cover"}}
               className="rounded-t-[20px] w-[100%] h-[200px]"
               src={src}
               alt="ui/ux review check"

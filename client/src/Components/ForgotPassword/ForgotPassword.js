@@ -10,7 +10,7 @@ function ForgotPassword() {
   const dispatch = useDispatch();
   const isAuthed = useSelector((store) => store.ReduxSlice.data.isAuthed);
 
-  const [emailverification, setEmailVerification] = useState("");
+  const [emailverification, setEmailVerification] = useState("iMusic@inspireTk.com");
   const [emailError, setEmailError] = useState("");
 
   const validEmailVerification = (e) => {

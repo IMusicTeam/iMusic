@@ -179,7 +179,7 @@ const dispatch=useDispatch()
       console.log(accounts);
 
       try {
-        const value = ethers.utils.parseEther("2");
+        const value = ethers.utils.parseEther("0.10");
         const res = await contractInstance.methods
           .sendMoney(item.userWalletId)
           .send({

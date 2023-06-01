@@ -285,7 +285,7 @@ function UploadMusic() {
     tune:["/uploads/647894a2864292bcc9bec913-You Benny Blanco 128 Kbps.mp3"],
     copyrightFile: "/uploads/647894b5864292bcc9bec914-1674044600880_Document%20Dec (4).pdf",
     songName: "You",
-    songDescription: "Beet Song",
+    songDescription: "Beat Song",
     lyrics:"No"},
 
     {albumName: "Your Power",
@@ -317,15 +317,14 @@ function UploadMusic() {
     songName: "Anyone",
     songDescription: "Rock music",
     lyrics:"No"}]
-    const getFirstNameLastName = useCallback(() => {
+    const getFirstNameLastName =useCallback(() => {
       const returnmail = val => {
         return val.split("@")[0]
       }
       const {email} = userInfo
       return email ? returnmail(email) : ""
     },[userInfo])
-
-  const handleSubmit =async () => {
+ const handleSubmit =async () => {
     const values=formik.values
     console.log(values)
     const reqBody = {
@@ -448,7 +447,7 @@ function UploadMusic() {
 
                 <div className="flex flex-row justify-center items-center mt-[24px]">
                   <div className="flex flex-col">
-                    <p className="text-[28px] text-cgy4">{getFirstNameLastName()[0]}</p>
+                    <p className="text-[28px] text-cgy4" style={{textAlign:"center"}}>{getFirstNameLastName()}</p>
                     <p className="text-[20px] text-igray1 mt-[6px]">
                       Account ID: P1234
                     </p>

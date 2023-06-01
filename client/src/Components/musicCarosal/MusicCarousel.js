@@ -251,9 +251,9 @@ function MusicCarousel() {
   }
 
   const HandelSeeAll = (value) => {
-    const { path, title } = value
+    const { path, title ,newrelease} = value
     navigateTO(`/see-all/${path}`, {
-      state: title
+      state: {title,newrelease}
     })
   }
 
@@ -275,7 +275,7 @@ function MusicCarousel() {
 
       <div className='flex flex-row justify-between'>
         <h1 className='text-[30px] font-medium '>New uploaded</h1>
-        <button onClick={() => HandelSeeAll({ path: 'new-release', title: 'New releases' })} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
+        <button onClick={() => HandelSeeAll({ path: 'new-release', title: 'New releases', newrelease:{musicList} })} className='underline font-medium text-[16px] text-iBlack1 mt-[28px]'>See All</button>
       </div>
 
       <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>

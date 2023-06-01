@@ -88,7 +88,7 @@ function WalletDashboard({email}) {
 
               <div className="mt-[48px]">
                 <div className="text-[18px] text-cgy4">Phone Number</div>
-                <div className="text-[22px] text-iBlue">+1 94)0-763-2207</div>
+                <div className="text-[22px] text-iBlue">+1 (940)-763-2207</div>
               </div>
 
               <div className="mt-[48px]">
@@ -160,7 +160,7 @@ function WalletDashboard({email}) {
             <p className="!pl-[13px]">Status</p>
           </div>
 
-            <div>
+            <div className="overflow-y-scroll h-[380px]">
               {transectionData.length === 0 ? 
               (
                 <div className="flex items-center justify-center h-[385px]">
