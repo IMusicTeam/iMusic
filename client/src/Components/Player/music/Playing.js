@@ -66,7 +66,6 @@ useEffect(()=>{
       setMusic({data:[data]})
       console.log(err.message)
     }) 
- 
 },[])
 
   return (<>

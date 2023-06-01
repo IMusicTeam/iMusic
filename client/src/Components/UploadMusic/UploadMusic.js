@@ -643,7 +643,7 @@ function UploadMusic() {
                   <LoginButton
                     // type="submit"
                     onClick={handleSubmit}
-                    disable ={!(formik.dirty && formik.isValid)}
+                    // disable ={!(formik.dirty && formik.isValid)}
                     label="Submit"
                     className="py-3 mt-5 w-[305px] mb-[20px] center rounded-[30px] text-iWhite text-[20px]"
                   >

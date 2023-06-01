@@ -101,6 +101,7 @@ function LikedPlayList() {
         setLoader(false);
       })
       .catch((err) => {
+        setLoader(false)
         console.log(err.message);
       });
   }, []);
@@ -517,7 +518,7 @@ function LikedPlayList() {
                   </div>
                 );
               })}
-            </div> :<div className="h-[400px] flex justify-center items-center text-[24px]">No Liked songs are available</div>}
+            </div> :<div className="h-[400px] flex justify-center items-center text-[24px]">There are no liked songs available</div>}
           </div>
           <div className="pr-8">
           <div className="pl-8">
