@@ -339,7 +339,7 @@ const uploadData = async (item) =>{
             </div>
           </div>
           <div className="pl-[142px] pt-[139px] pr-14">
-            <div className="h-[400px] flex flex-col gap-4 overflow-y-scroll musicList mb-5">
+           { musicList.length>0 ? <div className="h-[400px] flex flex-col gap-4 overflow-y-scroll musicList mb-5">
               {musicList?.map((item, index) => {
                 return (
                   <div key={index}>
@@ -383,7 +383,7 @@ const uploadData = async (item) =>{
                   </div>
                 );
               })}
-            </div>
+            </div> : <div className="h-[400px] flex justify-center items-center text-[24px]">There are no owned songs available</div>}
           </div>
           <div className="pl-[142px]">
             <h1 className="text-3xl font-semibold text-iBlack mb-7">
