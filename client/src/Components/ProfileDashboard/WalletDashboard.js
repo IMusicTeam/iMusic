@@ -6,8 +6,8 @@ import image2 from "./../../Assets/Assets/CardImages/HomeCard1.png";
 import image3 from "./../../Assets/Assets/CardImages/HomeCard2.png";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { APIConstants } from "../../Services/api-constants";
-function WalletDashboard() {
+
+function WalletDashboard({email}) {
   const wallet = useSelector((state) => state.ReduxSlice.data.metaMaskDetails);
   const { userData } = useSelector((store) => store.ReduxSlice.data);
   const isWalletConnected = Object.keys(wallet).length === 0;
@@ -72,8 +72,8 @@ function WalletDashboard() {
                     className="w-[264px] h-[248px] pt-[38px] pl-[28px]"
                   />
                 </div>
-                <div className="pl-[37px]">
-                  <div className="text-[35px] text-cgy4">Jane William</div>
+                <div className="pl-[37px]" style={{textAlign:"center"}}>
+                  <div className="text-[35px] text-cgy4">{email? email[0] : ""}</div>
                   <div className="text-[25px] text-igray1">
                     Account ID: P-1234
                   </div>
@@ -82,7 +82,7 @@ function WalletDashboard() {
             <div className="flex flex-col mt-[63px]">
                 <div className="text-[18px] text-cgy4">Email</div>
                 <div className="text-[22px] text-iBlue">
-                  Janewilliam123@gmail.com
+                {email ? email[0] + "@" + email[1] : ""}
                 </div>
 
               <div className="mt-[48px]">

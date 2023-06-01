@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import profile from "./../../Assets/profile.png"
 import EditIcon from "./../../Assets/EditIcon.png"
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 
 function ProfileSettings(){
+  const userInfo = useSelector((store) => store.ReduxSlice.data.userData);
+  const getFirstNameLastName = useCallback(() => {
+    const returnmail = val => {
+      return val.split("@")
+    }
+    const {email} = userInfo
+    return email ? returnmail(email) : ""
+  },[userInfo])
+  const showMail = () =>  userInfo["email"] ? userInfo["email"] : ""
   const navigate = useNavigate();
     return(
        <div className="flex items-center justify-center mb-[150px]">
@@ -18,8 +28,8 @@ function ProfileSettings(){
           <div>
             <img src={profile} alt="" className="w-[177px] h-[188px]"/> 
           </div>
-          <div>
-            <p className="text-[28px] text-cgy4">Jane William</p>
+          <div style={{textAlign:"center"}}>
+            <p className="text-[28px] text-cgy4">{getFirstNameLastName() ?getFirstNameLastName()[0] : ""}</p>
             <p className="mt-[9px] text-igray1 text-[20px]">Account ID: P-1234</p>
           </div>
         </div>
@@ -27,7 +37,7 @@ function ProfileSettings(){
         <div className="flex flex-col gap-[52px]">
           <div>
             <p className="text-[20px] flex flex-row items-center gap-3"><div>Email</div><div><img src={EditIcon}/></div></p>
-            <p className="text-iBlue mt-2 text-[16px]">Janewilliam123@gmail.com</p>
+            <p className="text-iBlue mt-2 text-[16px]">{showMail() ? showMail() : ""}</p>
           </div>
 
           <div>
