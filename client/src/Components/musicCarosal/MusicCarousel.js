@@ -31,18 +31,46 @@ import Card27 from '../../Assets/Assets/CardImages/Card27.png';
 import Card28 from '../../Assets/Assets/CardImages/Card28.png';
 import Card29 from '../../Assets/Assets/CardImages/Card29.png';
 import Card30 from '../../Assets/Assets/CardImages/Card30.png';
+import Card31 from "../../Assets/Assets/CardImages/Card31.png";
+import Card32 from "../../Assets/Assets/CardImages/Card32.png";
+import Card33 from "../../Assets/Assets/CardImages/Card33.png";
+import Card34 from "../../Assets/Assets/CardImages/Card34.png";
+import Card35 from "../../Assets/Assets/CardImages/Card35.png";
+import Card36 from "../../Assets/Assets/CardImages/Card36.png";
+import Card37 from "../../Assets/Assets/CardImages/Card37.png";
+import Card38 from "../../Assets/Assets/CardImages/Card38.png";
+import Card39 from "../../Assets/Assets/CardImages/Card39.png";
+import Card40 from "../../Assets/Assets/CardImages/Card40.png";
+import Card41 from "../../Assets/Assets/CardImages/Card41.png";
+import Card42 from "../../Assets/Assets/CardImages/Card42.png";
+import Card43 from "../../Assets/Assets/CardImages/Card43.png";
+import Card44 from "../../Assets/Assets/CardImages/Card44.png";
 import Card45 from "../../Assets/Assets/CardImages/Card45.png";
 import Card46 from "../../Assets/Assets/CardImages/Card46.png";
 import Card47 from "../../Assets/Assets/CardImages/Card47.png";
-import Card35 from "../../Assets/Assets/CardImages/Card35.png";
-import Card44 from "../../Assets/Assets/CardImages/Card44.png";
-import Card43 from "../../Assets/Assets/CardImages/Card43.png";
 import Card48 from "../../Assets/Assets/CardImages/Card48.png";
 import Card49 from "../../Assets/Assets/CardImages/Card49.png";
-import Card34 from "../../Assets/Assets/CardImages/Card34.png";
-import Card33 from "../../Assets/Assets/CardImages/Card33.png";
-import Card32 from "../../Assets/Assets/CardImages/Card32.png";
-import Card31 from "../../Assets/Assets/CardImages/Card31.png";
+import Card50 from "../../Assets/Assets/CardImages/Card50.png";
+import Card51 from "../../Assets/Assets/CardImages/Card51.png";
+import Card52 from "../../Assets/Assets/CardImages/Card52.png";
+import Card53 from "../../Assets/Assets/CardImages/Card53.png";
+import Card54 from "../../Assets/Assets/CardImages/Card54.png";
+import Card55 from "../../Assets/Assets/CardImages/Card55.png";
+import Card56 from "../../Assets/Assets/CardImages/Card56.png";
+import Card57 from "../../Assets/Assets/CardImages/Card57.png";
+import Card58 from "../../Assets/Assets/CardImages/Card58.png";
+import Card59 from "../../Assets/Assets/CardImages/Card59.png";
+import Card60 from "../../Assets/Assets/CardImages/Card60.png";
+import Card61 from "../../Assets/Assets/CardImages/Card61.png";
+import Card62 from "../../Assets/Assets/CardImages/Card62.png";
+import Card63 from "../../Assets/Assets/CardImages/Card63.png";
+import Card64 from "../../Assets/Assets/CardImages/Card64.png";
+import Card65 from "../../Assets/Assets/CardImages/Card65.png";
+import Card66 from "../../Assets/Assets/CardImages/Card66.png";
+import Card67 from "../../Assets/Assets/CardImages/Card67.png";
+import Card68 from "../../Assets/Assets/CardImages/Card68.png";
+import Card69 from "../../Assets/Assets/CardImages/Card69.png";
+import Card70 from "../../Assets/Assets/CardImages/Card70.png";
 import rounded1 from "../../Assets/Assets/CardImages/Rounded1.png";
 import rounded2 from "../../Assets/Assets/CardImages/Rounded2.png";
 import rounded3 from "../../Assets/Assets/CardImages/Rounded3.png";
@@ -53,18 +81,9 @@ import rounded7 from "../../Assets/Assets/CardImages/Rounded7.png";
 import rounded8 from "../../Assets/Assets/CardImages/Rounded8.png";
 import rounded9 from "../../Assets/Assets/CardImages/Rounded9.png";
 import rounded10 from "../../Assets/Assets/CardImages/Rounded10.png";
-import AlbumsCard1 from "../../Assets/Assets/CardImages/AlbumsCard1.png";
-import AlbumsCard2 from "../../Assets/Assets/CardImages/AlbumsCard2.png";
-import AlbumsCard3 from "../../Assets/Assets/CardImages/AlbumsCard3.png";
 import AlbumsCard4 from "../../Assets/Assets/CardImages/AlbumsCard4.png";
 import AlbumsCard5 from "../../Assets/Assets/CardImages/AlbumsCard5.png";
-import AlbumsCard6 from "../../Assets/Assets/CardImages/AlbumsCard6.png";
-import AlbumsCard7 from "../../Assets/Assets/CardImages/AlbumsCard7.png";
 import AlbumsCard8 from "../../Assets/Assets/CardImages/AlbumsCard8.png";
-import AlbumsCard9 from "../../Assets/Assets/CardImages/AlbumsCard9.png";
-import AlbumsCard10 from "../../Assets/Assets/CardImages/AlbumsCard10.png";
-import AlbumsCard16 from "../../Assets/Assets/CardImages/AlbumsCard16.png";
-import album4 from "../../Assets/Assets/CardImages/album4.png";
 import AlbumsCard14 from "../../Assets/Assets/CardImages/AlbumsCard14.png"
 import AlbumsCard13 from "../../Assets/Assets/CardImages/AlbumsCard13.png"
 import AlbumsCard19 from "../../Assets/Assets/CardImages/AlbumsCard19.png";
@@ -96,100 +115,88 @@ function MusicCarousel() {
     { id: 10, src: rounded10, artist: "XXXtention", rank: 10, place: "Mexico" }
   ]
   const data1 = [
-    { id: 1, src: Card11, playlist: "Trending Playlist", album: "Album" },
-    { id: 2, src: Card45, playlist: "Trending on Tiktok", album: "Playlists" },
-    { id: 3, src: Card46, playlist: "Trending Playlist", album: "Playlists" },
-    { id: 4, src: Card14, playlist: "All Time Rap's", album: "Playlists" },
-    { id: 5, src: Card47, playlist: "Good Music for Bad Days", album: "Playlist" },
-    { id: 6, src: Card16, playlist: "Nineties Playlists", album: "Playlist" },
-    { id: 7, src: Card17, playlist: "Trending on Tiktok", album: "Albums" },
-    { id: 8, src: Card18, playlist: "Trending Playlist", album: "Albums" },
-    { id: 9, src: Card19, playlist: "All Time Rap's", album: "Albums" },
-    { id: 10, src: Card20, playlist: "Good Music for Bad Days", album: "Albums" }
+    { id: 1, src: Card1, playlist: "Trending Playlist", album: "Album" },
+    { id: 2, src: Card2, playlist: "Trending on Tiktok", album: "Playlists" },
+    { id: 3, src: Card3, playlist: "Trending Playlist", album: "Playlists" },
+    { id: 4, src: Card4, playlist: "All Time Rap's", album: "Playlists" },
+    { id: 5, src: Card5, playlist: "Good Music for Bad Days", album: "Playlist" },
+    { id: 6, src: Card6, playlist: "Nineties Playlists", album: "Playlist" },
+    { id: 7, src: Card7, playlist: "Trending on Tiktok", album: "Albums" },
+    { id: 8, src: Card8, playlist: "Trending Playlist", album: "Albums" },
+    { id: 9, src: Card9, playlist: "All Time Rap's", album: "Albums" },
+    { id: 10, src: Card10, playlist: "Good Music for Bad Days", album: "Albums" }
   ]
   const data2 = [
-    { id: 1, src: Card1, playlist: "Mine", album: "Playlist" },
-    { id: 2, src: Card35, playlist: "Top Hits of 2000", album: "Playlists" },
-    { id: 3, src: Card34, playlist: "Trending Playlist", album: "Playlist" },
-    { id: 4, src: Card33, playlist: "Old School", album: "Playlist" },
-    { id: 5, src: Card32, playlist: "Smile VoL1", album: "Playlist" },
-    { id: 6, src: Card31, playlist: "Switch", album: "Playlist" },
-    { id: 7, src: Card27, playlist: "Smile Vol.1", album: "Playlists" },
-    { id: 8, src: Card28, playlist: "Old School", album: "Playlists" },
-    { id: 9, src: Card29, playlist: "Top Hits of 2000", album: "Weekend" },
-    { id: 10, src: Card30, playlist: "Mine", album: "Weekend" }
+    { id: 1, src: Card11, playlist: "Mine", album: "Playlist" },
+    { id: 2, src: Card12, playlist: "Top Hits of 2000", album: "Playlists" },
+    { id: 3, src: Card13, playlist: "Trending Playlist", album: "Playlist" },
+    { id: 4, src: Card14, playlist: "Old School", album: "Playlist" },
+    { id: 5, src: Card15, playlist: "Smile VoL1", album: "Playlist" },
+    { id: 6, src: Card16, playlist: "Switch", album: "Playlist" },
+    { id: 7, src: Card17, playlist: "Smile Vol.1", album: "Playlists" },
+    { id: 8, src: Card18, playlist: "Old School", album: "Playlists" },
+    { id: 9, src: Card19, playlist: "Top Hits of 2000", album: "Weekend" },
+    { id: 10, src: Card20, playlist: "Mine", album: "Weekend" }
   ]
   const data3 = [
-    { id: 1, src: Card30, playlist: "Dig Out Your Soul", album: "Playlist" },
-    { id: 2, src: Card29, playlist: "Sunset Days", album: "Playlist" },
-    { id: 3, src: Card28, playlist: "Freedom", album: "Playlist" },
-    { id: 4, src: Card27, playlist: "Loud(ish)", album: "Playlist" },
-    { id: 5, src: Card22, playlist: "Dance Groove", album: "Playlist" },
-    { id: 6, src: Card23, playlist: "All Mix", album: "Playlist" },
-    { id: 7, src: Card5, playlist: "Ariana Grande This Side", album: "Playlist" },
-    { id: 8, src: Card7, playlist: "STAR BOY", album: "Weekend" },
-    { id: 9, src: Card8, playlist: " Good Music for Bad Days", album: "Playlist" },
-    { id: 10, src: Card9, playlist: "Trending", album: "Weekend" }
+    { id: 1, src: Card21, playlist: "Dig Out Your Soul", album: "Playlist" },
+    { id: 2, src: Card22, playlist: "Sunset Days", album: "Playlist" },
+    { id: 3, src: Card23, playlist: "Freedom", album: "Playlist" },
+    { id: 4, src: Card24, playlist: "Loud(ish)", album: "Playlist" },
+    { id: 5, src: Card25, playlist: "Dance Groove", album: "Playlist" },
+    { id: 6, src: Card26, playlist: "All Mix", album: "Playlist" },
+    { id: 7, src: Card27, playlist: "Ariana Grande This Side", album: "Playlist" },
+    { id: 8, src: Card28, playlist: "STAR BOY", album: "Weekend" },
+    { id: 9, src: Card29, playlist: " Good Music for Bad Days", album: "Playlist" },
+    { id: 10, src: Card30, playlist: "Trending", album: "Weekend" }
   ]
   const data4 = [
-    { id: 1, src: Card24, playlist: "Space Out", album: "Playlist" },
-    { id: 2, src: Card25, playlist: "Vibe", album: "Playlist" },
-    { id: 3, src: Card26, playlist: "In My Zone", album: "Playlist" },
-    { id: 4, src: Card44, playlist: "Utopia", album: "Playlist" },
-    { id: 5, src: Card43, playlist: "Sad Bitch", album: "Playlist" },
-    { id: 6, src: Card21, playlist: "Trending Playlist", album: "Album" },
-    { id: 7, src: Card17, playlist: " STAR BOY", album: "Weekend" },
-    { id: 8, src: Card18, playlist: "XXXtention", album: "Weekend" },
-    { id: 9, src: Card19, playlist: "Freedom", album: "Weekend" },
-    { id: 10, src: Card20, playlist: "Good Music for Bad Days", album: "Weekend" }
+    { id: 1, src: Card31, playlist: "Space Out", album: "Playlist" },
+    { id: 2, src: Card32, playlist: "Vibe", album: "Playlist" },
+    { id: 3, src: Card33, playlist: "In My Zone", album: "Playlist" },
+    { id: 4, src: Card34, playlist: "Utopia", album: "Playlist" },
+    { id: 5, src: Card35, playlist: "Sad Bitch", album: "Playlist" },
+    { id: 6, src: Card36, playlist: "Trending Playlist", album: "Album" },
+    { id: 7, src: Card37, playlist: " STAR BOY", album: "Weekend" },
+    { id: 8, src: Card38, playlist: "XXXtention", album: "Weekend" },
+    { id: 9, src: Card39, playlist: "Freedom", album: "Weekend" },
+    { id: 10, src: Card40, playlist: "Good Music for Bad Days", album: "Weekend" }
   ]
   const data5 = [
-    { id: 1, src: Card20, playlist: "Remix Radio", album: "Radio" },
-    { id: 2, src: Card19, playlist: "Jay - Jay Johanason", album: "Radio" },
-    { id: 3, src: Card18, playlist: "Discography", album: "Radio" },
-    { id: 4, src: Card16, playlist: "Disco", album: "Radio" },
-    { id: 5, src: Card15, playlist: "Remix Radio", album: "Radio" },
-    { id: 6, src: Card5, playlist: " EveryThing from Taylor", album: "Weekend" },
-    { id: 7, src: Card4, playlist: " Ariana Grande This Side", album: "Weekend" },
-    { id: 8, src: Card7, playlist: " EveryThing from Taylor", album: "Weekend" },
-    { id: 9, src: Card6, playlist: " Ariana Grande This Side", album: "Weekend" },
-    { id: 10, src: Card1, playlist: "Sunset Days", album: "Weekend" }
+    { id: 1, src: Card41, playlist: "Remix Radio", album: "Radio" },
+    { id: 2, src: Card42, playlist: "Jay - Jay Johanason", album: "Radio" },
+    { id: 3, src: Card43, playlist: "Discography", album: "Radio" },
+    { id: 4, src: Card44, playlist: "Disco", album: "Radio" },
+    { id: 5, src: Card45, playlist: "Remix Radio", album: "Radio" },
+    { id: 6, src: Card46, playlist: " EveryThing from Taylor", album: "Weekend" },
+    { id: 7, src: Card47, playlist: " Ariana Grande This Side", album: "Weekend" },
+    { id: 8, src: Card48, playlist: " EveryThing from Taylor", album: "Weekend" },
+    { id: 9, src: Card49, playlist: " Ariana Grande This Side", album: "Weekend" },
+    { id: 10, src: Card50, playlist: "Sunset Days", album: "Weekend" }
   ]
   const data6 = [
-    { id: 1, src: Card14, playlist: "Silence", album: "Own Playlist" },
-    { id: 2, src: Card13, playlist: "Journey Playlist", album: "Own Playlist" },
-    { id: 3, src: Card48, playlist: "Love", album: "Own Playlist" },
-    { id: 4, src: Card10, playlist: "Never lies", album: "Own Playlist" },
-    { id: 5, src: Card49, playlist: "Indie Covers", album: "Own Playlist" },
-    { id: 6, src: Card8, playlist: "Workout Session", album: "Own Playlist" },
-    { id: 7, src: Card2, playlist: "Everything From Drake", album: "Radio" },
-    { id: 8, src: Card3, playlist: "Sunset Days", album: "Weekend" },
-    { id: 9, src: Card4, playlist: "XXXtention", album: "Radio" },
-    { id: 10, src: Card5, playlist: " EveryThing from Taylor", album: "Weekend" },
+    { id: 1, src: Card51, playlist: "Silence", album: "Own Playlist" },
+    { id: 2, src: Card52, playlist: "Journey Playlist", album: "Own Playlist" },
+    { id: 3, src: Card53, playlist: "Love", album: "Own Playlist" },
+    { id: 4, src: Card54, playlist: "Never lies", album: "Own Playlist" },
+    { id: 5, src: Card55, playlist: "Indie Covers", album: "Own Playlist" },
+    { id: 6, src: Card56, playlist: "Workout Session", album: "Own Playlist" },
+    { id: 7, src: Card57, playlist: "Everything From Drake", album: "Radio" },
+    { id: 8, src: Card58, playlist: "Sunset Days", album: "Weekend" },
+    { id: 9, src: Card59, playlist: "XXXtention", album: "Radio" },
+    { id: 10, src: Card60, playlist: " EveryThing from Taylor", album: "Weekend" },
   ]
   const data7 = [
-    { id: 1, src: Card20, playlist: "Trending on Tiktok ", album: "Weekend" },
-    { id: 2, src: Card11, playlist: " Trending on Tiktok", album: "Weekend" },
-    { id: 3, src: Card12, playlist: "Trending Playlist ", album: "Weekend" },
-    { id: 4, src: Card13, playlist: "EveryThing from Taylor ", album: "Weekend" },
-    { id: 5, src: Card14, playlist: " Ariana Grande This Side", album: "Weekend" },
-    { id: 6, src: Card15, playlist: "Good Music for Bad Days", album: "Weekend" },
-    { id: 7, src: Card6, playlist: "STAR BOY", album: "Weekend" },
-    { id: 8, src: Card6, playlist: "Everything From Drake", album: "Weekend" },
-    { id: 9, src: Card8, playlist: "XXXtention", album: "Weekend" },
-    { id: 10, src: Card9, playlist: "Dig Out your Soul", album: "Weekend" }
-  ]
-  const data8 = [
-    { id: 1, src: Card12, playlist: "Good Music for Bad Days", album: "Weekend" },
-    { id: 2, src: Card2, playlist: "STAR BOY", album: "Weekend" },
-    { id: 3, src: Card3, playlist: "XXXtention", album: "Weekend" },
-    { id: 4, src: Card4, playlist: "Mine", album: "Weekend" },
-    { id: 5, src: Card5, playlist: "Top Hits of 2000", album: "Weekend" },
-    { id: 6, src: Card6, playlist: "Old School ", album: "Weekend" },
-    { id: 7, src: Card7, playlist: "Smile Vol.1", album: "Weekend" },
-    { id: 8, src: Card8, playlist: "Dig Out your Soul", album: "Weekend" },
-    { id: 9, src: Card11, playlist: "Sunset Days", album: "Weekend" },
-    { id: 10, src: Card12, playlist: "Freedom", album: "Weekend" }
+    { id: 1, src: Card61, playlist: "Trending on Tiktok ", album: "Weekend" },
+    { id: 2, src: Card62, playlist: " Trending on Tiktok", album: "Weekend" },
+    { id: 3, src: Card63, playlist: "Trending Playlist ", album: "Weekend" },
+    { id: 4, src: Card64, playlist: "EveryThing from Taylor ", album: "Weekend" },
+    { id: 5, src: Card65, playlist: " Ariana Grande This Side", album: "Weekend" },
+    { id: 6, src: Card66, playlist: "Good Music for Bad Days", album: "Weekend" },
+    { id: 7, src: Card67, playlist: "STAR BOY", album: "Weekend" },
+    { id: 8, src: Card68, playlist: "Everything From Drake", album: "Weekend" },
+    { id: 9, src: Card69, playlist: "XXXtention", album: "Weekend" },
+    { id: 10, src: Card70, playlist: "Dig Out your Soul", album: "Weekend" }
   ]
   const albumsData = [
     { id: 1, src: AlbumsCard5, text: "Listen to your own Music" },
@@ -273,7 +280,7 @@ function MusicCarousel() {
 
       <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {
-          data7.map((item) => {
+          data1.map((item) => {
             return (
               <div>
                 <ProfileCard data={item} src={item.src} />
@@ -291,7 +298,7 @@ function MusicCarousel() {
 
       <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {
-          data1.map((item) => {
+          data2.map((item) => {
             return (
               <div>
                 <ProfileCard data={item} src={item.src} />
@@ -308,7 +315,7 @@ function MusicCarousel() {
 
       <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {
-          data2.map((item) => {
+          data3.map((item) => {
             return (
               <div>
                 <ProfileCard data={item} src={item.src} />
@@ -324,7 +331,7 @@ function MusicCarousel() {
       </div>
       <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {
-          data3.map((item) => {
+          data4.map((item) => {
             return (
               <div>
                 <ProfileCard data={item} src={item.src} />
@@ -340,7 +347,7 @@ function MusicCarousel() {
       </div>
       <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {
-          data4.map((item) => {
+          data5.map((item) => {
             return (
               <div>
                 <ProfileCard data={item} src={item.src} />
@@ -374,7 +381,7 @@ function MusicCarousel() {
 
       <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {
-          data5.map((item) => {
+          data6.map((item) => {
             return (
               <div>
                 <ProfileCard data={item} src={item.src} />
@@ -392,7 +399,7 @@ function MusicCarousel() {
 
       <div className='flex flex-row xl:gap-[33px] gap-[24px] 1xl:gap-[66px] 2xl:gap-[29px] 4xl:gap-[22px]  p-5 mt-[28px] max-w-[1632px] overflow-x-scroll hidding-x-scroll'>
         {
-          data6.map((item) => {
+          data7.map((item) => {
             return (
               <div>
                 <ProfileCard data={item} src={item.src} />

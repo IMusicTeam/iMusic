@@ -26,7 +26,7 @@ import { APIConstants, assetURL, baseURL } from "../../Services/api-constants";
 import { useSelector } from "react-redux";
 import edit from "../../Assets/EditIcon.png";
 import images from "../../Assets/images/player.png";
-import verified from "../../Assets/Assets/CardImages/Verified.png";
+import Success from "../../Assets/Assets/CardImages/Success.png";
 import {  uploadImage } from "../../helpers/hooks";
 
 function LikedPlayList() {
@@ -495,11 +495,11 @@ function LikedPlayList() {
                               <div className="flex flex-row justify-center mt-56 mb-28 ">
                                 <div className="w-[610px] bg-iWhite rounded-[20px] shadow-2xl p-[38px] flex flex-col items-center">
                                   <img
-                                    src={verified}
+                                    src={Success}
                                     alt="success"
                                     className="w-[88px] h-[88px] mb-[38px]"
                                   />
-                                  <span className=" text-[28px] font-medium text-center w-[452px]">
+                                  <span className=" text-[28px] font-bold text-center w-[452px]">
                                     Your Song has been Added successfully
                                   </span>
                                   <button

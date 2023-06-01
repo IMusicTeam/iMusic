@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import MetaImage from "./../../Assets/MetaMask.png"
 import Web3 from "web3";
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,10 +11,19 @@ function ProfileDashboard() {
   const isWalletConnected = Object.keys(metaMaskDetails).length === 0
   const [connected, setConnected] = useState(false);
   const [account, setAccount] = useState("");
+  const userInfo = useSelector((store) => store.ReduxSlice.data.userData);
   const [balance, setBalance] = useState(0);
   const dispatch = useDispatch();
   const [isText, setIsText] = useState(true)
   const navigateTo = useNavigate()
+  const getFirstNameLastName = useCallback(() => {
+    const returnmail = val => {
+      return val.split("@")
+    }
+    const {email} = userInfo
+    return email ? returnmail(email) : ""
+  },[userInfo])
+
   const connectWallet = async () => {
     try {
       if (typeof window.ethereum === "undefined") {
@@ -88,7 +97,7 @@ function ProfileDashboard() {
 
       </div> : 
       <div>
-        <WalletDashboard />
+        <WalletDashboard email={getFirstNameLastName()}  />
       </div>}
 
     </>
