@@ -49,16 +49,20 @@ function ProfileCard({ data, src, newRelease, playList }) {
           value: value,
         });
       console.log(res);
-      navigateTo('/playing-music', {
-        state: data
-      })
+     
+        navigateTo('/playing-music', {
+          state: data
+        })
+      
+     
     } catch (err) {
       alert(err);
     }
   }
   const PlayMusic = () => {
     if (newRelease) {
-      handleTransfer()     
+      handleTransfer()
+     
       }
       if (playList) {
         navigateTo('/music-player', {
