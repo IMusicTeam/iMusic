@@ -39,12 +39,12 @@ function UpdatedLandingPage() {
     }, 600);
   };
   const rhythmicdata = [
-    { id: 1, src: fanpower, text1: "Fan-powered" },
+    { id: 1, src: fanpower, text1: "Fan-Powered" },
     { id: 2, src: fanengagement, text1: "Fans Engagement" },
     { id: 3, src: fanfoundedtours, text1: "Fan-Funded Tours" },
-    { id: 4, src: micropayments, text1: "Micropayments" },
+    { id: 4, src: micropayments, text1: "MicroPayments" },
     { id: 5, src: fanownership, text1: "Fan Ownership" },
-    { id: 6, src: livemusic, text1: "Live music" },
+    { id: 6, src: livemusic, text1: "Live Music" },
     {
       id: 7,
       src: crowdsourcemusic,
@@ -223,7 +223,7 @@ function UpdatedLandingPage() {
         <div className="text-[58px] text-iBlack font-medium pl-[72px] pt-[140px]">
           Join Our Community
         </div>
-        <div className="text-[32px] text-iBlack w-[1441px] 2xl:w-[1517px] 1.5xl:w-[1367px] 1xl:w-[1362px] 5xl:w-[1298px] xl:w-[1278px] h-[98px] pl-[72px]">
+    <div className="text-[32px] text-iBlack w-[1441px] 2xl:w-[1517px] 1.5xl:w-[1367px] 1xl:w-[1362px] 5xl:w-[1298px] 13mac:w-[1439px] xl:w-[1278px] h-[98px] pl-[72px]">
           Join our inclusive, creative and collaborative music community on a
           mission to revolutionize the way we discover, listen to, and share
           music with music lovers from around the world!
