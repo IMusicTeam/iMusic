@@ -6,8 +6,9 @@ import image2 from "./../../Assets/Assets/CardImages/HomeCard1.png";
 import image3 from "./../../Assets/Assets/CardImages/HomeCard2.png";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { baseURL } from "../../Services/api-constants";
 
-function WalletDashboard() {
+function WalletDashboard({email}) {
   const wallet = useSelector((state) => state.ReduxSlice.data.metaMaskDetails);
   const { userData } = useSelector((store) => store.ReduxSlice.data);
   const isWalletConnected = Object.keys(wallet).length === 0;
