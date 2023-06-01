@@ -6,7 +6,7 @@ import MenuItem from "./../../Atoms/MenuItem/MenuItem";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "./../../../Hooks/useMediaQuery";
 import { useOutsideClick } from "./../../../Hooks/useOutsideClick";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import home from "./../../../Assets/images/home.png";
 import profile from "./../../../Assets/images/profile.png"
@@ -22,7 +22,7 @@ import signout from "./../../../Assets/images/signout.png";
 import dashboard from "./../../../Assets/images/dashboard.png";
 import profilesetting from "./../../../Assets/images/profilesetting.png";
 import help from "./../../../Assets/images/help.png"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout, updateAuthVerification } from "../../../Redux/Redux";
 
 export const DashboardMenu = () => {
@@ -31,9 +31,17 @@ export const DashboardMenu = () => {
   const selectRef = useRef(null);
   const navigate = useNavigate();
   const dispatch= useDispatch()
-  
+  const userInfo = useSelector((store) => store.ReduxSlice.data.userData);
   const [isOpen, setIsOpen] = useState(false);
 
+  const getFirstNameLastName = useCallback(() => {
+    const returnmail = val => {
+      return val.split("@")[0]
+    }
+    const {email} = userInfo
+    return email ? returnmail(email) : ""
+  },[userInfo])
+  
   // const menuRef = useRef(null);
 
   // useOutsideClick(menuRef, () => {
@@ -66,8 +74,8 @@ export const DashboardMenu = () => {
 
         <div className="p-2 flex flex-col gap-[15px] pb-5">
           <div><img src={sideprofileImage}  /></div>
-          <div className="text-[18px] font-medium">
-            Jane William
+          <div style={{textAlign:"center"}} className="text-[18px] font-medium">
+           {getFirstNameLastName()}
           </div>
           <div className="font-medium text-[14px]">
             Account ID: P-1234
