@@ -7,18 +7,19 @@ import contractInstance from "../../../web3";
 import { useSelector } from "react-redux";
 
 function ProfileCard({ data, src, newRelease, playList }) {
+  const navigateTo = useNavigate();
   const {metaMaskDetails} = useSelector((store) => store.ReduxSlice.data);
   if (newRelease) {
     // alert(JSON.stringify(data))
     console.log(data)
     data.playlist = data.songName
     data.album = data.albumName
-  }
+  } 
   if (playList) {
     data.playlist = data.name
     data.album = data.description
   }
-  const navigateTo = useNavigate();
+ 
   const [isHovered, setIsHovered] = useState(false);
   const [indexValue, setIndexValue] = useState("");
   const MouseEnter = (index) => {
@@ -61,8 +62,23 @@ function ProfileCard({ data, src, newRelease, playList }) {
   }
   const PlayMusic = () => {
     if (newRelease) {
-      handleTransfer()
-     
+      handleTransfer()     
+      } else {
+ 
+        const mainData ={albumName: "Play Date",
+        artistName: data.album,
+        price: 1,
+        songThumbnail:data.src,
+        tune:["/uploads/64788f0a864292bcc9bec902-Play Date Lilly Brooks 128 Kbps.mp3"],
+        copyrightFile: "/uploads/64788f2d864292bcc9bec903-1674044600880_Document%20Dec (9).pdf",
+        songName: data.playList,
+        songDescription: "Extraordinary Song",
+        lyrics:"No"}
+    
+        navigateTo('/playing-music', {
+          state: {...mainData,noApiCall:true}
+        })
+    
       }
       if (playList) {
         navigateTo('/music-player', {
