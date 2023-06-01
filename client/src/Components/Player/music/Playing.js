@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useEffect, useState } from "react";
 import useSound from "use-sound"; // for handling the sound
 // import qala from "./../../Assets/Ori-Vaari.mp3"; // importing the music
@@ -18,6 +18,7 @@ function Playing() {
   const userId = useSelector((store)=>store.ReduxSlice.data.userData._id)
 
   const data = location.state;
+  // debugger
   const [isLiked, setIsLiked] = useState(false);
   const [loader, setLoader] = useState(true);
   const [music, setMusic]=useState([])
@@ -50,6 +51,7 @@ const HandelLikeSong =()=>{
 }
 
 useEffect(()=>{
+ 
   const payload ={
     userId:userId,
     _id:data._id
@@ -58,15 +60,20 @@ useEffect(()=>{
   axios.get(`${baseURL}get-song?${queryParams}`).then((res)=>{
     setMusic({show:res.data.favourited, data:[res.data.data]})
       console.log(res.data)
+      setLoader(false)
     }).catch((err)=>{
+      setLoader(false)
+      setMusic({data:[data]})
       console.log(err.message)
     }) 
-  setLoader(false)
+ 
 },[])
+
   return (<>
     {loader ? <div className="flex justify-center items-center h-[705px]"><img src={Loadingforimusic}/></div> :
     <div className="h-[669px]">
-      {music?.data?.map((item)=>{
+      {console.log(music,"music")}
+      {Object.keys(music).length > 0 && music?.data.length > 0 && music?.data?.map((item)=>{
       return(
         <div className="pb-[69px] mt-10 flex flex-row justify-center items-center bg-gradient-to-r from-orange-100 via-orange-300 to-orange-300">
       <div className="component m-0 flex flex-col justify-center items-center gap-[10px] drop-shadow-xl relative ">
@@ -76,7 +83,7 @@ useEffect(()=>{
         <div className="absolute z-1 top-[126px]">
           <img
             className="musicCover w-[280px] h-[190px]"
-            src={assetURL + item.songThumbnail}
+            src={data.noApiCall ? item['songThumbnail'] : assetURL + item['songThumbnail']}
             alt="image"
           />
         </div>

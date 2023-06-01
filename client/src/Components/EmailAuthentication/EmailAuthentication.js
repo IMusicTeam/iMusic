@@ -12,7 +12,7 @@ function EmailAuthentication(){
     const dispatch = useDispatch()
     const isAuthed = useSelector((store)=> store.ReduxSlice.data.isAuthed)
     const {email} = useSelector((store)=>store.ReduxSlice.data.userData)
-    const blankCode = ['', '', '', '', '', ''];
+    const blankCode = ['1', '2', '3', '4', '5', '6'];
     const [otpVerification, setOtpVerification] = useState(blankCode);
     const [codeError, setCodeError] = useState(false);
     const [codeSuccess, setCodeSuccess] = useState(false);

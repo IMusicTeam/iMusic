@@ -257,7 +257,7 @@ function LikedPlayList() {
               />
               <div className="ml-12">
                 <h1 className="text-iBlack text-[35px]">
-                  The Weekend
+                  Liked Songs
                 </h1>
                 <p className="text-base text-iBlack w-[248px]">
                   It's Created by you and tune into your hottest songs!!!
@@ -293,8 +293,8 @@ function LikedPlayList() {
             </div>
           </div>
           <div className="pl-[142px] pt-[139px] pr-14">
-            <div className="h-[400px] flex flex-col gap-4 overflow-y-scroll musicList mb-5">
-              {likedData?.map((item, index) => {
+            {likedData?<div className="h-[400px] flex flex-col gap-4 overflow-y-scroll musicList mb-5">
+             {likedData?.map((item, index) => {
                 return (
                   <div key={index}>
                     <div className="w-full listed-rows">
@@ -517,7 +517,7 @@ function LikedPlayList() {
                   </div>
                 );
               })}
-            </div>
+            </div> :<div className="h-[400px] flex justify-center items-center text-[24px]">No Liked songs are available</div>}
           </div>
           <div className="pr-8">
           <div className="pl-8">
