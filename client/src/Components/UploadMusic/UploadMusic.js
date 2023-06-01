@@ -7,7 +7,7 @@ import "./UploadMusic.css";
 import images from "./../../Assets/images/player.png";
 import { APIConstants, assetURL } from "../../Services/api-constants";
 import { useNavigate } from "react-router";
-import verified from "../../Assets/Assets/CardImages/Verified.png";
+import Success from "../../Assets/Assets/CardImages/Success.png";
 import edit from "./../../Assets/EditIcon.png";
 import Web3 from "web3";
 import { useSelector } from "react-redux";
@@ -25,6 +25,7 @@ import { useFormik } from "formik"
 import {  uploadImage } from "../../helpers/hooks";
 import { ethers } from "ethers";
 import contractInstance from "../../web3";
+
 
 // require("dotenv").config();
 const httpUrlKey = "HTTP://127.0.0.1:7545";
@@ -606,7 +607,7 @@ function UploadMusic() {
         <div className="flex flex-row justify-center my-[173px]">
           <div className="w-[610px] bg-iWhite shadow-2xl rounded-2xl p-[38px] flex flex-col items-center">
             <img
-              src={verified}
+              src={Success}
               alt="success"
               className="w-[88px] h-[88px] mb-[38px]"
             />
