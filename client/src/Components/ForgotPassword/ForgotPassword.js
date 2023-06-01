@@ -95,7 +95,7 @@ function ForgotPassword() {
                 className={`w-[300px] h-[40px] ${
                   emailverification == "" || emailError
                     ? "bg-iLightBlue1"
-                    : "bg-iBlue"
+                    : "bg-iBlue hover:bg-iOrange"
                 }  text-iWhite font-medium py-1 px-4 rounded-[80px] mt-[121px]`}
               >
                 Verify

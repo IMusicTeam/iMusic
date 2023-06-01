@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import listeningMusic from "../../Assets/listeningMusic.png";
-import imusicLogo from "../../Assets/imusicLogo.png"
+import imusicLogo from "../../Assets/logo.png"
 import rythamic from "../../Assets/rythamic.png";
 import fanpower from "../../Assets/fanpowered.png";
 import fanengagement from "../../Assets/fanengagement.png"
@@ -92,11 +92,11 @@ function UpdatedLandingPage(){
     return (
         <div className="w-full h-full bg-iLightBlue">
             {/* <button onClick={()=> handleTransfer("0x7A2AE70F5524c712db746F9A1a81dFf5D92Aa99E")} >Transfer</button> */}
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-row items-center justify-between">
             <div className="imusicLogo">
-                <img src={imusicLogo}  className="max-w-[185px] h-[196px] pt-[24px] pl-[36px]"/>
+                <img src={imusicLogo}  className="max-w-[186px] h-[111px] pt-[24px] pl-[36px]"/>
             </div>
-            <div onClick={VerificationEmail} className="w-[174px] h-[48px] bg-iBlue rounded-[28px] mt-[83px] mr-[123px] flex items-center justify-center hover:bg-iOrange hover:cursor-pointer">
+            <div onClick={VerificationEmail} className="w-[174px] h-[48px] bg-iBlue rounded-[28px] mr-[123px] flex items-center justify-center hover:bg-iOrange hover:cursor-pointer">
                 <div className="text-center text-iWhite">Sign Up/Sign in</div>
             </div>
             </div>
@@ -114,7 +114,7 @@ function UpdatedLandingPage(){
                 </div>
             </div> 
 
-            <div  className="flex flex-row justify-between mr-5 4xl:gap-[249px] 3xl:gap-[120px] 13mac:gap-[80px] 2xl:gap-[90px] 1.5xl:gap-[90px] 1xl:gap-[70px] 5xl:gap-[60px] xl:gap-[70px]">
+            <div  className="flex flex-row mr-5 4xl:gap-[249px] 3xl:gap-[120px] 13mac:gap-[80px] 2xl:gap-[90px] 1.5xl:gap-[90px] 1xl:gap-[70px] 5xl:gap-[60px] xl:gap-[70px]">
                 <div className="mt-[74px]">
                         <img src={rythamic} className="max-w-[982px] h-[996px] 13mac:max-w-[920px] 13mac: h-[950px] 1xl: max-w-[870px] 1xl:h-[860px] 5xl:max-w-[800px] 5xl:h-[800px] xl:max-w-[740px] xl:h-[740px]"/>
                 </div>
@@ -128,8 +128,8 @@ function UpdatedLandingPage(){
                         <div className="iconsBackground 3xl:w-[200px] w-[150px] h-[170px] flex justify-center items-center">
                             <img src={item.src} className="-ml-[15px] 3xl:mt-0 13mac:-mt-[30px] 4xl:mt-0 2xl:-mt-[30px] 1.5xl:-mt-[30px] 1xl:-mt-[30px] 5xl:-mt-[30px] xl:-mt-[30px]"/>
                             </div>
-                        <div><p className="text-[25px] font-medium text-iBlue 4xl:mt-3 3xl:mt-3 13mac:-mt-5 2xl:-mt-5 1xl:-mt-5 5xl:-mt-5 xl:-mt-5">{item.text1}</p></div>
-                         <div><p className="text-[25px] font-medium text-iBlue">{item.text2}</p></div>
+                        <div><p className="text-[25px] font-semibold text-iBlue 4xl:mt-3 3xl:mt-3 13mac:-mt-5 2xl:-mt-5 1xl:-mt-5 5xl:-mt-5 xl:-mt-5">{item.text1}</p></div>
+                         <div><p className="text-[25px] font-semibold text-iBlue">{item.text2}</p></div>
                         </div>
                         
                     })
@@ -149,8 +149,8 @@ function UpdatedLandingPage(){
                                <div className="iconsBackground 3xl:w-[200px] w-[150px] h-[170px] flex justify-center items-center">
                                 <img src={item.src} className="-ml-[15px] -mt-[30px] 4xl:mt-0 3xl:mt-0"/>
                                 </div>
-                                <div className=""><p className="text-[25px] -ml-[15px] font-medium text-iBlue 4xl:mt-3 3xl:mt-3 13mac:-mt-5 1xl:-mt-5">{item.text1}</p></div>
-                                <div className=""><p className="text-[25px] -ml-[15px] font-medium text-iBlue">{item.text2}</p></div> 
+                                <div className=""><p className="text-[25px] -ml-[15px] font-semibold text-iBlue 4xl:mt-3 3xl:mt-3 13mac:-mt-5 1xl:-mt-5">{item.text1}</p></div>
+                                <div className=""><p className="text-[25px] -ml-[15px] font-semibold text-iBlue">{item.text2}</p></div> 
                             </div>
                         })
                     }
@@ -161,7 +161,7 @@ function UpdatedLandingPage(){
             
             <div className="flex flex-col gap-[18px]">
                 <div className="text-[58px] text-iBlack font-medium pl-[72px] pt-[140px]">Join Our Community</div>
-                <div className="text-[32px] text-iBlack w-[1441px] 2xl:w-[1415px] 1.5xl:w-[1367px] 1xl:w-[1362px] 5xl:w-[1298px] xl:w-[1278px] h-[98px] pl-[72px]">Join our inclusive, creative and collaborative music community on a mission to revolutionize the way we discover, listen to, and share music with music lovers from around the world!</div>
+                <div className="text-[32px] text-iBlack w-[1441px] 2xl:w-[1517px] 1.5xl:w-[1367px] 1xl:w-[1362px] 5xl:w-[1298px] xl:w-[1278px] h-[98px] pl-[72px]">Join our inclusive, creative and collaborative music community on a mission to revolutionize the way we discover, listen to, and share music with music lovers from around the world!</div>
             </div>
 
             <div className="flex flex-row justify-between gap-[34px] px-[76px] pt-[83px] mb-[150px]">
