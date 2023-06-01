@@ -63,7 +63,7 @@ function App() {
         .then((res) => {
           localStorage.setItem("id", res.data.data._id);
           localStorage.setItem("emailAuth", reqBody);
-          if (payload.email === "admin@ideyalabs.com") {
+          if (payload.email == "admin@inspireTk.com") {
             dispatch(
               updateUserData({ data: { ...res.data.data, isAdmin: true } })
             );

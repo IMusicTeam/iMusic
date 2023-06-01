@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useLayoutEffect, useState } from "react";
 import { FiShuffle } from "react-icons/fi";
 import image from "./../../Assets/image1.png";
 import { BsFillPlayFill } from "react-icons/bs";
@@ -14,6 +14,7 @@ import AlbumsCard1 from "../../Assets/Assets/CardImages/AlbumsCard6.png";
 import "./RecentlyPlayed.css"
 
 function RecentlyPlayed() {
+  const [scheduledTimes, setScheduledTimes] = useState([])
   const data = [
     { id: 1, src: rounded1,smallTitle : "Taylor Swift",
     title:"Shake it Off"},
@@ -25,8 +26,28 @@ function RecentlyPlayed() {
     title:"This City"},
     { id: 5, src: rounded5,smallTitle : "Taylor Swift",
     title:"Side to Side"},
-   
   ]
+  useLayoutEffect(() => {
+    generaterandomTime()
+  },[])
+  const generaterandomTime = useCallback(() => {
+     let tempArray = []
+     const currentTime = 5
+     const seconds = 60
+     for (let index = 1; index <= 5; index++) {
+       let getCurrentTime = Math.floor((Math.random() * currentTime) + 1).toString()
+       let getseconds = Math.floor(Math.random() * seconds).toString()
+       const countSeconds = getseconds.length == 1 ? "0" + getseconds : getseconds
+       let time = getCurrentTime + " : " + countSeconds + " " + "Min"
+       tempArray.push(time)
+     }
+     setScheduledTimes(tempArray)
+    //  while (currentTime < 5) {
+    //    let getCurrentTime = Math.floor(Math.random() * currentTime)
+    //    let getseconds = Math.floor(Math.random() * seconds)
+    //    console.log(getCurrentTime, getseconds)
+    //  }
+  },[])
   
   return (
     <div className="px-[34px] py-[42px] bg-iGray2">
@@ -44,13 +65,13 @@ function RecentlyPlayed() {
               <button class="flex flex-row items-center bg-transparent hover:bg-iLightBlue text-iBlue font-medium py-2 px-4 border border-iBlue hover:border- hover:text-iDarkBlue hover:border-transparent rounded">
                 <div>Shuffle </div>
                 <div>
-                  <FiShuffle />{" "}
+                  <FiShuffle />
                 </div>
               </button>
             </div>
           </div>
         </div>
-        {data.map((item) => {
+        {data.map((item, index) => {
           return (
             <div className="px-[23px]">
               <hr className="text-iLightBlue" />
@@ -69,7 +90,7 @@ function RecentlyPlayed() {
                   </div>
                 </div>
                 <div className=" flex flex-row gap-[64px] items-center">
-                  <p className="text-iOrange">3:40 Min</p>
+                  <p className="text-iOrange">{scheduledTimes[index]}</p>
                   <button>
                     <BsFillPlayFill className="w-12 h-12 pl-1 hover:duration-500 hover:delay-100 text-iBlue hover:bg-iBlue hover:scale-110 hover:text-iWhite hover:rounded-full" />
                   </button>

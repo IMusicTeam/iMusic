@@ -31,7 +31,7 @@ function EmailAuthentication(){
             var jsonString = JSON.stringify(reqBody);
             localStorage.setItem("id",res.data.data._id)
             localStorage.setItem("emailAuth",jsonString)
-            if(reqBody.email === "admin@ideyalabs.com"){
+            if(reqBody.email === "admin@inspireTk.com"){
                  dispatch(updateUserData({data:{...res.data.data,isAdmin:true}}))
             }else{
             dispatch(updateUserData({data:{...res.data.data}}))

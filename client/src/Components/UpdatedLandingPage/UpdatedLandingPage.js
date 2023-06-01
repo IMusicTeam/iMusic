@@ -97,7 +97,7 @@ function UpdatedLandingPage(){
                 <img src={imusicLogo}  className="max-w-[186px] h-[111px] pt-[24px] pl-[36px]"/>
             </div>
             <div onClick={VerificationEmail} className="w-[174px] h-[48px] bg-iBlue rounded-[28px] mr-[123px] flex items-center justify-center hover:bg-iOrange hover:cursor-pointer">
-                <div className="text-center text-iWhite">Sign Up/Sign in</div>
+                <div className="text-center text-iWhite">Sign Up/Sign In</div>
             </div>
             </div>
 

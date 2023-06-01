@@ -51,10 +51,10 @@ import Card70 from "../../Assets/Assets/CardImages/Card70.png";
 import ProfileCard from "../musicCarosal/ProfileCrad/ProfilesCard";
 import { useLocation, useNavigate } from "react-router";
 import { BiLeftArrowAlt } from "react-icons/bi";
-import { APIConstants } from '../../Services/api-constants';
+import { APIConstants, assetURL } from '../../Services/api-constants';
 import axios from 'axios'
 
-function SeeAll() {
+function SeeAll({newrelease}) {
   const data1 = [
     { id: 1, src: Card20,playlist:"Trending Playlist ",album:"Weekend"},
     { id: 2, src: Card17,playlist:"Good Music for Bad Days",album:"Weekend"},
@@ -119,27 +119,33 @@ function SeeAll() {
   const [title, setTitle] = useState("");
   const [newData, setNewData]=useState([])
   const data = useLocation();
+  debugger
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     window.scrollTo(0, 0);
-    setTitle(data.state);
+    setTitle(data.state.title);
+    if(data.state.newrelease){
+      setNewData(data.state.newrelease.musicList)
+      debugger
+    }
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(APIConstants.allsongs)
-      .then((res) => {
-        const data = res.data.data;
-        setNewData(data)
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
-  }, []);
+  // useEffect(() => {
+    
+  //   // axios
+  //   //   .get(APIConstants.allsongs)
+  //   //   .then((res) => {
+  //   //     const data = res.data.data;
+  //   //     setNewData(data)
+  //   //     setTimeout(() => {
+  //   //       setLoading(false);
+  //   //     }, 1000);
+  //   //   })
+  //   //   .catch((error) => {
+  //   //     console.log(error);
+  //   //     setLoading(false);
+  //   //   });
+  // }, []);
 
   const navigateTo = useNavigate();
   const HandelBack = () => {
@@ -155,10 +161,10 @@ function SeeAll() {
 {title === "New releases" ? (
     <>
     <div className="flex flex-row gap-[24px] p-3 mt-[18px] h-[530px] overflow-y-scroll max-w-[1632px] overflow-x-scroll hidding-x-scroll ml-[18px]">
-        {newData.map((item) => {
+        {newData?.map((item) => {
           return (
             <div>
-              <ProfileCard data={item} src={item.songThumbnail} />
+              <ProfileCard data={item} src={assetURL + item.songThumbnail} />
             </div>
           );
         })}
