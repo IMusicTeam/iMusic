@@ -57,7 +57,7 @@ function ProfileCard({ data, src, newRelease, playList }) {
       
      
     } catch (err) {
-      alert(err);
+      alert("Transaction Failed")
     }
   }
   const PlayMusic = () => {

@@ -68,8 +68,8 @@ function EmailAuthentication(){
       }
 
     return(
-        <div className="flex items-center justify-center mb-[200px] relative">
-         <div className="max-w-[610px] h-[636px] bg-iWhite shadow-2xl ml-[41px] px-[77px] mt-[29px] rounded-xl absolute top-24">
+        <div className="flex items-center justify-center h-[100vh]">
+         <div className="max-w-[610px] h-[636px] bg-iWhite shadow-2xl px-[77px] rounded-xl">
             <div className="flex justify-center">
                 <img src={logo}  className="w-[239px] h-[159px] mt-[40px]"/>
             </div>
