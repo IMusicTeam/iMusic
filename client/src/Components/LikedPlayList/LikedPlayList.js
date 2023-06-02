@@ -241,13 +241,11 @@ function LikedPlayList() {
         </div>
       ) : (
         <div className="bg-iGray2">
-          <div className="h-[389px] bg-iLightBlue pl-[142px]">
-            <h3 className="text-iOrange font-medium text-[28px] mb-[28px]">
-             <span>
-             <button className="mt-3 -ml-20" type="button" onClick={() => navigateTo("/home")}>
-             <BiLeftArrowAlt size={38} className=" text-iBlack" />
+          <div className="h-[389px] bg-iLightBlue pl-[142px] mt-[24px]">
+          <button className="mt-3 -ml-20" type="button" onClick={() => navigateTo("/home")}>
+             <BiLeftArrowAlt size={38} className=" text-iBlack mt-2" />
               </button>
-              </span> 
+            <h3 className="text-iOrange font-medium text-[28px] mb-[28px] -mt-[46px]">
               <span className="mt-6 ml-6">Liked Songs {duration}</span>
             </h3>
             <div className="flex">
