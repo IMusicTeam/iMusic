@@ -53,10 +53,10 @@ function ForgotPassword() {
 
   return (
     <>
-      <div className="flex items-center justify-center">
-        <div className="max-w-[610px] bg-iWhite shadow-2xl px-[77px] rounded-xl absolute top-24">
+      <div className="flex items-center justify-center h-[100vh]">
+        <div className="max-w-[610px] bg-iWhite shadow-2xl px-[77px] rounded-xl">
           <div className="flex justify-center">
-            <img src={logo} className="mt-[40px]" />
+            <img src={logo} className="w-[239px] h-[159px] mt-[40px]" />
           </div>
           <h4 className="text-cgy4 text-[30px] font-medium text-center mt-[40px]">
             Enter Email
@@ -96,7 +96,7 @@ function ForgotPassword() {
                   emailverification == "" || emailError
                     ? "bg-iLightBlue1"
                     : "bg-iBlue hover:bg-iOrange"
-                }  text-iWhite font-medium py-1 px-4 rounded-[80px] `}
+                }  text-iWhite font-medium py-1 px-4 rounded-[80px] mt-[121px]`}
               >
                 Verify
               </button>
