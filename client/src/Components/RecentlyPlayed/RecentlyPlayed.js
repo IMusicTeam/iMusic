@@ -50,6 +50,22 @@ function RecentlyPlayed() {
     //    console.log(getCurrentTime, getseconds)
     //  }
   },[])
+
+  const playRecentlyPlayedSong =(data)=>{
+    const mainData ={albumName: "Play Date",
+    artistName: data.album,
+    price: 1,
+    songThumbnail:data.src,
+    tune:["/uploads/64788f0a864292bcc9bec902-Play Date Lilly Brooks 128 Kbps.mp3"],
+    copyrightFile: "/uploads/64788f2d864292bcc9bec903-1674044600880_Document%20Dec (9).pdf",
+    songName: data.playList,
+    songDescription: "Extraordinary Song",
+    lyrics:"No"}
+
+    navigateTo('/playing-music', {
+      state: {...mainData,noApiCall:true}
+    })
+  }
   
   return (
     <div className="px-[34px] py-[42px] bg-iGray2">
@@ -93,7 +109,7 @@ function RecentlyPlayed() {
                 </div>
                 <div className=" flex flex-row gap-[64px] items-center">
                   <p className="text-iOrange">{scheduledTimes[index]}</p>
-                  <button>
+                  <button onClick={()=>playRecentlyPlayedSong(item)}>
                     <BsFillPlayFill className="w-12 h-12 pl-1 hover:duration-500 hover:delay-100 text-iBlue hover:bg-iBlue hover:scale-110 hover:text-iWhite hover:rounded-full" />
                   </button>
                 </div>
