@@ -1,6 +1,6 @@
 // 192.168.1.5
-export const baseURL = "http://172.16.4.14:9946/IMusic/"
-export const assetURL = "http://172.16.4.14:9946";
+export const baseURL = "https://imusic-backend.inspiretk.com/IMusic/"
+export const assetURL = "https://imusic-backend.inspiretk.com";
 
 function returnApis(url) {
     return baseURL + url
